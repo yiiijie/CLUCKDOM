@@ -2,7 +2,7 @@
 *{
     margin: 0;
     padding: 0;
-    outline: 1px solid rgb(248, 180, 180);
+    /* outline: 1px solid rgb(248, 180, 180); */
 }
 html {
     font-size: 16px;

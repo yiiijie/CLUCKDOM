@@ -1647,6 +1647,7 @@ h1{
 }
 .eggseries_carousel{
     margin: 80px 0;
+    position: relative;
 }
 .eggseries_carousel .title{
     width: 1200px;
@@ -1662,19 +1663,43 @@ h1{
     font-family: "Hammersmith One","Noto Sans Japanese",sans-serif;
     letter-spacing: 5px;
 }
+.eggseries_carousel #arrow_left, #arrow_right{
+    font-size: 22px;
+    color: #3d3d3d;
+    width: 38px;
+    height: 38px;
+    background-color: pink;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    line-height: 38px;
+    top: 50%;
+    z-index: 100;
+}
+.eggseries_carousel #arrow_left{
+    left: 3vw;
+}
+.eggseries_carousel #arrow_right{
+    right: 3vw;
+}
 .eggseries_cards{
     display: flex;
+    width: 90%;
+    margin: 2% auto 0;
     justify-content: center;
-    margin-top: 20px;
-    overflow: hidden; /* 隱藏超出螢幕寬度的範圍 */
+    overflow: hidden;
+}
+.eggseries_cards.dragging .prd_card{
+    cursor: grab;
+    user-select: none;
 }
 .prd_card{
-    margin: 45px 45px 0;
+    margin: 2% 3.5% 0;
 }
 .prd_card .pic{
     position: relative;
-    width: 270px; 
-    height: 270px;
+    width: 16vw; 
+    height: 16vw;
     border-radius: 50%;
     margin-bottom: 15px;
     overflow: hidden; /* 隱藏超出圓形的範圍 */

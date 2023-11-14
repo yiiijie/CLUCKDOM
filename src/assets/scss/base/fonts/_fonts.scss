@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Zen+Maru+Gothic:wght@400;500&display=swap');
+
+
+// 字級 font-size
+$h1Fs_PC: 32px;
+$h2Fs_PC: 28px;
+$h3Fs_PC: 24px;
+$h4Fs_PC: 20px;
+$h5Fs_PC: 18px;
+$h6Fs_PC: 16px;
+
+
+// 字重 h1-h6_PC
+$fWRegular: 500;
+$fWBold: 700;
+
+$h1Fw_PC: $fWBold;
+$h2Fw_PC: $fWBold;
+$h3Fw_PC: $fWBold;
+$h4Fw_B_PC: $fWBold; //小標
+$h4Fw_PC: $fWRegular;
+$h5Fw_B_PC: $fWBold; //小標
+$h5Fw_PC: $fWRegular;
+$h6Fw_PC: $fWRegular;
+
+
+// 字距 h1-h6_PC & MB
+$h1Ls: .2rem;
+$h2Ls: .2rem;
+$h3Ls: .2rem;
+$h4Ls: .2rem;
+$h5Ls: .1rem;
+$h6Ls: .05rem;
+
+// 行距
+$h1Lh_PC: auto;
+$h2Lh_PC: auto;
+$h3Lh_PC: auto;
+$h4Lh_B_PC: 48px; //小標
+$h4Lh_PC: 48px;
+$h5Lh_B_PC: auto; //小標
+$h5Lh_PC: 36px;
+$h6Lh_PC: 30px;
+
+// 字體
+$font-family: "Zen Maru Gothic","Hammersmith One","Noto Sans Japanese",sans-serif,'Lato',
+'Noto Sans TC','Font Awesome 6 Free';

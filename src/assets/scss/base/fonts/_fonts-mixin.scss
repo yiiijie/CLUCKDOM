@@ -1,0 +1,10 @@
+@import './fonts.scss';
+
+
+@mixin h6_PC {
+  font-size: $h6Fs_PC;
+  font-weight: $h6Fw_PC;
+  letter-spacing: $h6Ls;
+  line-height: $h6Lh_PC;
+  font-family: $font-family;
+}

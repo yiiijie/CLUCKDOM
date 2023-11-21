@@ -1,0 +1,8 @@
+// padding、margin、line-height
+@function spacing($count:1, $baseSpacing:5px){
+    @return $baseSpacing * $count;
+}
+
+
+// basewidth
+$basewidth: 1200px;

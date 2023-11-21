@@ -9,9 +9,7 @@ import Header from '@/components/global/Header.vue';
 <template>
     <Header />
     
-    <!-- <div class="wave">
-        <img src="pic/wave.png" alt="wave">
-    </div>  -->
+
 
 </template>
 

@@ -1,58 +1,127 @@
-@import '@/assets/scss/base/fonts/_fonts.scss';
-@import '@/assets/scss/base/fonts/_fonts-mixin.scss';
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
 @import '@/assets/scss/base/color.scss';
+@import '@/assets/scss/base/variable.scss';
+
+
+%Social {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 100%;
+        text-align: center;
+        line-height: 40px;
+        margin-left: 10px;
+}
 
 header.header{
     width: 100%;
-}
-
-div.header_inner{
-    position: relative;
-    width: 1200px;
-    display: flex;
-    margin: auto;
-    justify-content: space-evenly;
-    align-items: center;
-    top: 40px;
 
 
-    div.header_logo img{
-    width: 120px;  
-    }
-
-
-    nav.header_nav{   
+    div.header_inner{
+        position: relative;
+        width: $basewidth;
         display: flex;
-        justify-content: center;
+        margin: auto;
+        justify-content: space-evenly;
         align-items: center;
-        background-color: #cfcfcf;
-        border-radius: 200px;     
-        width: 830px;
-        height: 130px;
+        top: spacing(4);
+    
+    
+        div.header_logo img{
+        width: 120px;  
+        }
+    
+    
+        nav.header_nav{   
+            width: 60%;
+            height: 12vh;
+            display: flex;
+            border-radius: 200px;     
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+    
+            ul{
+                display: flex;
+    
+                li {
+                    list-style: none;
+                    text-align: center;
+                    padding: 0 spacing(8) 0 0;
+                    
+                    @include h6_PC;
+                    font-weight: $fWBold;
+                    font-family: $font_family_title;
+    
 
-        ul{
+                    a {
+                        text-decoration: none;   
+                    }                  
+                    span.black_text{
+                        color: $primaryBlack;              
+                    }
+                    span.brown_text{
+                        color: $primaryBrown;
+                        font-family: "Hammersmith One";
+                    }
+                }
+            } 
+        }
+    
+        div.contact_icon{   
             display: flex;
 
-            li {
-                list-style: none;
-                padding: 10px 20px 0 0;
-                
-                @include h6_PC;
-
-                a {
-                    text-decoration: none;   
-                }
-                
-
-                span.black_text{
-                    color: $primaryBlack;              
-                }
-                span.brown_text{
+    
+            div.email{
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                margin: spacing(3) 0; 
+                font-size: 35px;
+                padding: spacing(4);
+                background-color: #fff;
+                border-radius: 100%;
+    
+                .icon{
                     color: $primaryBrown;
-                    font-family: "Hammersmith One";
+
+                    &:hover{
+                        animation:rotate .5s ease;
+                    }
+                }
+            }
+
+            div.social{
+                margin: spacing(3) 0;
+
+                .icon{
+                    color: #fff;
+
+                    &:hover{
+                        animation:rotate .5s ease;
+                    }
+                }  
+                .fb{
+                    @extend %Social;
+                    background-color: #485DA1;                             
+                }
+                .ig{
+                    @extend %Social;
+                    margin-top: 10px;
+                    background-color: #D74C38;   
                 }
             }
         }
-    
+    }
+}
+
+@keyframes rotate{
+0%{
+    transform:rotate(0deg);
+    }
+100%{
+    transform: rotate(360deg);
     }
 }

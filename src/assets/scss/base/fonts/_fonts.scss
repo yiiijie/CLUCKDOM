@@ -15,8 +15,8 @@ $h6Fs_PC: 16px;
 
 
 // 字重 h1-h6_PC
-$fWRegular: 500;
-$fWBold: 700;
+$fWRegular: 400;
+$fWBold: 500;
 
 $h1Fw_PC: $fWBold;
 $h2Fw_PC: $fWBold;
@@ -36,7 +36,7 @@ $h4Ls: .2rem;
 $h5Ls: .1rem;
 $h6Ls: .05rem;
 
-// 行距
+// 行距 line-height
 $h1Lh_PC: auto;
 $h2Lh_PC: auto;
 $h3Lh_PC: auto;
@@ -47,5 +47,6 @@ $h5Lh_PC: 36px;
 $h6Lh_PC: 30px;
 
 // 字體
-$font-family: "Zen Maru Gothic","Hammersmith One","Noto Sans Japanese",sans-serif,'Lato',
-'Noto Sans TC','Font Awesome 6 Free';
+$font_family_title: "Zen Maru Gothic","Hammersmith One","Noto Sans Japanese",sans-serif,'Noto Sans TC';
+$font_family_content:"Noto Sans Japanese",sans-serif,'Noto Sans TC';
+$font_family_en:"Hammersmith One","Noto Sans Japanese",sans-serif,'Noto Sans TC';

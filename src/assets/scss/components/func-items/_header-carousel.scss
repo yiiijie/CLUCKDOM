@@ -1,10 +1,93 @@
-    // *{
-    //     margin: 0;
-    //     padding: 0;
-    // }
+@import '@/assets/scss/base/_variable.scss';
+@import '@/assets/scss/base/fonts/_fonts-mixin.scss';
+
+
     .carousel_container{
-        // position: relative;
+        position: relative;
         width: 100%;
-        height: 100vh;
-        background-color: #c0c0c0;
+        height: 80vh;
+
+        .carousel_list{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 0.5s;
+
+            .header_img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                align-items: center;
+                justify-content: center;
+                background-size: cover;
+                background-position: center;
+                animation: imgAnimate 10s linear infinite;
+            }
+
+            > div:nth-child(1){
+                background-repeat: no-repeat;
+                background-position: auto top;
+                background-image: url('/public/images/home/header-carousel/header_banner2.jpg');
+                animation-delay: 5s;
+            }
+
+            > div:nth-child(2){
+                background-repeat: no-repeat;
+                background-image: url('/public/images/home/header-carousel/header_banner.png');
+                 animation-delay: 0s;
+            }
+        }
+        .wave{
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+        .slogan{
+            @include h1_PC;
+            font-size: 36px;
+            left: 0;
+            right: 0;
+            color: #fff;
+            position: absolute;
+            text-align: center;
+            bottom: spacing(25);
+            text-shadow: 0 0 6px rgb(49, 41, 36, 0.4);
+
+            .slogan_en{
+                display: block;
+                font-family: $font_family_en;
+                font-size: $h3Fs_PC;
+                padding-top: spacing(4);
+                letter-spacing: 3px;
+            }
+        }
+    }
+    
+    .scroll .carousel_list{
+        width: 70%;
+        height: 40%;
+        position: relative;
+    }
+
+    @keyframes imgAnimate {
+        0%{
+            opacity: 1;
+            background-size: 120%;
+        }
+        25%{
+            opacity: 1;
+        }
+        50%{
+            opacity: 1;
+        }
+        75%{
+            opacity: 0;
+        }
+        to{
+            opacity: 0;
+            background-size: 90%;
+        }
     }

@@ -1,0 +1,141 @@
+@import '@/assets/scss/base/variable.scss';
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+
+
+section.header_container {
+    position: relative;
+
+    img.header_wave {
+        @extend %header_wave;
+    }
+}
+
+section.intro {
+    max-width: $basewidth;
+    display: flex;
+    margin: 70px auto 0;
+    justify-content: center;
+
+    div.title {
+        margin-top: 50px;
+        margin-right: 150px;
+        writing-mode: vertical-lr;
+        
+        > h1 {
+            @include h1_PC_vertical;
+    
+            span.important_color{
+                color: $importantText;
+            }
+            span.secondary_color{
+                color: $secondaryText;
+            }
+        }
+
+        > span {
+            @include paragraph_PC;
+            line-height: 60px;
+            letter-spacing: 3px;
+            color: $secondaryText;
+            font-family: $font_family_en;
+        }
+    }
+
+    div.img_premium_eggs {
+        width: 55%;
+
+        > img {
+            width: 100%;
+        }
+    }
+}
+
+// 環境介紹
+ul.environment {
+    max-width: $basewidth;
+    display: flex;
+    margin: 100px auto 0;
+    gap: 30px;
+
+    li.img_water {
+        width: 55%;
+
+        > img {
+            width: 100%;
+        }
+    }
+
+    li.img_outdoor {
+        width: 32%;
+
+        > img {
+            width: 100%;
+        }
+
+        img:first-child {
+            margin-bottom: 30px;
+        }
+    }
+
+    span.en {
+        @include paragraph_PC;
+        line-height: 60px;
+        letter-spacing: 3px;
+        color: $secondaryText;
+        writing-mode: vertical-rl;
+        font-family: $font_family_en;
+    }
+}
+
+section.about_us {
+    max-width: $basewidth;
+    display: flex;
+    margin: auto;
+    margin: 120px auto;
+    justify-content: flex-end;
+
+    div.text_area {
+        padding: 50px 0 100px;
+
+        div.title {
+            
+            > h2 {
+                @include h2_PC_EN;
+            }
+
+            > img {
+                margin-bottom: 20px;
+                width: 9%;
+            }
+        }
+
+        h3 {
+            @include h3_PC;
+            padding: 30px 0 30px 0;
+
+            > span {
+                color: $secondaryText;
+            }
+        }
+    
+        div.text{
+
+            p {
+                @include paragraph_PC;
+                margin-right: 120px;
+                padding: 15px 0;
+            }
+        }
+    }
+
+    div.img_owner {
+        width: 130%;
+        // border-radius: 20px;
+
+        > img {
+            width: 100%;
+        }
+    }
+}

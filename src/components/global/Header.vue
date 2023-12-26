@@ -1,6 +1,14 @@
 <script setup>
-import { reactive } from 'vue'
-import HeaderCarousel from '@/components/func-items/HeaderCarousel.vue';
+import { ref, reactive, watchEffect } from 'vue';
+import { useRouter } from 'vue-router'
+import HeaderCarousel from '@/components/func-items/HeaderCarousel.vue'
+
+const router = useRouter();
+const isHomePage = ref(true);
+
+watchEffect(() => {
+  isHomePage.value = router.currentRoute.value.name === 'home';
+});
 
 
 
@@ -8,34 +16,38 @@ const navItems = reactive([
     {
         label:'關於我們',
         label_en:'ABOUT US',
+        route: '/about',
     },
     {
         label:'精選商品',
         label_en:'PRODUCTS',
+        route: '/products',
     },
     {
         label:'檢驗報告',
         label_en:'REPORTS',
+        route: '/reports',
     },
     {
         label:'通路門市',
         label_en:'STORES',
+        route: '/stores',
     },
     {
         label:'最新消息',
         label_en:'NEWS',
+        route: '/news',
     },
-
 ])
 
 const social = reactive([
     {
-        index:'fb',
+        class:'fb',
         link:'',
         icon:['fab', 'facebook-f'],
     },
     {
-        index:'ig',
+        class:'ig',
         link:'',
         icon:['fab', 'instagram'],
     },
@@ -44,28 +56,22 @@ const social = reactive([
 </script>
 
 <template>
-    <HeaderCarousel class="header_carousel"/>
-    <header class="header">
+    <HeaderCarousel v-if="isHomePage"/>
+    <header>
         <div class="header_inner">
             <div class="header_logo">
                 <a href="#">
-                    <img src="pic/logo_red.svg" alt="logo_red">
+                    <img src="/images/home/header/logo_red.svg" alt="logo">
                 </a>
             </div>
             <nav class="header_nav">
                 <ul>                 
                     <li v-for="navItem in navItems" :key="navItem.label">
-                        <a :href="navItem.link">
-                            <span
-                                class="black_text">
-                                {{ navItem.label }}
-                            </span>
+                        <RouterLink :to="navItem.route" class="nav_link">
+                            <span class="label">{{ navItem.label }}</span>
                             <br>
-                            <span
-                                class="brown_text">
-                                {{ navItem['label_en'] }}
-                            </span>
-                        </a>                    
+                            <span class="label_en">{{ navItem['label_en'] }}</span>                  
+                        </RouterLink>
                     </li>                         
                 </ul>         
             </nav>
@@ -79,7 +85,7 @@ const social = reactive([
                     </a>
                 </div>
                 <div class="social">
-                    <div v-for="item in social" :key="item.index" :class="item.index">
+                    <div v-for="item in social" :key="item.index" :class="item.class">
                         <a :href="item.link">
                             <font-awesome-icon
                             class="icon"
@@ -94,13 +100,4 @@ const social = reactive([
 
 <style scoped lang="scss">
     @import '@/assets/scss/layout/header';
-
-    .header_carousel{
-        position: relative;
-    }
-    .header{
-        position: absolute;
-        width: 100%;
-        top: 20px;
-    }
 </style>

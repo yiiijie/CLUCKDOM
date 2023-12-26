@@ -1,0 +1,118 @@
+@import '@/assets/scss/base/_variable.scss';
+@import '@/assets/scss/base/fonts/_fonts-mixin.scss';
+@import '@/assets/scss/base/_color.scss';
+
+
+.background_texture {
+    position: relative;
+
+    &::after {
+        @extend %pattern;
+    }
+}
+
+div.title {
+    width: $basewidth;
+    display: flex;
+    margin: 80px auto 0;
+
+    > h2 {
+        @include h2_PC_EN;
+    }
+
+    > img {
+        margin-left: 50px;
+    }
+}
+
+.carousel_item {
+    display: flex;
+    margin: 60px 0 90px;
+    flex-direction: column;
+
+    a {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    div.img_eggs {
+        width: 300px; 
+        height: 300px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        overflow: hidden;
+
+        &:hover > img {
+        transform: scale(1.1);
+        }
+
+        > img {
+        width: 100%;
+        border-radius: 50%;
+        transition: .4s;          
+        }
+    }
+
+    div.product {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        div.product_info {
+            text-align: left;
+
+            > span {
+                @include smallFont_PC;
+                font-family: $font_family_en;
+            }
+
+            div.product_name {
+                @include subtitle_style;
+                display: flex;
+                align-items: flex-end;
+                color: $importantText;
+                font-weight: $fWBold;
+    
+                .product_slogan {
+                    margin-left: 5px;
+                    margin-bottom: 1px;
+                    font-size: .75rem;
+                    letter-spacing: .05em;
+                }
+            }
+        }
+
+        div.button {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #fff;
+            background-color: $importantBtnColor;
+            transition: .3s;
+
+            &:hover {
+                background-color: $hoverBtnColorY;
+            }
+
+            .arrow_right {
+                transition: .3s;
+            }
+
+            &:hover > .arrow_right{
+                transform: translateX(5px);
+            }
+        }
+    }
+}
+
+
+.carousel__slide {
+//   padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+//   box-sizing: content-box;
+//   border: 5px solid white;
+}

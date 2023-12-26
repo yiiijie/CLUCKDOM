@@ -1,22 +1,17 @@
 <script setup>
-import { ref } from "vue"
-import wave from '../../../public/images/home/header-carousel/wave.png'
-const scroll = ref(false)
-window.addEventListener("scroll", function () {
-  scroll.value = window.scrollY > 0;
-});
+
 </script>
 
 <template>
-    <div class="carousel_container" :class="{ scroll }">
+    <div class="carousel_container">
         <div class="carousel_list" >
-            <div class="header_img"></div>
-            <div class="header_img"></div>
+            <div class="header_banner2"></div>
+            <div class="header_banner1"></div>
         </div>
-        <img class="wave" :src="wave" alt="輪播圖">
-        <div class="slogan">
+        <img class="header_wave" src="/images/header_wave.png" alt="輪播圖">
+        <div class="header_slogan">
             <span>蛋為心聲｜美味隨心</span>
-            <span class="slogan_en">Where Eggstraordinary Begins!</span>
+            <span class="header_slogan_en">Where Eggstraordinary Begins!</span>
         </div>
     </div>
 </template>

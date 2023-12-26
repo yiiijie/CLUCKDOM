@@ -1,0 +1,37 @@
+@import '@/assets/scss/base/variable.scss';
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+
+
+div.container {
+    position: relative;
+    
+    div.header_banner {
+        position: relative;
+        width: 100%;
+        height: 700px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        // clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 200%, 0 100%); 
+        // border-bottom-left-radius: 50% 50%;
+        // border-bottom-right-radius: 50% 50%;
+    }
+
+    div.header_slogan {
+        @include h1_PC;
+        @extend %header_slogan;
+        color: #fff;
+
+        span.header_slogan_en {
+           @extend %header_slogan_en;
+        }
+    }
+}
+//  -webkit-mask-image: linear-gradient(black 0, #000 100%), url(/images/products/mask.png);
+//         mask-image: linear-gradient(black 0, #000 100%), url(/images/products/mask.png);
+//         -webkit-mask-size:100%;
+//         mask-size:100%;
+//         -webkit-mask-position:0 0, 50% 100%;
+//         mask-position:0 0, 50% 100%;

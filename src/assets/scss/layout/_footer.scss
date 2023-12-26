@@ -1,4 +1,158 @@
-*{
-    margin: 0;
-    padding: 0;
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+@import '@/assets/scss/base/variable.scss';
+
+
+%footer_illust {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+footer.footer {
+    width: 100%;
+    position: relative;
+    background-color:$footerBgColor;
+    z-index: 100;
+
+
+    img.footerwave {
+        position: absolute;
+        top: -50px;
+        width: 100%;
+    }
+
+    div.footer_inner {
+        position: relative;
+        max-width: $basewidth;
+        display: flex;
+        margin: auto;
+        padding: 80px 0 50px 0;
+        align-items: center;
+        
+        div.footer_logo {
+            width: 7vw;
+            margin: 0 5vw 0 0;
+        }
+
+
+        div.footer_info {
+            display: flex;
+            justify-content: space-between;
+
+            ul.btn_link {
+                @include footer_PC;
+
+                > li > a {
+                    color: $importantText;
+                    text-decoration: none;
+                    transition: .3s;
+                    
+                    &:hover {
+                        color: $secondaryText;
+                    }
+
+                    &:hover > .icon {
+                        color: $secondaryText;
+                        transform: translateX(5px);
+                    }
+
+                    .icon {
+                        margin-right: 5px;
+                        transition: .3s;
+                    }
+                }
+            }
+
+            ul.social {
+                display: flex;
+
+                .icon {
+                    color: #fff;
+
+                    &:hover {
+                        animation:rotate .5s ease;
+                    }
+                }  
+                .fb {
+                    @extend %Social;
+                    background-color: #485DA1;                             
+                }
+                .ig {
+                    @extend %Social;
+                    background-color: #D74C38;   
+                }
+            }
+        }
+
+        ul.footer_nav {
+            display: flex; 
+            padding-top: 40px;
+            align-items: center;
+            justify-content: center;
+
+            li {
+                @include footer_PC;
+                padding: 0 20px;
+                justify-content: center;
+                text-align: center;
+
+                &:first-child {
+                    padding-left: 0;  // 移除最左邊的 padding
+                }
+
+                &:last-child {
+                    padding-right: 0;  // 移除最右邊的 padding
+                }
+
+                span.label_en {
+                    font-size: 14px;
+                    color: $secondaryText;
+                    font-family: $font_family_en;
+                }                         
+            }
+        }
+    }
+
+    .copyright{
+        @include smallFont_PC;
+        max-width: $basewidth;
+        margin: auto;
+        padding: 0 0 80px 0;
+        color: #865A32;
+    }
+
+    .footer_lawn {
+        @extend %footer_illust;
+        width: 630px;
+        height: 130px;
+        background-image: url(/images/home/footer/lawn.svg);
+    }
+
+    .footer_hen {
+        @extend %footer_illust;
+        width: 500px;
+        height: 500px;
+        background-image: url(/images/home/footer/hen.svg);
+    }
+
+    .footer_grass {
+        @extend %footer_illust;
+        width: 240px;
+        height: 120px;
+        background-image: url(/images/home/footer/grass.svg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        }
+    to {
+        transform: rotate(360deg);
+        }
 }

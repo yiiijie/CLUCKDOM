@@ -2,92 +2,77 @@
 @import '@/assets/scss/base/fonts/_fonts-mixin.scss';
 
 
-    .carousel_container{
+%header_img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    animation: imgAnimate 10s linear infinite;
+}
+
+div.carousel_container {
+    position: relative;
+
+    div.carousel_list {
         position: relative;
         width: 100%;
-        height: 80vh;
+        height: 850px;
+        overflow: hidden;
+        transition: all 0.5s;
 
-        .carousel_list{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            transition: all 0.5s;
-
-            .header_img{
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                align-items: center;
-                justify-content: center;
-                background-size: cover;
-                background-position: center;
-                animation: imgAnimate 10s linear infinite;
-            }
-
-            > div:nth-child(1){
-                background-repeat: no-repeat;
-                background-position: auto top;
-                background-image: url('/public/images/home/header-carousel/header_banner2.jpg');
-                animation-delay: 5s;
-            }
-
-            > div:nth-child(2){
-                background-repeat: no-repeat;
-                background-image: url('/public/images/home/header-carousel/header_banner.png');
-                 animation-delay: 0s;
-            }
+        div.header_banner2 {
+            @extend %header_img;
+            background-image: url('/images/home/header-carousel/header_banner2.jpg');
+            animation-delay: 5s;
         }
-        .wave{
-            bottom: 0;
-            position: absolute;
-            width: 100%;
-        }
-        .slogan{
-            @include h1_PC;
-            font-size: 36px;
-            left: 0;
-            right: 0;
-            color: #fff;
-            position: absolute;
-            text-align: center;
-            bottom: spacing(25);
-            text-shadow: 0 0 6px rgb(49, 41, 36, 0.4);
 
-            .slogan_en{
-                display: block;
-                font-family: $font_family_en;
-                font-size: $h3Fs_PC;
-                padding-top: spacing(4);
-                letter-spacing: 3px;
-            }
+        div.header_banner1 {
+            @extend %header_img;
+            background-image: url('/images/home/header-carousel/header_banner.jpg');
+            animation-delay: 0s;
         }
     }
-    
-    .scroll .carousel_list{
-        width: 70%;
-        height: 40%;
-        position: relative;
+
+    img.header_wave {
+        bottom: 0;
+        width: 100%; 
+        position: absolute;
     }
 
-    @keyframes imgAnimate {
-        0%{
-            opacity: 1;
-            background-size: 120%;
-        }
-        25%{
-            opacity: 1;
-        }
-        50%{
-            opacity: 1;
-        }
-        75%{
-            opacity: 0;
-        }
-        to{
-            opacity: 0;
-            background-size: 90%;
+    div.header_slogan {
+        @include h1_PC;
+        @extend %header_slogan;
+        color: #fff;
+
+        span.header_slogan_en {
+            @extend %header_slogan_en;
+            font-size: $h3Fz_PC;
+            font-family: $font_family_en;
         }
     }
+}
+
+@keyframes imgAnimate {
+    0%{
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    25%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 0;
+    }
+    to{
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+
+

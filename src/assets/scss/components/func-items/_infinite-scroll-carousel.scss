@@ -1,0 +1,29 @@
+@import '@/assets/scss/base/variable.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+
+
+div.carousel_wrap {
+    overflow: hidden;
+    display: flex;
+
+    .carousel {
+        display: flex;
+        animation: slide 60s linear infinite;
+    }
+
+    img {
+        margin: 0 10px;
+        width: 28vw;
+        border-radius: 10px;
+    }
+}
+
+@keyframes slide{
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}

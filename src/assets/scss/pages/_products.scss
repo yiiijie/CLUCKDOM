@@ -1,0 +1,65 @@
+@import '@/assets/scss/base/variable.scss';
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+
+
+section.header_container {
+    position: relative;
+
+    img.header_wave {
+        @extend %header_wave;
+    }
+}
+
+
+section.falling_eggs_container {
+    position: relative;
+    width: 100%;
+
+    div.egg_intro {
+        width: $basewidth;
+        padding: 150px 0;
+        margin: auto;
+        text-align: center;
+
+        h1 {
+            @include h1_PC;
+
+            span.important_color {
+                color:$importantText;
+            }
+
+            span.secondary_color {
+                color:$secondaryText;
+            }
+        }
+
+        p {
+            @include paragraph_PC;
+            margin: 50px 0;
+            line-height: 2.5;
+        }
+    }
+
+    div.falling_eggs_bg {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        background-size: cover;
+        background-image: url('/images/products/falling_eggs.svg');
+        animation: falling_loop 35s infinite linear;
+    }
+}
+
+@keyframes falling_loop {
+    0%{
+        background-position: center 0;
+    }
+    100% {
+        background-position: center 100vh;
+    }
+
+} 

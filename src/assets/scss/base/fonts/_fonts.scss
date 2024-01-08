@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Zen+Maru+Gothic:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Montserrat:wght@600&family=Noto+Sans+TC:wght@400;500&family=Noto+Sans:wght@400;500&family=Ubuntu:wght@500&family=Zen+Maru+Gothic:wght@400;500&display=swap');
+
 
 
 // 字級 font-size
@@ -11,9 +9,9 @@ $h3Fz_PC: 1.75rem;   // 28px
 $h4Fz_PC: 1.5rem;    // 24px
 $h5Fz_PC: 1.25rem;   // 20px
 $h6Fz_PC: 1rem;      // 16px
-$pFz_PC:  1rem;      // 16px
-$contentFz: .875rem; // 14px
-$smallFz_PC: .75rem; // 12px
+$pFz_PC:  1rem;      // 16px 內文
+$contentFz: .875rem; // 14px 說明小字
+$smallFz_PC: .75rem; // 12px 標註
 
 // 字級 英文字
 $h2Fz_PC_EN: 2.5rem; // 42px
@@ -22,15 +20,6 @@ $h2Fz_PC_EN: 2.5rem; // 42px
 // 字重 h1-h6_PC
 $fWRegular: 400;
 $fWBold: 500;
-
-$h1Fw_PC: $fWBold;
-$h2Fw_PC: $fWBold;
-$h3Fw_PC: $fWBold;
-$h4Fw_PC: $fWBold;
-$h5Fw_PC: $fWRegular;
-$h6Fw_PC: $fWRegular;
-$pFw_PC: $fWRegular;
-$smallFw_PC: $fWRegular;
 
 
 // 字距 letter-spacing
@@ -46,7 +35,7 @@ $smallLs: .1rem;
 
 // 行距 line-height
 $h1Lh_PC: auto;
-$h2Lh_PC: auto;
+$h2Lh_PC: 1.5;
 $h3Lh_PC: 1.5;
 $h4Lh_PC: 1.5;
 $h5Lh_PC: 1.75;
@@ -55,7 +44,12 @@ $pLh_PC: 2.2;
 $headerLh_PC: 1.5;
 $smallLh_PC: 1.75;
 
-// 字體
-$font_family_title: "Zen Maru Gothic","Noto Sans Japanese",'Noto Sans TC',sans-serif;
-$font_family_content:"Noto Sans Japanese",'Noto Sans TC',sans-serif;
-$font_family_en:"Hammersmith One","Noto Sans Japanese",'Noto Sans TC',sans-serif;
+
+// 標題 字體
+$font_family_title: "Zen Maru Gothic","Arial",'Noto Sans TC',"微軟正黑體",sans-serif;
+// 內文 字體
+$font_family_content:'Noto Sans TC',"Arial","微軟正黑體",sans-serif;
+// 英文 字體
+$font_family_en:"Hammersmith One","Montserrat","Ubuntu","Noto Sans",'Noto Sans TC',sans-serif;
+// 價格 字體
+$font_price:"Ubuntu","Noto Sans","Hammersmith One",'Noto Sans TC',sans-serif; 

@@ -95,5 +95,5 @@ const steps = reactive([
 </template>
 
 <style lang="scss">
-@import "@/assets/scss/components/farming-chart";
+@import "@/assets/scss/components/farming-chart/farming-chart";
 </style>

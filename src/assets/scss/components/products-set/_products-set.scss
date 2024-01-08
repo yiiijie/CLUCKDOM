@@ -1,0 +1,74 @@
+@import '@/assets/scss/base/variable.scss';
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+
+
+
+section.sets_inner {
+    max-width: $basewidth;
+    margin: auto;
+}
+
+div.title {
+    position: relative;
+    padding: 50px 0 80px;
+
+    div.subtitle_icon {
+        width: 20%;
+        margin: auto;
+
+        img {
+            width: 100%;
+        }
+    }
+    
+    h2 {
+        @include h2_PC(#fff);
+        text-align: center;
+    }
+}
+
+ul.sets_container {
+    display: flex;
+    flex-wrap: wrap;
+    padding:0 30px;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    li {
+        max-width: 30%;
+
+        div.set_img {
+            img {
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        div.txt {
+            padding: 30px 0;
+
+            span {
+                @include product_name_font(#fff);
+            }
+
+            p {
+                @include content_PC(#fff);
+                margin-top: 10px;
+            }
+        }
+
+        div.contents {
+
+            span {
+                @include content_PC(#FFC93D);
+                display: block;
+
+                .check_box {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

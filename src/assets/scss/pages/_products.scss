@@ -18,8 +18,8 @@ section.falling_eggs_container {
     width: 100%;
 
     div.egg_intro {
-        width: $basewidth;
-        padding: 150px 0;
+        max-width: $basewidth;
+        padding: 150px 0 250px;
         margin: auto;
         text-align: center;
 
@@ -37,7 +37,7 @@ section.falling_eggs_container {
 
         p {
             @include paragraph_PC;
-            margin: 50px 0;
+            margin: 50px 0 0;
             line-height: 2.5;
         }
     }
@@ -50,16 +50,190 @@ section.falling_eggs_container {
         z-index: -1;
         background-size: cover;
         background-image: url('/images/products/falling_eggs.svg');
-        animation: falling_loop 35s infinite linear;
+        animation: falling_loop 60s infinite linear;
     }
 }
 
 @keyframes falling_loop {
     0%{
-        background-position: center 0;
+        background-position: center 100%;
     }
     100% {
-        background-position: center 100vh;
+        background-position: center 0;
     }
 
-} 
+}
+
+// 產品項目
+section.list {
+    max-width: 100%;
+    position: relative;
+    padding-bottom: 100px;
+    background-color: $productsBgColor;
+
+    img.wave03 {
+        width: 100%;
+        position: absolute;
+        top: -100px;
+        z-index: -1;
+    }
+
+    // 裝飾 child & hen
+    div.illust {
+        position: relative;
+
+        div.decoration:nth-child(1) {
+            position: absolute;
+            width: 18%;
+            top: -450px;
+            left: 15%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        div.decoration:nth-child(2) {
+            position: absolute;
+            width: 13%;
+            top: -220px;
+            right: 15%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        div.decoration:nth-child(3) {
+            position: absolute;
+            width: 100%;
+            top: -130px;
+            // right: 15%;
+            z-index: -1;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    ul.list_inner {
+        max-width: $basewidth;
+        margin: auto;
+
+        li {
+            display: flex;
+            padding: 60px 30px;
+            gap: 0 100px;
+            align-items: center;
+            justify-content: space-between;
+
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        div.prd_img {
+            max-width: 50%; 
+
+            img {
+                width: 100%;
+                border-radius: 50%;
+                border: 7px solid #fff;
+            }
+        }
+
+        div.logo {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        p.prd_intro_txt {
+            @include paragraph_PC;
+            margin-bottom: 40px;
+        }
+
+        div.nutrition_facts {
+            @include paragraph_PC;
+            display: flex;
+            padding: 10px 30px;
+            margin-bottom: 40px;
+            align-items: center;
+            justify-content: space-between;
+            color: $secondaryText;
+            background-color:#fff;
+            border-radius: 10px;
+            border: 1px solid $secondaryText;
+        }
+
+        div.price_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            div.pcs {           
+
+                span:nth-child(1) {
+                    @include paragraph_PC;
+                    margin-right: 20px;
+                }
+                
+                span:nth-child(2) {
+                    @include priceFont_PC;
+                    margin-right: 10px;
+                }
+
+                span:nth-child(3) {
+                    @include paragraph_PC;
+                    text-decoration: line-through;
+                }
+            }
+
+            .to_products_detail_page {
+                padding: 15px 30px;
+                border-radius: 50px;
+                color: #fff;
+                text-decoration: none;
+                background-color: $importantBtnColor;
+                transition: .2s;
+
+                &:hover {
+                    background-color: $normalBtnColor;
+                }
+
+                .cart_icon {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+// 產品禮盒（組合）
+
+img.wave04 {
+    width: 100%;
+    display: block;
+}
+
+section.set {
+    max-width: 100%;
+    position: relative;
+    padding-bottom: 100px;
+    background-color: $productsSetsBgColor;
+
+    // &::before {
+    //     content: '';
+    //     width: 100%;
+    //     height: 70px;
+    //     position: absolute;
+    //     top: -50px;
+    //     background-repeat: no-repeat;
+    //     background-image: url(/images/products/img_wave04.svg);
+    // }
+}

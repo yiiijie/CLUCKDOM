@@ -1,70 +1,72 @@
 @import './fonts.scss';
 
-@mixin h1_PC_vertical {
+$defaultColor: #4b4331;
+
+@mixin h1_PC_vertical ($textColor: $defaultColor){
   font-size: $h1Fz_PC;
-  font-weight: $h1Fw_PC;
+  font-weight: $fWBold;
   letter-spacing: 10px;
   line-height: 60px;
   font-family: $font_family_title;
-  color: #4b4331;
+  color: $textColor;
 }
 
-@mixin h2_PC_vertical {
+@mixin h2_PC_vertical ($textColor: $defaultColor){
   font-size: $h2Fz_PC;
-  font-weight: $h2Fw_PC;
+  font-weight: $fWBold;
   letter-spacing: 8px;
   line-height: 60px;
   font-family: $font_family_title;
-  color: #4b4331;
+  color: $textColor;
 }
 
-@mixin h1_PC {
+@mixin h1_PC ($textColor: $defaultColor){
   font-size: $h1Fz_PC;
-  font-weight: $h1Fw_PC;
+  font-weight: $fWBold;
   letter-spacing: $h1Ls;
   line-height: $h1Lh_PC;
   font-family: $font_family_title;
-  color: #4b4331;
+  color: $textColor;
 }
 
-@mixin h2_PC {
+@mixin h2_PC ($textColor: $defaultColor){
   font-size: $h2Fz_PC;
-  font-weight: $h2Fw_PC;
+  font-weight: $fWBold;
   letter-spacing: $h2Ls;
   line-height: $h2Lh_PC;
   font-family: $font_family_title;
-  color: #4b4331;
+  color: $textColor;
 }
 
 @mixin h2_PC_EN {
   font-size: $h2Fz_PC_EN;
-  font-weight: $h2Fw_PC;
+  font-weight: $fWBold;
   letter-spacing: $h2Ls_en;
   font-family: $font_family_en;
   color: #C2A16C;
 }
 
-@mixin h3_PC {
+@mixin h3_PC ($textColor: $defaultColor){
   font-size: $h3Fz_PC;
-  font-weight: $h3Fw_PC;
+  font-weight: $fWBold;
   letter-spacing: $h3Ls;
   line-height: $h3Lh_PC;
   font-family: $font_family_title;
-  color: #4b4331;
+  color: $textColor;
 }
 
-@mixin h4_PC {
+@mixin h4_PC ($textColor: $defaultColor){
   font-size: $h4Fz_PC;
-  font-weight: $h4Fw_PC;
+  font-weight: $fWBold;
   letter-spacing: $h4Ls;
   line-height: $h4Lh_PC;
   font-family: $font_family_title;
-  color: #4b4331;
+  color: $textColor;
 }
 
 @mixin h5_PC {
   font-size: $h5Fz_PC;
-  font-weight: $h5Fw_PC;
+  font-weight: $fWRegular;
   letter-spacing: $h5Ls;
   line-height: $h5Lh_PC;
   font-family: $font_family_content;
@@ -72,51 +74,67 @@
 
 @mixin h6_PC {
   font-size: $h6Fz_PC;
-  font-weight: $h6Fw_PC;
+  font-weight: $fWRegular;
   letter-spacing: $h6Ls;
   line-height: $h6Lh_PC;
   font-family: $font_family_content;
 }
 
-@mixin subtitle_style {
+@mixin subtitle_style ($textColor: $defaultColor){
   font-size: $pFz_PC;
-  font-weight: $pFw_PC;
+  font-weight: $fWRegular;
   letter-spacing: $pLs;
   font-family: $font_family_title;
+  color: $textColor;
 }
 
-@mixin paragraph_PC {
+@mixin paragraph_PC ($textColor: $defaultColor){
   font-size: $pFz_PC;
-  font-weight: $pFw_PC;
+  font-weight: $fWRegular;
   letter-spacing: $pLs;
   line-height: $pLh_PC;
   font-family: $font_family_content;
-  color: #4b4331;
+  color: $textColor;
 }
 
-@mixin content_PC {
+@mixin content_PC ($textColor: $defaultColor){
   font-size: $contentFz;
-  font-weight: $pFw_PC;
+  font-weight: $fWRegular;
   letter-spacing: $pLs;
   line-height: $pLh_PC;
   font-family: $font_family_content;
-  color: #4b4331;
+  color: $textColor;
 }
 
-@mixin smallFont_PC {
+@mixin smallFont_PC ($textColor: $defaultColor){
   font-size: $smallFz_PC;
-  font-weight: $smallFw_PC;
+  font-weight: $fWRegular;
   letter-spacing: $smallLs;
-  color: #4b4331;
+  color: $textColor;
 }
 
-@mixin header_PC {
+@mixin priceFont_PC ($textColor: $defaultColor){
+  font-size: 2rem;
+  font-weight: $fWBold;
+  font-family: $font_price;
+  color: $textColor;
+}
+
+@mixin product_name_font ($textColor: $defaultColor){
+  font-size: $pFz_PC;
+  font-weight: $fWBold;
+  letter-spacing: $pLs;
+  font-family: $font_family_content;
+  color: $textColor;
+}
+
+@mixin header_PC ($textColor: $defaultColor){
   font-size: $pFz_PC;
   font-weight: $fWBold;
   letter-spacing: $pLs;
   line-height: $headerLh_PC;
   font-family: $font_family_title;
-  color: #4b4331;
+  color: $textColor;
 }
 
 @mixin footer_PC {

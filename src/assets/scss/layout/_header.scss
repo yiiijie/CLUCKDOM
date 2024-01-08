@@ -17,7 +17,7 @@ header {
     z-index: 100;
 
     div.header_inner {
-        width: $basewidth;
+        max-width: $basewidth;
         display: flex;
         margin: auto;
         align-items: center;

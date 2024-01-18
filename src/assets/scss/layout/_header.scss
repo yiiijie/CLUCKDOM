@@ -10,40 +10,53 @@
     background-color: $hoverBtnColorB;
 }
 
-header {
+div.header_icon {
     position: absolute;
+    top: 0;
+    right: 5%;
+    padding: 10px 25px;
+    border-radius: 0 0 20px 20px;
+    color: rgb(202, 202, 202);
+    background-color: #fff;
+}
+
+header {
     width: 100%;
+    position: absolute;
     top: 30px;
     z-index: 100;
+
 
     div.header_inner {
         max-width: $basewidth;
         display: flex;
-        margin: auto;
+        margin: auto;    
+        gap: 3%;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
     
     
         div.header_logo img {
-        width: 120px;  
+            width: 120px;  
         }
     
-    
         nav.header_nav {   
-            width: 60%;
+            width: 53%;
             height: 120px;
             display: flex;
             align-items: center;
-            border-radius: 200px;     
-            justify-content: center;
+            border-radius: 200px;
+            justify-content: center;           
             background-color: #ffffff;
     
-            ul {
+            ul.header_nav_list {
+                flex: 0 1 75%;
                 display: flex;
+                justify-content: space-between;
     
                 li {
                     @include header_PC;
-                    padding: 0 20px;
+                    // padding: 0 20px;
                     justify-content: center;
                     text-align: center;
     
@@ -64,7 +77,6 @@ header {
     
         div.contact_icon {   
             display: flex;
-
     
             div.email {
                 

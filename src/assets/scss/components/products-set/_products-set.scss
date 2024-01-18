@@ -32,41 +32,86 @@ div.title {
 ul.sets_container {
     display: flex;
     flex-wrap: wrap;
-    padding:0 30px;
+    padding: 0 30px;
     box-sizing: border-box;
     justify-content: space-between;
 
     li {
         max-width: 30%;
+        padding-bottom: 100px;
 
         div.set_img {
+            padding-bottom: 30px;
             img {
                 width: 100%;
                 border-radius: 50%;
             }
         }
 
-        div.txt {
-            padding: 30px 0;
+        div.set_info {
+            padding: 0 10px;
 
-            span {
+            span.set_name {
                 @include product_name_font(#fff);
             }
 
-            p {
-                @include content_PC(#fff);
-                margin-top: 10px;
+            div.border_line {
+                margin: 20px 0;
+                border: .1px solid #fff;
             }
-        }
+    
+            p.set_intro {
+                @include content_PC(#fff);
+            }
+    
+            div.contents {
+                padding: 20px 0;
 
-        div.contents {
+                span {
+                    @include content_PC(#FFC93D);
+                    display: block;
+    
+                    .check_box {
+                        margin-right: 5px;
+                        color: #fff;
+                    }
+                }
+            }
 
-            span {
-                @include content_PC(#FFC93D);
-                display: block;
+            div.price_container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
 
-                .check_box {
-                    color: #fff;
+                div.price {           
+                    span:nth-child(1) {
+                        @include content_PC(#fff);
+                        margin-right: 20px;
+                    }
+                    
+                    span:nth-child(2) {
+                        @include priceFont_PC(#fff);
+                        margin-right: 10px;
+                    }
+
+                    span:nth-child(3) {
+                        @include content_PC(#fff);
+                        text-decoration: line-through;
+                    }
+                }
+           
+                button.cart_btn {
+                    @include paragraph_PC($primaryText);
+                    padding: 5px 20px;
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    background-color: $normalBtnColor;
+                    transition: .2s;
+
+                    &:hover {
+                        background-color: $hoverBtnColorW;                      
+                    }
                 }
             }
         }

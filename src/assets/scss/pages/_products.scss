@@ -179,7 +179,7 @@ section.list {
             div.pcs {           
 
                 span:nth-child(1) {
-                    @include paragraph_PC;
+                    @include content_PC;
                     margin-right: 20px;
                 }
                 
@@ -189,21 +189,23 @@ section.list {
                 }
 
                 span:nth-child(3) {
-                    @include paragraph_PC;
+                    @include content_PC;
                     text-decoration: line-through;
                 }
             }
 
-            .to_products_detail_page {
-                padding: 15px 30px;
+            
+            button.cart_btn {
+                @include paragraph_PC(#fff);
+                padding: 5px 30px;
+                border: none;
                 border-radius: 50px;
-                color: #fff;
-                text-decoration: none;
+                cursor: pointer;
                 background-color: $importantBtnColor;
                 transition: .2s;
-
+                
                 &:hover {
-                    background-color: $normalBtnColor;
+                    background-color: $hoverBtnColorY;                      
                 }
 
                 .cart_icon {
@@ -215,7 +217,6 @@ section.list {
 }
 
 // 產品禮盒（組合）
-
 img.wave04 {
     width: 100%;
     display: block;
@@ -226,14 +227,4 @@ section.set {
     position: relative;
     padding-bottom: 100px;
     background-color: $productsSetsBgColor;
-
-    // &::before {
-    //     content: '';
-    //     width: 100%;
-    //     height: 70px;
-    //     position: absolute;
-    //     top: -50px;
-    //     background-repeat: no-repeat;
-    //     background-image: url(/images/products/img_wave04.svg);
-    // }
 }

@@ -109,9 +109,10 @@ const list = reactive([
                             <span>{{ item.currentPrice }}</span>
                             <span>{{ item.originalPrice }}</span>
                         </div>
-                        <RouterLink :to="'/'" class="to_products_detail_page">
-                            <font-awesome-icon icon="cart-shopping" class="cart_icon" />
-                            <span>加入購物車</span>
+                        <RouterLink :to="'/'">
+                            <button type="button" class="cart_btn">
+                                <font-awesome-icon icon="cart-shopping" class="cart_icon" />
+                                加入購物車</button>
                         </RouterLink>                     
                     </div>
                 </div>

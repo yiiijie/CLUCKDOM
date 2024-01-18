@@ -1,0 +1,13 @@
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+@import '@/assets/scss/base/variable.scss';
+
+
+
+button.login_btn {
+    @include content_PC;
+    padding-right: 10px;
+    border: none;
+    background-color: #fff;
+}

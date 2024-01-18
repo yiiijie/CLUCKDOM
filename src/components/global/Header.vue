@@ -1,7 +1,9 @@
 <script setup>
 import { ref, reactive, watchEffect } from 'vue';
-import { useRouter } from 'vue-router'
-import HeaderCarousel from '@/components/func-items/HeaderCarousel.vue'
+import { useRouter } from 'vue-router';
+import HeaderCarousel from '@/components/func-items/HeaderCarousel.vue';
+import LoginIcon from '@/components/global/LoginIcon.vue';
+import CartIcon from '@/components/global/CartIcon.vue';
 
 const router = useRouter();
 const isHomePage = ref(true);
@@ -23,11 +25,11 @@ const navItems = reactive([
         label_en:'PRODUCTS',
         route: '/products',
     },
-    {
-        label:'檢驗報告',
-        label_en:'REPORTS',
-        route: '/reports',
-    },
+    // {
+    //     label:'檢驗報告',
+    //     label_en:'REPORTS',
+    //     route: '/reports',
+    // },
     {
         label:'通路門市',
         label_en:'STORES',
@@ -57,6 +59,11 @@ const social = reactive([
 
 <template>
     <HeaderCarousel v-if="isHomePage"/>
+    <div class="header_icon">
+        <LoginIcon></LoginIcon>
+        |
+        <CartIcon></CartIcon>
+    </div>
     <header>
         <div class="header_inner">
             <div class="header_logo">
@@ -65,7 +72,7 @@ const social = reactive([
                 </a>
             </div>
             <nav class="header_nav">
-                <ul>                 
+                <ul class="header_nav_list">                 
                     <li v-for="navItem in navItems" :key="navItem.label">
                         <RouterLink :to="navItem.route" class="nav_link">
                             <span class="label">{{ navItem.label }}</span>

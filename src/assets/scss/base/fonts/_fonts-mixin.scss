@@ -101,7 +101,7 @@ $defaultColor: #4b4331;
   font-size: $contentFz;
   font-weight: $fWRegular;
   letter-spacing: $pLs;
-  line-height: $pLh_PC;
+  line-height: $content_PC;
   font-family: $font_family_content;
   color: $textColor;
 }
@@ -114,7 +114,7 @@ $defaultColor: #4b4331;
 }
 
 @mixin priceFont_PC ($textColor: $defaultColor){
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: $fWBold;
   font-family: $font_price;
   color: $textColor;

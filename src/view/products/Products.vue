@@ -51,7 +51,6 @@ const list = reactive([
 <template>
     <section class="header_container">
         <HeaderBanner
-            class="test"
             bannerImage="/images/products/header_banner.jpg"
             sloganText="精選系列"
             sloganEnText="Product Introduction">

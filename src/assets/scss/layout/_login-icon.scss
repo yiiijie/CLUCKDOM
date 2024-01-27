@@ -9,5 +9,6 @@ button.login_btn {
     @include content_PC;
     padding-right: 10px;
     border: none;
+    cursor: pointer;
     background-color: #fff;
 }

@@ -64,15 +64,16 @@ $defaultColor: #4b4331;
   color: $textColor;
 }
 
-@mixin h5_PC {
+@mixin h5_PC ($textColor: $defaultColor){
   font-size: $h5Fz_PC;
   font-weight: $fWRegular;
   letter-spacing: $h5Ls;
   line-height: $h5Lh_PC;
   font-family: $font_family_content;
+  color: $textColor;
 }
 
-@mixin h6_PC {
+@mixin h6_PC ($textColor: $defaultColor){
   font-size: $h6Fz_PC;
   font-weight: $fWRegular;
   letter-spacing: $h6Ls;

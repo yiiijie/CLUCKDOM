@@ -8,7 +8,6 @@ import HeaderBanner from '@/components/header-banner/headerBanner.vue';
 <template>
     <section class="header_container">
         <HeaderBanner
-            class="banner"
             bannerImage="/images/about/header_banner.jpg"
             sloganText="關於鷄蛋王國"
             sloganEnText="About CLUCKDOM">

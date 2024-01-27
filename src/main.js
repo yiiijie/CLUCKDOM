@@ -12,8 +12,10 @@ import { library } from "@fortawesome/fontawesome-svg-core"
 // add some free styles
 import { fab } from "@fortawesome/free-brands-svg-icons"
 import { fas } from "@fortawesome/free-solid-svg-icons"
-
 library.add(fab, fas)
+
+//firebase
+import { firebaseApp } from "@/services/firebase.js";
 
 
 const app = createApp(App)

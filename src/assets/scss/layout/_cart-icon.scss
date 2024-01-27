@@ -9,5 +9,6 @@ button.cart_btn {
     @include content_PC;
     padding-left: 10px;
     border: none;
+    cursor: pointer;
     background-color: #fff;
 }

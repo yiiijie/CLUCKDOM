@@ -1,0 +1,60 @@
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+@import '@/assets/scss/base/variable.scss';
+
+
+main.form_container {
+    margin: 0 100px;
+
+    div.form_inner {
+        margin: 80px auto;
+        max-width: 700px;
+        box-sizing: border-box;
+        padding: 40px 100px;
+        border-radius: 20px;
+        background-color: #f1f1f1;
+        
+        span.form_title {
+            @include h5_PC;
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button.google_third_party {
+            @include content_PC;
+            width: 100%;
+            display: flex;
+            padding: 5px 0; 
+            border: none;
+            border-radius: 5px;
+            align-items: center; 
+            justify-content: center;
+            cursor: pointer;
+            background-color: #fff;
+
+            img.google_icon {
+                width: 40px;
+                margin-right: 5px;
+            }
+        }
+
+        hr.divider {
+            position: relative;
+            overflow: inherit;
+            margin: 40px 0;
+            border: .5px solid $borderColor;
+
+            &::before {
+                content: "or";
+                position: absolute;
+                left: 50%;
+                padding: 0 20px;
+                transform: translate(-50%, -50%);
+                color: $borderColor;
+                background-color: #f1f1f1;
+            }
+        }
+    }
+}

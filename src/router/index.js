@@ -30,6 +30,15 @@ const router = createRouter({
       name: "news",
       component: () => import("@/view/news/News.vue"),
     },
+    {
+      path: "/sign-in",
+      name: "sign-in",
+      component: () => import("@/view/sign-in/SignIn.vue"),
+      meta: {
+        hideHeader: true,
+        hideFooter: true,
+      },
+    },
   ],
 });
 

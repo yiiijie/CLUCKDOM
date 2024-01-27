@@ -25,11 +25,6 @@ const navItems = reactive([
         label_en:'PRODUCTS',
         route: '/products',
     },
-    // {
-    //     label:'檢驗報告',
-    //     label_en:'REPORTS',
-    //     route: '/reports',
-    // },
     {
         label:'通路門市',
         label_en:'STORES',
@@ -55,12 +50,18 @@ const social = reactive([
     },
 ])
 
+const loginLink = ref({
+    route: '/sign-in'
+})
+
 </script>
 
 <template>
     <HeaderCarousel v-if="isHomePage"/>
     <div class="header_icon">
-        <LoginIcon></LoginIcon>
+        <RouterLink :to="loginLink.route">
+            <LoginIcon></LoginIcon>
+        </RouterLink>
         |
         <CartIcon></CartIcon>
     </div>
@@ -77,7 +78,7 @@ const social = reactive([
                         <RouterLink :to="navItem.route" class="nav_link">
                             <span class="label">{{ navItem.label }}</span>
                             <br>
-                            <span class="label_en">{{ navItem['label_en'] }}</span>                  
+                            <span class="label_en">{{ navItem['label_en'] }}</span>
                         </RouterLink>
                     </li>                         
                 </ul>         

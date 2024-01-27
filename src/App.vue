@@ -7,9 +7,9 @@ import Footer from '@/components/global/Footer.vue';
 </script>
 
 <template>
-  <Header/>
+  <Header v-if="!$route.meta.hideHeader"/>
   <RouterView />
-  <Footer/>
+  <Footer v-if="!$route.meta.hideFooter"/>
 
 
 </template>

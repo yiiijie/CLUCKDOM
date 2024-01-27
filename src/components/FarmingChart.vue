@@ -15,7 +15,7 @@ const steps = reactive([
     {
         index: 1,
         imgPath:'/images/about/chart/chick.png',
-        subtitle:'雛雞們的溫馨旅程',
+        subtitle:'雛鷄們的冒險旅程',
         content:'小雞們來到了雞蛋王國的養雞場，嚐了他們的第一餐。在孵化後的前三天，若小雞未及時獲得餵養會變得虛弱無力，由於雛雞對寒冷極為敏感，所以我們特別保持雛雞室溫度維持在約30度左右。',
     },
     {

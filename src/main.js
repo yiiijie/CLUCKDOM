@@ -16,7 +16,7 @@ library.add(fab, fas)
 
 //firebase
 import { firebaseApp } from "@/services/firebase.js";
-
+firebaseApp;
 
 const app = createApp(App)
 

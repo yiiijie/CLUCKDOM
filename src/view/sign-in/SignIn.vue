@@ -1,5 +1,5 @@
 <script setup>
-
+import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue';
 
 </script>
 
@@ -7,11 +7,12 @@
     <main class="form_container">
         <div class="form_inner">
             <span class="form_title">會員登入</span>
-            <button type="button" class="google_third_party">
-                <img class="google_icon" src="/images/sign-in/google_icon.png" alt="google_icon">
-                使用Google登入
-            </button>
+
+            <!-- google第三方登入 -->
+            <GoogleSignIn />
             <hr class="divider">
+            
+            <!-- 帳密登入 -->
             <form class="sign_in_form">
                 <div class="email">
                     <label for="email">帳號</label>

@@ -22,24 +22,6 @@ main.form_container {
             text-align: center;
         }
 
-        button.google_third_party {
-            @include content_PC;
-            width: 100%;
-            display: flex;
-            padding: 5px 0; 
-            border: none;
-            border-radius: 5px;
-            align-items: center; 
-            justify-content: center;
-            cursor: pointer;
-            background-color: #fff;
-
-            img.google_icon {
-                width: 40px;
-                margin-right: 5px;
-            }
-        }
-
         hr.divider {
             position: relative;
             overflow: inherit;

@@ -50,20 +50,17 @@ const social = reactive([
     },
 ])
 
-const loginLink = ref({
-    route: '/sign-in'
-})
+// const loginLink = ref({
+//     route: '/sign-in'
+// })
 
 </script>
 
 <template>
     <HeaderCarousel v-if="isHomePage"/>
     <div class="header_icon">
-        <RouterLink :to="loginLink.route">
-            <LoginIcon></LoginIcon>
-        </RouterLink>
-        |
-        <CartIcon></CartIcon>
+        <LoginIcon/>
+        <CartIcon/>
     </div>
     <header>
         <div class="header_inner">

@@ -11,14 +11,10 @@
 }
 
 div.header_icon {
+    display: flex;
     position: absolute;
-    z-index: 100;
     top: 0;
     right: 5%;
-    padding: 10px 25px;
-    border-radius: 0 0 20px 20px;
-    color: rgb(202, 202, 202);
-    background-color: #fff;
 }
 
 header {

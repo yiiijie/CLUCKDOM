@@ -7,15 +7,16 @@ firebaseApp;
 
 const router = useRouter();
 const auth = getAuth();
-const userName = ref('');
+const user = ref(null);
 
 // 登入
 const signInWithGoogle = async() => {
   const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
+  signInWithPopup(auth, provider) // 彈窗
    .then((result) => {
     console.log(result.user);
-    userName.value = result.user.displayName;
+    user.value = result.user;
+    localStorage.setItem('user', JSON.stringify(result.user));
     router.push("/");
    
   }).catch((error) => {

@@ -12,6 +12,11 @@ const user = ref(null);
 // 登入
 const signInWithGoogle = async() => {
   const provider = new GoogleAuthProvider();
+
+  provider.setCustomParameters({
+    prompt: 'select_account'
+  });
+  
   signInWithPopup(auth, provider) // 彈窗
    .then((result) => {
     console.log(result.user);

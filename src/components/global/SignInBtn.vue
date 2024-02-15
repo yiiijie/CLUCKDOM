@@ -11,7 +11,15 @@ const loginStatus = computed(() => {
     return user.value ? user.value.displayName : '登入';
 })
 
-
+const handleUserClick = () => {
+  // 若用戶已登入，則不執行路由導航至登入頁
+  if(user.value) {
+    return;
+  } else {
+    // 否則，導航至登入頁
+    router.push('/sign-in');
+  }
+}
 
 // onMounted(() => {
 //   onAuthStateChanged(auth, (user) => {
@@ -49,17 +57,17 @@ const handleSignOut = () => {
 </script>
 
 <template>
-    <RouterLink to="/sign-in" class="member_login">
-        <div class="login">
-            <font-awesome-icon icon="user"/>
-            {{ loginStatus }}
-        </div>
-        <div v-if="user" class="dropdown_menu">
-            <a @click="handleSignOut">登出</a>
-        </div>
-    </RouterLink>
+    <div class="member_login" @click="handleUserClick">
+      <div class="login_btn">
+          <font-awesome-icon icon="user"/>
+          {{ loginStatus }}
+      </div>
+      <div v-if="user" class="dropdown_menu">
+          <a @click="handleSignOut">登出</a>
+      </div>
+    </div>
 </template>
 
 <style scoped lang="scss">
-    @import "@/assets/scss/layout/login-icon";
+    @import "@/assets/scss/layout/signin-btn";
 </style>

@@ -5,10 +5,12 @@
 
 
 
-button.cart_btn {
+div.cart_btn {
     @include content_PC;
-    padding-left: 10px;
-    border: none;
+    position: relative;
+    padding: 10px 20px;
+    z-index: 1000; // 避免被header擋到
     cursor: pointer;
-    background-color: #fff;
+    border-radius: 0 0 20px 20px;
+    background-color: $textBgColor;
 }

@@ -2,8 +2,8 @@
 import { ref, reactive, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 import HeaderCarousel from '@/components/func-items/HeaderCarousel.vue';
-import LoginIcon from '@/components/global/LoginIcon.vue';
-import CartIcon from '@/components/global/CartIcon.vue';
+import SignInBtn from '@/components/global/SignInBtn.vue';
+import CartBtn from '@/components/global/CartBtn.vue';
 
 const router = useRouter();
 const isHomePage = ref(true);
@@ -50,17 +50,13 @@ const social = reactive([
     },
 ])
 
-// const loginLink = ref({
-//     route: '/sign-in'
-// })
-
 </script>
 
 <template>
     <HeaderCarousel v-if="isHomePage"/>
     <div class="header_icon">
-        <LoginIcon/>
-        <CartIcon/>
+        <SignInBtn/>
+        <CartBtn/>
     </div>
     <header>
         <div class="header_inner">

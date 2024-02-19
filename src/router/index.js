@@ -21,6 +21,11 @@ const router = createRouter({
       component: () => import("@/view/products/Products.vue"),
     },
     {
+      path: "/products/detail",
+      name: "detail",
+      component: () => import("@/view/products/detail/Detail.vue"),
+    },
+    {
       path: "/stores",
       name: "stores",
       component: () => import("@/view/stores/Stores.vue"),
@@ -40,6 +45,20 @@ const router = createRouter({
       },
     },
   ],
+
+  // 處理路由切換時的行為
+  scrollBehavior(to, from, savedPosition) {
+    return (
+      // 使用瀏覽器的上一頁&下一頁時，返回savedPosition（原停留位置）。
+      savedPosition ||
+      // 頁面置頂
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ left: 0, top: 0 });
+        }, 200);
+      })
+    );
+  },
 });
 
 export default router;

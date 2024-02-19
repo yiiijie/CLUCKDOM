@@ -20,7 +20,7 @@ body {
   background-size: cover;
   background-repeat: repeat;
   background-image: url(/images/home/pattern.jpg);
-  -index: -1;
+  z-index: -1;
 }
 
 ::selection{

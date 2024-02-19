@@ -1,9 +1,10 @@
 <script setup>
 import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue';
-
+import Navbar from '@/components/global/Navbar.vue';
 </script>
 
 <template>
+    <Navbar/>
     <main class="form_container">
         <div class="form_inner">
             <span class="form_title">會員登入</span>
@@ -12,7 +13,7 @@ import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue';
             <GoogleSignIn />
             <hr class="divider">
             
-            <!-- 帳密登入 -->
+            <!-- 一般帳密登入 -->
             <form class="sign_in_form">
                 <div class="email">
                     <label for="email">帳號</label>

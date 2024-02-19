@@ -54,16 +54,16 @@ const social = reactive([
 
 <template>
     <HeaderCarousel v-if="isHomePage"/>
-    <div class="header_icon">
+    <div class="header_btn_list">
         <SignInBtn/>
         <CartBtn/>
     </div>
     <header>
         <div class="header_inner">
             <div class="header_logo">
-                <a href="#">
+                <RouterLink :to="'/'">
                     <img src="/images/home/header/logo_red.svg" alt="logo">
-                </a>
+                </RouterLink>
             </div>
             <nav class="header_nav">
                 <ul class="header_nav_list">                 
@@ -72,6 +72,7 @@ const social = reactive([
                             <span class="label">{{ navItem.label }}</span>
                             <br>
                             <span class="label_en">{{ navItem['label_en'] }}</span>
+                            <span class="circle"></span>
                         </RouterLink>
                     </li>                         
                 </ul>         

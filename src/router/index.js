@@ -21,9 +21,13 @@ const router = createRouter({
       component: () => import("@/view/products/Products.vue"),
     },
     {
-      path: "/products/detail",
-      name: "detail",
-      component: () => import("@/view/products/detail/Detail.vue"),
+      path: "/products/details",
+      name: "details",
+      component: () => import("@/view/products/details/Details.vue"),
+      meta: {
+        hideHeader: false,
+        hideFooter: false,
+      },
     },
     {
       path: "/stores",

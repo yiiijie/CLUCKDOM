@@ -31,9 +31,9 @@ const navItems = reactive([
         route: '/stores',
     },
     {
-        label:'最新消息',
-        label_en:'NEWS',
-        route: '/news',
+        label:'常見問題',
+        label_en:'FAQ',
+        route: '/faq',
     },
 ])
 

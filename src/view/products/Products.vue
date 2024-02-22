@@ -98,7 +98,7 @@ const list = reactive([
             </div>
             <ul class="list_inner">
                 <li v-for="item in list" :key="item.id">
-                    <RouterLink :to="'/products/detail'" class="prd_img">
+                    <RouterLink :to="'/products/details'" class="prd_img">
                         <div class="prd_click"></div>
                         <div class="view_prd_icon">
                             <font-awesome-icon icon="magnifying-glass" class="icon" />

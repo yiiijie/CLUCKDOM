@@ -1,8 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
-import SignInBtn from '@/components/global/SignInBtn.vue';
-import CartBtn from '@/components/global/CartBtn.vue';
 
 const router = useRouter();
 
@@ -20,37 +18,39 @@ const navItems = reactive([
         route: '/stores',
     },
     {
-        label:'最新消息',
-        route: '/news',
+        label:'常見問題',
+        route: '/faq',
     },
 ])
 </script>
 
 <template>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <RouterLink :to="'/'">
-                    <img src="/images/logo/navbar_logo.svg" alt="logo">
-                </RouterLink>
-            </div>
-            <ul class="header_nav_list">                 
-                <li v-for="navItem in navItems" :key="navItem.label">
-                    <RouterLink :to="navItem.route" class="nav_link">
-                        <span class="label">{{ navItem.label }}</span>                     
-                        <span class="circle"></span>
+    <div>
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <RouterLink :to="'/'">
+                        <img src="/images/logo/navbar_logo.svg" alt="logo">
                     </RouterLink>
-                </li>                         
-            </ul>         
-            <span class="contact_icon">
-                <font-awesome-icon :icon="['fab', 'facebook-f']" class="icon"/>
-                <font-awesome-icon :icon="['fab', 'instagram']" 
-                class="icon"/>
-                <font-awesome-icon :icon="['fas', 'envelope']" 
-                class="icon"/>
-            </span>
-        </nav>
-    </header>
+                </div>
+                <ul class="header_nav_list">                 
+                    <li v-for="navItem in navItems" :key="navItem.label">
+                        <RouterLink :to="navItem.route" class="nav_link">
+                            <span class="label">{{ navItem.label }}</span>                     
+                            <span class="circle"></span>
+                        </RouterLink>
+                    </li>                         
+                </ul>         
+                <span class="contact_icon">
+                    <font-awesome-icon :icon="['fab', 'facebook-f']" class="icon"/>
+                    <font-awesome-icon :icon="['fab', 'instagram']" 
+                    class="icon"/>
+                    <font-awesome-icon :icon="['fas', 'envelope']" 
+                    class="icon"/>
+                </span>
+            </nav>
+        </header>
+    </div>
 </template>
 
 <style scoped lang="scss">

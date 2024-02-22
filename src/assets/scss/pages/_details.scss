@@ -1,0 +1,106 @@
+@import '@/assets/scss/base/variable.scss';
+@import '@/assets/scss/base/fonts/fonts.scss';
+@import '@/assets/scss/base/fonts/fonts-mixin.scss';
+@import '@/assets/scss/base/color.scss';
+
+
+main {
+    background-color: $productsBgColor;
+}
+
+section.prd_container {
+    max-width: $basewidth;
+    display: flex;
+    margin: auto;
+    padding: 270px 4%;
+    column-gap: 60px;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    div.prd_photos {
+        max-width: 45%;
+
+        div.main_img {
+            margin-bottom: 10px;
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+
+        div.small_img_group {
+            display: flex;
+            column-gap: 10px;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+        
+    }
+
+    div.prd_info {
+
+        h1.prd_name{
+            @include product_name_font;
+            font-size: $h4Fz_PC;
+        }
+        p.prd_features {
+            @include paragraph_PC($secondaryText);
+            margin: 20px 0;
+        }
+        p.prd_slogan {
+            @include paragraph_PC;
+        }
+        div.prd_price {
+            margin: 40px 0 30px;
+
+            span.title {
+                @include paragraph_PC;
+                display: block;
+            }
+            span.current_price {
+                @include priceFont_PC($subtitleText);
+                padding-right: 10px;
+            }
+            del.original_price {
+                @include content_PC($grayText);
+                letter-spacing: 0.05rem;
+            }
+        }
+
+        label.quantity_title {
+            @include paragraph_PC;
+        }
+
+        div.quantity_selector {
+            width: 30%;
+            display: flex;
+            padding: 10px;
+            justify-content: space-between;
+            color: $primaryText;
+            border-radius: 5px;
+            border: 1px solid $primaryText;
+            
+            button {
+                @include content_PC;
+                display: block;
+                cursor: pointer;
+                border: none;
+                background: none;
+            }
+
+            input {
+                width: 100%;
+                display: block;
+                text-align: center;
+                font-size: $pFz_PC;
+                font-family: $font_price;
+                border: none;
+                color: $primaryText;
+                background: none;
+            }
+        }
+    }
+}

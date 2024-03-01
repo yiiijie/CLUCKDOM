@@ -17,8 +17,7 @@ const route = useRoute();
 </template>
 
 <style lang="scss">
-  @import '@/assets/scss/style.scss';
-  @import '@/assets/css/reset.css'; 
+  @import '@/assets/scss/main.scss';
 
   .fade-enter-active,
   .fade-leave-active {

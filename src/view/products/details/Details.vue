@@ -1,46 +1,27 @@
 <script setup>
-import { ref, reactive } from "vue";
-
-const imgGroup = reactive([
-  {
-    id: 1,
-    imgPath: "/images/products/list/happiness_eggs.jpg",
-  },
-  {
-    id: 2,
-    imgPath: "/images/products/list/healthy_eggs.jpg",
-  },
-  {
-    id: 3,
-    imgPath: "/images/products/list/leisurely_eggs.jpg",
-  },
-  {
-    id: 4,
-    imgPath: "/images/products/list/premium_eggs.jpg",
-  },
-]);
-
-const count = ref(1)
+import { ref } from "vue";
+const count = ref(1);
 
 // button按到大於1000會沒反應(最高1000)
 const increment = () => {
   if (count.value < 1000) {
     count.value++;
   }
-}
+};
 
 // button按到小於1會沒反應
 const decrement = () => {
-  if (count.value > 1 ) {
+  if (count.value > 1) {
     count.value--;
   }
-}
+};
 
 // 控制input裡只能輸入1~1000的整數
+// 如果輸入值小於1，則將其值設為1
 const handleInput = (event) => {
   let value = parseInt(event.target.value);
-  
-  if (value < 1 ) {
+
+  if (value < 1) {
     value = 1;
   }
   if (value > 1000) {
@@ -49,6 +30,18 @@ const handleInput = (event) => {
   count.value = value;
 };
 
+// 點擊小圖換大圖
+const mainImgSrc = ref("/images/details/image_1.jpg");
+const imgGroup = ref([
+  { imgSrc: "/images/details/image_1.jpg" },
+  { imgSrc: "/images/details/image_2.jpg" },
+  { imgSrc: "/images/details/image_3.jpg" },
+  { imgSrc: "/images/details/image_4.jpg" },
+]);
+
+const changeMainImage = (src) => {
+  mainImgSrc.value = src;
+};
 
 // const prdInfo = ref([
 //   {
@@ -63,13 +56,16 @@ const handleInput = (event) => {
       <section class="prd_container">
         <div class="prd_photos">
           <!-- 大圖 -->
-          <div class="main_img">
-            <img src="/images/products/list/happiness_eggs.jpg" alt="商品圖" />
+          <div id="main_img">
+            <img :src="mainImgSrc" alt="商品圖" />
           </div>
           <!-- 小圖 -->
           <div class="small_img_group">
-            <div v-for="img in imgGroup" :key="img.id">
-              <img :src="img.imgPath" alt="商品圖" />
+            <div
+              v-for="(img, index) in imgGroup"
+              :key="index"
+              @click="changeMainImage(img.imgSrc)">
+              <img :src="img.imgSrc" alt="商品圖" />
             </div>
           </div>
         </div>
@@ -99,7 +95,12 @@ const handleInput = (event) => {
             <button type="button" @click="decrement">
               <font-awesome-icon icon="minus" />
             </button>
-            <input type="number" v-model="count" @input="handleInput" class="hide_arrows" >
+            <input
+              type="number"
+              v-model="count"
+              @input="handleInput"
+              class="hide_arrows"
+            />
             <button type="button" @click="increment">
               <font-awesome-icon icon="plus" />
             </button>

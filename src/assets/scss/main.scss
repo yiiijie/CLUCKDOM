@@ -2,7 +2,8 @@
 @import 'base/fonts/fonts-mixin';
 @import 'base/color';
 @import 'base/variable';
-
+@import 'base/breakpoints';
+@import 'base/reset';
 
 
 html {
@@ -14,11 +15,15 @@ body {
   content: '';
   top: 0;
   width:100%;
-  height: 100vh;
+  height: 100%;
   background-size: cover;
   background-repeat: repeat;
   background-image: url(/images/home/pattern.jpg);
   z-index: -1;
+}
+
+a {
+  text-decoration: none;
 }
 
 ::selection{

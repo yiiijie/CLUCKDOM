@@ -1,12 +1,8 @@
-@import '@/assets/scss/base/variable.scss';
-@import '@/assets/scss/base/fonts/fonts-mixin.scss';
-@import '@/assets/scss/base/color.scss';
-
 
 section.chart {
-    width: 100%;
+    // width: 100%;
     position: relative;
-    padding: 0 0 160px 0;
+    // padding: 100px 0;
     background-color: $aboutBgColor;
 
     img.wave02 {
@@ -18,11 +14,12 @@ section.chart {
     
     ul.chart_inner {
         max-width: $basewidth;
+        width: 90%;
         position: relative;
         display: flex;
         flex-wrap: wrap;
         margin: auto;
-        padding: 80px 0;
+        padding: 80px 0 130px;
         z-index: 1;
         justify-content: center;
         border-radius: 30px;

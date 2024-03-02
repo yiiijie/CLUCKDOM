@@ -19,7 +19,7 @@ const { showNavbar } = useNavbarVisibility();
                     <img src="/images/home/img_eggshape.png" alt="CLUCKDOM宗旨"> 
                 </div>
                 <div class="title">
-                    <p>sususususu</p>
+                    <p>111122222</p>
                     <h1>用<span class="important_color">愛</span>傳遞毎一分健康。</h1>
                     <h1>用心<span class="secondary_color">守護</span>毎一顆蛋</h1>
                     <span>GLOW UP IN LOVE ......</span> 

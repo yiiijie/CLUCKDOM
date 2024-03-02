@@ -158,6 +158,8 @@ const social = reactive([
     </header>
 </template>
 
+
+<!-- 不建議這樣寫 -->
 <style scoped lang="scss">
     @import '@/assets/scss/layout/header';
 </style>

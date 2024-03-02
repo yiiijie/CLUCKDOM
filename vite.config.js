@@ -18,5 +18,5 @@ export default defineConfig({
       "@": "/src",
     },
   },
-  base:'/CLUCKDOM/',
+  // base:'/CLUCKDOM/',
 });

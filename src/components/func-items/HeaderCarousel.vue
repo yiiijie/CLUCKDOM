@@ -10,8 +10,8 @@
         </div>
         <img class="header_wave" src="/images/header_wave.png" alt="輪播圖">
         <div class="header_slogan">
-            <span>蛋為心聲｜美味隨心</span>
-            <span class="header_slogan_en">Where Eggstraordinary Begins!</span>
+            <span class="chinese">幸福蛋的滋味</span>
+            <span class="english">The Blissful Flavor of Eggs</span>
         </div>
     </div>
 </template>

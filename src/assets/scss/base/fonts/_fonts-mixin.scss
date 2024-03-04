@@ -2,6 +2,67 @@
 
 $defaultColor: #4f493b;
 
+//📍 字重
+$fWRegular: 400;
+$fWBold: 500;
+
+//📍 字體
+// 標題
+$font_family_title: "Zen Maru Gothic","Arial",'Noto Sans TC',"微軟正黑體",sans-serif;
+// 內文
+$font_family_content:'Noto Sans TC',"Arial","微軟正黑體",sans-serif;
+// 英文
+$font_family_en:"Hammersmith One","Montserrat","Ubuntu","Noto Sans",'Noto Sans TC',sans-serif;
+// 價格
+$font_price:"Ubuntu","Noto Sans","Hammersmith One",'Noto Sans TC',sans-serif; 
+
+
+//📍 文字大小
+// root font-size : 10px (main.scss)
+$slogan: clamp(2.8rem,4vw,4rem);
+$slogan_en: clamp(1.2rem,3vw,2.8rem);
+$h1: clamp(2.5rem,4vw,3.6rem);
+
+
+// 要刪掉
+$h1Ls: .2rem;
+$h2Ls: .2rem;
+$h2Ls_en: .3rem;
+$h3Ls: .2rem;
+$h4Ls: .2rem;
+$h5Ls: .1rem;
+$h6Ls: .2rem;
+$pLs:  .1rem;
+$smallLs: .05rem;
+// 要刪掉
+$h1Fz_PC: 3.6rem;      // 36px
+$h2Fz_PC: 3.2rem;    // 32px
+$h3Fz_PC: 2.8rem;    // 28px
+$h4Fz_PC: 2.4rem;    // 24px
+$h5Fz_PC: 2rem;      // 20px
+$h6Fz_PC: 1.6rem;    // 16px
+$pFz_PC:  1.6rem;    // 16px 內文
+$contentFz: 1.4rem;  // 14px 說明小字
+$smallFz_PC: 1.2rem; // 12px 標註
+
+
+
+
+
+@mixin header_slogan {
+  font-size: $slogan;
+  font-weight: $fWBold;
+  letter-spacing: .3rem;
+  font-family: $font_family_title;
+}
+
+@mixin header_slogan_en {
+  font-size: $slogan_en;
+  font-weight: $fWBold;
+  letter-spacing: .15rem;
+  font-family: $font_family_en;
+}
+
 @mixin h1_PC_vertical ($textColor: $defaultColor){
   font-size: $h1Fz_PC;
   font-weight: $fWBold;
@@ -20,8 +81,18 @@ $defaultColor: #4f493b;
   color: $textColor;
 }
 
+//要刪掉
 @mixin h1_PC ($textColor: $defaultColor){
   font-size: $h1Fz_PC;
+  font-weight: $fWBold;
+  letter-spacing: $h1Ls;
+  line-height: $h1Lh_PC;
+  font-family: $font_family_title;
+  color: $textColor;
+}
+
+@mixin h1 ($textColor: $defaultColor){
+  font-size: $h1;
   font-weight: $fWBold;
   letter-spacing: $h1Ls;
   line-height: $h1Lh_PC;

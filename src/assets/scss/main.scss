@@ -1,13 +1,14 @@
 
+@import 'base/mixin/breakpoints';
+@import 'base/mixin/mixin';
 @import 'base/fonts/fonts-mixin';
 @import 'base/color';
 @import 'base/variable';
-@import 'base/breakpoints';
 @import 'base/reset';
 
 
 html {
-  font-size: 16px; 
+  font-size: 10px; // 讓rem換算可以更快速方便
 }
 
 body {

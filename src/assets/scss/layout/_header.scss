@@ -73,11 +73,15 @@ div.mobile_menu {
         transition: all .5s;  
 
         ul.menu_list {
-            width: 65vw;
+            width: 80vw;
             margin: 30px auto;
             background-color: $normalBgColor;
             border-radius: 10px;
             padding: 40px;
+
+            @include tablets {
+                width: 70vw;
+            }
     
             li {
                 padding: 15px 0;

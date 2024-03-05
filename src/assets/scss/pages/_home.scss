@@ -1,48 +1,84 @@
-
+// 網站宗旨
 section.web_purpose {
-    width: 100%;
     position: relative;
 
     // 雞腳印 裝飾
     &::before {
         position: absolute;
         content: '';
-        width: clamp(250px,25vw,450px);
+        width: clamp(240px,25vw,450px);
         height: 100px;
-        top: -50px;
+        top: -40px;
         left: 3vw;
         background-repeat: no-repeat;
         background-image: url(/images/home/footprint.svg);
 
         @include phones {
-            display: none;
+            transform: rotate(15deg);
+            left: -35vw;
         }
     }
 
     &::after {
         position: absolute;
         content: '';
-        width: clamp(150px,15vw,250px);
+        width: clamp(140px,15vw,250px);
         height: 100px;
-        top: -50px;
+        top: 0;
         right: 3vw;
         background-repeat: no-repeat;
         background-image: url(/images/home/footprint_2.svg);
 
         @include phones {
-            display: none;
+            top: 20px;
+            right: -10vw;
+        }
+    }
+
+    div.header_logo {
+        display: none;
+        width: 110px;
+        max-width: 20vw;
+        position: absolute;
+        top: 0;
+        right: 50%;
+        transform: translate(50%, -50%);
+
+        img {
+            width: 100%;
+        }
+
+        // 1024px以下才會出現(only首頁版型)
+        @include desktops {
+            display: block;
         }
     }
 
     div.purpose_inner {
+        max-width: $basewidth;
+        width: 90%;
         display: flex;
         margin: auto;
-        padding-top: 70px;
-        max-width: $basewidth;
-        justify-content: center;
+        padding-top: 100px;
+        justify-content: space-evenly;
+
+        @include desktops {
+            flex-direction: column;
+        }
         
         div.img_eggshape {
+            display: inline-block;
             position: relative;
+            width: clamp(200px,45vw,550px);
+            
+            @include desktops {
+                margin: 4% auto 0;
+                display: block;
+            }
+            
+            img {
+                width: 100%;
+            }   
 
             &::before {
                 position: absolute;
@@ -55,34 +91,38 @@ section.web_purpose {
                 background-repeat: no-repeat;
                 background-image: url(/images/home/chick.svg);
             }
-
-            img {
-                width: 600px;
-            }           
         }
         
         div.title {
-            margin-top: 50px;
-            margin-left: 180px;
+            display: inline-block;
+            margin-top: 5%;
             writing-mode: vertical-lr;
             
             h1 {
-                @include h1_PC_vertical;
-        
+                @include h1_vertical;
+                
                 span.important_color{
+                    @include h1_vertical;
                     color: $importantText;
                 }
                 span.secondary_color{
+                    @include h1_vertical;
                     color: $secondaryText;
                 }
             }
-        
-            > span {
-                @include paragraph_PC;
+
+            span {
+                @include paragraph;
                 line-height: 60px;
-                letter-spacing: 3px;
+                letter-spacing: .3rem;
                 color: $secondaryText;
                 font-family: $font_family_en;
+            }
+
+            @include desktops {
+                margin: 3% auto 0;
+                display: block;
+                order: -1; // 將title位置移至上方
             }
         }
     }
@@ -90,56 +130,65 @@ section.web_purpose {
 
 // 關於我們 about
 section.about {
-    width: 100%;
+    // width: 100%;
     position: relative;
 
     div.about_inner {
         max-width: $basewidth;
+        width: 80%;
         display: flex;
-        margin: 80px auto 250px;
+        margin: 60px auto 80px;
         justify-content: space-between;
         align-items: center;
 
-        div.txt {
-            width: 50%;
-
-            > h2 {
-                @include h2_PC;
-                font-family: $font_family_title;
+        div.text {
+            h2 {
+                @include h2;
+                padding-bottom: 40px;
         
-                > span.secondary_color{
+                span.secondary_color {
                     color: $secondaryText;
                 }     
             }
     
-            > p {
-                @include paragraph_PC;
-                padding-top: 40px;
+            p {
+                @include paragraph;
+
+                @include phones {
+                    display: inline;
+                }
             }
         }
 
         div.img_people {
-            width: 480px;
+            width: 40%;
+
+            img {
+                width: 100%;
+            }
+
+            @include desktops {
+                display: none;
+            }
         }
     }
 }
 
+
 // 願景 vision
-section.vision {
+img.wave01 {
     width: 100%;
+    display: block;
+}
+
+section.vision {
     position: relative;
     background-color: $homeBgColor;
     
-    img.wave01 {
-        width: 100%;
-        position: absolute;
-        top: -100px;
-        z-index: -1;
-    }
-
     div.vision_inner {
         position: relative;
         max-width: $basewidth;
+        width: 90%;
         margin: auto;
 
         // 裝飾_母雞
@@ -167,86 +216,103 @@ section.vision {
             background-repeat: no-repeat;
         }
 
-        div.img_all {
-            width: 100%;
-            margin: auto;
-            display: flex;
-            justify-content: flex-end;
+        // 大圖
+        div.img_lawn {
+            width: 70%;
+            padding: 40px 0 80px;
 
-            div.img_lawn {
-                width: 700px;
-                position: absolute;
-                top: -160px;
-                left: 0;
-
-                > img {
-                    @extend %vision_imgs;
-                }
+            img {
+                width: 100%;
+                border-radius: 20px;
             }
 
-            div.img_chick {
-                width: 350px;
-                position: absolute;
-                top: 220px;
-                right: 250px;
-
-                // 裝飾_小雞對話框
-                &::before {
-                    content: '';
-                    position: absolute;
-                    right: 20px;
-                    top: -50px;
-                    width: 190px;
-                    height: 100px;
-                    background-image: url(/images/home/img_dialog.svg);
-                    background-repeat: no-repeat;
-                }
-                
-                > img {
-                    @extend %vision_imgs;
-                    border: 15px solid $homeBgColor;
-                    border-radius: 40px;
-                }
-            }
-
-            div.img_eggs {
-                width: 500px;
-                position: absolute;
-                bottom: 120px;
-                right: 0px;
-
-                > img {
-                    @extend %vision_imgs;
-                }
-            }
-
-            div.title {
-                @include h2_PC_vertical;
-                writing-mode: vertical-lr;
-
-                > h2 span {
-                    color: $importantText;
-                }
-
-                > span {
-                    @include paragraph_PC;
-                    line-height: 60px;
-                    letter-spacing: 3px;
-                    color: #ffffff;
-                    font-family: $font_family_en;
-                }
+            @include desktops {
+                padding-bottom: 50px;
+                width: 100%;
             }
         }
 
-        div.txt {          
-            width: 45%;
-            padding-bottom: 150px;
-            @include paragraph_PC;
-
-            > p {
-                padding: 15px 0;
+        div.title {
+            position: absolute;
+            right: 4vw;
+            top: 100px;
+            writing-mode: vertical-lr;
+            
+            @include desktops {
+                writing-mode: horizontal-tb;
                 position: relative;
-                top: -70px;
+                top: 0;
+                padding-left: 8%;
+            }
+
+            h2 {
+                @include h2_vertical;
+
+                @include desktops {
+                    @include h2;
+                    line-height: normal;
+                }
+            }
+            
+            span.important_color {
+                color: $importantText;
+                
+            }
+            
+            span.english {
+                @include paragraph;
+                line-height: 60px;
+                letter-spacing: .3rem;
+                color: $normalBgColor;
+                font-family: $font_family_en;
+            }
+
+        }
+
+        div.img_chick {
+            width: 35%;
+            position: absolute;
+            top: 550px;
+            right: 5%;
+            
+            img {
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            @media (max-width: 900px) {
+                display: none;
+            }
+        }
+
+        div.img_eggs {
+            width: 42%;
+            position: absolute;
+            bottom: 100px;
+            right: 0;
+
+            img {
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            @include desktops {
+                display: none;
+            }
+        }
+        
+        div.text {          
+            width: 45%;
+            padding: 0 0 250px 3%;
+            @include paragraph;
+
+            @include desktops {
+                width: 90%;
+                padding-top: 3%;
+            }
+
+            p {
+                padding: 15px 0;
             }
         }
     }

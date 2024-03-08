@@ -290,7 +290,7 @@ section.vision {
             @include desktops {
                 width: 90%;
                 margin: auto;
-                padding: 3% 0 0;
+                padding: 3% 0 25%;
             }
             @include tablets {
                 padding-bottom: 10%;
@@ -326,14 +326,11 @@ section.vision {
 
         // 裝飾_對話框
         div.deco_dialog {
-            // content: '';
             position: absolute;
             width: 20%;
             height: 8%;
             bottom: 6%;
             left: 25%;
-            // background-image: url(/images/home/img_dialog2.svg);
-            // background-repeat: no-repeat;
 
             @include desktops {
                 left: 30%;

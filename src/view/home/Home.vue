@@ -82,9 +82,6 @@ const { showNavbar } = useNavbarVisibility();
                         <p>我們與創辦人以及眾多企業家攜手合作，堅持不使用針劑、藥物或強迫的飼養過程，創造出一個能讓每位顧客以實惠的價格品嚐到放牧飼養的幸福雞蛋。我們的目標是建立一個人與動物健康快樂的經濟循環，並以獨立企業的形式推動放牧飼養，結合群眾養雞的力量，共同創造永續經營的未來。</p>
                         <p>在雞蛋王國，我們以創新和熱情，開創出一個健康的雞蛋時代，一個注重品質和永續的經營模式。</p>
                 </div>
-                <!-- <div class="deco_hen">
-                    <img src="/images/home/img_hen.svg" alt="">
-                </div> -->
                 <div class="deco_dialog">
                     <img src="/images/home/img_dialog2.svg" alt="" data-aos="zoom-in" data-aos-delay="1500">
                 </div>

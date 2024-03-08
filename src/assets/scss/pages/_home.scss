@@ -130,16 +130,19 @@ section.web_purpose {
 
 // 關於我們 about
 section.about {
-    // width: 100%;
     position: relative;
 
     div.about_inner {
         max-width: $basewidth;
         width: 80%;
         display: flex;
-        margin: 60px auto 80px;
+        margin: 60px auto 5%;
         justify-content: space-between;
         align-items: center;
+
+        @include desktops {
+            margin-bottom: 10%;
+        }
 
         div.text {
             h2 {
@@ -168,6 +171,9 @@ section.about {
             }
 
             @include desktops {
+                width: 30%;
+            }
+            @include tablets {
                 display: none;
             }
         }
@@ -190,31 +196,6 @@ section.vision {
         max-width: $basewidth;
         width: 90%;
         margin: auto;
-
-        // 裝飾_母雞
-        &::before {
-            content: '';
-            position: absolute;
-            width: 150px;
-            height: 180px;
-            bottom: -5px;
-            left: 10%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-image: url(/images/home/img_hen.svg);
-        }
-
-        // 裝飾_母雞對話框
-        &::after {
-            content: '';
-            position: absolute;
-            width: 180px;
-            height: 105px;
-            bottom: 100px;
-            left: 23%;
-            background-image: url(/images/home/img_dialog2.svg);
-            background-repeat: no-repeat;
-        }
 
         // 大圖
         div.img_lawn {
@@ -303,16 +284,62 @@ section.vision {
         
         div.text {          
             width: 45%;
-            padding: 0 0 250px 3%;
+            padding: 0 0 25% 3%;
             @include paragraph;
 
             @include desktops {
                 width: 90%;
-                padding-top: 3%;
+                margin: auto;
+                padding: 3% 0 0;
+            }
+            @include tablets {
+                padding-bottom: 10%;
             }
 
             p {
                 padding: 15px 0;
+            }
+        }
+
+        // 裝飾_母雞
+        &::before {
+            content: '';
+            position: absolute;
+            width: 25%;
+            height: 13%;
+            bottom: 0;
+            left: 10%;
+            background-repeat: no-repeat;
+            background-image: url(/images/home/img_hen.svg);
+
+            @include tablets {
+                width: 17%;
+                top: 37%;
+                left: auto;     
+                right: 5%;
+                transform: scaleX(-1); 
+            }
+            @include phones {
+                display: none;
+            }
+        }
+
+        // 裝飾_對話框
+        div.deco_dialog {
+            // content: '';
+            position: absolute;
+            width: 20%;
+            height: 8%;
+            bottom: 6%;
+            left: 25%;
+            // background-image: url(/images/home/img_dialog2.svg);
+            // background-repeat: no-repeat;
+
+            @include desktops {
+                left: 30%;
+            }
+            @include tablets {
+                display: none;
             }
         }
     }

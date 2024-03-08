@@ -1,3 +1,8 @@
+@mixin small_phones {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
 @mixin phones {
   @media (max-width: 576px) {
     @content;

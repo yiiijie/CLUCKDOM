@@ -189,6 +189,14 @@ header {
                         text-decoration: none;
                         position: relative;
 
+                        &:hover {
+                            text-shadow: 
+                            0 0 5px #fff,
+                            0 0 5px #fff,
+                            0 0 5px #fff,
+                            0 0 5px #fff;
+                        }
+
                         // 滑鼠hover至nav選項時的小圓圈
                         span.circle {
                             opacity: 0;

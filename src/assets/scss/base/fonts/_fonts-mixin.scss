@@ -25,8 +25,10 @@ $font_price:"Ubuntu","Noto Sans","Hammersmith One",'Noto Sans TC',sans-serif;
 $slogan: clamp(2.8rem,4vw,4rem);
 $slogan_en: clamp(1.2rem,3vw,2.8rem);
 $h1: clamp(2.1rem,4.5vw,3.6rem);
-$h2: clamp(1.8rem,3.5vw,3.2rem);
+$h2: clamp(2rem,3.5vw,3.2rem);
+$en_title: clamp(2.5rem,6vw,3.6rem);
 $paragraph: clamp(1.4rem,1.5vw,1.6rem);
+$little_font: 1.2rem;
 
 
 // 要刪掉
@@ -149,15 +151,24 @@ $smallLh_PC: 1.75;
 @mixin h2 {
   font-size: $h2;
   font-weight: $fWRegular;
-  letter-spacing: $h2Ls;
+  letter-spacing: .2rem;
   font-family: $font_family_title;
   color: $primaryTextColor;
 }
 
+// 要刪掉
 @mixin h2_PC_EN {
   font-size: $h2Fz_PC_EN;
   font-weight: $fWBold;
   letter-spacing: $h2Ls_en;
+  font-family: $font_family_en;
+  color: #C2A16C;
+}
+
+@mixin h2_en {
+  font-size: $en_title;
+  font-weight: $fWBold;
+  letter-spacing: .2rem;
   font-family: $font_family_en;
   color: #C2A16C;
 }
@@ -232,11 +243,19 @@ $smallLh_PC: 1.75;
   color: $textColor;
 }
 
+// 要刪掉
 @mixin smallFont_PC ($textColor: $defaultColor){
   font-size: $smallFz_PC;
   font-weight: $fWRegular;
   letter-spacing: $smallLs;
   color: $textColor;
+}
+
+@mixin smallFont {
+  font-size: $little_font;
+  font-weight: $fWRegular;
+  letter-spacing: .05rem;
+  color: $primaryTextColor;
 }
 
 @mixin priceFont_PC ($textColor: $defaultColor){
@@ -262,12 +281,20 @@ $smallLh_PC: 1.75;
   font-family: $font_family_title;
   color: $textColor;
 }
-
+// 要刪掉
 @mixin footer_PC {
   font-size: $pFz_PC;
   font-weight: $fWBold;
   letter-spacing: $pLs;
   line-height: $headerLh_PC;
+  font-family: $font_family_title;
+  color: #865A32;
+}
+
+@mixin footer_font {
+  font-size: $paragraph;
+  font-weight: $fWBold;
+  letter-spacing: .16rem;
   font-family: $font_family_title;
   color: #865A32;
 }

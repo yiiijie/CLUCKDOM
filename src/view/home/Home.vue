@@ -22,7 +22,7 @@ const { showNavbar } = useNavbarVisibility();
                 </RouterLink>
             </div>
             <!-- --- -->
-            <div class="purpose_inner">
+            <div class="purpose_inner" data-aos="fade-up" data-aos-duration="1500">
                 <div class="img_eggshape">
                     <img src="/images/home/img_eggshape.png" alt="CLUCKDOM宗旨"> 
                 </div>
@@ -40,7 +40,7 @@ const { showNavbar } = useNavbarVisibility();
         </section>
 
         <!-- 關於我們 -->
-        <section class="about">
+        <section class="about" data-aos="fade-up" data-aos-duration="1500">
             <div class="about_inner">
                 <div class="text">
                     <h2>追尋純淨 ⎯
@@ -48,7 +48,7 @@ const { showNavbar } = useNavbarVisibility();
                     </h2>
                     <p>自雞蛋王國成立以來，我們不僅是雞蛋生產者，更是大自然的伙伴。</p>
                     <p>透過綠意盎然的放牧環境，我們孕育出自由奔放、健康茁壯的雞群，</p>
-                    <p>天然泉水的滋潤，是我們對雞隻們嚴謹的呵護。</p>
+                    <p>天然泉水的滋潤，是我們對雞隻們最嚴謹的呵護。</p>
                     <p>我們像對待自己的孩子一樣，讓雞隻們保持快樂是我們的使命。</p>
                 </div>
                 <div class="img_people">
@@ -70,19 +70,25 @@ const { showNavbar } = useNavbarVisibility();
                     </h2>
                     <span class="english">⎯ Pasture-Raised Farming ⎯</span>      
                 </div>                  
-                <div class="img_chick">
+                <div class="img_chick" data-aos="fade-up" data-aos-duration="1500">
                     <img src="/images/home/img_chick.jpg" alt="picture"> 
                 </div>
                 <div class="img_eggs">
                     <img src="/images/home/img_eggs.jpg" alt="picture">
                 </div>
-                <div class="text">
+                <div class="text" data-aos="fade-up" data-aos-duration="1500">
                     <p>在雞蛋王國，我們有著獨特的願景 ⎯ 希望改變台灣雞隻飼養方式。
-                    <br>我們決心用放牧飼養來取代傳統的格子籠和平面飼養，讓每一位母雞都能發聲。</p>
-                    <p>我們與創辦人以及眾多企業家攜手合作，堅持不使用針劑、藥物或強迫的飼養過程，創造出一個能讓每位顧客以實惠的價格品嚐到放牧飼養雞蛋的方式。我們的目標是建立一個人與動物健康快樂的經濟循環，並以獨立企業的形式推動放牧飼養，結合群眾養雞的力量，共同創造永續經營的未來。</p>
-                    <p>在雞蛋王國，我們以創新和熱情，開創出一個全新的雞蛋時代，一個注重品質和永續的未來。</p>
+                        <br>我們決心用放牧飼養來取代傳統的格子籠和平面飼養，讓雞隻們都能自由活動。</p>
+                        <p>我們與創辦人以及眾多企業家攜手合作，堅持不使用針劑、藥物或強迫的飼養過程，創造出一個能讓每位顧客以實惠的價格品嚐到放牧飼養的幸福雞蛋。我們的目標是建立一個人與動物健康快樂的經濟循環，並以獨立企業的形式推動放牧飼養，結合群眾養雞的力量，共同創造永續經營的未來。</p>
+                        <p>在雞蛋王國，我們以創新和熱情，開創出一個健康的雞蛋時代，一個注重品質和永續的經營模式。</p>
                 </div>
-            </div>
+                <!-- <div class="deco_hen">
+                    <img src="/images/home/img_hen.svg" alt="">
+                </div> -->
+                <div class="deco_dialog">
+                    <img src="/images/home/img_dialog2.svg" alt="" data-aos="zoom-in" data-aos-delay="1500">
+                </div>
+            </div>   
         </section>
     
         <ProductsCarousel />

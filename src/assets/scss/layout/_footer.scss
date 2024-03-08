@@ -3,35 +3,72 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    background-size: contain;
+    z-index: 10;
     background-repeat: no-repeat;
+
+    img {
+        width: 100%;
+        display: block; // 刪除底部空隙
+    }
 }
 
-
 footer.footer {
-    width: 100%;
     position: relative;
-    background-color:$footerBgColor;
-    z-index: 100;
+    background-color: $footerBgColor;
 
-
-    img.footerwave {
+    &::before {
+        content: '';
         position: absolute;
-        top: -50px;
         width: 100%;
-    }
+        height: 9.5%;
+        z-index: 10;
+        transform: translateY(-100%);
+        background-repeat: repeat-x;
+        background-image: url(/images/footer/footerwave.svg);
 
+        @media (max-width: 1440px) {
+            height: 8%;
+        }
+        @include desktops {
+            height: 6%;
+        }
+        @include tablets {
+            height: 2%;
+        }
+        @include phones {
+            height: 2.5%;
+        }
+    }
+    
     div.footer_inner {
         position: relative;
         max-width: $basewidth;
+        width: 90%;
         display: flex;
         margin: auto;
         padding: 80px 0 50px 0;
         align-items: center;
+
+        @include tablets {
+            flex-direction: column;
+            display: block; // 使元素改成佔滿整個容器
+            padding: 60px 0 0 0;
+        }
         
         div.footer_logo {
-            width: 7vw;
+            width: clamp(90px,10vw,120px);
             margin: 0 5vw 0 0;
+            transition: .1s;
+
+            @include tablets {
+                margin: auto;
+            }
+
+            &:hover {
+                transform: rotate(5deg);
+                opacity: 0.9;
+                transition: .1s;
+            }
         }
 
 
@@ -39,10 +76,31 @@ footer.footer {
             display: flex;
             justify-content: space-between;
 
+            @include tablets {
+                flex-direction: column;
+                align-items: center;
+            }
+            
             ul.btn_link {
-                @include footer_PC;
+                @include footer_font;
+                margin-right: 40px;
 
-                > li > a {
+                @include tablets {
+                    display: flex;
+                    margin: 15px auto 15px;
+                }
+
+                li {
+                    padding: 2px 0;
+
+                    @include tablets {
+                        &:first-child {
+                            margin-right: 20px;
+                        }
+                    }
+                }
+
+                li > a {
                     color: $importantText;
                     text-decoration: none;
                     transition: .3s;
@@ -57,29 +115,32 @@ footer.footer {
                     }
 
                     .icon {
-                        margin-right: 5px;
+                        margin-right: 8px;
                         transition: .3s;
                     }
                 }
             }
 
-            ul.social {
-                display: flex;
+            span.contact_icon {
 
-                .icon {
-                    color: #fff;
+                .icon{
+                    width: 20px;
+                    height: 20px;
+                    padding: 12px;
+                    border-radius: 50%;
+                    color: $normalBgColor;
+                    cursor: pointer;
 
                     &:hover {
-                        animation:rotate .5s ease;
+                        @extend %hover_rotate;
                     }
-                }  
+                }
                 .fb {
-                    @extend %Social;
-                    background-color: #485DA1;                             
+                    background-color: #485DA1;
+                    margin-right: 10px;
                 }
                 .ig {
-                    @extend %Social;
-                    background-color: #D74C38;   
+                    background-color: $primaryColor;
                 }
             }
         }
@@ -87,28 +148,92 @@ footer.footer {
         ul.footer_nav {
             display: flex; 
             padding-top: 40px;
-            align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+
+            @include tablets {
+                flex-direction: column;
+            }
 
             li {
-                @include footer_PC;
-                padding: 0 20px;
-                justify-content: center;
+                @include footer_font;
                 text-align: center;
 
-                &:first-child {
-                    padding-left: 0;  // 移除最左邊的 padding
+                @include tablets {
+                    background-color: $normalBgColor;
+                    padding: 15px;
+                    margin: 2px;
+                    border-radius: 6px;
                 }
 
-                &:last-child {
-                    padding-right: 0;  // 移除最右邊的 padding
-                }
+                a.nav_link {   
+                    text-decoration: none;
+                    position: relative;
+                    z-index: 1;
 
-                span.label_en {
-                    font-size: 14px;
-                    color: $secondaryText;
-                    font-family: $font_family_en;
-                }                         
+                    @include tablets {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    &:hover {
+                        text-shadow: 
+                        0 0 5px #fff,
+                        0 0 5px #fff,
+                        0 0 5px #fff,
+                        0 0 5px #fff;
+                    }
+
+                    &:hover .circle {
+                        opacity: 1;
+                        transition: .3s;               
+                        transform: scale(2);
+                    }
+
+                    // 滑鼠hover至nav選項時的小圓圈
+                    span.circle {
+                        opacity: 0;
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        border-radius: 50%;
+                        background-color: $textBgColor;
+                        z-index: -1;
+                        transition: .3s;
+                        
+                        @include tablets {
+                            display: none;
+                        }
+                    }
+
+                    span.label {
+                        color: $footerTextColor; 
+                        transition: .2s;
+
+                        @include tablets {
+                            margin-right: 15px;
+                        }
+                    }
+
+                    span.label_en {
+                        font-size: 1.4rem;
+                        color: $secondaryText;
+                        font-family: $font_family_en;
+                        transition: .2s;
+
+                        @include tablets {
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    &:hover .label, &:hover .label_en {
+                        color: $subtitleText;
+                    }
+                }                 
             }
         }
     }
@@ -116,38 +241,34 @@ footer.footer {
     .copyright{
         @include smallFont_PC;
         max-width: $basewidth;
+        width: 90%;
         margin: auto;
         padding: 0 0 80px 0;
-        color: #865A32;
+        color: $footerTextColor;
+
+        @include tablets {
+            width: calc( 90% - 15px );
+            padding: 30px 0 180px;
+        }
     }
 
     .footer_lawn {
         @extend %footer_illust;
-        width: 630px;
-        height: 130px;
-        background-image: url(/images/home/footer/lawn.svg);
+        width: clamp(220px,40vw,700px);
     }
 
     .footer_hen {
         @extend %footer_illust;
-        width: 500px;
-        height: 500px;
-        background-image: url(/images/home/footer/hen.svg);
+        width: clamp(140px,28vw,520px);
     }
 
     .footer_grass {
         @extend %footer_illust;
-        width: 240px;
-        height: 120px;
-        background-image: url(/images/home/footer/grass.svg);
+        width: clamp(70px,15vw,300px);
     }
 }
 
 @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-        }
-    to {
-        transform: rotate(360deg);
-        }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }

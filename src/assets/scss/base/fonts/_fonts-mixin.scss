@@ -26,8 +26,11 @@ $slogan: clamp(2.8rem,4vw,4rem);
 $slogan_en: clamp(1.2rem,3vw,2.8rem);
 $h1: clamp(2.1rem,4.5vw,3.6rem);
 $h2: clamp(2rem,3.5vw,3.2rem);
+$h3: clamp(1.8rem,1.5vw,2.4rem);
 $en_title: clamp(2.5rem,6vw,3.6rem);
 $paragraph: clamp(1.4rem,1.5vw,1.6rem);
+$paragraph_en: clamp(1.2rem,1.5vw,1.6rem);
+$content_font: clamp(1.3rem,1.5vw,1.5rem);
 $little_font: 1.2rem;
 
 
@@ -67,14 +70,14 @@ $smallLh_PC: 1.75;
 
 
 
-@mixin header_slogan {
+@mixin header_slogan_font {
   font-size: $slogan;
   font-weight: $fWBold;
   letter-spacing: .3rem;
   font-family: $font_family_title;
 }
 
-@mixin header_slogan_en {
+@mixin header_slogan_en_font {
   font-size: $slogan_en;
   font-weight: $fWBold;
   letter-spacing: .15rem;
@@ -173,6 +176,7 @@ $smallLh_PC: 1.75;
   color: #C2A16C;
 }
 
+// 要刪掉
 @mixin h3_PC ($textColor: $defaultColor){
   font-size: $h3Fz_PC;
   font-weight: $fWBold;
@@ -180,6 +184,15 @@ $smallLh_PC: 1.75;
   line-height: $h3Lh_PC;
   font-family: $font_family_title;
   color: $textColor;
+}
+
+@mixin h3 {
+  font-size: $h3;
+  font-weight: $fWBold;
+  letter-spacing: $h3Ls;
+  line-height: $h3Lh_PC;
+  font-family: $font_family_content;
+  color: $primaryTextColor;
 }
 
 @mixin h4_PC ($textColor: $defaultColor){
@@ -234,13 +247,30 @@ $smallLh_PC: 1.75;
   color: $primaryTextColor;
 }
 
-@mixin content_PC ($textColor: $defaultColor){
-  font-size: $contentFz;
+@mixin paragraph_en {
+  font-size: $paragraph_en;
+  letter-spacing: .3rem;
+  color: $secondaryText;
+  font-family: $font_family_en;
+}
+
+// 要刪掉
+@mixin content_PC {
+  font-size: $content_font;
   font-weight: $fWRegular;
   letter-spacing: $pLs;
   line-height: $content_PC;
   font-family: $font_family_content;
-  color: $textColor;
+  color: $primaryTextColor;
+}
+
+@mixin content_font {
+  font-size: $content_font;
+  font-weight: $fWRegular;
+  letter-spacing: .16rem;
+  line-height: 2;
+  font-family: $font_family_content;
+  color: $primaryTextColor;
 }
 
 // 要刪掉

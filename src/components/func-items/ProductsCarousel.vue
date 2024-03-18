@@ -39,10 +39,7 @@ const settings = ref({
   snapAlign: 'center'
 })
 
-// breakpoints are mobile first
-// any settings not specified will fallback to the carousel settings
 const breakpoints = ref({
-  // 700px and up
   768: {
     itemsToShow: 2,
     snapAlign: 'start'
@@ -75,7 +72,7 @@ const breakpoints = ref({
     </div>
     <Carousel v-bind="settings" :breakpoints="breakpoints" :wrap-around="true" :autoplay="2000">
         <Slide v-for="slide in slides" :key="slide.id">
-            <div  :key="slide.id" class="carousel_item">
+            <div class="carousel_item">
                 <a href="">
                     <div class="img_eggs">
                         <img :src="slide.imgPath" alt="產品圖"> 

@@ -29,13 +29,13 @@ footer.footer {
         @media (max-width: 1440px) {
             height: 8%;
         }
-        @include desktops {
+        @include large_tablets {
             height: 6%;
         }
         @include tablets {
             height: 2%;
         }
-        @include phones {
+        @include large_phones {
             height: 2.5%;
         }
     }
@@ -80,10 +80,10 @@ footer.footer {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             ul.btn_link {
                 @include footer_font;
-                margin-right: 40px;
+                margin-right: 5vw;
 
                 @include tablets {
                     display: flex;
@@ -92,7 +92,6 @@ footer.footer {
 
                 li {
                     padding: 2px 0;
-
                     @include tablets {
                         &:first-child {
                             margin-right: 20px;

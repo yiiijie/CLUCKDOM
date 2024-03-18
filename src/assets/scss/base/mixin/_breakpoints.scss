@@ -1,9 +1,10 @@
-@mixin small_phones {
+
+@mixin phones {
   @media (max-width: 375px) {
     @content;
   }
 }
-@mixin phones {
+@mixin large_phones {
   @media (max-width: 576px) {
     @content;
   }
@@ -15,11 +16,9 @@
   }
 }
 
-
-@mixin desktops {
+@mixin large_tablets {
   @media (max-width: 1024px) {
     @content;
   }
 }
-
 

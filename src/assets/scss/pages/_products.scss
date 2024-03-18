@@ -154,7 +154,8 @@ section.list {
             }
 
             div.view_prd_icon {
-                @include content_PC($hoverBtnColorW);
+                @include content_font;
+                color: $hoverBtnColorW;
                 opacity: 0; 
                 position: absolute;
                 top: 50%;
@@ -218,7 +219,7 @@ section.list {
             div.pcs {           
 
                 span:nth-child(1) {
-                    @include content_PC;
+                    @include content_font;
                     margin-right: 20px;
                 }
                 
@@ -228,7 +229,7 @@ section.list {
                 }
 
                 span:nth-child(3) {
-                    @include content_PC;
+                    @include content_font;
                     text-decoration: line-through;
                 }
             }

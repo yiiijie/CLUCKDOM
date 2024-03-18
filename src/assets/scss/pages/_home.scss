@@ -13,7 +13,7 @@ section.web_purpose {
         background-repeat: no-repeat;
         background-image: url(/images/home/footprint.svg);
 
-        @include phones {
+        @include large_phones {
             transform: rotate(15deg);
             left: -35vw;
         }
@@ -29,7 +29,7 @@ section.web_purpose {
         background-repeat: no-repeat;
         background-image: url(/images/home/footprint_2.svg);
 
-        @include phones {
+        @include large_phones {
             top: 20px;
             right: -10vw;
         }
@@ -49,7 +49,7 @@ section.web_purpose {
         }
 
         // 1024px以下才會出現(only首頁版型)
-        @include desktops {
+        @include large_tablets {
             display: block;
         }
     }
@@ -62,7 +62,7 @@ section.web_purpose {
         padding-top: 100px;
         justify-content: space-evenly;
 
-        @include desktops {
+        @include large_tablets {
             flex-direction: column;
         }
         
@@ -71,7 +71,7 @@ section.web_purpose {
             position: relative;
             width: clamp(200px,45vw,550px);
             
-            @include desktops {
+            @include large_tablets {
                 margin: 4% auto 0;
                 display: block;
             }
@@ -94,10 +94,15 @@ section.web_purpose {
         }
         
         div.title {
-            display: inline-block;
             margin-top: 5%;
             writing-mode: vertical-lr;
             
+            @include large_tablets {
+                margin: 3% auto 0;
+                // display: block;
+                order: -1; // 將title位置移至上方
+            }
+
             h1 {
                 @include h1_vertical;
                 
@@ -112,18 +117,10 @@ section.web_purpose {
             }
 
             span {
-                @include paragraph;
-                line-height: 60px;
-                letter-spacing: .3rem;
-                color: $secondaryText;
-                font-family: $font_family_en;
+                @include paragraph_en;
+                line-height: 4.8;
             }
 
-            @include desktops {
-                margin: 3% auto 0;
-                display: block;
-                order: -1; // 將title位置移至上方
-            }
         }
     }
 }
@@ -134,13 +131,14 @@ section.about {
 
     div.about_inner {
         max-width: $basewidth;
-        width: 80%;
+        width: 90%;
         display: flex;
         margin: 60px auto 5%;
         justify-content: space-between;
         align-items: center;
 
-        @include desktops {
+        @include large_tablets {
+            width: 80%;
             margin-bottom: 10%;
         }
 
@@ -157,7 +155,7 @@ section.about {
             p {
                 @include paragraph;
 
-                @include phones {
+                @include large_phones {
                     display: inline;
                 }
             }
@@ -170,7 +168,7 @@ section.about {
                 width: 100%;
             }
 
-            @include desktops {
+            @include large_tablets {
                 width: 30%;
             }
             @include tablets {
@@ -207,7 +205,7 @@ section.vision {
                 border-radius: 20px;
             }
 
-            @include desktops {
+            @include large_tablets {
                 padding-bottom: 50px;
                 width: 100%;
             }
@@ -219,7 +217,7 @@ section.vision {
             top: 100px;
             writing-mode: vertical-lr;
             
-            @include desktops {
+            @include large_tablets {
                 writing-mode: horizontal-tb;
                 position: relative;
                 top: 0;
@@ -229,7 +227,7 @@ section.vision {
             h2 {
                 @include h2_vertical;
 
-                @include desktops {
+                @include large_tablets {
                     @include h2;
                     line-height: normal;
                 }
@@ -277,7 +275,7 @@ section.vision {
                 border-radius: 20px;
             }
 
-            @include desktops {
+            @include large_tablets {
                 display: none;
             }
         }
@@ -287,7 +285,7 @@ section.vision {
             padding: 0 0 25% 3%;
             @include paragraph;
 
-            @include desktops {
+            @include large_tablets {
                 width: 90%;
                 margin: auto;
                 padding: 3% 0 25%;
@@ -319,7 +317,7 @@ section.vision {
                 right: 5%;
                 transform: scaleX(-1); 
             }
-            @include phones {
+            @include large_phones {
                 display: none;
             }
         }
@@ -332,7 +330,7 @@ section.vision {
             bottom: 6%;
             left: 25%;
 
-            @include desktops {
+            @include large_tablets {
                 left: 30%;
             }
             @include tablets {

@@ -15,12 +15,15 @@ div.carousel_container {
     div.carousel_list {
         position: relative;
         width: 100%;
-        height: clamp(400px,90vh,1000px);
+        height: 90vh;
         overflow: hidden;
         transition: all 0.5s;
 
-        @include phones {
+        @include large_tablets {
             height: 70vh;
+        }
+        @include tablets {
+            height: 65vh;
         }
 
         div.header_banner2 {
@@ -43,21 +46,16 @@ div.carousel_container {
     }
 
     div.header_slogan {
-        position: absolute;
-        top: 55%;
-        right: 50%;
-        transform: translate(50%,-50%);
-        text-align: center;
-        text-shadow: 0 0 4px rgba(71, 63, 59, 0.5);
+        @include header_slogan_style;
 
         span.chinese {
-            @include header_slogan;
+            @include header_slogan_font;
             display: block;
             color: $normalBgColor;
         }
 
         span.english {
-            @include header_slogan_en;
+            @include header_slogan_en_font;
             color: $normalBgColor;
         }
     }

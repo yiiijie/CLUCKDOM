@@ -114,3 +114,26 @@ div.carousel_item {
     }
 }
 
+
+:deep(.carousel__next) {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    background-color: $normalBgColor;
+    border: 1px solid $borderColor;
+    border-radius: 50% 0 0 50%;
+}
+
+:deep(.carousel__prev) {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    background-color: $normalBgColor;
+    border: 1px solid $borderColor;
+    border-radius: 0 50% 50% 0;
+}
+
+:deep(.carousel__icon) {
+    font-size: 2.5rem;
+    color: $primaryTextColor;
+}

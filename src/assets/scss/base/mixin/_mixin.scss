@@ -1,5 +1,8 @@
-@mixin header_slogan {
-    bottom: 130px;
+@mixin header_slogan_style {
+    position: absolute;
+    top: 55%;
+    right: 50%;
+    transform: translate(50%,-50%);
     text-align: center;
-    text-shadow: 0 0 5px rgba(40, 33, 29, 0.5);
+    text-shadow: 0 0 4px rgba(71, 63, 59, 0.5);
 }

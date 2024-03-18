@@ -34,7 +34,7 @@ const { showNavbar } = useNavbarVisibility();
                         <br>
                         用心<span class="secondary_color">守護</span>毎顆蛋
                     </h1>
-                    <span>⎯ GLOW UP IN LOVE ⎯</span> 
+                    <span>✤ GLOW UP IN LOVE ✤</span> 
                 </div>  
             </div>
         </section>

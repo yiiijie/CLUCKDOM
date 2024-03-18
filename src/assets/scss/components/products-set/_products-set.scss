@@ -18,7 +18,8 @@ div.title {
     }
     
     h2 {
-        @include h2_PC(#fff);
+        @include h2;
+        color: $normalBgColor;
         text-align: center;
     }
 }
@@ -55,19 +56,21 @@ ul.sets_container {
             }
     
             p.set_intro {
-                @include content_PC(#fff);
+                @include content_font;
+                color: $normalBgColor;
             }
     
             div.contents {
                 padding: 20px 0;
 
                 span {
-                    @include content_PC(#FFC93D);
+                    @include content_font;
+                    color: $normalBtnColor;
                     display: block;
     
                     .check_box {
                         margin-right: 5px;
-                        color: #fff;
+                        color: $normalBgColor;
                     }
                 }
             }
@@ -79,7 +82,8 @@ ul.sets_container {
 
                 div.price {           
                     span:nth-child(1) {
-                        @include content_PC(#fff);
+                        @include content_font;
+                        color: $normalBgColor;
                         margin-right: 20px;
                     }
                     
@@ -89,13 +93,14 @@ ul.sets_container {
                     }
 
                     span:nth-child(3) {
-                        @include content_PC(#fff);
+                        @include content_font;
+                        color: $normalBgColor;
                         text-decoration: line-through;
                     }
                 }
            
                 button.cart_btn {
-                    @include paragraph_PC($primaryText);
+                    @include paragraph;
                     padding: 5px 20px;
                     border: none;
                     border-radius: 50px;

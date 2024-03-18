@@ -36,13 +36,6 @@ const navItems = reactive([
             </div>
             <div class="footer_main">
                 <div class="footer_info">
-                    <!-- only mobile -->
-                    <!-- <div class="mobile_logo">
-                        <RouterLink :to="'/'">
-                            <img src="/images/home/header/logo_red.svg" alt="logo_red">
-                        </RouterLink>
-                    </div> -->
-                    <!-- --- -->
                     <ul class="btn_link">
                         <li>
                             <RouterLink :to="'/'">

@@ -56,17 +56,18 @@ section.prd_container {
             font-size: $h4Fz_PC;
         }
         p.prd_features {
-            @include paragraph_PC($secondaryText);
+            @include paragraph;
+            color: $secondaryText;
             margin: 20px 0;
         }
         p.prd_slogan {
-            @include paragraph_PC;
+            @include paragraph;
         }
         div.prd_price {
             margin: 40px 0 30px;
 
             span.title {
-                @include paragraph_PC;
+                @include paragraph;
                 display: block;
             }
             span.current_price {
@@ -74,7 +75,8 @@ section.prd_container {
                 padding-right: 10px;
             }
             del.original_price {
-                @include content_PC($grayText);
+                @include content_font;
+                color: $grayText;
                 letter-spacing: 0.05rem;
             }
         }

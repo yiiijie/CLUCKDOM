@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 85.41 65.04">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ef5c3f;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath-1);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" x=".52" y="-.43" width="33.85" height="38.22" transform="translate(-7.53 13.26) rotate(-34.71)"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-2" x="51.85" y="25.69" width="33.85" height="38.22" transform="translate(-7.72 15.05) rotate(-11.83)"/>
+    </clipPath>
+  </defs>
+  <g class="cls-3">
+    <path class="cls-1" d="M30.86,8.36C42.5,36.26,13.02,51.24.49,22.66c-.42-.96.67-1.93,1.59-1.43,17.62,9.52,10.22,1.29,8.41-12.59-.11-.8-.16-1.21-.22-1.76-2.2-18.51,8.21,6.17,12.78,13.55.39.62,1.29.7,1.79.12,2.61-3.01,2.79-7.89,3.91-12,.28-1.03,1.71-1.17,2.12-.2h0Z"/>
+  </g>
+  <g class="cls-4">
+    <path class="cls-1" d="M85.15,40.51c-.13,30.23-33.11,32.57-33.54,1.37-.01-1.05,1.36-1.52,2.02-.7,12.53,15.63,8.91,5.16,12.64-8.33.21-.78.32-1.18.48-1.71,5.17-17.91,5.17,8.88,6.51,17.45.11.73.92,1.14,1.6.81,3.57-1.76,5.64-6.18,8.26-9.54.66-.84,2.03-.41,2.03.64h0Z"/>
+  </g>
+</svg>

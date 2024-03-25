@@ -7,170 +7,225 @@ section.header_container {
     }
 }
 
-
 section.falling_eggs_container {
     position: relative;
     width: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-image: url('/images/products/falling_eggs.svg');
+    animation: falling_loop 60s infinite linear;
 
     div.egg_intro {
         max-width: $basewidth;
-        padding: 150px 0 250px;
+        width: 80%;
+        padding: 10% 0;
         margin: auto;
         text-align: center;
 
+        @include large_tablets {
+            padding: 10% 0 18%;
+        }
+        @include tablets {
+            padding: 10% 0 30%;
+        }
+        @include large_phones {
+            padding: 10% 0 38%;
+        }
+
         h1 {
-            @include h1_PC;
-
+            @include h1;
+            
             span.important_color {
-                color:$importantText;
+                color:$importantColor;
             }
-
             span.secondary_color {
-                color:$secondaryText;
+                color:$secondaryColor;
             }
         }
 
         p {
-            @include paragraph_PC;
+            @include paragraph;
             margin: 50px 0 0;
             line-height: 2.5;
         }
     }
-
-    div.falling_eggs_bg {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: -1;
-        background-size: cover;
-        background-image: url('/images/products/falling_eggs.svg');
-        animation: falling_loop 60s infinite linear;
-    }
 }
 
 @keyframes falling_loop {
-    0%{
+    0% {
         background-position: center 100%;
     }
     100% {
         background-position: center 0;
     }
-
 }
 
-// 產品項目
+
+img.wave {
+    display: block;
+}
 section.list {
-    max-width: 100%;
     position: relative;
-    padding-bottom: 100px;
+    padding: 5% 0 8%;
     background-color: $productsBgColor;
 
-    img.wave03 {
-        width: 100%;
-        position: absolute;
-        top: -100px;
-        z-index: -1;
+    @include tablets {
+        padding: 8% 0;
     }
 
     // 裝飾 child & hen
-    div.illust {
-        position: relative;
+    div.decoration:nth-child(1) {
+        position: absolute;
+        width: 100%;
+        top: -1.5%;
+        overflow: hidden;
 
-        div.decoration:nth-child(1) {
-            position: absolute;
-            width: 18%;
-            top: -450px;
-            left: 15%;
-
-            img {
-                width: 100%;
-            }
+        @include tablets {
+            top: -20px;
+        }
+        @include large_phones {
+            display: none;
         }
 
-        div.decoration:nth-child(2) {
-            position: absolute;
-            width: 13%;
-            top: -220px;
-            right: 15%;
+        img {
+            width: 120%;
 
-            img {
-                width: 100%;
+            @include tablets {
+                width: 160%;
             }
         }
+    }
 
-        div.decoration:nth-child(3) {
-            position: absolute;
+    div.decoration:nth-child(2) {
+        position: absolute;
+        width: clamp(130px,22vw,300px);
+        height: 10%;
+        top: -12%;
+        left: 10%;
+
+        @include tablets {
+            top: -4.5%;
+        }
+
+        img {
             width: 100%;
-            top: -130px;
-            // right: 15%;
-            z-index: -1;
+        }
+    }
 
-            img {
-                width: 100%;
-            }
+    div.decoration:nth-child(3) {
+        position: absolute;
+        width: clamp(100px,16vw,200px);
+        top: -5%;
+        right: 10%;
+
+        @include tablets {
+            top: -2%;
+        }
+
+        img {
+            width: 100%;
         }
     }
 
     ul.list_inner {
         max-width: $basewidth;
+        width: 80%;
         margin: auto;
 
         li {
             display: flex;
-            padding: 50px 30px;
-            gap: 0 100px;
+            padding: 5% 0;
+            gap: 0 7%;
             align-items: center;
             justify-content: space-between;
 
             &:nth-child(even) {
                 flex-direction: row-reverse;
+
+                @include tablets {
+                    flex-direction: column;
+                }
+            }
+
+            @include tablets {
+                flex-direction: column;
+                padding: 8% 0;
             }
         }
 
         a.prd_img {
-            max-width: 50%;
+            width: 50%;
             position: relative;
+
+            @include tablets {
+                width: 100%;
+            }
+
+            &::before {
+                content: '';
+                width: 12%;
+                height: 10%;
+                position: absolute;
+                bottom: 10%;
+                right: 10%;
+                z-index: 2;
+                transform: rotate(-15deg);
+                background: url('/images/products/footprint_1.svg') no-repeat;
+            }
 
             img {
                 width: 100%;
                 border-radius: 50%;
-                border: 7px solid #fff;
                 box-sizing: border-box; 
+                border: 7px solid $normalColor;
+
+                @include large_tablets {
+                    border: 4px solid $normalColor;
+                }
             }
 
-            div.prd_click {
+            div.prd_click_bg {
                 opacity: 0; 
                 position: absolute;
                 width: 100%; 
                 height: 100%;
                 border-radius: 50%;
                 background-color: $productsBgColor;
-                transition: 0.2s; 
+                transition: .3s; 
             }
 
-            &:hover .prd_click {
+            &:hover .prd_click_bg {
                 opacity: .6;
             }
 
-            div.view_prd_icon {
-                @include content_font;
-                color: $hoverBtnColorW;
-                opacity: 0; 
+            div.view_prd_circle {
+                width: 150px;
+                height: 150px;
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%,-50%);
-                width: 70px; 
-                height: 70px;
-                padding: 20px;
-                text-align: center;
+                opacity: 0; 
                 border-radius: 50%;
+                transition: .2s; 
                 background-color: $importantBtnColor;
-                transition: 0.2s; 
+
+                @include large_phones {
+                    display: none;
+                }
+                
+                div.txt {
+                    @include paragraph;
+                    color: $normalColor;
+                    text-align: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                }
 
                 .icon {
-                    font-size: 1.5rem;
+                    font-size: 2rem;
                 }
 
                 span {
@@ -178,93 +233,122 @@ section.list {
                 }
             }
 
-            &:hover .view_prd_icon {
+            &:hover .view_prd_circle {
                 opacity: 1;
             }
         }
 
-        div.logo {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 40px;
+        div.prd_content {
+            width: 50%;
 
-            img {
-                max-width: 100%;
+            @include tablets {
+                width: 100%;
             }
-        }
 
-        p.prd_intro_txt {
-            @include paragraph_PC;
-            margin-bottom: 40px;
-        }
-
-        div.nutrition_facts {
-            @include paragraph_PC;
-            display: flex;
-            padding: 10px 30px;
-            margin-bottom: 40px;
-            align-items: center;
-            justify-content: space-between;
-            color: $secondaryText;
-            background-color:#fff;
-            border-radius: 10px;
-            border: 1px solid $secondaryText;
-        }
-
-        div.price_container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            div.pcs {           
-
-                span:nth-child(1) {
-                    @include content_font;
-                    margin-right: 20px;
-                }
+            div.logo {
+                width: 70%;
+                margin: auto;
+                padding: 0 0 7%;
                 
-                span:nth-child(2) {
-                    @include priceFont_PC;
-                    margin-right: 10px;
+                img {
+                    width: 100%;
                 }
 
-                span:nth-child(3) {
-                    @include content_font;
-                    text-decoration: line-through;
+                @include tablets {
+                    width: 50%;
+                    padding: 4% 0;
                 }
             }
+    
+            p.prd_intro {
+                @include paragraph;
+                margin-bottom: 7%;
 
-            
-            button.cart_btn {
-                @include paragraph_PC(#fff);
-                padding: 5px 30px;
-                border: none;
-                border-radius: 50px;
+                @include tablets {
+                    margin-bottom: 5%;
+                }
+            }
+    
+            div.nutrition_facts {
+                @include content_font;
+                display: flex;
+                padding: 3% 5%;
+                margin-bottom: 7%;
+                align-items: center;
+                justify-content: space-between;
                 cursor: pointer;
-                background-color: $importantBtnColor;
-                transition: .2s;
-                
-                &:hover {
-                    background-color: $hoverBtnColorY;                      
-                }
+                border-radius: 10px;
+                color: $secondaryColor;
+                background-color: $normalColor;
+                border: 1px solid $secondaryColor;
 
-                .cart_icon {
-                    margin-right: 10px;
+                @include tablets {
+                    margin-bottom: 5%;
+                }
+            }
+    
+            div.price_container {
+                display: flex;
+                align-items: center;
+
+                @include large_phones {
+                    display: block;
+                    flex-direction: column;
+                }
+    
+                div.pcs {
+                    flex: 1;
+
+                    @include large_phones {
+                        margin-bottom: 5%;
+                    }
+    
+                    span:nth-child(1) {
+                        @include content_font;
+                        padding-right: 15px;
+                    }
+                    
+                    span:nth-child(2) {
+                        @include price_font;
+                        padding-right: 10px;
+                    }
+    
+                    span:nth-child(3) {
+                        @include content_font;
+                        letter-spacing: 0;
+                        color: $grayText;
+                        text-decoration: line-through;
+                    }
+                }
+                
+                button.cart_btn {
+                    @include paragraph;
+                    color: $normalColor;
+                    padding: 6px 30px;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    background-color: $importantBtnColor;
+                    transition: .2s;
+
+                    @include large_tablets {
+                        padding: 6px 15px;
+                    }
+                    @include tablets {
+                        padding: 6px 30px;
+                    }
+                    @include large_phones {
+                        width: 100%;
+                    }
+                    
+                    &:hover {
+                        background-color: $hoverBtnColorY;                      
+                    }
+    
+                    .cart_icon {
+                        padding-right: 10px;
+                    }
                 }
             }
         }
     }
-}
-
-// 產品禮盒（組合）
-img.wave04 {
-    width: 100%;
-    display: block;
-}
-
-section.set {
-    max-width: 100%;
-    position: relative;
-    padding-bottom: 100px;
-    background-color: $productsSetsBgColor;
 }

@@ -20,8 +20,7 @@ section.chart {
         left: 25%;
         top: 0px;
         transform: translateY(-100%);
-        background-repeat: no-repeat;
-        background-image: url(/images/about/chart/hen_sing.svg);
+        background: url(/images/about/chart/hen_sing.svg) no-repeat;
 
         @include large_tablets {
             top: 5.5%;
@@ -84,6 +83,7 @@ section.chart {
             position: relative;
             margin: 3% 3.5%;
             text-align: center;
+            cursor: pointer;
 
             @include tablets {
                 width: 35%;
@@ -101,8 +101,7 @@ section.chart {
                 position: absolute;
                 top: -5%;
                 z-index: -1;
-                background-repeat: no-repeat;
-                background-image: url(/images/about/chart/comb.svg);
+                background: url(/images/about/chart/comb.svg) no-repeat;
 
                 @include large_tablets {
                     height: 14%;
@@ -130,14 +129,13 @@ section.chart {
                     top: 25%;
                     z-index: 1;
                     animation: arrowMovement 1.8s infinite;
-                    background-repeat: no-repeat;
-                    background-image: url(/images/about/chart/arrow.svg);
+                    background: url(/images/about/chart/arrow.svg) no-repeat;
 
                     @include large_tablets {
                         top: 20%;
                     }
                     @include tablets {
-                        top: 30%;
+                        top: 100px;
                     }
                     @include large_phones {
                         display: none;
@@ -170,6 +168,16 @@ section.chart {
                     font-weight: $fWBold;
                     color: $primaryColor;
                     font-family: $font_family_title;
+
+                    @include tablets {
+                        top: -8%;
+                    }
+                    @include large_phones {
+                        @include h3;
+                        top: -5%;
+                        font-family: $font_family_title;
+                        color: $primaryColor;
+                    }
                 }
             }
 
@@ -199,14 +207,13 @@ section.chart {
             }
 
             // 768px以下出現
-            button.see_more_btn,
-            .see_less_btn {
+            button.see_more_btn {
                 margin: 5% auto;
                 display: block;
                 padding: 3% 10%;
                 border-radius: 50px;
-                cursor: pointer;
                 color: $grayText;
+                cursor: pointer;
                 border: 1px solid $borderColor;
                 background-color: $normalBgColor;
             }

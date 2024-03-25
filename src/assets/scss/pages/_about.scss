@@ -146,7 +146,7 @@ div.certification_inner {
                             }
                         }
 
-                        h3 {
+                        h3.mark_name {
                             @include h3;
                             position: relative;
                             top: 18%;
@@ -272,7 +272,7 @@ section.cluckdom_intro {
             }
 
             span.info_source {
-                @include smallFont;
+                @include small_font;
                 display: block;
                 padding-top: 10px;
                 color: $remark;
@@ -319,7 +319,7 @@ section.about_us_inner {
 
     div.text {
         div.title_en {       
-            h2 {
+            h2.english {
                 @include h2_en;
 
                 @include large_tablets {
@@ -337,7 +337,7 @@ section.about_us_inner {
             }
         }
 
-        h3.title {
+        h2.title {
             @include h2;
             padding: 5% 0;
             position: relative;

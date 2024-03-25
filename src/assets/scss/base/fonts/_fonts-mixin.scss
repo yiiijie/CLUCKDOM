@@ -27,11 +27,13 @@ $slogan_en: clamp(1.2rem,3vw,2.8rem);
 $h1: clamp(2.1rem,4.5vw,3.6rem);
 $h2: clamp(2rem,3.5vw,3.2rem);
 $h3: clamp(1.8rem,1.5vw,2.4rem);
+$h4: clamp(1.5rem, 2vw, 2rem);
 $en_title: clamp(2.5rem,6vw,3.6rem);
 $paragraph: clamp(1.4rem,1.5vw,1.6rem);
 $paragraph_en: clamp(1.2rem,1.5vw,1.6rem);
 $content_font: clamp(1.3rem,1.5vw,1.5rem);
-$little_font: 1.2rem;
+$small_font: 1.2rem;
+$price_font: clamp(1.6rem,3vw,2rem);
 
 
 // 要刪掉
@@ -96,7 +98,7 @@ $smallLh_PC: 1.75;
 
 @mixin h1_vertical {
   font-size: $h1;
-  font-weight: $fWRegular;
+  font-weight: $fWBold;
   letter-spacing: .5rem;
   line-height: 2;
   font-family: $font_family_title;
@@ -115,7 +117,7 @@ $smallLh_PC: 1.75;
 
 @mixin h2_vertical {
   font-size: $h2;
-  font-weight: $fWRegular;
+  font-weight: $fWBold;
   letter-spacing: .5rem;
   line-height: 2;
   font-family: $font_family_title;
@@ -153,7 +155,7 @@ $smallLh_PC: 1.75;
 
 @mixin h2 {
   font-size: $h2;
-  font-weight: $fWRegular;
+  font-weight: $fWBold;
   letter-spacing: .2rem;
   font-family: $font_family_title;
   color: $primaryTextColor;
@@ -189,12 +191,12 @@ $smallLh_PC: 1.75;
 @mixin h3 {
   font-size: $h3;
   font-weight: $fWBold;
-  letter-spacing: $h3Ls;
+  letter-spacing: .2rem;
   line-height: $h3Lh_PC;
-  font-family: $font_family_content;
+  font-family: $font_family_title;
   color: $primaryTextColor;
 }
-
+// 要刪掉
 @mixin h4_PC ($textColor: $defaultColor){
   font-size: $h4Fz_PC;
   font-weight: $fWBold;
@@ -202,6 +204,14 @@ $smallLh_PC: 1.75;
   line-height: $h4Lh_PC;
   font-family: $font_family_title;
   color: $textColor;
+}
+
+@mixin h4 {
+  font-size: $h4;
+  font-weight: $fWBold;
+  letter-spacing: .16rem;
+  font-family: $font_family_title;
+  color: $primaryTextColor;
 }
 
 @mixin h5_PC ($textColor: $defaultColor){
@@ -280,7 +290,7 @@ $smallLh_PC: 1.75;
   letter-spacing: $smallLs;
   color: $textColor;
 }
-
+// 要刪掉
 @mixin smallFont {
   font-size: $little_font;
   font-weight: $fWRegular;
@@ -288,6 +298,14 @@ $smallLh_PC: 1.75;
   color: $primaryTextColor;
 }
 
+@mixin small_font {
+  font-size: $small_font;
+  font-weight: $fWRegular;
+  letter-spacing: .05rem;
+  color: $primaryTextColor;
+}
+
+// 要刪掉
 @mixin priceFont_PC ($textColor: $defaultColor){
   font-size: 1.75rem;
   font-weight: $fWBold;
@@ -295,6 +313,13 @@ $smallLh_PC: 1.75;
   color: $textColor;
 }
 
+@mixin price_font {
+  font-size: $price_font;
+  font-weight: $fWBold;
+  font-family: $font_price;
+  color: $primaryTextColor;
+}
+// 要刪掉
 @mixin product_name_font ($textColor: $defaultColor){
   font-size: $pFz_PC;
   font-weight: $fWBold;

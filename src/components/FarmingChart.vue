@@ -1,28 +1,11 @@
 <script setup>
-import { ref, reactive, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import useContentVisibility from '@/composables/useContentVisibility';
 
 const router = useRouter();
 const isFirstDialog = (index) => index === 0;
-
-const isLargeTablet = ref(window.innerWidth > 768);
-const showContent = ref(false);
-
-// 監聽視窗大小變化，判斷當前視窗是否為768px以上
-const handleResize = () => {
-  isLargeTablet.value = window.innerWidth > 768;
-};
-// 根據當前索引index的點擊狀態來切換內容的顯示與隱藏
-const toggleContent = (index) => {
-  showContent.value = showContent.value === index ? false : index;
-};
-
-onMounted(() => {
-  window.addEventListener('resize', handleResize);
-});
-onUnmounted(() => {
-  window.removeEventListener('resize', handleResize);
-});
+const{ isLargeTablet, showContent, toggleContentVisibility } = useContentVisibility();
 
 const steps = reactive([
     {
@@ -89,7 +72,7 @@ const steps = reactive([
         <ul class="chart_inner">
             <li v-for="(step, index) in steps"
             :key="step.index" class="step"
-            @click="toggleContent(index)">
+            @click="toggleContentVisibility(index)">
                 <figure class="pic">
                     <p v-if="isFirstDialog(index)"
                     class="first_dialog"
@@ -100,16 +83,14 @@ const steps = reactive([
                 </figure>
                 <span class="step_title">{{ step.stepTitle }}</span>             
                 <figcaption class="content"
-                v-show="showContent === step.index || isLargeTablet">
+                v-show="showContent === index || isLargeTablet">
                     {{ step.content }}
                 </figcaption>
-                <button v-show="showContent !== step.index && !isLargeTablet"
-                class="see_more_btn">
-                    <font-awesome-icon icon="plus" />
-                </button>
-                <button v-show="showContent === step.index && !isLargeTablet"
-                class="see_less_btn">
-                    <font-awesome-icon icon="angle-up" />
+                <button class="see_more_btn" v-show="!isLargeTablet">
+                    <font-awesome-icon icon="plus"
+                    v-show="showContent !== index && !isLargeTablet"/>
+                    <font-awesome-icon icon="angle-up"
+                    v-show="showContent === index && !isLargeTablet"/>
                 </button>
             </li>
 
@@ -126,7 +107,6 @@ const steps = reactive([
             </div>
         </ul>
     </section>
-
 </template>
 
 <style lang="scss">

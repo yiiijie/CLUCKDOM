@@ -72,7 +72,7 @@ div.carousel_item {
             text-align: left;
 
             span {
-                @include smallFont_PC;
+                @include small_font;
                 font-family: $font_family_en;
             }
 
@@ -85,7 +85,7 @@ div.carousel_item {
                 font-weight: $fWBold;
     
                 span.product_slogan {
-                    @include smallFont;
+                    @include small_font;
                     margin-left: 5px;
                     color: $importantText;
                     font-family: $font_family_title;

@@ -79,41 +79,39 @@ const list = reactive([
                     <br>歡迎踏入雞蛋王國參觀雞蛋的新世界！
                 </p>    
             </div>
-            <div class="falling_eggs_bg"></div> 
         </section>
-    
-        <!-- 產品項目 -->
+
+        <img class="wave" src="/images/products/wave_1.svg" alt="wave">
         <section class="list">
-            <img class="wave03" src="/images/products/img_wave03.svg" alt="wave">
-            <div class="illust">
-                <div class="decoration">
-                    <img src="/images/products/child.svg" alt="裝飾圖">
-                </div>
-                <div class="decoration">
-                     <img src="/images/products/hen.svg" alt="裝飾圖">
-                </div>
-                <div class="decoration">
-                    <img src="/images/products/eggs_line.svg" alt="裝飾圖">
-                </div>
+            <div class="decoration">
+                <img src="/images/products/eggs_line.svg" alt="裝飾圖">
+            </div>
+            <div class="decoration">
+                <img src="/images/products/child.svg" alt="裝飾圖">
+            </div>
+            <div class="decoration">
+                <img src="/images/products/hen.svg" alt="裝飾圖">
             </div>
             <ul class="list_inner">
                 <li v-for="item in list" :key="item.id">
                     <RouterLink :to="'/products/details'" class="prd_img">
-                        <div class="prd_click"></div>
-                        <div class="view_prd_icon">
-                            <font-awesome-icon icon="magnifying-glass" class="icon" />
-                            <span>查看商品</span>
+                        <div class="prd_click_bg"></div>
+                        <div class="view_prd_circle">
+                            <div class="txt">
+                                <font-awesome-icon icon="magnifying-glass" class="icon" />
+                                <span>查看商品</span>
+                            </div>
                         </div>
                         <img :src="item.imgPath" alt="產品圖">
                     </RouterLink>
-                    <div class="txt_container">
+                    <div class="prd_content">
                         <div class="logo">
                             <img :src="item.prdLogoPath" alt="產品logo">
                         </div>
-                        <p class="prd_intro_txt">{{ item.prdIntro }}</p>
+                        <p class="prd_intro">{{ item.prdIntro }}</p>
                         <div class="nutrition_facts">
                             <span>營養成分表 (100g含量)</span>
-                            <font-awesome-icon icon="sort-down" />
+                            <font-awesome-icon icon="circle-plus" />
                         </div>
                         <div class="price_container">
                             <div class="pcs">
@@ -124,19 +122,16 @@ const list = reactive([
                             <RouterLink :to="'/'">
                                 <button type="button" class="cart_btn">
                                     <font-awesome-icon icon="cart-shopping" class="cart_icon" />
-                                    加入購物車</button>
+                                    <span>加入購物車</span>
+                                </button>
                             </RouterLink>                     
                         </div>
                     </div>
                 </li>
             </ul>
         </section>
-    
-        <!-- 產品禮盒（組合） -->
-        <img class="wave04" src="/images/products/img_wave04.svg" alt="wave">
-        <section class="set">
-            <ProductsSet />  
-        </section>
+
+        <ProductsSet />  
     </div>
 </template>
 

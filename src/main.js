@@ -22,7 +22,8 @@ import { library } from "@fortawesome/fontawesome-svg-core"
 // add some free styles
 import { fab } from "@fortawesome/free-brands-svg-icons"
 import { fas } from "@fortawesome/free-solid-svg-icons"
-library.add(fab, fas)
+import { far } from "@fortawesome/free-regular-svg-icons";
+library.add(fab, fas, far)
 
 
 //firebase
@@ -34,6 +35,4 @@ const app = createApp(App)
 
 app.use(router)
 app.component("font-awesome-icon", FontAwesomeIcon)
-
-
 app.mount("#app")

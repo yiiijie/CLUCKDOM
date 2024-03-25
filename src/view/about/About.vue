@@ -70,7 +70,7 @@ const cards = reactive([
                         <div class="flip_card_container">
                             <div class="flip_card_front">
                                 <div class="mark">
-                                    <h3>{{ card.markName }}</h3>
+                                    <h3 class="mark_name">{{ card.markName }}</h3>
                                     <div class="pic">
                                         <img :src="card.imgPath" alt="CAS認證標章">
                                     </div>
@@ -128,12 +128,12 @@ const cards = reactive([
             <div class="text" data-aos="fade-right">
                 <div class="title_en">
                     <img src="/images/about/img_eggs_line.svg" alt="裝飾線">
-                    <h2>ABOUT US</h2>
+                    <h2 class="english">ABOUT US</h2>
                 </div>
-                <h3 class="title">細心耕耘，不僅是美食
+                <h2 class="title">細心耕耘，不僅是美食
                     <br>
                     更是<span class="secondary_color">健康</span>與<span class="secondary_color">自然</span>的完美融合
-                </h3>
+                </h2>
                 <div class="content">
                     <p>目前雞場飼養約六萬隻雞，我們採用自動化系統管理飼料供應等工作，唯一仍然由人手操作的環節是雞蛋的收集。</p>
                     <p>我們深知環境對於雞蛋的品質影響重大，因此我們只使用純天然水及山海的恩惠，提供高品質同時，提供充滿快樂氣息的生長環境給我們的雞隻。 </p>

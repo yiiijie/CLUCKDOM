@@ -42,12 +42,6 @@ const imgGroup = ref([
 const changeMainImage = (src) => {
   mainImgSrc.value = src;
 };
-
-// const prdInfo = ref([
-//   {
-//     title:'放牧土雞蛋｜幸福好蛋'
-//   }
-// ])
 </script>
 
 <template>

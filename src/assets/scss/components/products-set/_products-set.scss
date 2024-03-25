@@ -1,15 +1,73 @@
 
+img.set_wave {
+    width: 100%;
+    display: block;
+    background-color: $productsBgColor;
+}
+
+section.set {
+    position: relative;
+    padding-bottom: 5%;
+
+    @include large_phones {
+        padding-bottom: 15%;
+    }
+}
+
 section.sets_inner {
+    position: relative;
     max-width: $basewidth;
+    width: 85%;
     margin: auto;
+
+    &::before {
+        content: '';
+        width: 15%;
+        height: 5%;
+        position: absolute;
+        top: 9%;
+        left: 10%;
+        background: url('/images/products/sets/nest.svg') no-repeat;
+
+        @include tablets {
+            top: 6%;
+            left: 6%;
+        }
+        @include large_phones {
+            display: none;
+        }
+    }
+
+    &::after {
+        content: '';
+        width: 15%;
+        height: 5%;
+        position: absolute;
+        top: 8%;
+        right: 10%;
+        background: url('/images/products/sets/blackhen.svg') no-repeat;
+
+        @include tablets {
+            top: 6%;
+            right: 6%;
+        }
+        @include large_phones {
+            width: 20%;
+            right: 0;
+        }
+    }
 }
 
 div.title {
     position: relative;
-    padding: 50px 0 80px;
+    padding: 8% 0;
+
+    @include large_phones {
+        padding: 15% 0 12%;
+    }
 
     div.subtitle_icon {
-        width: 20%;
+        width: clamp(170px,15vw,260px);
         margin: auto;
 
         img {
@@ -19,7 +77,7 @@ div.title {
     
     h2 {
         @include h2;
-        color: $normalBgColor;
+        padding-top: 5px;
         text-align: center;
     }
 }
@@ -27,16 +85,25 @@ div.title {
 ul.sets_container {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 30px;
-    box-sizing: border-box;
     justify-content: space-between;
 
     li {
-        max-width: 30%;
-        padding-bottom: 100px;
+        width: 30%;
+        padding-bottom: 8%;
+
+        @include large_tablets {
+            width: 45%;
+        }
+        @include large_phones {
+            width: 47%;
+            padding-bottom: 10%;
+            text-align: center;
+        }
 
         div.set_img {
-            padding-bottom: 30px;
+            padding-bottom: 7%;
+            cursor: pointer;
+
             img {
                 width: 100%;
                 border-radius: 50%;
@@ -46,70 +113,109 @@ ul.sets_container {
         div.set_info {
             padding: 0 10px;
 
-            span.set_name {
-                @include product_name_font(#fff);
-            }
-
-            div.border_line {
-                margin: 20px 0;
-                border: .1px solid #fff;
+            h4.set_name {
+                @include h4;
+                color: $primaryTextColor;
+                padding-bottom: 5%;
             }
     
             p.set_intro {
                 @include content_font;
-                color: $normalBgColor;
-            }
-    
-            div.contents {
-                padding: 20px 0;
+                color: $primaryTextColor;
 
-                span {
-                    @include content_font;
-                    color: $normalBtnColor;
-                    display: block;
+                @include large_phones {
+                    display: none;
+                }
+            }
+
+            div.set_contents {
+                @include tablets {
+                    margin: 5% 0;
+                    border-radius: 6px;
+                    border: 1px solid $secondaryColor;
+                }
+
+                // 768px以下出現
+                button.see_more_btn,
+                button.see_less_btn {
+                    width: 100%;
+                    padding: 4% 0;
+                    cursor: pointer;
+                    background-color: transparent;
     
-                    .check_box {
-                        margin-right: 5px;
-                        color: $normalBgColor;
+                    span {
+                        @include content_font;
+                        padding-right: 5px;
+                        color: $secondaryColor;
+                    }
+                    
+                    .arrow {
+                        color: $secondaryColor;
+                    }
+                }
+    
+                div.contents {
+                    padding: 20px 0;
+    
+                    @include tablets {
+                        padding: 20px 15px;
+                        border-top: 1px solid $secondaryColor;
+                    }
+    
+                    span {
+                        @include content_font;
+                        color: $grayText;
+                        display: block;
+        
+                        .check_box {
+                            margin-right: 5px;
+                            color: $secondaryColor;
+                        }
                     }
                 }
             }
 
             div.price_container {
-                display: flex;
-                justify-content: space-between;
                 align-items: center;
+                justify-content: space-between;
 
-                div.price {           
+                div.price {
+                    margin-bottom: 5%;
+
                     span:nth-child(1) {
-                        @include content_font;
-                        color: $normalBgColor;
-                        margin-right: 20px;
-                    }
-                    
-                    span:nth-child(2) {
-                        @include priceFont_PC(#fff);
+                        @include price_font;
                         margin-right: 10px;
                     }
 
-                    span:nth-child(3) {
+                    span:nth-child(2) {
                         @include content_font;
-                        color: $normalBgColor;
+                        letter-spacing: 0;
+                        color: $grayText;
                         text-decoration: line-through;
                     }
                 }
            
                 button.cart_btn {
                     @include paragraph;
-                    padding: 5px 20px;
-                    border: none;
+                    width: 100%;
+                    padding: 6px 20px;
                     border-radius: 50px;
                     cursor: pointer;
-                    background-color: $normalBtnColor;
+                    color: $normalColor;
+                    background-color: $importantBtnColor;
                     transition: .2s;
 
+                    .cart_icon {
+                        padding-right: 10px;
+
+                        @include large_phones {
+                            display: none;
+                        }
+                    }
+
                     &:hover {
-                        background-color: $hoverBtnColorW;                      
+                        color: $normalColor;
+                        background-color: $normalBtnColor;                      
                     }
                 }
             }

@@ -91,7 +91,7 @@ header > nav.navbar {
             background-color: $hoverBtnColorR;
 
             &:hover {
-                @extend %hover_rotate;
+                @include hover_rotate;
             }
         }
     }

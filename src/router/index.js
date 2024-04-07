@@ -24,18 +24,22 @@ const router = createRouter({
       path: "/products/details",
       name: "details",
       component: () => import("@/view/products/details/Details.vue"),
-      meta: {
-        hideHeader: false,
-        hideFooter: false,
-      },
+      // meta: {
+      //   hideHeader: false,
+      //   hideFooter: false,
+      // },
     },
     {
       path: "/sign-in",
       name: "sign-in",
       component: () => import("@/view/sign-in/SignIn.vue"),
+    },
+    {
+      path: "/contact-us",
+      name: "contact-us",
+      component: () => import("@/view/contact-us/ContactUs.vue"),
       meta: {
-        hideHeader: true,
-        hideFooter: true,
+        footerColor: "#fff",
       },
     },
   ],

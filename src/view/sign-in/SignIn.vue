@@ -1,11 +1,9 @@
 <script setup>
 import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue';
-import Navbar from '@/components/global/Navbar.vue';
 </script>
 
 <template>
     <div>
-        <Navbar/>
         <main class="form_container">
             <div class="form_inner">
                 <span class="form_title">會員登入</span>

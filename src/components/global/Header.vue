@@ -101,8 +101,10 @@ const social = reactive([
                             <span class="label">{{ navItem.label }}</span>
                             <span class="label_en">{{ navItem['label_en'] }}</span>
                         </RouterLink>
-                    </li>                 
-                    <button class="contact_us">聯絡我們</button>
+                    </li>
+                    <RouterLink to="/contact-us">
+                        <button class="contact_us">聯絡我們</button>
+                    </RouterLink>
                     <button class="signin_btn">會員登入</button>
                 </ul>
                 <!-- 社群連結 -->
@@ -137,13 +139,11 @@ const social = reactive([
                 </ul>         
             </nav>
             <div class="contact_icon">
-                <div class="email">
-                    <a href="#">
-                        <font-awesome-icon
-                        class="icon"
-                        :icon="['fas', 'envelope']" />
-                    </a>
-                </div>
+                <RouterLink to="/contact-us" class="email">
+                    <font-awesome-icon
+                    class="icon"
+                    :icon="['fas', 'envelope']" />
+                </RouterLink>
                 <div class="social">
                     <div v-for="item in social" :key="item.index" :class="item.class">
                         <a :href="item.link">

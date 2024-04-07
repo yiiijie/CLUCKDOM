@@ -2,12 +2,12 @@ main {
     background-color: $productsBgColor;
 }
 
-section.prd_container {
+section.prd_inner {
     max-width: $basewidth;
+    width: 85%;
     display: flex;
     margin: auto;
-    padding: 270px 3%;
-    box-sizing: border-box;
+    padding: 270px 0;
 
     div.prd_photos {
         width: 65%;

@@ -3,7 +3,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: 100;
     background-repeat: no-repeat;
 
     img {
@@ -14,7 +14,6 @@
 
 footer.footer {
     position: relative;
-    background-color: $footerBgColor;
 
     &::before {
         content: '';
@@ -23,8 +22,7 @@ footer.footer {
         height: 9.5%;
         z-index: 10;
         transform: translateY(-100%);
-        background-repeat: repeat-x;
-        background-image: url(/images/footer/footerwave.svg);
+        background: url(/images/footer/footerwave.svg) repeat-x;
 
         @media (max-width: 1440px) {
             height: 8%;
@@ -65,8 +63,8 @@ footer.footer {
             }
 
             &:hover {
-                transform: rotate(5deg);
                 opacity: 0.9;
+                transform: rotate(5deg);
                 transition: .1s;
             }
         }
@@ -127,11 +125,11 @@ footer.footer {
                     height: 20px;
                     padding: 12px;
                     border-radius: 50%;
-                    color: $normalBgColor;
                     cursor: pointer;
+                    color: $normalBgColor;
 
                     &:hover {
-                        @extend %hover_rotate;
+                        @include hover_rotate;
                     }
                 }
                 .fb {
@@ -158,10 +156,10 @@ footer.footer {
                 text-align: center;
 
                 @include tablets {
-                    background-color: $normalBgColor;
                     padding: 15px;
                     margin: 2px;
                     border-radius: 6px;
+                    background-color: $normalBgColor;
                 }
 
                 a.nav_link {   
@@ -173,15 +171,7 @@ footer.footer {
                         display: flex;
                         align-items: center;
                     }
-
-                    &:hover {
-                        text-shadow: 
-                        0 0 5px #fff,
-                        0 0 5px #fff,
-                        0 0 5px #fff,
-                        0 0 5px #fff;
-                    }
-
+                    
                     &:hover .circle {
                         opacity: 1;
                         transition: .3s;               
@@ -200,8 +190,8 @@ footer.footer {
                         right: 0;
                         margin: auto;
                         border-radius: 50%;
-                        background-color: $textBgColor;
                         z-index: -1;
+                        background-color: $textBgColor;
                         transition: .3s;
                         
                         @include tablets {
@@ -229,7 +219,8 @@ footer.footer {
                         }
                     }
 
-                    &:hover .label, &:hover .label_en {
+                    &:hover .label,
+                    &:hover .label_en {
                         color: $subtitleText;
                     }
                 }                 

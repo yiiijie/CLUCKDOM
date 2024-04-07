@@ -1,10 +1,30 @@
 <script setup>
-import { RouterView, useRoute } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router';
+import { watchEffect, ref } from 'vue';
 import Header from '@/components/global/Header.vue';
 import Footer from '@/components/global/Footer.vue';
 
-
 const route = useRoute();
+const footerColor = ref('#F8F3EB');
+
+// watchEffect(() => {
+//   // 根據路由的 meta 屬性中的 footerColor 來更新 footerColor 的值
+//   // 如果 meta 中沒有指定 footerColor，則使用預設顏色 #F8F3EB
+//   footerColor.value = route.meta.footerColor || '#F8F3EB';
+// });
+
+// watchEffect(() => {
+//  if (route.meta.footerColor !== undefined) {
+//    footerColor.value = route.meta.footerColor;
+//  } else {
+//    footerColor.value = '#F8F3EB';
+//  };
+// });
+
+watchEffect(() => {
+  const changeFooterColor = route.meta.footerColor;
+  footerColor.value = changeFooterColor !== undefined ? changeFooterColor : '#F8F3EB';
+});
 </script>
 
 <template>
@@ -14,7 +34,7 @@ const route = useRoute();
       <component :is="Component" :key="route.fullPath" />
     </transition>
   </router-view>
-  <Footer v-if="!route.meta.hideFooter"/>
+  <Footer :style="{ backgroundColor: footerColor }" v-if="!route.meta.hideFooter"/>
 </template>
 
 <style lang="scss">

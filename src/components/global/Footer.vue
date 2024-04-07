@@ -1,6 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
-
+import { reactive } from 'vue';
 
 const navItems = reactive([
     {
@@ -50,7 +49,6 @@ const navItems = reactive([
                             </a>
                         </li>
                     </ul>
-                    <!-- 社群連結icon -->
                     <span class="contact_icon">
                         <font-awesome-icon :icon="['fab', 'facebook-f']" class="icon fb"/>
                         <font-awesome-icon :icon="['fab', 'instagram']" 
@@ -74,13 +72,13 @@ const navItems = reactive([
         <p class="copyright">本網站僅供個人學習、展示之用。參考資源: 伊東養鶏場、Tamarando</p>
         
         <div class="footer_lawn">
-            <img src="/images/footer/lawn.svg" alt="">
+            <img src="/images/footer/lawn.svg" alt="裝飾圖">
         </div>
         <div class="footer_hen">
-            <img src="/images/footer/hen.svg" alt="">
+            <img src="/images/footer/hen.svg" alt="裝飾圖">
         </div>
         <div class="footer_grass">
-            <img src="/images/footer/grass.svg" alt="">
+            <img src="/images/footer/grass.svg" alt="裝飾圖">
         </div>
     </footer>
 </template>

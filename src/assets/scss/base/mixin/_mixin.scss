@@ -6,3 +6,9 @@
     text-align: center;
     text-shadow: 0 0 4px rgba(71, 63, 59, 0.5);
 }
+
+@mixin hover_rotate {
+    transition: .2s;
+    animation:rotate .5s ease;
+    background-color: #C2A16C;
+}

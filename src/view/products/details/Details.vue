@@ -47,7 +47,7 @@ const changeMainImage = (src) => {
 <template>
   <div>
     <main>
-      <section class="prd_container">
+      <section class="prd_inner">
         <div class="prd_photos">
           <!-- 大圖 -->
           <div id="main_img">

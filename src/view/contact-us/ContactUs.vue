@@ -11,7 +11,7 @@ const schema = object({
 
 async function onSubmit(values) {
   try {
-    const response = await axios.post('http://localhost:3333/api/test', values);
+    const response = await axios.post('https://localhost:3333/api/test', values);
     console.log('表單送出成功', values);
   } catch (error) {
     console.error('表單送出失敗');

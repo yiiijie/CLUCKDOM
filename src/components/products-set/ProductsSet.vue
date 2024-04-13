@@ -3,6 +3,7 @@ import { reactive } from 'vue';
 import useContentVisibility from '@/composables/useContentVisibility';
 
 const{ isLargeTablet, showContent, toggleContentVisibility } = useContentVisibility();
+
 const sets = reactive([
     {   id: '1',
         index: '0',

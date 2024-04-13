@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from "./router";
-import axios from "axios";
 import AOS from "aos";
 // 導入 AOS 的 CSS 樣式
 import "aos/dist/aos.css";

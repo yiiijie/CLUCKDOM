@@ -132,4 +132,16 @@ section.form_inner {
     }
 }
 
+// 彈窗            
+h3.modal_title {
+    @include h3;
+    text-align: center;
+}
 
+div.modal_img {
+    // width: 22vw;
+    // width: 400px;
+    margin: auto;
+    padding: 6% 0;
+    width: clamp(200px,22vw,400px);
+}

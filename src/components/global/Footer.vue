@@ -45,7 +45,7 @@ const navItems = reactive([
                         <li>
                             <a href="https://www.google.com/maps/search/台北市政府/@25.03799,121.5617635,17z/data=!3m1!4b1?entry=ttu">
                                 <font-awesome-icon :icon="['fas', 'circle-right']" class="icon" />
-                                <span>110 台北市信義區市府路1號</span>
+                                <span>110 臺北市內湖區碧山路44巷</span>
                             </a>
                         </li>
                     </ul>

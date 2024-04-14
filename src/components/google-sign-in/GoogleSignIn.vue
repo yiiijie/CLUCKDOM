@@ -30,7 +30,6 @@ const signInWithGoogle = async() => {
   });
 }
 
-
 </script>
 
 <template>
@@ -41,5 +40,21 @@ const signInWithGoogle = async() => {
 </template>
 
 <style scoped lang="scss">
-    @import "@/assets/scss/components/google-sign-in/google-sign-in";
+button.google_third_party {
+  @include content_PC;
+  width: 100%;
+  display: flex;
+  padding: 8px 0; 
+  border: none;
+  border-radius: 5px;
+  align-items: center; 
+  justify-content: center;
+  cursor: pointer;
+  background-color: #fff;
+
+  img.google_icon {
+      width: 40px;
+      margin-right: 5px;
+  }
+}
 </style>

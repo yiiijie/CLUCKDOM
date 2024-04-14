@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ref, computed } from 'vue';
 import { object, string } from 'yup';
 import Modal from '@/components/func-items/Modal.vue';
+import GoogleMap from '@/components/google-map/GoogleMap.vue';
 
 const showModal = ref(false);
 const submitResult = ref('');
@@ -48,10 +49,10 @@ async function onSubmit(values, { resetForm }) {
                 <h1 class="title">聯絡我們</h1>
                 <span class="english_title">Contact Us</span>
                 <VeeForm
-                @submit="onSubmit"
-                v-slot="{ isSubmitting }"
-                :validation-schema="schema"
-                class="form_container">
+                    @submit="onSubmit"
+                    v-slot="{ isSubmitting }"
+                    :validation-schema="schema"
+                    class="form_container">
                     <dl>
                         <div class="form_group">
                             <dt>
@@ -172,6 +173,7 @@ async function onSubmit(values, { resetForm }) {
                         </Modal>
                     </Teleport>
                 </VeeForm>
+                <GoogleMap />
             </section>
             <img class="wave" src="/images/contact/wave.svg" alt="wave">
         </main>

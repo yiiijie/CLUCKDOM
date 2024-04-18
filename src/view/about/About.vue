@@ -148,6 +148,404 @@ const cards = reactive([
     </div>
 </template>
 
+
 <style scoped lang="scss">
-    @import "@/assets/scss/pages/about";
+    section.header_container {
+        position: relative;
+
+        img.header_wave {
+            @extend %header_wave;
+        }
+    }
+
+    section.intro_inner {
+        max-width: $basewidth;
+        width: 90%;
+        display: flex;
+        margin: 70px auto 80px;
+        justify-content: space-evenly;
+
+        @include large_tablets {
+            flex-direction: column;
+        }
+
+        div.title {
+            margin-top: 5%;
+            writing-mode: vertical-lr;
+
+            @include large_tablets {
+                margin: auto;
+            }
+            
+            h1 {
+                @include h1_vertical;
+                
+                span.important_color{
+                    @include h1_vertical;
+                    color: $importantColor;
+                }
+                span.secondary_color{
+                    @include h1_vertical;
+                    color: $secondaryColor;
+                }
+            }
+
+            span {
+                @include paragraph_en;
+                line-height: 4.8;
+            }
+        }
+
+        div.img_premium_eggs {
+            width: clamp(280px,55vw,600px);
+
+            @include large_tablets {
+                margin: auto;
+                display: block;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    section.certification {
+        width: 100%;
+        background-color: $productsBgColor;
+
+        div.certification_inner {
+            max-width: $basewidth;
+            width: 90%;
+            margin: auto;
+            padding: 80px 0;
+            text-align: center;
+
+            h2.title {
+                @include h2;
+                margin-bottom: 10px;
+            }
+
+            p.content {
+                @include paragraph;
+                padding: 10px 8vw 5%;
+            }
+        }
+    }
+
+    div.certification_inner {
+
+        > ul.flip_card_list {
+            display: flex;
+            justify-content: space-evenly;
+
+            @include tablets {
+                flex-direction: column;
+            }
+
+            > li.flip_card_item {
+                max-width: 350px;
+                width: 20vw;
+                height: 25vw;        
+                cursor: pointer;
+                perspective: 2000px;
+                border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
+
+                @include large_tablets {
+                    width: 25vw;
+                    height: 32vw; 
+                }
+                @include tablets {
+                    width: 50vw;
+                    height: 60vw;
+                    margin: 0 auto 30px; 
+                }
+                
+                &:hover .flip_card_container {
+                    transform: rotateY(180deg);
+                }
+                
+                div.flip_card_container {
+                    position: relative;
+                    height:100%;
+                    width: 100%;
+                    transform-style: preserve-3d;
+                    border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
+                    transition: transform 0.6s cubic-bezier(0.175, 0.9, 0.32, 1.275);
+
+                    div.flip_card_front {
+                        height:100%;
+                        width:100%;
+                        position: absolute;
+                        backface-visibility: hidden;
+                        background-color: $normalBgColor;
+                        border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
+
+                        div.mark {
+                            width: 100%;
+                            height: 100%;
+
+                            div.pic {
+                                width: 60%;
+                                position: absolute;
+                                bottom: 10%;
+                                left: 50%;
+                                transform: translateX(-50%);
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            h3.mark_name {
+                                @include h3;
+                                position: relative;
+                                top: 18%;
+                            }
+
+                            .arrow_down {
+                                font-size: 1.4rem;
+                            }
+                        }
+                    }
+
+                    div.flip_card_back {
+                        height:100%;
+                        width:100%;
+                        position: absolute;
+                        transform: rotateY(180deg);
+                        backface-visibility: hidden;
+                        background-color: $normalBgColor;
+                        border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            width: 65%;
+                            height: 55%;
+                            bottom: 13%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            border-radius: 100%;
+                            background-color: $textBgColor;
+                        }
+
+                        p.mark_description {
+                            @include content_font;
+                            width: 80%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section.cluckdom_intro {    
+        div.environment_bg {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            left: 0;
+
+            img {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+            }
+        }
+
+        ul.cluckdom_intro_inner {
+            position: relative;
+            top: -450px;
+            width: 80%;
+            margin: auto;
+
+            @include large_phones {
+                width: 85%;
+            }
+
+            li.card_item {
+                min-width: 350px;
+                width: 35%;
+                padding: 5%;
+                margin: 8% 0;
+                opacity: 0.97;
+                border-radius: 40px;
+                text-align: justify;
+                box-sizing: border-box;
+                background-color: $normalBgColor;
+
+                @include large_tablets {
+                    min-width: auto;
+                    width: 100%;
+                    padding: 10%;
+                    margin: 15% 0;
+                    box-sizing: border-box;
+                }
+                @include tablets {
+                    margin: 20% auto;
+                }
+
+                h2.card_title {
+                    @include h2;
+                    position: relative;
+                    text-align: center;
+                    padding-bottom: 50px;
+                    color: $secondaryText;
+                    font-weight: $fWBold;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        width: 40px;
+                        height: 20px;
+                        margin: 0 auto;
+                        background-repeat: no-repeat;
+                        background-image: url(/images/about/img_eggs_line.svg);
+                    }
+                }
+
+                p.content {
+                    @include paragraph;
+                    padding-top: 20px;
+
+                    span.secondary_color {
+                        font-weight: $fWBold;
+                        color: $secondaryColor;
+                    }
+                }
+
+                span.info_source {
+                    @include small_font;
+                    display: block;
+                    padding-top: 10px;
+                    color: $remark;
+                    text-align: left;
+                    word-wrap: break-word; // 單字分行
+                }
+
+                button.ins_btn {
+                    @include paragraph;
+                    border: none;
+                    width: 100%;
+                    margin: 30px 0 0;
+                    padding: 10px 0;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    background-color: $primaryColor;
+                    color: $normalBgColor;
+                    transition: .2s;
+
+                    &:hover {
+                        background-color: $normalBtnColor;
+                        transition: .2s;
+                    }
+
+                    .ig {
+                        font-size: 2rem;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    section.about_us_inner {
+        max-width: $basewidth;
+        width: 85%;
+        display: flex;
+        align-items: center;
+        margin: 0 auto 8%;
+
+        @include large_tablets {
+            flex-direction: column;
+        }
+
+        div.text {
+            div.title_en {       
+                h2.english {
+                    @include h2_en;
+
+                    @include large_tablets {
+                        text-align: center;
+                    }
+                }
+
+                img {
+                    margin-bottom: 2%;
+                    width: 9%;
+
+                    @include large_tablets {
+                        display: none;
+                    }
+                }
+            }
+
+            h2.title {
+                @include h2;
+                padding: 5% 0;
+                position: relative;
+
+                @include large_tablets {
+                    text-align: center;
+                    padding: 2% 0;
+                }
+
+                span.secondary_color {
+                    color: $secondaryColor;
+                }
+            }
+        
+            div.content {
+                width: 80%;
+
+                @include large_tablets {
+                    margin: auto;
+                    padding: 2% 0;
+                    text-align: center;
+                }
+                @include tablets {
+                    width: 90%;
+                }
+                @include large_phones {
+                    width: 90%;
+                    padding: 4% 0;
+                }
+
+                p {
+                    @include paragraph;
+                    padding: 15px 16% 15px 0;
+
+                    @include large_tablets {
+                        display: inline;
+                        margin: auto;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+
+        div.img_owner {
+            width: 100%;
+
+            @include large_tablets {
+                height: 500px;
+                padding: 5% 0;
+            }
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 40px;
+            }
+        }
+    }
 </style>

@@ -17,9 +17,9 @@ const { showNavbar } = useNavbarVisibility();
         <section class="web_purpose">
             <!-- for mobile -->
             <div class="header_logo">
-                <RouterLink :to="'/'">
+                <router-link to="/">
                     <img src="/images/home/header/mobile_header_logo.svg" alt="logo">
-                </RouterLink>
+                </router-link>
             </div>
             <!-- --- -->
             <div class="purpose_inner" data-aos="fade-up" data-aos-duration="1500">
@@ -39,7 +39,6 @@ const { showNavbar } = useNavbarVisibility();
             </div>
         </section>
 
-        <!-- 關於我們 -->
         <section class="about" data-aos="fade-up" data-aos-duration="1500">
             <div class="about_inner">
                 <div class="text">
@@ -57,7 +56,6 @@ const { showNavbar } = useNavbarVisibility();
             </div>
         </section>
     
-        <!-- 願景 vision -->
         <img class="wave01" src="/images/home/img_wave01.svg" alt="wave">
         <section class="vision">
             <div class="vision_inner">
@@ -95,5 +93,337 @@ const { showNavbar } = useNavbarVisibility();
 
 
 <style scoped lang="scss">
-    @import "@/assets/scss/pages/home";
+    section.web_purpose {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: clamp(240px,25vw,450px);
+            height: 100px;
+            top: -40px;
+            left: 3vw;
+            background-repeat: no-repeat;
+            background-image: url(/images/home/footprint.svg);
+
+            @include large_phones {
+                transform: rotate(15deg);
+                left: -35vw;
+            }
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+            width: clamp(140px,15vw,250px);
+            height: 100px;
+            top: 0;
+            right: 3vw;
+            background-repeat: no-repeat;
+            background-image: url(/images/home/footprint_2.svg);
+
+            @include large_phones {
+                top: 20px;
+                right: -10vw;
+            }
+        }
+
+        div.header_logo {
+            display: none;
+            width: 110px;
+            max-width: 20vw;
+            position: absolute;
+            top: 0;
+            right: 50%;
+            transform: translate(50%, -50%);
+
+            img {
+                width: 100%;
+            }
+
+            // 1024px以下才會出現(only首頁版型)
+            @include large_tablets {
+                display: block;
+            }
+        }
+
+        div.purpose_inner {
+            max-width: $basewidth;
+            width: 90%;
+            display: flex;
+            margin: auto;
+            padding-top: 100px;
+            justify-content: space-evenly;
+
+            @include large_tablets {
+                flex-direction: column;
+            }
+            
+            div.img_eggshape {
+                display: inline-block;
+                position: relative;
+                width: clamp(200px,45vw,550px);
+                
+                @include large_tablets {
+                    margin: 4% auto 0;
+                    display: block;
+                }
+                
+                img {
+                    width: 100%;
+                }   
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    width: 40%;
+                    height: 15%;
+                    bottom: 0;
+                    left: -10%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-image: url(/images/home/chick.svg);
+                }
+            }
+            
+            div.title {
+                margin-top: 5%;
+                writing-mode: vertical-lr;
+                
+                @include large_tablets {
+                    margin: 3% auto 0;
+                    order: -1;
+                }
+
+                h1 {
+                    @include h1_vertical;
+                    
+                    span.important_color{
+                        @include h1_vertical;
+                        color: $importantText;
+                    }
+                    span.secondary_color{
+                        @include h1_vertical;
+                        color: $secondaryText;
+                    }
+                }
+
+                span {
+                    @include paragraph_en;
+                    line-height: 4.8;
+                }
+
+            }
+        }
+    }
+
+    section.about {
+        position: relative;
+
+        div.about_inner {
+            max-width: $basewidth;
+            width: 85%;
+            display: flex;
+            margin: 60px auto 5%;
+            justify-content: space-between;
+            align-items: center;
+
+            @include large_tablets {
+                width: 80%;
+                margin-bottom: 10%;
+            }
+
+            div.text {
+                h2 {
+                    @include h2;
+                    padding-bottom: 40px;
+            
+                    span.secondary_color {
+                        color: $secondaryText;
+                    }     
+                }
+        
+                p {
+                    @include paragraph;
+
+                    @include large_phones {
+                        display: inline;
+                    }
+                }
+            }
+
+            div.img_people {
+                width: 40%;
+
+                img {
+                    width: 100%;
+                }
+
+                @include large_tablets {
+                    width: 30%;
+                }
+                @include tablets {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    img.wave01 {
+        width: 100%;
+        display: block;
+    }
+
+    section.vision {
+        position: relative;
+        background-color: $homeBgColor;
+        
+        div.vision_inner {
+            position: relative;
+            max-width: $basewidth;
+            width: 90%;
+            margin: auto;
+
+            // 大圖
+            div.img_lawn {
+                width: 70%;
+                padding: 40px 0 80px;
+
+                img {
+                    width: 100%;
+                    border-radius: 20px;
+                }
+
+                @include large_tablets {
+                    padding-bottom: 50px;
+                    width: 100%;
+                }
+            }
+
+            div.title {
+                position: absolute;
+                right: 4vw;
+                top: 100px;
+                writing-mode: vertical-lr;
+                
+                @include large_tablets {
+                    writing-mode: horizontal-tb;
+                    position: relative;
+                    top: 0;
+                    padding-left: 8%;
+                }
+
+                h2 {
+                    @include h2_vertical;
+
+                    @include large_tablets {
+                        @include h2;
+                        line-height: normal;
+                    }
+                }
+                
+                span.important_color {
+                    color: $importantText;
+                    
+                }
+                
+                span.english {
+                    @include paragraph;
+                    line-height: 60px;
+                    letter-spacing: .3rem;
+                    color: $normalBgColor;
+                    font-family: $font_family_en;
+                }
+
+            }
+
+            div.img_chick {
+                width: 35%;
+                position: absolute;
+                top: 550px;
+                right: 5%;
+                
+                img {
+                    width: 100%;
+                    border-radius: 20px;
+                }
+
+                @media (max-width: 900px) {
+                    display: none;
+                }
+            }
+
+            div.img_eggs {
+                width: 42%;
+                position: absolute;
+                bottom: 100px;
+                right: 0;
+
+                img {
+                    width: 100%;
+                    border-radius: 20px;
+                }
+
+                @include large_tablets {
+                    display: none;
+                }
+            }
+            
+            div.text {          
+                width: 45%;
+                padding: 0 0 25% 3%;
+                @include paragraph;
+
+                @include large_tablets {
+                    width: 90%;
+                    margin: auto;
+                    padding: 3% 0 25%;
+                }
+                @include tablets {
+                    padding-bottom: 10%;
+                }
+
+                p {
+                    padding: 15px 0;
+                }
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 25%;
+                height: 13%;
+                bottom: 0;
+                left: 10%;
+                background-repeat: no-repeat;
+                background-image: url(/images/home/img_hen.svg);
+
+                @include tablets {
+                    width: 17%;
+                    top: 37%;
+                    left: auto;     
+                    right: 5%;
+                    transform: scaleX(-1); 
+                }
+                @include large_phones {
+                    display: none;
+                }
+            }
+
+            div.deco_dialog {
+                position: absolute;
+                width: 20%;
+                height: 8%;
+                bottom: 6%;
+                left: 25%;
+
+                @include large_tablets {
+                    left: 30%;
+                }
+                @include tablets {
+                    display: none;
+                }
+            }
+        }
+    }
 </style>

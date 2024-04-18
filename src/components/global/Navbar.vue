@@ -44,8 +44,10 @@ const navItems = reactive([
                     <font-awesome-icon :icon="['fab', 'facebook-f']" class="icon"/>
                     <font-awesome-icon :icon="['fab', 'instagram']" 
                     class="icon"/>
-                    <font-awesome-icon :icon="['fas', 'envelope']" 
-                    class="icon"/>
+                    <router-link to="/contact-us">
+                        <font-awesome-icon :icon="['fas', 'envelope']" 
+                        class="icon"/>
+                    </router-link>
                 </span>
             </nav>
         </header>

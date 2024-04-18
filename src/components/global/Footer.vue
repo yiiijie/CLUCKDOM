@@ -29,21 +29,21 @@ const navItems = reactive([
     <footer class="footer">
         <div class="footer_inner">
             <div class="footer_logo">
-                <RouterLink :to="'/'">
+                <router-link to="/">
                     <img src="/images/home/header/logo_red.svg" alt="logo_red">
-                </RouterLink>
+                </router-link>
             </div>
             <div class="footer_main">
                 <div class="footer_info">
                     <ul class="btn_link">
                         <li>
-                            <RouterLink :to="'/'">
+                            <router-link to="/contact-us">
                                 <font-awesome-icon :icon="['fas', 'circle-right']" class="icon"/>
                                 <span>聯絡我們</span>
-                            </RouterLink>
+                            </router-link>
                         </li>                              
                         <li>
-                            <a href="https://www.google.com/maps/search/台北市政府/@25.03799,121.5617635,17z/data=!3m1!4b1?entry=ttu">
+                            <a href="https://www.google.com/maps/@25.1052087,121.5919296,19.03z?hl=zh-TW&entry=ttu" target="_blank">
                                 <font-awesome-icon :icon="['fas', 'circle-right']" class="icon" />
                                 <span>110 臺北市內湖區碧山路44巷</span>
                             </a>
@@ -58,12 +58,12 @@ const navItems = reactive([
                 <ul class="footer_nav">                 
                     <li v-for="navItem in navItems" :key="navItem.label">
                         <a :href="navItem.link">
-                            <RouterLink :to="navItem.route" class="nav_link">
+                            <router-link :to="navItem.route" class="nav_link">
                                 <span class="label">{{ navItem.label }}</span>
                                 <br>
                                 <span class="label_en">{{ navItem['label_en'] }}</span>
                                 <span class="circle"></span>
-                            </RouterLink>
+                            </router-link>
                         </a>                    
                     </li>                         
                 </ul>     

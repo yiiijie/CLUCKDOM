@@ -12,3 +12,21 @@
     animation:rotate .5s ease;
     background-color: #C2A16C;
 }
+
+@mixin sign_in_btn {
+    @include paragraph;
+    width: 100%;
+    display: block;
+    margin: 0 auto 20px;
+    padding: 6px 0;
+    cursor: pointer;
+    border-radius: 8px;
+    color: $normalColor;
+    background-color: $primaryColor;
+    transition: .2s;
+
+    &:hover {
+        transition: .2s;
+        background-color: $hoverBtnColorB;
+    }
+}

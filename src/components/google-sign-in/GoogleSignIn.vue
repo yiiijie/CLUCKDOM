@@ -11,12 +11,13 @@ const user = ref(null);
 
 // 登入
 const signInWithGoogle = async() => {
+  // 建立 Google 提供者物件的實例，用來處理 Google 身份驗證相關的功能
   const provider = new GoogleAuthProvider();
 
   provider.setCustomParameters({
     prompt: 'select_account'
   });
-  
+  // 使用彈出視窗登入
   signInWithPopup(auth, provider) // 彈窗
    .then((result) => {
     console.log(result.user);
@@ -50,7 +51,7 @@ button.google_third_party {
   align-items: center; 
   justify-content: center;
   cursor: pointer;
-  background-color: #fff;
+  background-color: $normalColor;
 
   img.google_icon {
       width: 40px;

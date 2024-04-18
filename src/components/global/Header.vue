@@ -64,7 +64,7 @@ const social = reactive([
 
 <template>
     <HeaderCarousel v-if="isHomePage"/>
-    <!-- 登入的入口按鈕 & 購物車(功能尚未) -->
+    <!-- 登入的入口按鈕 & 購物車  -->
     <div class="header_btn_list">
         <SignInBtn/>
         <CartBtn/>
@@ -105,7 +105,9 @@ const social = reactive([
                     <RouterLink to="/contact-us">
                         <button class="contact_us">聯絡我們</button>
                     </RouterLink>
-                    <button class="signin_btn">會員登入</button>
+                    <RouterLink to="/sign-in">
+                        <button class="signin_btn">會員登入</button>
+                    </RouterLink>
                 </ul>
                 <!-- 社群連結 -->
                 <div class="social_link">

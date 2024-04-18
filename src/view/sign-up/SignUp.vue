@@ -1,43 +1,45 @@
 <script setup>
 import axios from 'axios';
-import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue';
 import { object, string } from 'yup';
-// import { useRouter } from "vue-router";
-// const router = useRouter();
+
 // vee-validate yup驗證
 const schema = object({
+    name: string().required('必須填寫姓名'),
     email: string().email('請填寫有效的電子信箱').required('請填寫電子信箱'),
     password: string().required('請填寫密碼'),
 });
 
-
-// 登入
+// 註冊
 async function onSubmit(values, { resetForm }) {
     try {
-        const response = await axios.post('http://localhost:3000/signin', values);
-        console.log('登入成功',response);
-        // router.push("/");
-        localStorage.setItem('userName', response.data.user.name);
-        // resetForm(); // 重置
+        const response = await axios.post('http://localhost:3000/signup', values);
+        console.log('註冊成功', response);
+        resetForm(); // 重置
     } catch (error) {
-        console.error('登入失敗');
+        console.error('註冊失敗');
     }
 }
+
 </script>
 
 <template>
     <div>
         <main class="form_container">
             <div class="form_inner">
-                <span class="form_title">會員登入</span>   
-                <!-- google第三方登入 -->
-                <GoogleSignIn />
-                <hr class="divider">               
-                <!-- 一般帳密登入 -->
+                <span class="form_title">會員註冊</span>
                 <VeeForm
                     @submit="onSubmit"
                     :validation-schema="schema"
                     class="sign_in_form">
+                    <div class="form_group">
+                        <label for="name">姓名</label>        
+                        <VeeField
+                            name="name"
+                            type="text"
+                            placeholder="請輸入您的姓名"
+                            class="input"/>
+                        <ErrorMessage name="name" class="error_message"/>
+                    </div>    
                     <div class="form_group">     
                         <label for="email">帳號</label>              
                         <VeeField
@@ -48,20 +50,20 @@ async function onSubmit(values, { resetForm }) {
                         <ErrorMessage name="email" class="error_message"/>             
                     </div>
                     <div class="form_group">            
-                        <label for="password">密碼</label>                       
+                        <label for="password">設定密碼</label>                       
                         <VeeField
                             name="password"
                             type="password"
-                            placeholder="請輸入您的密碼"
+                            placeholder="請輸入您的密碼 (至少4位數)"
                             class="input"/>
                         <ErrorMessage name="password" class="error_message"/>  
                     </div>  
-                    <button type="submit" class="sign_in_btn">登入</button>
+                    <button type="submit" class="sign_up_btn">註冊</button>
                 </VeeForm>
                 <div class="form_footer">
-                    <span class="question">還不是會員嗎？ </span>
-                    <router-link to="/sign-up">
-                        <span class="add_member">加入會員</span>
+                    <span class="question">我已經有會員帳號了？ </span>
+                    <router-link to="/sign-in">
+                        <span class="member_signin">回會員登入</span>
                     </router-link>
                 </div>
             </div>
@@ -69,56 +71,24 @@ async function onSubmit(values, { resetForm }) {
     </div>
 </template>
 
-
 <style scoped lang="scss">
     main.form_container {
         margin: 200px 0 120px;
-
-        @include large_tablets {
-            margin: 100px 0 120px;
-        }
-
 
         div.form_inner {
             margin: auto;
             max-width: 700px;
             width: 85%;
+            box-sizing: border-box;
             padding: 50px 100px;
             border-radius: 30px;
-            box-sizing: border-box;
             background-color: #f1f1f1;
-
-            @include tablets {
-                padding: 50px 50px;
-            }
-            @include large_phones {
-                width: 90%;
-                padding: 50px 30px;
-            }
             
             span.form_title {
                 @include h4;
                 display: block;
                 margin-bottom: 20px;
                 text-align: center;
-            }
-
-            hr.divider {
-                position: relative;
-                overflow: inherit;
-                margin: 40px 0;
-                border: .5px solid $borderColor;
-
-                &::before {
-                    content: "or";
-                    font-size: 1.4rem;
-                    position: absolute;
-                    left: 50%;
-                    padding: 0 20px;
-                    transform: translate(-50%, -50%);
-                    color: $borderColor;
-                    background-color: #f1f1f1;
-                }
             }
         }
     }
@@ -157,20 +127,20 @@ async function onSubmit(values, { resetForm }) {
             }
         }
 
-        button.sign_in_btn {
+        button.sign_up_btn {
             @include sign_in_btn;
         }
     }
 
-    div.form_footer {
+    div.form_footer{
         text-align: center;
-        
+
         span.question {
             @include content_font;
             letter-spacing: .05rem;
         }
         
-        span.add_member {
+        span.member_signin {
             @include content_font;
             letter-spacing: .05rem;
             font-weight: $fWBold;

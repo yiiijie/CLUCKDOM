@@ -27,7 +27,7 @@ $slogan_en: clamp(1.2rem,3vw,2.8rem);
 $h1: clamp(2.1rem,4.5vw,3.6rem);
 $h2: clamp(2rem,3.5vw,3.2rem);
 $h3: clamp(1.8rem,1.5vw,2.4rem);
-$h4: clamp(1.5rem, 2vw, 2rem);
+$h4: clamp(1.6rem, 2vw, 2rem);
 $en_title: clamp(2.5rem,6vw,3.6rem);
 $paragraph: clamp(1.4rem,1.5vw,1.6rem);
 $paragraph_en: clamp(1.2rem,1.5vw,1.6rem);
@@ -214,6 +214,7 @@ $smallLh_PC: 1.75;
   color: $primaryTextColor;
 }
 
+// 要刪掉
 @mixin h5_PC ($textColor: $defaultColor){
   font-size: $h5Fz_PC;
   font-weight: $fWRegular;

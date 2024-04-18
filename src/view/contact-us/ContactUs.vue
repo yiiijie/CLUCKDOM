@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ref, computed } from 'vue';
 import { object, string } from 'yup';
 import Modal from '@/components/func-items/Modal.vue';
-import GoogleMap from '@/components/google-map/GoogleMap.vue';
+// import GoogleMap from '@/components/google-map/GoogleMap.vue';
 
 const showModal = ref(false);
 const submitResult = ref('');
@@ -43,7 +43,7 @@ async function onSubmit(values, { resetForm }) {
 
 <template>
     <div>
-        <main>
+        <main class="form_container">
             <section class="form_inner">
                 <h1 class="title">聯絡我們</h1>
                 <span class="english_title">Contact Us</span>
@@ -51,7 +51,7 @@ async function onSubmit(values, { resetForm }) {
                     @submit="onSubmit"
                     v-slot="{ isSubmitting }"
                     :validation-schema="schema"
-                    class="form_container">
+                    class="form">
                     <dl>
                         <div class="form_group">
                             <dt>
@@ -172,7 +172,7 @@ async function onSubmit(values, { resetForm }) {
                         </Modal>
                     </Teleport>
                 </VeeForm>
-                <GoogleMap />
+                <!-- <GoogleMap /> -->
             </section>
             <img class="wave" src="/images/contact/wave.svg" alt="wave">
         </main>
@@ -181,7 +181,7 @@ async function onSubmit(values, { resetForm }) {
 
 
 <style scoped lang="scss">
-    main {
+    main.form_container {
         background: url('/images/contact/bg_eggs.svg') repeat;
         position: relative;
     }
@@ -196,7 +196,11 @@ async function onSubmit(values, { resetForm }) {
         max-width: calc( $basewidth - 300px );
         width: 85%;
         margin: auto;
-        padding: 270px 0;
+        padding: 270px 0 220px;
+
+        @include large_tablets {
+            padding: 100px 0 120px;
+        }
 
         h1.title {
             @include h1;
@@ -210,27 +214,47 @@ async function onSubmit(values, { resetForm }) {
             text-align: center;
         }
 
-        form.form_container {
+        form.form {
             width: 100%;
-            padding: 10%;
+            padding: 70px 100px;
             border-radius: 30px;
             box-sizing: border-box;
             background-color: $normalColor;
 
+            @include large_tablets {
+                padding: 60px 50px;
+            }
+            @include large_phones {
+                padding: 50px 20px;
+            }
+
             div.form_group {
                 width: 100%;
-                margin: 0 0 5%;
+                margin-bottom: 6%;
                 display: flex;
                 align-items: center;
+
+                @include tablets {
+                    display: block;
+                    margin-bottom: 6%;
+                }
+                @include large_phones {
+                    margin-bottom: 12%;
+                }
 
                 dt {
                     width: 25%;
                     align-items: center;
 
+                    @include tablets {
+                        width: 100%;
+                        padding-bottom: 4%;
+                    }
+
                     span.required {
                         @include small_font;
                         margin-left: 12px;
-                        padding: 8px 10px;
+                        padding: 6px 10px;
                         color: $normalColor;
                         border-radius: 50px;
                         background-color: $secondaryColor;
@@ -238,6 +262,8 @@ async function onSubmit(values, { resetForm }) {
         
                     label {
                         @include paragraph;
+                        line-height: 0;
+                        font-weight: $fWBold;
                     }
                 }
 
@@ -247,7 +273,6 @@ async function onSubmit(values, { resetForm }) {
                     input.input, textarea {
                         width: 100%;
                         padding: 25px;
-                        margin-bottom: 5px;
                         box-sizing: border-box;
                         border-radius: 8px;
                         border: none;
@@ -276,7 +301,6 @@ async function onSubmit(values, { resetForm }) {
                     }
 
                     input[type='checkbox'] {
-                        -webkit-appearance: none; 
                         appearance: none;
                         width: 25px;
                         height: 25px;
@@ -297,7 +321,7 @@ async function onSubmit(values, { resetForm }) {
             }
         }
 
-        form.form_container > button.submit_btn {
+        form.form > button.submit_btn {
             @include paragraph;
             display: block;
             margin: auto;

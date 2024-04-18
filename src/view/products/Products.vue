@@ -68,7 +68,7 @@ const list = reactive([
         
         <!-- 動態背景 -->
         <section class="falling_eggs_container">  
-            <div class="egg_intro">
+            <div class="egg_intro" data-aos="fade-up" data-aos-duration="1500">
                 <h1>鷄蛋王國用<span class="important_color">心</span>飼育<br>與家人共享<span class="secondary_color">天然營養</span>
                 </h1>
                 <p>蛋白質是人體日常所需的重要營養之一
@@ -93,7 +93,7 @@ const list = reactive([
                 <img src="/images/products/hen.svg" alt="裝飾圖">
             </div>
             <ul class="list_inner">
-                <li v-for="item in list" :key="item.id">
+                <li v-for="item in list" :key="item.id" data-aos="fade-up" data-aos-duration="1000">
                     <RouterLink :to="'/products/details'" class="prd_img">
                         <div class="prd_click_bg"></div>
                         <div class="view_prd_circle">

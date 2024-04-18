@@ -78,7 +78,6 @@ async function onSubmit(values, { resetForm }) {
             margin: 100px 0 120px;
         }
 
-
         div.form_inner {
             margin: auto;
             max-width: 700px;

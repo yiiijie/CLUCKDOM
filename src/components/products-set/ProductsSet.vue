@@ -8,10 +8,10 @@ const sets = reactive([
     {   id: '1',
         index: '0',
         name: '頂級悠活好蛋組',
-        imgPath:'/images/products/sets/eggs_set.jpg',
+        imgPath:'/images/products/sets/eggs_set_1.jpg',
         setIntro:'別猶豫了！快送給你心愛的人，他們一定會深深喜歡上！',
-        content1:'頂級好蛋10入 1盒',
-        content2:'悠活好蛋10入 1盒',
+        content1:'頂級好蛋8入 1盒',
+        content2:'悠活好蛋8入 1盒',
         content3:'贈 手工雞蛋布丁3入 1盒',
         currentPrice:'NT$399',
         originalPrice:'NT$450',
@@ -19,7 +19,7 @@ const sets = reactive([
     {   id: '2',
         index: '1',
         name: '頂級田園好蛋組',
-        imgPath:'/images/products/sets/eggs_set.jpg',
+        imgPath:'/images/products/sets/eggs_set_2.jpg',
         setIntro:'同時享受「頂級好蛋」、「田園好蛋」雙品種！全家老小都難以抗拒的完美組合。',
         content1:'頂級好蛋10入 1盒',
         content2:'田園好蛋10入 1盒',
@@ -30,7 +30,7 @@ const sets = reactive([
     {   id: '3',
         index: '2',
         name: '田園悠活好蛋組',
-        imgPath:'/images/products/sets/eggs_set.jpg',
+        imgPath:'/images/products/sets/eggs_set_3.jpg',
         setIntro:'媽媽們的首選禮盒，每餐都充滿豐富蛋白質的最佳組合。',
         content1:'田園好蛋10入 1盒',
         content2:'悠活好蛋10入 1盒',
@@ -41,7 +41,7 @@ const sets = reactive([
     {   id: '4',
         index: '3',
         name: '幸福悠活好蛋組',
-        imgPath:'/images/products/sets/eggs_set.jpg',
+        imgPath:'/images/products/sets/eggs_set_4.jpg',
         setIntro:'無論是獨自品嚐還是與親友分享，都為你開啟幸福的一天。',
         content1:'幸福好蛋10入 1盒',
         content2:'悠活好蛋10入 1盒',
@@ -52,7 +52,7 @@ const sets = reactive([
     {   id: '5',
         index: '4',
         name: '頂咕咕好蛋三重奏之不能沒有你',
-        imgPath:'/images/products/sets/eggs_set.jpg',
+        imgPath:'/images/products/sets/eggs_set_5.jpg',
         setIntro:'僅在農場裡販賣的禮盒，三種雞蛋一次滿足！各千萬別錯過囉。',
         content1:'頂級好蛋10入 1盒',
         content2:'悠活好蛋10入 1盒',
@@ -63,7 +63,7 @@ const sets = reactive([
     {   id: '6',
         index: '5',
         name: '頂咕咕限量禮盒',
-        imgPath:'/images/products/sets/eggs_set.jpg',
+        imgPath:'/images/products/sets/eggs_set_6.jpg',
         setIntro:'特殊節日才販售的頂級限量禮盒，手刀不快點就買不到囉！',
         content1:'頂級好蛋10入 2盒',
         content2:'悠活好蛋10入 1盒',
@@ -139,6 +139,229 @@ const sets = reactive([
     </section>
 </template>
 
+
 <style scoped lang="scss">
-    @import "@/assets/scss/components/products-set/products-set";
+    img.set_wave {
+        width: 100%;
+        display: block;
+        background-color: $productsBgColor;
+    }
+
+    section.set {
+        position: relative;
+        padding-bottom: 5%;
+
+        @include large_phones {
+            padding-bottom: 15%;
+        }
+    }
+
+    section.sets_inner {
+        position: relative;
+        max-width: $basewidth;
+        width: 85%;
+        margin: auto;
+
+        &::before {
+            content: '';
+            width: 15%;
+            height: 5%;
+            position: absolute;
+            top: 9%;
+            left: 10%;
+            background: url('/images/products/sets/nest.svg') no-repeat;
+
+            @include tablets {
+                top: 6%;
+                left: 6%;
+            }
+            @include large_phones {
+                display: none;
+            }
+        }
+
+        &::after {
+            content: '';
+            width: 15%;
+            height: 5%;
+            position: absolute;
+            top: 8%;
+            right: 10%;
+            background: url('/images/products/sets/blackhen.svg') no-repeat;
+
+            @include tablets {
+                top: 6%;
+                right: 6%;
+            }
+            @include large_phones {
+                width: 20%;
+                right: 0;
+            }
+        }
+    }
+
+    div.title {
+        position: relative;
+        padding: 8% 0;
+
+        @include large_phones {
+            padding: 15% 0 12%;
+        }
+
+        div.subtitle_icon {
+            width: clamp(170px,15vw,260px);
+            margin: auto;
+
+            img {
+                width: 100%;
+            }
+        }
+        
+        h2 {
+            @include h2;
+            padding-top: 5px;
+            text-align: center;
+        }
+    }
+
+    ul.sets_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        li {
+            width: 30%;
+            padding-bottom: 8%;
+
+            @include large_tablets {
+                width: 45%;
+            }
+            @include large_phones {
+                width: 47%;
+                padding-bottom: 10%;
+                text-align: center;
+            }
+
+            div.set_img {
+                padding-bottom: 7%;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            div.set_info {
+                padding: 0 10px;
+
+                h4.set_name {
+                    @include h4;
+                    color: $primaryTextColor;
+                    padding-bottom: 5%;
+                }
+        
+                p.set_intro {
+                    @include content_font;
+                    color: $primaryTextColor;
+
+                    @include large_phones {
+                        display: none;
+                    }
+                }
+
+                div.set_contents {
+                    @include tablets {
+                        margin: 5% 0;
+                        border-radius: 6px;
+                        border: 1px solid $secondaryColor;
+                    }
+
+                    // 768px以下出現
+                    button.see_more_btn,
+                    button.see_less_btn {
+                        width: 100%;
+                        padding: 4% 0;
+                        cursor: pointer;
+                        background-color: transparent;
+        
+                        span {
+                            @include content_font;
+                            padding-right: 5px;
+                            color: $secondaryColor;
+                        }
+                        
+                        .arrow {
+                            color: $secondaryColor;
+                        }
+                    }
+        
+                    div.contents {
+                        padding: 20px 0;
+        
+                        @include tablets {
+                            padding: 20px 15px;
+                            border-top: 1px solid $secondaryColor;
+                        }
+        
+                        span {
+                            @include content_font;
+                            color: $grayText;
+                            display: block;
+            
+                            .check_box {
+                                margin-right: 5px;
+                                color: $secondaryColor;
+                            }
+                        }
+                    }
+                }
+
+                div.price_container {
+                    align-items: center;
+                    justify-content: space-between;
+
+                    div.price {
+                        margin-bottom: 5%;
+
+                        span:nth-child(1) {
+                            @include price_font;
+                            margin-right: 10px;
+                        }
+
+                        span:nth-child(2) {
+                            @include content_font;
+                            letter-spacing: 0;
+                            color: $grayText;
+                            text-decoration: line-through;
+                        }
+                    }
+            
+                    button.cart_btn {
+                        @include paragraph;
+                        width: 100%;
+                        padding: 6px 20px;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        color: $normalColor;
+                        background-color: $importantBtnColor;
+                        transition: .2s;
+
+                        .cart_icon {
+                            padding-right: 10px;
+
+                            @include large_phones {
+                                display: none;
+                            }
+                        }
+
+                        &:hover {
+                            color: $normalColor;
+                            background-color: $normalBtnColor;                      
+                        }
+                    }
+                }
+            }
+        }
+    }
 </style>

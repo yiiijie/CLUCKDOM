@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
-import FarmingChart from '@/components/FarmingChart.vue';
+import FarmingChart from '@/components/farming-chart/FarmingChart.vue';
 import HeaderBanner from '@/components/header-banner/headerBanner.vue';
 import Navbar from '@/components/global/Navbar.vue';
 import useNavbarVisibility from '@/composables/useNavbarVisibility';

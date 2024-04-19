@@ -15,7 +15,7 @@ const { showNavbar } = useNavbarVisibility();
             <Navbar />
         </div>
         <section class="web_purpose">
-            <!-- for mobile -->
+            <!-- 1024px 以下出現 -->
             <div class="header_logo">
                 <router-link to="/">
                     <img src="/images/home/header/mobile_header_logo.svg" alt="logo">
@@ -103,8 +103,7 @@ const { showNavbar } = useNavbarVisibility();
             height: 100px;
             top: -40px;
             left: 3vw;
-            background-repeat: no-repeat;
-            background-image: url(/images/home/footprint.svg);
+            background: url(/images/home/footprint.svg) no-repeat;
 
             @include large_phones {
                 transform: rotate(15deg);
@@ -119,12 +118,13 @@ const { showNavbar } = useNavbarVisibility();
             height: 100px;
             top: 0;
             right: 3vw;
-            background-repeat: no-repeat;
-            background-image: url(/images/home/footprint_2.svg);
+            background: url(/images/home/footprint_2.svg) no-repeat;
 
             @include large_phones {
+                width: clamp(50px,20vw,150px);
                 top: 20px;
-                right: -10vw;
+                right: 0;
+                background: url(/images/home/footprint_3.svg) no-repeat;
             }
         }
 

@@ -24,7 +24,6 @@ watchEffect(() => {
   isHomePage.value = router.currentRoute.value.name === 'home';
 });
 
-
 const navItems = reactive([
     {
         label:'關於我們',
@@ -42,9 +41,9 @@ const navItems = reactive([
         route: '/stores',
     },
     {
-        label:'常見問題',
-        label_en:'FAQ',
-        route: '/faq',
+        label:'聯絡我們',
+        label_en:'CONTACT',
+        route: '/contact-us',
     },
 ])
 
@@ -102,9 +101,6 @@ const social = reactive([
                             <span class="label_en">{{ navItem['label_en'] }}</span>
                         </RouterLink>
                     </li>
-                    <!-- <RouterLink to="/contact-us">
-                        <button class="contact_us">聯絡我們</button>
-                    </RouterLink> -->
                     <RouterLink to="/sign-in">
                         <SignInBtn class="signin_btn"/>
                         <!-- <button class="signin_btn">會員登入</button> -->
@@ -159,6 +155,12 @@ const social = reactive([
             </div>
         </div>
     </header>
+    <!-- 手機版信箱 -->
+    <RouterLink to="/contact-us" class="only_tablets_email">
+        <font-awesome-icon
+        class="icon"
+        :icon="['fas', 'envelope']" />
+    </RouterLink>
 </template>
 
 
@@ -263,14 +265,6 @@ const social = reactive([
                         font-family: $font_family_en;
                     }
                 }
-
-                // button.contact_us {
-                //     @extend %menu_btn_style ;
-                //     margin: 30px 0 0;
-                //     cursor: pointer;
-                //     border: 1.5px solid $textBgColor;
-                //     background-color: $normalBgColor;
-                // }
 
                 button.signin_btn {
                     @extend %menu_btn_style ;
@@ -450,6 +444,40 @@ const social = reactive([
             }
         }
     }
+
+    // 手機版信箱
+    a.only_tablets_email {    
+        display: none;
+    
+        @include large_tablets {
+            position: fixed;
+            display: block;
+            bottom: 3vh;
+            right: 3.5vw;
+            z-index: 1000;
+
+            .icon {
+                padding: 30px; 
+                font-size: 30px;          
+                border-radius: 50%;
+                color: $normalColor;
+                background-color: $secondaryColor;
+                transition: .2s;     
+                
+                @include large_phones {
+                    padding: 18px; 
+                    font-size: 25px; 
+                }
+
+                &:hover {
+                    color: $secondaryColor;
+                    border: 1px solid $secondaryColor;
+                    background-color: $normalColor;
+                }
+            }
+        }
+    }
+
 
     @keyframes rotate {
         from {

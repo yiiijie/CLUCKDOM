@@ -152,6 +152,13 @@ const list = reactive([
         background-image: url('/images/products/falling_eggs.svg');
         animation: falling_loop 60s infinite linear;
 
+        @include tablets {
+            background-size: 120%;
+        }
+        @include large_phones {
+            background-size: 150%;
+        }
+
         div.egg_intro {
             max-width: $basewidth;
             width: 80%;
@@ -166,7 +173,7 @@ const list = reactive([
                 padding: 10% 0 30%;
             }
             @include large_phones {
-                padding: 10% 0 38%;
+                padding: 15% 0 38%;
             }
 
             h1 {

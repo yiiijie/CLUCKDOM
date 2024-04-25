@@ -36,11 +36,11 @@ const cards = reactive([
             <Navbar />
         </div>
         <section class="header_container">
-            <HeaderBanner
+            <header-banner
                 bannerImage="/images/about/header_banner.jpg"
                 sloganText="關於鷄蛋王國"
                 sloganEnText="About CLUCKDOM">
-            </HeaderBanner>
+            </header-banner>
             <img class="header_wave" src="/images/header_wave.png" alt="wave">
         </section>
         <section class="intro_inner" data-aos="fade-up" data-aos-duration="1500"> 

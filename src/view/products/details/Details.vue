@@ -46,11 +46,10 @@ const changeMainImage = (src) => {
 
 <template>
   <div>
-    <main>
       <section class="prd_inner">
         <div class="prd_photos">
           <!-- 大圖 -->
-          <div id="main_img">
+          <div class="main_img">
             <img :src="mainImgSrc" alt="商品圖" />
           </div>
           <!-- 小圖 -->
@@ -64,8 +63,7 @@ const changeMainImage = (src) => {
           </div>
         </div>
         <div class="prd_info">
-          <h1 class="prd_name">放牧土雞蛋｜幸福好蛋（10入）</h1>
-          <!-- 產品特點 -->
+          <h2 class="prd_name">放牧土雞蛋｜幸福好蛋（10入）</h2>
           <p class="prd_features">
             ✦ 蛋香飄逸、營養豐富
             <br />
@@ -73,7 +71,6 @@ const changeMainImage = (src) => {
             <br />
             ✦ 蛋香濃郁，蛋黃鮮美，蛋白柔滑绵密
           </p>
-          <!-- 產品描述 -->
           <p class="prd_slogan">
             幸福好蛋是由母雞吃著高品質、營養豐富的有機飼料所產的蛋，裡面包括有機穀物、天然植物蛋白和多種維生素。
           </p>
@@ -99,44 +96,56 @@ const changeMainImage = (src) => {
               <font-awesome-icon icon="plus" />
             </button>
           </div>
+          <div class="btn_group">
+            <button type="button" class="cart_btn">
+              <font-awesome-icon icon="cart-shopping" class="cart_icon" />
+              <span>加入購物車</span>
+            </button>   
+            <button type="button" class="cart_btn">
+              <span>立即購買</span>
+            </button>
+          </div>
         </div>
       </section>
-    </main>
   </div>
 </template>
 
 <style scoped lang="scss">
-  main {
-      background-color: $productsBgColor;
-  }
 
   section.prd_inner {
     max-width: $basewidth;
     width: 85%;
     display: flex;
-    margin: auto;
-    padding: 270px 0;
+    margin: 250px auto 12%;
+
+    @include large_tablets {
+      width: 75%;
+      display: block;
+      margin: 10% auto 15%;
+    }
+    @include tablets {
+      width: 85%;
+    }
+    @include large_phones {
+      width: 80%;
+       margin: 10% auto 25%;
+    }
 
     div.prd_photos {
       width: 65%;
       margin-right: 5%;
 
-      div#main_img {
-        position: relative;
+      @include large_tablets {
         width: 100%;
-        padding-top: 100%; // 和width的%數一致，使長寬一樣長
-        // 當容器的高度是0，那麼 padding 會撐開容器所有的高度，藉此做出一個正方形的容器。
+        margin-right: 0;
+      }
+
+      div.main_img {
+        width: 100%;
 
         img {
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
           width: 100%;
-          height: 100%;
-          object-fit: cover; 
-          object-position: center;
+          aspect-ratio: 1 / 1;
           border-radius: 10px;
         }
       }
@@ -145,9 +154,12 @@ const changeMainImage = (src) => {
         display: flex;
         padding-top: 20px;
         column-gap: 10px;
+        cursor: pointer;
 
         img {
-          width: 80px;
+          flex: 1;
+          width: 100%;
+          // width: 80px;
           height: auto;
           aspect-ratio: 1 / 1; 
           object-fit: cover;
@@ -159,15 +171,26 @@ const changeMainImage = (src) => {
 
     div.prd_info {
 
-      h1.prd_name{
-        @include product_name_font;
-        font-size: $h4Fz_PC;
+      h2.prd_name{
+        @include h2;
+        font-family: $font_family_content;
+
+        @include large_tablets {
+          margin-top: 5%;
+        }
+        @include tablets {
+          margin-top: 10%;
+        }
       }
 
       p.prd_features {
         @include paragraph;
         color: $secondaryText;
-        margin: 20px 0;
+        margin: 5% 0; 
+
+        @include large_tablets {
+          margin: 2% 0; 
+        }
       }
 
       p.prd_slogan {
@@ -175,17 +198,23 @@ const changeMainImage = (src) => {
       }
 
       div.prd_price {
-        margin: 40px 0 30px;
+        margin: 5% 0 7%;
+
+        @include large_tablets {
+          margin: 5% 0;
+        }
 
         span.title {
           @include paragraph;
           display: block;
         }
+
         span.current_price {
           @include price_font;
           color: $primaryColor;
           padding-right: 10px;
         }
+
         del.original_price {
           @include content_font;
           color: $grayText;
@@ -201,10 +230,15 @@ const changeMainImage = (src) => {
         width: 30%;
         display: flex;
         padding: 10px;
+        box-sizing: border-box;
         justify-content: space-between;
         color: $primaryText;
         border-radius: 5px;
         border: 1px solid $primaryText;
+
+        @include tablets {
+          width: 100%;
+        }
         
         button {
           @include content_font;
@@ -223,6 +257,42 @@ const changeMainImage = (src) => {
           border: none;
           color: $primaryText;
           background: none;
+        }
+      }
+
+      div.btn_group {
+        display: flex;
+        justify-content: space-between;
+
+        button.cart_btn {
+          @include paragraph;
+          width: calc(50% - 5px);
+          padding: 6px 0;
+          margin-top: 40px;
+          border-radius: 50px;
+          color: $normalColor;
+          cursor: pointer;
+          transition: .2s;
+
+          &:first-child {
+            background-color: $secondaryColor;
+          }
+
+          &:last-child {
+            background-color: $primaryColor;
+          }
+          
+          &:hover {
+            background-color: $hoverBtnColorY;                      
+          }
+  
+          .cart_icon {
+            padding-right: 10px;
+
+            @include phones {
+              display: none;
+            }
+          }
         }
       }
     }

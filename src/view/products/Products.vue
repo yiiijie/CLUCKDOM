@@ -58,11 +58,11 @@ const list = reactive([
             <Navbar />
         </div>
         <section class="header_container">
-            <HeaderBanner
+            <header-banner
                 bannerImage="/images/products/header_banner.jpg"
                 sloganText="精選系列"
                 sloganEnText="Product Introduction">
-            </HeaderBanner>
+            </header-banner>
             <img class="header_wave" src="/images/header_wave.png" alt="wave">
         </section>
         
@@ -119,12 +119,10 @@ const list = reactive([
                                 <span>{{ item.currentPrice }}</span>
                                 <span>{{ item.originalPrice }}</span>
                             </div>
-                            <RouterLink :to="'/'">
-                                <button type="button" class="cart_btn">
-                                    <font-awesome-icon icon="cart-shopping" class="cart_icon" />
-                                    <span>加入購物車</span>
-                                </button>
-                            </RouterLink>                     
+                            <button type="button" class="cart_btn">
+                                <font-awesome-icon icon="cart-shopping" class="cart_icon" />
+                                <span>加入購物車</span>
+                            </button>                   
                         </div>
                     </div>
                 </li>

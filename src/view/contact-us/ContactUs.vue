@@ -3,7 +3,6 @@ import axios from 'axios';
 import { ref, computed } from 'vue';
 import { object, string } from 'yup';
 import Modal from '@/components/func-items/Modal.vue';
-// import GoogleMap from '@/components/google-map/GoogleMap.vue';
 
 const showModal = ref(false);
 const submitResult = ref('');
@@ -164,15 +163,14 @@ async function onSubmit(values, { resetForm }) {
 
                     <!-- 表單送出後的通知彈窗 -->
                     <Teleport to="body">
-                        <Modal :show="showModal" @close="showModal = false" :buttonText="handleBtnText">
+                        <modal :show="showModal" @close="showModal = false" :buttonText="handleBtnText">
                             <h3 class="modal_title">{{ submitResult }}</h3>
                             <div class="modal_img">
                                 <img :src="modalImage" alt="彈窗">
                             </div>
-                        </Modal>
+                        </modal>
                     </Teleport>
                 </VeeForm>
-                <!-- <GoogleMap /> -->
             </section>
             <img class="wave" src="/images/contact/wave.svg" alt="wave">
         </main>

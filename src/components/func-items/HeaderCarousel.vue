@@ -111,6 +111,10 @@
         color: $secondaryColor;
         font-family: $font_family_en;
 
+        @include large_tablets {
+            display: none;
+        }
+
         &::before {
             content: '';
             width: 10px;
@@ -120,7 +124,11 @@
             transform: translateX(-50%);
             border-radius: 50%;
             background-color: $secondaryColor;
-            animation: wheel 2.5s infinite;
+            animation: wheel 1.5s infinite;
+
+            @include large_tablets {
+                display: none;
+            }
         }
     }
 

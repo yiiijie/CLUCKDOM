@@ -7,20 +7,6 @@ import Footer from '@/components/global/Footer.vue';
 const route = useRoute();
 const footerColor = ref('#F8F3EB');
 
-// watchEffect(() => {
-//   // 根據路由的 meta 屬性中的 footerColor 來更新 footerColor 的值
-//   // 如果 meta 中沒有指定 footerColor，則使用預設顏色 #F8F3EB
-//   footerColor.value = route.meta.footerColor || '#F8F3EB';
-// });
-
-// watchEffect(() => {
-//  if (route.meta.footerColor !== undefined) {
-//    footerColor.value = route.meta.footerColor;
-//  } else {
-//    footerColor.value = '#F8F3EB';
-//  };
-// });
-
 watchEffect(() => {
   const changeFooterColor = route.meta.footerColor;
   footerColor.value = changeFooterColor !== undefined ? changeFooterColor : '#F8F3EB';
@@ -42,7 +28,7 @@ watchEffect(() => {
 
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity 0.1s;
+    transition: opacity 0.3s;
   }
 
   .fade-enter-from,

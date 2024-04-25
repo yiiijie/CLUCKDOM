@@ -30,3 +30,15 @@
         background-color: $hoverBtnColorB;
     }
 }
+
+@mixin channel_card_container {
+    width: 100%;
+    margin: 4% 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include tablets {
+        margin: 6% 0 10%;
+    }
+}

@@ -5,33 +5,18 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 
 const auth = getAuth();
 const router = useRouter();
-const user = ref(JSON.parse(localStorage.getItem('user')));
-const userName = ref(localStorage.getItem('userName')); // 讀取用戶名稱
+const user = ref(auth.currentUser); // 讀取google登入的用戶名稱
+const userName = ref(localStorage.getItem('userName')); // 讀取一般帳密登入的用戶名稱
 
-// const loginStatus = computed(() => {
-//   return user.value ? user.value.displayName : '登入';
-// });
 const loginStatus = computed(() => {
- // 檢查 user 是否有值
- if (user.value) {
-    return user.value.displayName;
- }
- // 如果 user 沒有值，檢查 userName 是否有值
- else if (userName.value) {
-    return userName.value;
- }
- // 如果以上兩個條件都不滿足，則返回 '登入'
- else {
-    return '登入';
- }
+    return user.value ? user.value.displayName : (userName.value || '登入');
 });
 
 const handleUserClick = () => {
-  // 若用戶已登入，就無法再導航至登入頁
+  // 若用戶已登入，就無法再透過點擊導航至登入頁
   if (user.value || userName.value) {
     return;
   } else {
-    // 否則導航至登入頁
     router.push('/sign-in');
   }
 };
@@ -51,7 +36,6 @@ const handleSignOut = () => {
       localStorage.removeItem('userName'); 
       user.value = null;
       userName.value = null;
-      // router.push("/");
       console.log('用戶已登出');
     })
     .catch((error) => {

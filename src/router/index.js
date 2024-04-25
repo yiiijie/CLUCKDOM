@@ -30,6 +30,15 @@ const router = createRouter({
       // },
     },
     {
+      path: "/physical-channel",
+      name: "physical-channel",
+      component: () => import("@/view/physical-channel/PhysicalChannel.vue"),
+      // meta: {
+      //   hideHeader: false,
+      //   hideFooter: true,
+      // },
+    },
+    {
       path: "/sign-in",
       name: "sign-in",
       component: () => import("@/view/sign-in/SignIn.vue"),

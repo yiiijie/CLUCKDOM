@@ -36,9 +36,9 @@ const navItems = reactive([
         route: '/products',
     },
     {
-        label:'通路門市',
-        label_en:'STORES',
-        route: '/stores',
+        label:'實體通路',
+        label_en:'CHANNEL',
+        route: '/physical-channel',
     },
     {
         label:'聯絡我們',
@@ -121,7 +121,7 @@ const social = reactive([
     <header>
         <div class="header_inner">
             <div class="header_logo">
-                <RouterLink :to="'/'">
+                <RouterLink to="/">
                     <img src="/images/home/header/logo_red.svg" alt="logo">
                 </RouterLink>
             </div>

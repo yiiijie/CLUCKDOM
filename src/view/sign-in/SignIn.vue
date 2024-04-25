@@ -4,6 +4,7 @@ import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue';
 import { object, string } from 'yup';
 // import { useRouter } from "vue-router";
 // const router = useRouter();
+
 // vee-validate yup驗證
 const schema = object({
     email: string().email('請填寫有效的電子信箱').required('請填寫電子信箱'),
@@ -12,13 +13,12 @@ const schema = object({
 
 
 // 登入
-async function onSubmit(values, { resetForm }) {
+async function onSubmit(values) {
     try {
         const response = await axios.post('http://localhost:3000/signin', values);
         console.log('登入成功',response);
         // router.push("/");
         localStorage.setItem('userName', response.data.user.name);
-        // resetForm(); // 重置
     } catch (error) {
         console.error('登入失敗');
     }
@@ -80,7 +80,7 @@ async function onSubmit(values, { resetForm }) {
 
         div.form_inner {
             margin: auto;
-            max-width: 700px;
+            max-width: calc( $basewidth - 500px );
             width: 85%;
             padding: 50px 100px;
             border-radius: 30px;

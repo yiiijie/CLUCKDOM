@@ -50,6 +50,18 @@
       "email": "bb@gmail.com",
       "password": "$2a$10$.kR.miO6hY0uGTrKK5R5vuMvNEsE57ZG0wFshkOcrKrgt5v5F1Sfq",
       "id": 9
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$ONofOzT9mUFSH9peONMRz.v4ByA0pugrDjOcYPRPelOxy.KWVfBgq",
+      "name": "123",
+      "id": 10
+    },
+    {
+      "email": "yijie@gmail.com",
+      "password": "$2a$10$SYuozalElQYCD4n7p9zmF.quQc8zpopCxjjij.nMaYywuUA63..gK",
+      "name": "yijie",
+      "id": 11
     }
   ]
 }

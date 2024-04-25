@@ -13,12 +13,12 @@ const navItems = reactive([
         route: '/products',
     },
     {
-        label:'通路門市',
-        route: '/stores',
+        label:'實體通路',
+        route: '/physical-channel',
     },
     {
-        label:'常見問題',
-        route: '/faq',
+        label:'聯絡我們',
+        route: '/contact-us',
     },
 ])
 </script>
@@ -28,7 +28,7 @@ const navItems = reactive([
         <header>
             <nav class="navbar">
                 <div class="logo">
-                    <RouterLink :to="'/'">
+                    <RouterLink to="/">
                         <img src="/images/logo/navbar_logo.svg" alt="logo">
                     </RouterLink>
                 </div>
@@ -58,7 +58,7 @@ const navItems = reactive([
     header {
         width: 100%;
         position: fixed;
-        top: 6vh;
+        top: 40px;
         z-index: 100;
 
         @include large_tablets {

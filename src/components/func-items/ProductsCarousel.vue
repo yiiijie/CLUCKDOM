@@ -64,178 +64,201 @@ const breakpoints = ref({
 </script>
 
 <template>
-    <div class="title">
-        <h2>EGG SERIES</h2>
-        <div class="eggs_line">
-            <img src="/images/home/products-carousel/img_eggs_line.svg" alt="裝飾線" />
-        </div>
-    </div>
-    <Carousel v-bind="settings" :breakpoints="breakpoints" :wrap-around="true" :autoplay="2000">
-        <Slide v-for="slide in slides" :key="slide.id">
-            <div class="carousel_item">
-                <a href="">
-                    <div class="img_eggs">
-                        <img :src="slide.imgPath" alt="產品圖"> 
-                    </div>
-                    <div class="product">
-                        <div class="product_info">
-                            <div class="product_name">
-                                <p>{{ slide.name }}</p>
-                                <span class="product_slogan">| {{ slide.slogan }}</span>
-                            </div>
-                            <span>{{ slide.en }}</span> 
-                        </div>
-                        <div class="button">
-                            <font-awesome-icon class="arrow_right" :icon="['fas', 'arrow-right']" />
-                        </div>
-                    </div>     
-                </a>
+    <section class="products_carousel">
+        <div class="title">
+            <h2>EGG SERIES</h2>
+            <div class="eggs_line">
+                <img src="/images/home/products-carousel/img_eggs_line.svg" alt="裝飾線" />
             </div>
-        </Slide>
-
-        <template #addons>
-            <Navigation />
-        </template>
-    </Carousel>
+        </div>
+        <Carousel
+            v-bind="settings"
+            :breakpoints="breakpoints"
+            :wrap-around="true"
+            :autoplay="2000"
+        >
+            <Slide v-for="slide in slides" :key="slide.id">
+                <div class="carousel_item">
+                    <router-link to="/products/details">
+                        <div class="img_eggs">
+                            <img :src="slide.imgPath" alt="產品圖"> 
+                        </div>
+                        <div class="product">
+                            <div class="product_info">
+                                <div class="product_name">
+                                    <p>{{ slide.name }}</p>
+                                    <span class="product_slogan">| {{ slide.slogan }}</span>
+                                </div>
+                                <span>{{ slide.en }}</span> 
+                            </div>
+                            <div class="button">
+                                <font-awesome-icon class="arrow_right" :icon="['fas', 'arrow-right']" />
+                            </div>
+                        </div>     
+                    </router-link>
+                </div>
+            </Slide>    
+            <template #addons>
+                <Navigation />
+            </template>
+        </Carousel>
+    </section>
 </template>
 
 <style scoped lang="scss">
-  div.title {
-      max-width: $basewidth;
-      width: 80%;
-      display: flex;
-      margin: 50px auto 0;
-      align-items: center;
 
-      @include phones {
-          flex-direction: column;
-      }
+    section.products_carousel {
+        margin: 5% 0;
 
-      h2 {
-          @include h2_en;
-          text-align: center;
-      }
+        @include large_tablets {
+            margin: 8% 0;
+        }
+        @include large_phones {
+            margin: 12.5% 0;
+        }
+        @include phones {
+            margin: 15% 0;
+        }
+        
+        div.title {
+            max-width: $basewidth;
+            width: 80%;
+            display: flex;
+            margin: 0 auto 2%;
+            align-items: center;
+    
+            @include phones {
+                flex-direction: column;
+                 margin: 0 auto 5%;
+            }
+    
+            h2 {
+                @include h2_en;
+                text-align: center;
+            }
+    
+            div.eggs_line{
+                width: 35%;
+    
+                @include phones {
+                    width: 50%;
+                    margin: auto;
+                    margin-top: 10px;
+                }
+    
+                img {
+                    width: 100%;
+                    margin-left: 50px;
+    
+                    @include phones {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    
+        div.carousel_item {
+            display: flex;
+            // margin: 10% 0 15%;
+            flex-direction: column;
+    
+            a {
+                cursor: pointer;
+                text-decoration: none;
+            }
+    
+            div.img_eggs {
+                width: 300px; 
+                height: 300px;
+                border-radius: 50%;
+                margin-bottom: 10px;
+                overflow: hidden;
+    
+                &:hover > img {
+                    transform: scale(1.1);
+                }
+    
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                    transition: .4s;          
+                }
+            }
+    
+            div.product {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+    
+                div.product_info {
+                    text-align: left;
+    
+                    span {
+                        @include small_font;
+                        font-family: $font_family_en;
+                    }
+    
+                    div.product_name {
+                        @include subtitle_style;
+                        display: flex;
+                        margin: 2% 0;
+                        align-items: flex-end;
+                        color: $importantColor;
+                        font-weight: $fWBold;
+            
+                        span.product_slogan {
+                            @include small_font;
+                            margin-left: 5px;
+                            color: $importantColor;
+                            font-family: $font_family_title;
+                        }
+                    }
+                }
+    
+                div.button {                    
+                    .arrow_right {
+                        color: $normalBgColor;
+                        font-size: 14px;
+                        padding: 15px;
+                        transition: .3s;
+                        border-radius: 50%;
+                        background-color: $importantBtnColor;
+    
+                        &:hover {
+                            background-color: $hoverBtnColorY;
+                        }
+                    }
+    
+                    &:hover > .arrow_right{
+                        transform: translateX(5px);
+                    }
+                }
+            }
+        }
+    
+    
+        :deep(.carousel__next) {
+            width: 60px;
+            height: 60px;
+            margin: 0;
+            background-color: $normalBgColor;
+            border: 1px solid $borderColor;
+            border-radius: 50% 0 0 50%;
+        }
+    
+        :deep(.carousel__prev) {
+            width: 60px;
+            height: 60px;
+            margin: 0;
+            background-color: $normalColor;
+            border: 1px solid $borderColor;
+            border-radius: 0 50% 50% 0;
+        }
+    
+        :deep(.carousel__icon) {
+            font-size: 2.5rem;
+            color: $primaryTextColor;
+        }
+    }
 
-      div.eggs_line{
-          width: 35%;
-
-          @include phones {
-              width: 50%;
-              margin: auto;
-              margin-top: 10px;
-          }
-
-          img {
-              width: 100%;
-              margin-left: 50px;
-
-              @include phones {
-                  margin-left: 0;
-              }
-          }
-      }
-  }
-
-  div.carousel_item {
-      display: flex;
-      margin: 10% 0 15%;
-      flex-direction: column;
-
-      a {
-          cursor: pointer;
-          text-decoration: none;
-      }
-
-      div.img_eggs {
-          width: 300px; 
-          height: 300px;
-          border-radius: 50%;
-          margin-bottom: 10px;
-          overflow: hidden;
-
-          &:hover > img {
-              transform: scale(1.1);
-          }
-
-          img {
-              width: 100%;
-              border-radius: 50%;
-              transition: .4s;          
-          }
-      }
-
-      div.product {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-
-          div.product_info {
-              text-align: left;
-
-              span {
-                  @include small_font;
-                  font-family: $font_family_en;
-              }
-
-              div.product_name {
-                  @include subtitle_style;
-                  display: flex;
-                  margin: 2% 0;
-                  align-items: flex-end;
-                  color: $importantColor;
-                  font-weight: $fWBold;
-      
-                  span.product_slogan {
-                      @include small_font;
-                      margin-left: 5px;
-                      color: $importantColor;
-                      font-family: $font_family_title;
-                  }
-              }
-          }
-
-          div.button {                    
-              .arrow_right {
-                  color: $normalBgColor;
-                  font-size: 14px;
-                  padding: 15px;
-                  transition: .3s;
-                  border-radius: 50%;
-                  background-color: $importantBtnColor;
-
-                  &:hover {
-                      background-color: $hoverBtnColorY;
-                  }
-              }
-
-              &:hover > .arrow_right{
-                  transform: translateX(5px);
-              }
-          }
-      }
-  }
-
-
-  :deep(.carousel__next) {
-      width: 60px;
-      height: 60px;
-      margin: 0;
-      background-color: $normalBgColor;
-      border: 1px solid $borderColor;
-      border-radius: 50% 0 0 50%;
-  }
-
-  :deep(.carousel__prev) {
-      width: 60px;
-      height: 60px;
-      margin: 0;
-      background-color: $normalColor;
-      border: 1px solid $borderColor;
-      border-radius: 0 50% 50% 0;
-  }
-
-  :deep(.carousel__icon) {
-      font-size: 2.5rem;
-      color: $primaryTextColor;
-  }
 </style>

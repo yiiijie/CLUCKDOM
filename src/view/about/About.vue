@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from 'vue';
 import FarmingChart from '@/components/farming-chart/FarmingChart.vue';
-import HeaderBanner from '@/components/header-banner/headerBanner.vue';
+// import HeaderBanner from '@/components/header-banner/headerBanner.vue';
 import Navbar from '@/components/global/Navbar.vue';
 import useNavbarVisibility from '@/composables/useNavbarVisibility';
 import EnvironmentCarousel from '@/components/func-items/EnvironmentCarousel.vue';
@@ -31,16 +31,24 @@ const cards = reactive([
 </script>
 
 <template>
+    
     <div>
         <div v-if="showNavbar" class="navbar">
             <Navbar />
         </div>
+        
         <section class="header_container">
-            <header-banner
+            <!-- <header-banner
                 bannerImage="/images/about/header_banner.jpg"
                 sloganText="關於鷄蛋王國"
                 sloganEnText="About CLUCKDOM">
+            </header-banner> -->
+            <header-banner>
+                <template #header_banner_img>
+                    
+                </template>
             </header-banner>
+            <HeaderBanner />
             <img class="header_wave" src="/images/header_wave.png" alt="wave">
         </section>
         <section class="intro_inner" data-aos="fade-up" data-aos-duration="1500"> 
@@ -87,7 +95,6 @@ const cards = reactive([
 
         <!-- 牧場環境 輪播 -->
         <EnvironmentCarousel />
-        
         <section class="cluckdom_intro">
             <div class="environment_bg">
                 <img src="/images/about/environment_bg.jpg" alt="牧場環境圖">
@@ -123,7 +130,6 @@ const cards = reactive([
                 </li>
             </ul>
         </section>
-        
         <section class="about_us_inner">
             <div class="text" data-aos="fade-right">
                 <div class="title_en">
@@ -209,7 +215,7 @@ const cards = reactive([
             }
         }
     }
-
+    
     section.certification {
         width: 100%;
         background-color: $productsBgColor;

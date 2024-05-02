@@ -1,6 +1,17 @@
 <script setup>
 import axios from 'axios';
+import { ref, computed } from 'vue';
 import { object, string } from 'yup';
+import { useRouter } from "vue-router";
+import Modal from '@/components/func-items/Modal.vue';
+
+const router = useRouter();
+const showModal = ref(false);
+const submitResult = ref('');
+const modalImage = ref('');
+const handleBtnText = computed(() => {
+    return submitResult.value === '註冊成功！' ? '回登入頁' : '再試一次';
+});
 
 // vee-validate yup驗證
 const schema = object({
@@ -12,11 +23,25 @@ const schema = object({
 // 註冊
 async function onSubmit(values, { resetForm }) {
     try {
+        // 模擬註冊時的延遲感
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
         const response = await axios.post('http://localhost:3000/signup', values);
         console.log('註冊成功', response);
-        resetForm(); // 重置
+        resetForm(); // 重置表單
+
+        submitResult.value = '註冊成功！';
+        showModal.value = true; // 跳出彈窗
+        modalImage.value = '/images/modal/sign_up_successed.svg';
+
+        // 模擬跳轉頁面前的延遲感
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        router.push("sign-in");
     } catch (error) {
         console.error('註冊失敗');
+        submitResult.value = '註冊失敗';
+        showModal.value = true;
+        modalImage.value = '/images/contact/modal/failed.svg';
     }
 }
 
@@ -29,8 +54,9 @@ async function onSubmit(values, { resetForm }) {
                 <span class="form_title">會員註冊</span>
                 <VeeForm
                     @submit="onSubmit"
+                    v-slot="{ isSubmitting }"
                     :validation-schema="schema"
-                    class="sign_in_form">
+                    class="sign_up_form">
                     <div class="form_group">
                         <label for="name">姓名</label>        
                         <VeeField
@@ -58,7 +84,7 @@ async function onSubmit(values, { resetForm }) {
                             class="input"/>
                         <ErrorMessage name="password" class="error_message"/>  
                     </div>  
-                    <button type="submit" class="sign_up_btn">註冊</button>
+                    <button :disabled="isSubmitting" type="submit" class="sign_up_btn">{{ isSubmitting ? '請稍候...' : '註冊' }}</button>
                 </VeeForm>
                 <div class="form_footer">
                     <span class="question">我已經有會員帳號了？ </span>
@@ -68,6 +94,15 @@ async function onSubmit(values, { resetForm }) {
                 </div>
             </div>
         </main>
+        <!-- 表單送出後的通知彈窗 -->
+        <Teleport to="body">
+            <modal :show="showModal" @close="showModal = false" :buttonText="handleBtnText">
+                <h3 class="modal_title">{{ submitResult }}</h3>
+                <div class="modal_img">
+                    <img :src="modalImage" alt="彈窗">
+                </div>
+            </modal>
+        </Teleport>
     </div>
 </template>
 
@@ -75,14 +110,26 @@ async function onSubmit(values, { resetForm }) {
     main.form_container {
         margin: 200px 0 120px;
 
+        @include large_tablets {
+            margin: 100px 0 120px;
+        }
+
         div.form_inner {
-            margin: auto;
-            max-width: 700px;
+            max-width: calc( $basewidth - 500px );
             width: 85%;
+            margin: auto;
             box-sizing: border-box;
             padding: 50px 100px;
             border-radius: 30px;
             background-color: #f1f1f1;
+
+            @include tablets {
+                padding: 50px 50px;
+            }
+            @include large_phones {
+                width: 90%;
+                padding: 50px 30px;
+            }
             
             span.form_title {
                 @include h4;
@@ -93,7 +140,7 @@ async function onSubmit(values, { resetForm }) {
         }
     }
 
-    form.sign_in_form {
+    form.sign_up_form {
         width: 100%;
 
         div.form_group {
@@ -146,5 +193,17 @@ async function onSubmit(values, { resetForm }) {
             font-weight: $fWBold;
             color: #33A4E8;
         }
+    }
+
+    // 彈窗            
+    h3.modal_title {
+        @include h3;
+        text-align: center;
+    }
+
+    div.modal_img {
+        margin: auto;
+        padding: 8% 0;
+        width: clamp(200px,80%,400px);
     }
 </style>

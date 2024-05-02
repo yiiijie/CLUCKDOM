@@ -29,13 +29,13 @@ async function onSubmit(values, { resetForm }) {
         console.log(response);
         submitResult.value = '我們收到表單囉！';
         showModal.value = true; // 跳出彈窗
-        modalImage.value = '/images/contact/modal/successed.svg';
+        modalImage.value = '/images/modal/form_successed.svg';
         resetForm(); // 重置表單
     } catch (error) {
         console.error('表單送出失敗');
         submitResult.value = '表單送出失敗';
         showModal.value = true;
-        modalImage.value = '/images/contact/modal/failed.svg';
+        modalImage.value = '/images/modal/form_failed.svg';
     }
 }
 </script>
@@ -160,20 +160,19 @@ async function onSubmit(values, { resetForm }) {
                     <button :disabled="isSubmitting" class="submit_btn" type="submit">
                         {{ isSubmitting ? '提交中...' : '確認送出' }}
                     </button>
-
-                    <!-- 表單送出後的通知彈窗 -->
-                    <Teleport to="body">
-                        <modal :show="showModal" @close="showModal = false" :buttonText="handleBtnText">
-                            <h3 class="modal_title">{{ submitResult }}</h3>
-                            <div class="modal_img">
-                                <img :src="modalImage" alt="彈窗">
-                            </div>
-                        </modal>
-                    </Teleport>
                 </VeeForm>
             </section>
             <img class="wave" src="/images/contact/wave.svg" alt="wave">
         </main>
+        <!-- 表單送出後的通知彈窗 -->
+        <Teleport to="body">
+            <modal :show="showModal" @close="showModal = false" :buttonText="handleBtnText">
+                <h3 class="modal_title">{{ submitResult }}</h3>
+                <div class="modal_img">
+                    <img :src="modalImage" alt="彈窗">
+                </div>
+            </modal>
+        </Teleport>
     </div>
 </template>
 
@@ -344,10 +343,8 @@ async function onSubmit(values, { resetForm }) {
     }
 
     div.modal_img {
-        // width: 22vw;
-        // width: 400px;
         margin: auto;
-        padding: 6% 0;
-        width: clamp(200px,22vw,400px);
+        padding: 8% 0;
+        width: clamp(200px,80%,400px);
     }
 </style>

@@ -28,7 +28,6 @@ const handleClose = () => {
 div.modal_mask {
   position: fixed;
   display: flex;
-  z-index: 9998;
   top: 0;
   left: 0;
   width: 100%;
@@ -38,14 +37,25 @@ div.modal_mask {
 }
 
 div.modal_container {
-  width: 32vw;
-  // height: 50vh;
+  max-width: 550px;
+  width: 32%;
   margin: auto;
-  padding: 30px 0;
+  padding: 35px 0;
   border-radius: 30px;
   background-color: $normalColor;
   box-shadow: 0px 5px 25px rgb(77, 76, 76, 0.3);
   transition: 0.2s;
+
+  @include large_tablets {
+      width: 45%;
+  }
+  @include tablets {
+      width: 60%;
+  }
+  @include large_phones {
+      width: 80%;
+  }
+
 }
 
 button.close_btn {
@@ -53,7 +63,7 @@ button.close_btn {
   display: block;
   margin: auto;
   cursor: pointer;
-  padding: 8px 50px;
+  padding: 6px 50px;
   border-radius: 100px;
   background-color: $normalBtnColor;
 }

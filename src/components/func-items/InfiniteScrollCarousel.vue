@@ -20,5 +20,28 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/scss/components/func-items/infinite-scroll-carousel";
+    div.carousel_wrap {
+        overflow: hidden;
+        display: flex;
+
+        .carousel {
+            display: flex;
+            animation: slide 50s linear infinite;
+        }
+
+        img {
+            margin: 0 8px;
+            width: clamp(300px,30vw,530px);
+            border-radius: 10px;
+        }
+    }
+
+    @keyframes slide{
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
 </style>

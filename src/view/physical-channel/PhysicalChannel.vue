@@ -7,7 +7,10 @@ import Southern from '@/components/physical-channel/Southern.vue';
 import Eastern from '@/components/physical-channel/Eastern.vue';
 import OutlyingIslands from '@/components/physical-channel/OutlyingIslands.vue';
 import GoogleMap from '@/components/google-map/GoogleMap.vue';
+import Navbar from '@/components/global/Navbar.vue';
+import useNavbarVisibility from '@/composables/useNavbarVisibility';
 
+const { showNavbar } = useNavbarVisibility();
 const currentTab = ref('北部');
 const tabs = {
     '北部': Northern,
@@ -24,6 +27,9 @@ const changeTab = (tab) => {
 
 <template>
     <div>
+        <div v-if="showNavbar" class="navbar">
+            <Navbar />
+        </div>
         <section class="header_container">
             <header-banner
                 bannerImage="/images/physical-channel/header_banner.jpg"

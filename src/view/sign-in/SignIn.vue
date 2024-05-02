@@ -2,8 +2,8 @@
 import axios from 'axios';
 import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue';
 import { object, string } from 'yup';
-// import { useRouter } from "vue-router";
-// const router = useRouter();
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 // vee-validate yup驗證
 const schema = object({
@@ -11,14 +11,13 @@ const schema = object({
     password: string().required('請填寫密碼'),
 });
 
-
 // 登入
 async function onSubmit(values) {
     try {
         const response = await axios.post('http://localhost:3000/signin', values);
         console.log('登入成功',response);
-        // router.push("/");
         localStorage.setItem('userName', response.data.user.name);
+        router.push("/");
     } catch (error) {
         console.error('登入失敗');
     }
@@ -71,109 +70,109 @@ async function onSubmit(values) {
 
 
 <style scoped lang="scss">
-    main.form_container {
-        margin: 200px 0 120px;
+main.form_container {
+    margin: 200px 0 120px;
 
-        @include large_tablets {
-            margin: 100px 0 120px;
+    @include large_tablets {
+        margin: 100px 0 120px;
+    }
+
+    div.form_inner {
+        max-width: calc( $basewidth - 500px );
+        width: 85%;
+        margin: auto;
+        padding: 50px 100px;
+        border-radius: 30px;
+        box-sizing: border-box;
+        background-color: #f1f1f1;
+
+        @include tablets {
+            padding: 50px 50px;
+        }
+        @include large_phones {
+            width: 90%;
+            padding: 50px 30px;
+        }
+        
+        span.form_title {
+            @include h4;
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
-        div.form_inner {
-            margin: auto;
-            max-width: calc( $basewidth - 500px );
-            width: 85%;
-            padding: 50px 100px;
-            border-radius: 30px;
-            box-sizing: border-box;
-            background-color: #f1f1f1;
+        hr.divider {
+            position: relative;
+            overflow: inherit;
+            margin: 40px 0;
+            border: .5px solid $borderColor;
 
-            @include tablets {
-                padding: 50px 50px;
-            }
-            @include large_phones {
-                width: 90%;
-                padding: 50px 30px;
-            }
-            
-            span.form_title {
-                @include h4;
-                display: block;
-                margin-bottom: 20px;
-                text-align: center;
-            }
-
-            hr.divider {
-                position: relative;
-                overflow: inherit;
-                margin: 40px 0;
-                border: .5px solid $borderColor;
-
-                &::before {
-                    content: "or";
-                    font-size: 1.4rem;
-                    position: absolute;
-                    left: 50%;
-                    padding: 0 20px;
-                    transform: translate(-50%, -50%);
-                    color: $borderColor;
-                    background-color: #f1f1f1;
-                }
+            &::before {
+                content: "or";
+                font-size: 1.4rem;
+                position: absolute;
+                left: 50%;
+                padding: 0 20px;
+                transform: translate(-50%, -50%);
+                color: $borderColor;
+                background-color: #f1f1f1;
             }
         }
     }
+}
 
-    form.sign_in_form {
+form.sign_in_form {
+    width: 100%;
+
+    div.form_group {
         width: 100%;
+        margin: 0 0 5%;
+        align-items: center;
 
-        div.form_group {
-            width: 100%;
-            margin: 0 0 5%;
-            align-items: center;
-
-            label {
-                @include content_font;
-                font-weight: $fWBold;
-                margin-bottom: 20px;
-            }
-
-            input.input {
-                width: 100%;
-                padding: 20px;
-                margin-bottom: 5px;
-                box-sizing: border-box;
-                border-radius: 8px;
-                border: none;
-                background-color: $normalColor;
-            }
-
-            input.input:focus {
-                outline: none;
-            }
-
-            .error_message {
-                @include small_font;
-                color: $importantColor;
-            }
-        }
-
-        button.sign_in_btn {
-            @include sign_in_btn;
-        }
-    }
-
-    div.form_footer {
-        text-align: center;
-        
-        span.question {
+        label {
             @include content_font;
-            letter-spacing: .05rem;
-        }
-        
-        span.add_member {
-            @include content_font;
-            letter-spacing: .05rem;
             font-weight: $fWBold;
-            color: #33A4E8;
+            margin-bottom: 20px;
+        }
+
+        input.input {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            border: none;
+            background-color: $normalColor;
+        }
+
+        input.input:focus {
+            outline: none;
+        }
+
+        .error_message {
+            @include small_font;
+            color: $importantColor;
         }
     }
+
+    button.sign_in_btn {
+        @include sign_in_btn;
+    }
+}
+
+div.form_footer {
+    text-align: center;
+    
+    span.question {
+        @include content_font;
+        letter-spacing: .05rem;
+    }
+    
+    span.add_member {
+        @include content_font;
+        letter-spacing: .05rem;
+        font-weight: $fWBold;
+        color: #33A4E8;
+    }
+}
 </style>

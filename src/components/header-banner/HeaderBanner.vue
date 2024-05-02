@@ -1,15 +1,20 @@
 <script setup>
-const props = defineProps(['bannerImage', 'sloganText', 'sloganEnText']);
+// const props = defineProps(['bannerImage', 'sloganText', 'sloganEnText']);
 
 </script>
 
 <template>
     <div class="container">
-        <div class="header_banner" :style="{ backgroundImage:`url('${ props.bannerImage }')` }">
+        <div class="header_banner">
+            <slot name="header_banner_img"></slot>
         </div>
         <div class="header_slogan">
-            <span class="chinese">{{ props.sloganText }}</span>
-            <span class="english">{{ props.sloganEnText }}</span>
+            <span class="chinese">
+                <slot name="slogan_text"></slot>
+            </span>
+            <span class="english">
+                <slot name="slogan_text_en"></slot>
+            </span>
         </div>
     </div>
 </template>

@@ -166,12 +166,12 @@ async function onSubmit(values, { resetForm }) {
         </main>
         <!-- 表單送出後的通知彈窗 -->
         <Teleport to="body">
-            <modal :show="showModal" @close="showModal = false" :buttonText="handleBtnText">
+            <Modal :show="showModal" @close="showModal = false" :buttonText="handleBtnText">
                 <h3 class="modal_title">{{ submitResult }}</h3>
                 <div class="modal_img">
                     <img :src="modalImage" alt="彈窗">
                 </div>
-            </modal>
+            </Modal>
         </Teleport>
     </div>
 </template>

@@ -1,20 +1,25 @@
 <script setup>
-// const props = defineProps(['bannerImage', 'sloganText', 'sloganEnText']);
+import { defineProps } from 'vue';
 
+const props = defineProps({
+    imageUrl: String
+});
 </script>
 
 <template>
     <div class="container">
-        <div class="header_banner">
-            <slot name="header_banner_img"></slot>
+        <div
+            class="header_banner"
+            :style="{ backgroundImage: `url(${imageUrl})` }"
+        >
         </div>
         <div class="header_slogan">
-            <span class="chinese">
+            <div class="chinese">
                 <slot name="slogan_text"></slot>
-            </span>
-            <span class="english">
+            </div>
+            <div class="english">
                 <slot name="slogan_text_en"></slot>
-            </span>
+            </div>
         </div>
     </div>
 </template>
@@ -35,19 +40,17 @@
                 height: 55vh;
             }
         }
-
+        
         div.header_slogan {
             @include header_slogan_style;
+            color: $normalColor;
 
-            span.chinese {
+            .chinese {
                 @include header_slogan_font;
-                display: block;
-                color: $normalBgColor;
             }
 
-            span.english {
+            .english {
                 @include header_slogan_en_font;
-                color: $normalBgColor;
             }
         }
     }

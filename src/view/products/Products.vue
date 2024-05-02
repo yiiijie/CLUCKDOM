@@ -1,12 +1,12 @@
 <script setup>
 import { reactive } from 'vue';
-import HeaderBanner from '@/components/header-banner/headerBanner.vue';
+import HeaderBanner from '@/components/header-banner/HeaderBanner.vue';
 import ProductsSet from '@/components/products-set/ProductsSet.vue';
 import Navbar from '@/components/global/Navbar.vue';
 import useNavbarVisibility from '@/composables/useNavbarVisibility';
 
+const bannerImageUrl = '/images/products/header_banner.jpg';
 const { showNavbar } = useNavbarVisibility();
-
 
 const list = reactive([
     {   id: '1',
@@ -58,11 +58,14 @@ const list = reactive([
             <Navbar />
         </div>
         <section class="header_container">
-            <header-banner
-                bannerImage="/images/products/header_banner.jpg"
-                sloganText="精選系列"
-                sloganEnText="Product Introduction">
-            </header-banner>
+            <HeaderBanner :image-url="bannerImageUrl">
+                <template #slogan_text>
+                    <span>精選系列</span>
+                </template>
+                <template #slogan_text_en>
+                    <span>Product Introduction</span>
+                </template>
+            </HeaderBanner>
             <img class="header_wave" src="/images/header_wave.png" alt="wave">
         </section>
         
@@ -94,7 +97,7 @@ const list = reactive([
             </div>
             <ul class="list_inner">
                 <li v-for="item in list" :key="item.id" data-aos="fade-up" data-aos-duration="1000">
-                    <RouterLink :to="'/products/details'" class="prd_img">
+                    <router-link to="/products/details" class="prd_img">
                         <div class="prd_click_bg"></div>
                         <div class="view_prd_circle">
                             <div class="txt">
@@ -103,7 +106,7 @@ const list = reactive([
                             </div>
                         </div>
                         <img :src="item.imgPath" alt="產品圖">
-                    </RouterLink>
+                    </router-link>
                     <div class="prd_content">
                         <div class="logo">
                             <img :src="item.prdLogoPath" alt="產品logo">

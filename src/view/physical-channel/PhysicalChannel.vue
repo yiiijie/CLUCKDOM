@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import HeaderBanner from '@/components/header-banner/headerBanner.vue';
+import HeaderBanner from '@/components/header-banner/HeaderBanner.vue';
 import Northern from '@/components/physical-channel/Northern.vue';
 import Central from '@/components/physical-channel/Central.vue';
 import Southern from '@/components/physical-channel/Southern.vue';
@@ -10,6 +10,7 @@ import GoogleMap from '@/components/google-map/GoogleMap.vue';
 import Navbar from '@/components/global/Navbar.vue';
 import useNavbarVisibility from '@/composables/useNavbarVisibility';
 
+const bannerImageUrl = '/images/physical-channel/header_banner.jpg';
 const { showNavbar } = useNavbarVisibility();
 const currentTab = ref('北部');
 const tabs = {
@@ -31,11 +32,14 @@ const changeTab = (tab) => {
             <Navbar />
         </div>
         <section class="header_container">
-            <header-banner
-                bannerImage="/images/physical-channel/header_banner.jpg"
-                sloganText="實體購買通路"
-                sloganEnText="Physical Channel">
-            </header-banner>
+            <HeaderBanner :image-url="bannerImageUrl">
+                <template #slogan_text>
+                    <span>實體購買通路</span>
+                </template>
+                <template #slogan_text_en>
+                    <span>Physical Channel</span>
+                </template>
+            </HeaderBanner>
             <img class="header_wave" src="/images/header_wave.png" alt="wave">
         </section>
         <div class="title" data-aos="fade-up" data-aos-duration="1000">

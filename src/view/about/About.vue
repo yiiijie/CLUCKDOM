@@ -1,13 +1,13 @@
 <script setup>
 import { reactive } from 'vue';
 import FarmingChart from '@/components/farming-chart/FarmingChart.vue';
-// import HeaderBanner from '@/components/header-banner/headerBanner.vue';
+import HeaderBanner from '@/components/header-banner/HeaderBanner.vue';
 import Navbar from '@/components/global/Navbar.vue';
 import useNavbarVisibility from '@/composables/useNavbarVisibility';
 import EnvironmentCarousel from '@/components/func-items/EnvironmentCarousel.vue';
 
+const bannerImageUrl = '/images/about/header_banner.jpg';
 const { showNavbar } = useNavbarVisibility();
-
 const cards = reactive([
     {
         id: "1",
@@ -38,17 +38,14 @@ const cards = reactive([
         </div>
         
         <section class="header_container">
-            <!-- <header-banner
-                bannerImage="/images/about/header_banner.jpg"
-                sloganText="關於鷄蛋王國"
-                sloganEnText="About CLUCKDOM">
-            </header-banner> -->
-            <header-banner>
-                <template #header_banner_img>
-                    
+            <HeaderBanner :image-url="bannerImageUrl">
+                <template #slogan_text>
+                    <span>關於鷄蛋王國</span>
                 </template>
-            </header-banner>
-            <HeaderBanner />
+                <template #slogan_text_en>
+                    <span>About CLUCKDOM</span>
+                </template>
+            </HeaderBanner>
             <img class="header_wave" src="/images/header_wave.png" alt="wave">
         </section>
         <section class="intro_inner" data-aos="fade-up" data-aos-duration="1500"> 

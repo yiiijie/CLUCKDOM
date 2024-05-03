@@ -2,15 +2,15 @@
     position: absolute;
     top: 55%;
     right: 50%;
-    transform: translate(50%,-50%);
+    transform: translate(50%, -50%);
     text-align: center;
     text-shadow: 0 0 4px rgba(71, 63, 59, 0.5);
 }
 
 @mixin hover_rotate {
-    transition: .2s;
-    animation:rotate .5s ease;
-    background-color: #C2A16C;
+    transition: 0.2s;
+    animation: rotate 0.5s ease;
+    background-color: #c2a16c;
 }
 
 @mixin sign_in_btn {
@@ -23,10 +23,10 @@
     border-radius: 8px;
     color: $normalColor;
     background-color: $primaryColor;
-    transition: .2s;
+    transition: 0.2s;
 
     &:hover {
-        transition: .2s;
+        transition: 0.2s;
         background-color: $hoverBtnColorB;
     }
 }

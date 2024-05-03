@@ -15,7 +15,7 @@ export default defineConfig({
     plugins: [vue()],
     resolve: {
         alias: {
-           '@': '/src',
+            '@': '/src',
         },
     },
     // base:'/CLUCKDOM/',

@@ -1,4 +1,3 @@
-
 @import 'base/mixin/breakpoints';
 @import 'base/mixin/mixin';
 @import 'base/fonts/fonts-mixin';
@@ -6,35 +5,34 @@
 @import 'base/variable';
 @import 'base/reset';
 
-
 html {
-  font-size: 10px; // 讓rem換算可以更快速方便
+    font-size: 10px; // 讓rem換算可以更快速方便
 }
 
 body {
-  position: absolute;
-  content: '';
-  top: 0;
-  width:100%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: repeat;
-  background-image: url(/images/home/pattern.jpg);
-  z-index: -1;
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: repeat;
+    background-image: url(/images/home/pattern.jpg);
+    z-index: -1;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
-::selection{
-  color: $primaryTextColor;
-  background:#fff2d4;
+::selection {
+    color: $primaryTextColor;
+    background: #fff2d4;
 }
 
 // 隱藏input後面的上下箭頭
 .hide_arrows::-webkit-outer-spin-button,
 .hide_arrows::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }

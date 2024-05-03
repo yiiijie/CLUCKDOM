@@ -1,24 +1,22 @@
-
 @mixin phones {
-  @media (max-width: 375px) {
-    @content;
-  }
+    @media (max-width: 375px) {
+        @content;
+    }
 }
 @mixin large_phones {
-  @media (max-width: 576px) {
-    @content;
-  }
+    @media (max-width: 576px) {
+        @content;
+    }
 }
 
 @mixin tablets {
-  @media (max-width: 768px) {
-    @content;
-  }
+    @media (max-width: 768px) {
+        @content;
+    }
 }
 
 @mixin large_tablets {
-  @media (max-width: 1024px) {
-    @content;
-  }
+    @media (max-width: 1024px) {
+        @content;
+    }
 }
-

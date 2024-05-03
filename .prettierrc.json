@@ -2,10 +2,12 @@
     "printWidth": 80,
     "tabWidth": 4,
     "useTabs": false,
-    "endOfLine": "auto",
+    "endOfLine": "lf",
     "singleQuote": true,
     "semi": false,
+    "quoteProps": "as-needed",
     "trailingComma": "es5",
     "bracketSpacing": true,
+    "bracketSameLine": false,
     "arrowParens": "always"
 }

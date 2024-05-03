@@ -12,50 +12,51 @@ $fWBold: 500;
 
 //📍 字體
 // 標題
-$font_family_title: "Zen Maru Gothic","Arial",'Noto Sans TC',"微軟正黑體",sans-serif;
+$font_family_title: 'Zen Maru Gothic', 'Arial', 'Noto Sans TC', '微軟正黑體',
+    sans-serif;
 // 內文
-$font_family_content:'Noto Sans TC',"Arial","微軟正黑體",sans-serif;
+$font_family_content: 'Noto Sans TC', 'Arial', '微軟正黑體', sans-serif;
 // 英文
-$font_family_en:"Hammersmith One","Montserrat","Ubuntu","Noto Sans",'Noto Sans TC',sans-serif;
+$font_family_en: 'Hammersmith One', 'Montserrat', 'Ubuntu', 'Noto Sans',
+    'Noto Sans TC', sans-serif;
 // 價格
-$font_price:"Ubuntu","Noto Sans","Hammersmith One",'Noto Sans TC',sans-serif; 
-
+$font_price: 'Ubuntu', 'Noto Sans', 'Hammersmith One', 'Noto Sans TC',
+    sans-serif;
 
 //📍 文字大小
 // root font-size : 10px (main.scss)
-$slogan: clamp(2.8rem,4vw,4rem);
-$slogan_en: clamp(1.2rem,3vw,2.8rem);
-$h1: clamp(2.1rem,4.5vw,3.6rem);
-$h2: clamp(2rem,3.5vw,3.2rem);
-$h3: clamp(1.8rem,1.5vw,2.4rem);
+$slogan: clamp(2.8rem, 4vw, 4rem);
+$slogan_en: clamp(1.2rem, 3vw, 2.8rem);
+$h1: clamp(2.1rem, 4.5vw, 3.6rem);
+$h2: clamp(2rem, 3.5vw, 3.2rem);
+$h3: clamp(1.8rem, 1.5vw, 2.4rem);
 $h4: clamp(1.6rem, 2vw, 2rem);
-$en_title: clamp(2.5rem,6vw,3.6rem);
-$paragraph: clamp(1.4rem,1.5vw,1.6rem);
-$paragraph_en: clamp(1.2rem,1.5vw,1.6rem);
-$content_font: clamp(1.3rem,1.5vw,1.5rem);
+$en_title: clamp(2.5rem, 6vw, 3.6rem);
+$paragraph: clamp(1.4rem, 1.5vw, 1.6rem);
+$paragraph_en: clamp(1.2rem, 1.5vw, 1.6rem);
+$content_font: clamp(1.3rem, 1.5vw, 1.5rem);
 $small_font: 1.2rem;
-$price_font: clamp(2.4rem,3vw,2.8rem);
-
+$price_font: clamp(2.4rem, 3vw, 2.8rem);
 
 // 要刪掉
-$h1Ls: .2rem;
-$h2Ls: .2rem;
-$h2Ls_en: .3rem;
-$h3Ls: .2rem;
-$h4Ls: .2rem;
-$h5Ls: .1rem;
-$h6Ls: .2rem;
-$pLs:  .1rem;
-$smallLs: .05rem;
+$h1Ls: 0.2rem;
+$h2Ls: 0.2rem;
+$h2Ls_en: 0.3rem;
+$h3Ls: 0.2rem;
+$h4Ls: 0.2rem;
+$h5Ls: 0.1rem;
+$h6Ls: 0.2rem;
+$pLs: 0.1rem;
+$smallLs: 0.05rem;
 // 要刪掉
-$h1Fz_PC: 3.6rem;    // 36px
-$h2Fz_PC: 3.2rem;    // 32px
-$h3Fz_PC: 2.8rem;    // 28px
-$h4Fz_PC: 2.4rem;    // 24px
-$h5Fz_PC: 2rem;      // 20px
-$h6Fz_PC: 1.6rem;    // 16px
-$pFz_PC:  1.6rem;    // 16px 內文
-$contentFz: 1.4rem;  // 14px 說明小字
+$h1Fz_PC: 3.6rem; // 36px
+$h2Fz_PC: 3.2rem; // 32px
+$h3Fz_PC: 2.8rem; // 28px
+$h4Fz_PC: 2.4rem; // 24px
+$h5Fz_PC: 2rem; // 20px
+$h6Fz_PC: 1.6rem; // 16px
+$pFz_PC: 1.6rem; // 16px 內文
+$contentFz: 1.4rem; // 14px 說明小字
 $smallFz_PC: 1.2rem; // 12px 標註
 // 行距 line-height
 $h1Lh_PC: normal;
@@ -69,288 +70,285 @@ $content_PC: 2;
 $headerLh_PC: 1.5;
 $smallLh_PC: 1.75;
 
-
-
-
 @mixin header_slogan_font {
-  font-size: $slogan;
-  font-weight: $fWBold;
-  letter-spacing: .3rem;
-  font-family: $font_family_title;
+    font-size: $slogan;
+    font-weight: $fWBold;
+    letter-spacing: 0.3rem;
+    font-family: $font_family_title;
 }
 
 @mixin header_slogan_en_font {
-  font-size: $slogan_en;
-  font-weight: $fWBold;
-  letter-spacing: .15rem;
-  font-family: $font_family_en;
+    font-size: $slogan_en;
+    font-weight: $fWBold;
+    letter-spacing: 0.15rem;
+    font-family: $font_family_en;
 }
 
 // 要刪掉
 @mixin h1_PC_vertical {
-  font-size: $h1;
-  font-weight: $fWBold;
-  letter-spacing: 1rem;
-  line-height: 60px;
-  font-family: $font_family_title;
-  color: $defaultColor;
+    font-size: $h1;
+    font-weight: $fWBold;
+    letter-spacing: 1rem;
+    line-height: 60px;
+    font-family: $font_family_title;
+    color: $defaultColor;
 }
 
 @mixin h1_vertical {
-  font-size: $h1;
-  font-weight: $fWBold;
-  letter-spacing: .5rem;
-  line-height: 2;
-  font-family: $font_family_title;
-  color: $primaryTextColor;
+    font-size: $h1;
+    font-weight: $fWBold;
+    letter-spacing: 0.5rem;
+    line-height: 2;
+    font-family: $font_family_title;
+    color: $primaryTextColor;
 }
 
 // 要刪掉
-@mixin h2_PC_vertical ($textColor: $defaultColor){
-  font-size: $h2Fz_PC;
-  font-weight: $fWBold;
-  letter-spacing: 8px;
-  line-height: 60px;
-  font-family: $font_family_title;
-  color: $textColor;
+@mixin h2_PC_vertical($textColor: $defaultColor) {
+    font-size: $h2Fz_PC;
+    font-weight: $fWBold;
+    letter-spacing: 8px;
+    line-height: 60px;
+    font-family: $font_family_title;
+    color: $textColor;
 }
 
 @mixin h2_vertical {
-  font-size: $h2;
-  font-weight: $fWBold;
-  letter-spacing: .5rem;
-  line-height: 2;
-  font-family: $font_family_title;
-  color: $primaryTextColor;
+    font-size: $h2;
+    font-weight: $fWBold;
+    letter-spacing: 0.5rem;
+    line-height: 2;
+    font-family: $font_family_title;
+    color: $primaryTextColor;
 }
 
 //要刪掉
-@mixin h1_PC ($textColor: $defaultColor){
-  font-size: $h1Fz_PC;
-  font-weight: $fWBold;
-  letter-spacing: $h1Ls;
-  line-height: $h1Lh_PC;
-  font-family: $font_family_title;
-  color: $textColor;
+@mixin h1_PC($textColor: $defaultColor) {
+    font-size: $h1Fz_PC;
+    font-weight: $fWBold;
+    letter-spacing: $h1Ls;
+    line-height: $h1Lh_PC;
+    font-family: $font_family_title;
+    color: $textColor;
 }
 
 @mixin h1 {
-  font-size: $h1;
-  font-weight: $fWBold;
-  letter-spacing: $h1Ls;
-  line-height: $h1Lh_PC;
-  font-family: $font_family_title;
-  color: $primaryTextColor;
+    font-size: $h1;
+    font-weight: $fWBold;
+    letter-spacing: $h1Ls;
+    line-height: $h1Lh_PC;
+    font-family: $font_family_title;
+    color: $primaryTextColor;
 }
 
 // 要刪掉
-@mixin h2_PC ($textColor: $defaultColor){
-  font-size: $h2Fz_PC;
-  font-weight: $fWBold;
-  letter-spacing: $h2Ls;
-  line-height: $h2Lh_PC;
-  font-family: $font_family_title;
-  color: $textColor;
+@mixin h2_PC($textColor: $defaultColor) {
+    font-size: $h2Fz_PC;
+    font-weight: $fWBold;
+    letter-spacing: $h2Ls;
+    line-height: $h2Lh_PC;
+    font-family: $font_family_title;
+    color: $textColor;
 }
 
 @mixin h2 {
-  font-size: $h2;
-  font-weight: $fWBold;
-  letter-spacing: .2rem;
-  font-family: $font_family_title;
-  color: $primaryTextColor;
+    font-size: $h2;
+    font-weight: $fWBold;
+    letter-spacing: 0.2rem;
+    font-family: $font_family_title;
+    color: $primaryTextColor;
 }
 
 // 要刪掉
 @mixin h2_PC_EN {
-  font-size: $h2Fz_PC_EN;
-  font-weight: $fWBold;
-  letter-spacing: $h2Ls_en;
-  font-family: $font_family_en;
-  color: #C2A16C;
+    font-size: $h2Fz_PC_EN;
+    font-weight: $fWBold;
+    letter-spacing: $h2Ls_en;
+    font-family: $font_family_en;
+    color: #c2a16c;
 }
 
 @mixin h2_en {
-  font-size: $en_title;
-  font-weight: $fWBold;
-  letter-spacing: .2rem;
-  font-family: $font_family_en;
-  color: #C2A16C;
+    font-size: $en_title;
+    font-weight: $fWBold;
+    letter-spacing: 0.2rem;
+    font-family: $font_family_en;
+    color: #c2a16c;
 }
 
 // 要刪掉
-@mixin h3_PC ($textColor: $defaultColor){
-  font-size: $h3Fz_PC;
-  font-weight: $fWBold;
-  letter-spacing: $h3Ls;
-  line-height: $h3Lh_PC;
-  font-family: $font_family_title;
-  color: $textColor;
+@mixin h3_PC($textColor: $defaultColor) {
+    font-size: $h3Fz_PC;
+    font-weight: $fWBold;
+    letter-spacing: $h3Ls;
+    line-height: $h3Lh_PC;
+    font-family: $font_family_title;
+    color: $textColor;
 }
 
 @mixin h3 {
-  font-size: $h3;
-  font-weight: $fWBold;
-  letter-spacing: .2rem;
-  line-height: $h3Lh_PC;
-  font-family: $font_family_title;
-  color: $primaryTextColor;
+    font-size: $h3;
+    font-weight: $fWBold;
+    letter-spacing: 0.2rem;
+    line-height: $h3Lh_PC;
+    font-family: $font_family_title;
+    color: $primaryTextColor;
 }
 // 要刪掉
-@mixin h4_PC ($textColor: $defaultColor){
-  font-size: $h4Fz_PC;
-  font-weight: $fWBold;
-  letter-spacing: $h4Ls;
-  line-height: $h4Lh_PC;
-  font-family: $font_family_title;
-  color: $textColor;
+@mixin h4_PC($textColor: $defaultColor) {
+    font-size: $h4Fz_PC;
+    font-weight: $fWBold;
+    letter-spacing: $h4Ls;
+    line-height: $h4Lh_PC;
+    font-family: $font_family_title;
+    color: $textColor;
 }
 
 @mixin h4 {
-  font-size: $h4;
-  font-weight: $fWBold;
-  letter-spacing: .16rem;
-  font-family: $font_family_title;
-  color: $primaryTextColor;
+    font-size: $h4;
+    font-weight: $fWBold;
+    letter-spacing: 0.16rem;
+    font-family: $font_family_title;
+    color: $primaryTextColor;
 }
 
 // 要刪掉
-@mixin h5_PC ($textColor: $defaultColor){
-  font-size: $h5Fz_PC;
-  font-weight: $fWRegular;
-  letter-spacing: $h5Ls;
-  line-height: $h5Lh_PC;
-  font-family: $font_family_content;
-  color: $textColor;
+@mixin h5_PC($textColor: $defaultColor) {
+    font-size: $h5Fz_PC;
+    font-weight: $fWRegular;
+    letter-spacing: $h5Ls;
+    line-height: $h5Lh_PC;
+    font-family: $font_family_content;
+    color: $textColor;
 }
 
-@mixin h6_PC ($textColor: $defaultColor){
-  font-size: $h6Fz_PC;
-  font-weight: $fWRegular;
-  letter-spacing: $h6Ls;
-  line-height: $h6Lh_PC;
-  font-family: $font_family_content;
+@mixin h6_PC($textColor: $defaultColor) {
+    font-size: $h6Fz_PC;
+    font-weight: $fWRegular;
+    letter-spacing: $h6Ls;
+    line-height: $h6Lh_PC;
+    font-family: $font_family_content;
 }
 
-@mixin subtitle_style ($textColor: $defaultColor){
-  font-size: $pFz_PC;
-  font-weight: $fWRegular;
-  letter-spacing: $pLs;
-  font-family: $font_family_title;
-  color: $textColor;
+@mixin subtitle_style($textColor: $defaultColor) {
+    font-size: $pFz_PC;
+    font-weight: $fWRegular;
+    letter-spacing: $pLs;
+    font-family: $font_family_title;
+    color: $textColor;
 }
 
 // 要刪掉
-@mixin paragraph_PC ($textColor: $defaultColor){
-  font-size: $pFz_PC;
-  font-weight: $fWRegular;
-  letter-spacing: $pLs;
-  line-height: $pLh_PC;
-  font-family: $font_family_content;
-  color: $textColor;
+@mixin paragraph_PC($textColor: $defaultColor) {
+    font-size: $pFz_PC;
+    font-weight: $fWRegular;
+    letter-spacing: $pLs;
+    line-height: $pLh_PC;
+    font-family: $font_family_content;
+    color: $textColor;
 }
 
 @mixin paragraph {
-  font-size: $paragraph;
-  letter-spacing: .16rem;
-  line-height: 2.4;
-  font-family: $font_family_content;
-  color: $primaryTextColor;
+    font-size: $paragraph;
+    letter-spacing: 0.16rem;
+    line-height: 2.4;
+    font-family: $font_family_content;
+    color: $primaryTextColor;
 }
 
 @mixin paragraph_en {
-  font-size: $paragraph_en;
-  letter-spacing: .3rem;
-  color: $secondaryText;
-  font-family: $font_family_en;
+    font-size: $paragraph_en;
+    letter-spacing: 0.3rem;
+    color: $secondaryText;
+    font-family: $font_family_en;
 }
 
 // 要刪掉
 @mixin content_PC {
-  font-size: $content_font;
-  font-weight: $fWRegular;
-  letter-spacing: $pLs;
-  line-height: $content_PC;
-  font-family: $font_family_content;
-  color: $primaryTextColor;
+    font-size: $content_font;
+    font-weight: $fWRegular;
+    letter-spacing: $pLs;
+    line-height: $content_PC;
+    font-family: $font_family_content;
+    color: $primaryTextColor;
 }
 
 @mixin content_font {
-  font-size: $content_font;
-  font-weight: $fWRegular;
-  letter-spacing: .16rem;
-  line-height: 2;
-  font-family: $font_family_content;
-  color: $primaryTextColor;
+    font-size: $content_font;
+    font-weight: $fWRegular;
+    letter-spacing: 0.16rem;
+    line-height: 2;
+    font-family: $font_family_content;
+    color: $primaryTextColor;
 }
 
 // 要刪掉
-@mixin smallFont_PC ($textColor: $defaultColor){
-  font-size: $smallFz_PC;
-  font-weight: $fWRegular;
-  letter-spacing: $smallLs;
-  color: $textColor;
+@mixin smallFont_PC($textColor: $defaultColor) {
+    font-size: $smallFz_PC;
+    font-weight: $fWRegular;
+    letter-spacing: $smallLs;
+    color: $textColor;
 }
 // 要刪掉
 @mixin smallFont {
-  font-size: $little_font;
-  font-weight: $fWRegular;
-  letter-spacing: .05rem;
-  color: $primaryTextColor;
+    font-size: $little_font;
+    font-weight: $fWRegular;
+    letter-spacing: 0.05rem;
+    color: $primaryTextColor;
 }
 
 @mixin small_font {
-  font-size: $small_font;
-  font-weight: $fWRegular;
-  letter-spacing: .05rem;
-  color: $primaryTextColor;
+    font-size: $small_font;
+    font-weight: $fWRegular;
+    letter-spacing: 0.05rem;
+    color: $primaryTextColor;
 }
 
 // 要刪掉
-@mixin priceFont_PC ($textColor: $defaultColor){
-  font-size: 1.75rem;
-  font-weight: $fWBold;
-  font-family: $font_price;
-  color: $textColor;
+@mixin priceFont_PC($textColor: $defaultColor) {
+    font-size: 1.75rem;
+    font-weight: $fWBold;
+    font-family: $font_price;
+    color: $textColor;
 }
 
 @mixin price_font {
-  font-size: $price_font;
-  font-weight: $fWBold;
-  font-family: $font_price;
-  color: $primaryTextColor;
+    font-size: $price_font;
+    font-weight: $fWBold;
+    font-family: $font_price;
+    color: $primaryTextColor;
 }
 // 要刪掉
-@mixin product_name_font ($textColor: $defaultColor){
-  font-size: $pFz_PC;
-  font-weight: $fWBold;
-  letter-spacing: $pLs;
-  font-family: $font_family_content;
-  color: $textColor;
+@mixin product_name_font($textColor: $defaultColor) {
+    font-size: $pFz_PC;
+    font-weight: $fWBold;
+    letter-spacing: $pLs;
+    font-family: $font_family_content;
+    color: $textColor;
 }
 
-@mixin header_PC ($textColor: $defaultColor){
-  font-size: $pFz_PC;
-  font-weight: $fWBold;
-  letter-spacing: $pLs;
-  line-height: $headerLh_PC;
-  font-family: $font_family_title;
-  color: $textColor;
+@mixin header_PC($textColor: $defaultColor) {
+    font-size: $pFz_PC;
+    font-weight: $fWBold;
+    letter-spacing: $pLs;
+    line-height: $headerLh_PC;
+    font-family: $font_family_title;
+    color: $textColor;
 }
 // 要刪掉
 @mixin footer_PC {
-  font-size: $pFz_PC;
-  font-weight: $fWBold;
-  letter-spacing: $pLs;
-  line-height: $headerLh_PC;
-  font-family: $font_family_title;
-  color: #865A32;
+    font-size: $pFz_PC;
+    font-weight: $fWBold;
+    letter-spacing: $pLs;
+    line-height: $headerLh_PC;
+    font-family: $font_family_title;
+    color: #865a32;
 }
 
 @mixin footer_font {
-  font-size: $paragraph;
-  font-weight: $fWBold;
-  letter-spacing: .16rem;
-  font-family: $font_family_title;
-  color: #865A32;
+    font-size: $paragraph;
+    font-weight: $fWBold;
+    letter-spacing: 0.16rem;
+    font-family: $font_family_title;
+    color: #865a32;
 }

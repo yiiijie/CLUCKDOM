@@ -1,121 +1,155 @@
 <script setup>
-import { reactive } from 'vue';
-import useContentVisibility from '@/composables/useContentVisibility';
+import { reactive } from 'vue'
+import useContentVisibility from '@/composables/useContentVisibility'
 
-const{ isLargeTablet, showContent, toggleContentVisibility } = useContentVisibility();
+const { isLargeTablet, showContent, toggleContentVisibility } =
+    useContentVisibility()
 
 const sets = reactive([
-    {   id: '1',
+    {
+        id: '1',
         index: '0',
         name: '嚴選放牧蛋蛋白液',
-        imgPath:'/images/products/sets/eggs_set_1.jpg',
-        setIntro:'無抗生素蛋雞飼料，添加複方中草藥、益生菌。',
-        content1:'頂級好蛋8入 1盒',
-        content2:'悠活好蛋8入 1盒',
-        content3:'贈 手工雞蛋布丁3入 1盒',
-        currentPrice:'NT$399',
-        originalPrice:'NT$450',
+        imgPath: '/images/products/sets/eggs_set_1.jpg',
+        setIntro: '無抗生素蛋雞飼料，添加複方中草藥、益生菌。',
+        content1: '頂級好蛋8入 1盒',
+        content2: '悠活好蛋8入 1盒',
+        content3: '贈 手工雞蛋布丁3入 1盒',
+        currentPrice: 'NT$399',
+        originalPrice: 'NT$450',
     },
-    {   id: '2',
+    {
+        id: '2',
         index: '1',
         name: '蛋塔',
-        imgPath:'/images/products/sets/eggs_set_2.jpg',
-        setIntro:'挑選皮蛋時，除了蛋殼要完整外，只要拿起皮蛋用手指輕敲幾下，有彈力的就是好皮蛋。',
-        content1:'頂級好蛋10入 1盒',
-        content2:'田園好蛋10入 1盒',
-        content3:'贈 手工雞蛋布丁3入 1盒',
-        currentPrice:'NT$450',
-        originalPrice:'NT$590',
+        imgPath: '/images/products/sets/eggs_set_2.jpg',
+        setIntro:
+            '挑選皮蛋時，除了蛋殼要完整外，只要拿起皮蛋用手指輕敲幾下，有彈力的就是好皮蛋。',
+        content1: '頂級好蛋10入 1盒',
+        content2: '田園好蛋10入 1盒',
+        content3: '贈 手工雞蛋布丁3入 1盒',
+        currentPrice: 'NT$450',
+        originalPrice: 'NT$590',
     },
-    {   id: '3',
+    {
+        id: '3',
         index: '2',
         name: '減糖配方雞蛋捲',
-        imgPath:'/images/products/sets/eggs_set_3.jpg',
-        setIntro:'媽媽們的首選禮盒，每餐都充滿豐富蛋白質的最佳組合。',
-        content1:'田園好蛋10入 1盒',
-        content2:'悠活好蛋10入 1盒',
-        content3:'贈 手工雞蛋布丁3入 1盒',
-        currentPrice:'NT$450',
-        originalPrice:'NT$590',
+        imgPath: '/images/products/sets/eggs_set_3.jpg',
+        setIntro: '媽媽們的首選禮盒，每餐都充滿豐富蛋白質的最佳組合。',
+        content1: '田園好蛋10入 1盒',
+        content2: '悠活好蛋10入 1盒',
+        content3: '贈 手工雞蛋布丁3入 1盒',
+        currentPrice: 'NT$450',
+        originalPrice: 'NT$590',
     },
-    {   id: '4',
+    {
+        id: '4',
         index: '3',
         name: '放牧烏骨鷄滴鷄精',
-        imgPath:'/images/products/sets/eggs_set_4.jpg',
-        setIntro:'無論是獨自品嚐還是與親友分享，都為你開啟幸福的一天。',
-        content1:'幸福好蛋10入 1盒',
-        content2:'悠活好蛋10入 1盒',
-        content3:'贈 手工雞蛋布丁3入 1盒',
-        currentPrice:'NT$550',
-        originalPrice:'NT$690',
+        imgPath: '/images/products/sets/eggs_set_4.jpg',
+        setIntro: '無論是獨自品嚐還是與親友分享，都為你開啟幸福的一天。',
+        content1: '幸福好蛋10入 1盒',
+        content2: '悠活好蛋10入 1盒',
+        content3: '贈 手工雞蛋布丁3入 1盒',
+        currentPrice: 'NT$550',
+        originalPrice: 'NT$690',
     },
-    {   id: '5',
+    {
+        id: '5',
         index: '4',
         name: '蛋黃酥',
-        imgPath:'/images/products/sets/eggs_set_5.jpg',
-        setIntro:'僅在農場裡販賣的禮盒，三種雞蛋一次滿足！各千萬別錯過囉。',
-        content1:'頂級好蛋10入 1盒',
-        content2:'悠活好蛋10入 1盒',
-        content3:'田園好蛋10入 1盒',
-        currentPrice:'NT$699',
-        originalPrice:'NT$850',
+        imgPath: '/images/products/sets/eggs_set_5.jpg',
+        setIntro: '僅在農場裡販賣的禮盒，三種雞蛋一次滿足！各千萬別錯過囉。',
+        content1: '頂級好蛋10入 1盒',
+        content2: '悠活好蛋10入 1盒',
+        content3: '田園好蛋10入 1盒',
+        currentPrice: 'NT$699',
+        originalPrice: 'NT$850',
     },
-    {   id: '6',
+    {
+        id: '6',
         index: '5',
         name: '鷄蛋布丁',
-        imgPath:'/images/products/sets/eggs_set_6.jpg',
-        setIntro:'特殊節日才販售的頂級限量禮盒，手刀不快點就買不到囉！',
-        content1:'頂級好蛋10入 2盒',
-        content2:'悠活好蛋10入 1盒',
-        content3:'幸福好蛋10入 1盒',
-        currentPrice:'NT$890',
-        originalPrice:'NT$1100',
+        imgPath: '/images/products/sets/eggs_set_6.jpg',
+        setIntro: '特殊節日才販售的頂級限量禮盒，手刀不快點就買不到囉！',
+        content1: '頂級好蛋10入 2盒',
+        content2: '悠活好蛋10入 1盒',
+        content3: '幸福好蛋10入 1盒',
+        currentPrice: 'NT$890',
+        originalPrice: 'NT$1100',
     },
 ])
 </script>
 
 <template>
-    <img class="set_wave" src="/images/products/wave.png" alt="wave">
+    <img class="set_wave" src="/images/products/wave.png" alt="wave" />
     <section class="set">
         <section class="sets_inner">
             <div class="title">
                 <div class="subtitle_icon">
-                    <img src="/images/products/sets/subtitle_dialog.svg" alt="副標">
+                    <img
+                        src="/images/products/sets/subtitle_dialog.svg"
+                        alt="副標"
+                    />
                 </div>
-                <h2>美食愛好者必選<br>放牧鷄蛋周邊禮盒</h2>
+                <h2>美食愛好者必選<br />放牧鷄蛋周邊禮盒</h2>
             </div>
-            <ul class="sets_container" >
+            <ul class="sets_container">
                 <li v-for="(set, index) in sets" :key="set.id">
                     <div class="set_img">
-                        <img :src="set.imgPath" alt="產品圖">
+                        <img :src="set.imgPath" alt="產品圖" />
                     </div>
                     <div class="set_info">
                         <h4 class="set_name">{{ set.name }}</h4>
                         <p class="set_intro">{{ set.setIntro }}</p>
-                        <div class="set_contents" @click="toggleContentVisibility(index)">
-                            <button v-show="showContent !== index && !isLargeTablet"
-                            class="see_more_btn">
+                        <div
+                            class="set_contents"
+                            @click="toggleContentVisibility(index)"
+                        >
+                            <button
+                                v-show="showContent !== index && !isLargeTablet"
+                                class="see_more_btn"
+                            >
                                 <span>組合內容物</span>
-                                <font-awesome-icon icon="angle-down" class="arrow"/>
+                                <font-awesome-icon
+                                    icon="angle-down"
+                                    class="arrow"
+                                />
                             </button>
-                            <button 
-                            v-show="showContent === index && !isLargeTablet"
-                            class="see_less_btn">
+                            <button
+                                v-show="showContent === index && !isLargeTablet"
+                                class="see_less_btn"
+                            >
                                 <span>組合內容物</span>
-                                <font-awesome-icon icon="angle-up" class="arrow"/>
+                                <font-awesome-icon
+                                    icon="angle-up"
+                                    class="arrow"
+                                />
                             </button>
-                            <div class="contents"
-                            v-show="showContent === index || isLargeTablet">
+                            <div
+                                class="contents"
+                                v-show="showContent === index || isLargeTablet"
+                            >
                                 <span>
-                                    <font-awesome-icon icon="fa-regular fa-square-check" class="check_box"/>
+                                    <font-awesome-icon
+                                        icon="fa-regular fa-square-check"
+                                        class="check_box"
+                                    />
                                     {{ set.content1 }}
                                 </span>
                                 <span>
-                                    <font-awesome-icon icon="fa-regular fa-square-check" class="check_box"/>
+                                    <font-awesome-icon
+                                        icon="fa-regular fa-square-check"
+                                        class="check_box"
+                                    />
                                     {{ set.content2 }}
                                 </span>
                                 <span>
-                                    <font-awesome-icon icon="fa-regular fa-square-check" class="check_box"/>
+                                    <font-awesome-icon
+                                        icon="fa-regular fa-square-check"
+                                        class="check_box"
+                                    />
                                     {{ set.content3 }}
                                 </span>
                             </div>
@@ -125,243 +159,245 @@ const sets = reactive([
                                 <span>{{ set.currentPrice }}</span>
                                 <span>{{ set.originalPrice }}</span>
                             </div>
-                            <RouterLink :to="'/'" >
+                            <RouterLink :to="'/'">
                                 <button type="button" class="cart_btn">
-                                    <font-awesome-icon icon="cart-shopping" class="cart_icon" />
+                                    <font-awesome-icon
+                                        icon="cart-shopping"
+                                        class="cart_icon"
+                                    />
                                     <span>加入購物車</span>
                                 </button>
-                            </RouterLink>       
+                            </RouterLink>
                         </div>
-                    </div>   
+                    </div>
                 </li>
             </ul>
         </section>
     </section>
 </template>
 
-
 <style scoped lang="scss">
-    img.set_wave {
-        width: 100%;
-        display: block;
-        background-color: $productsBgColor;
+img.set_wave {
+    width: 100%;
+    display: block;
+    background-color: $productsBgColor;
+}
+
+section.set {
+    position: relative;
+    padding-bottom: 5%;
+
+    @include large_phones {
+        padding-bottom: 15%;
     }
+}
 
-    section.set {
-        position: relative;
-        padding-bottom: 5%;
+section.sets_inner {
+    position: relative;
+    max-width: $basewidth;
+    width: 85%;
+    margin: auto;
 
+    &::before {
+        content: '';
+        width: 15%;
+        height: 5%;
+        position: absolute;
+        top: 9%;
+        left: 10%;
+        background: url('/images/products/sets/nest.svg') no-repeat;
+
+        @include tablets {
+            top: 6%;
+            left: 6%;
+        }
         @include large_phones {
-            padding-bottom: 15%;
+            display: none;
         }
     }
 
-    section.sets_inner {
-        position: relative;
-        max-width: $basewidth;
-        width: 85%;
+    &::after {
+        content: '';
+        width: 15%;
+        height: 5%;
+        position: absolute;
+        top: 8%;
+        right: 10%;
+        background: url('/images/products/sets/blackhen.svg') no-repeat;
+
+        @include tablets {
+            top: 6%;
+            right: 6%;
+        }
+        @include large_phones {
+            width: 20%;
+            right: 0;
+        }
+    }
+}
+
+div.title {
+    position: relative;
+    padding: 8% 0;
+
+    @include large_phones {
+        padding: 15% 0 12%;
+    }
+
+    div.subtitle_icon {
+        width: clamp(170px, 15vw, 260px);
         margin: auto;
 
-        &::before {
-            content: '';
-            width: 15%;
-            height: 5%;
-            position: absolute;
-            top: 9%;
-            left: 10%;
-            background: url('/images/products/sets/nest.svg') no-repeat;
-
-            @include tablets {
-                top: 6%;
-                left: 6%;
-            }
-            @include large_phones {
-                display: none;
-            }
-        }
-
-        &::after {
-            content: '';
-            width: 15%;
-            height: 5%;
-            position: absolute;
-            top: 8%;
-            right: 10%;
-            background: url('/images/products/sets/blackhen.svg') no-repeat;
-
-            @include tablets {
-                top: 6%;
-                right: 6%;
-            }
-            @include large_phones {
-                width: 20%;
-                right: 0;
-            }
+        img {
+            width: 100%;
         }
     }
 
-    div.title {
-        position: relative;
-        padding: 8% 0;
+    h2 {
+        @include h2;
+        padding-top: 5px;
+        text-align: center;
+    }
+}
 
+ul.sets_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li {
+        width: 30%;
+        padding-bottom: 8%;
+
+        @include large_tablets {
+            width: 45%;
+        }
         @include large_phones {
-            padding: 15% 0 12%;
+            width: 47%;
+            padding-bottom: 10%;
+            text-align: center;
         }
 
-        div.subtitle_icon {
-            width: clamp(170px,15vw,260px);
-            margin: auto;
+        div.set_img {
+            padding-bottom: 7%;
+            cursor: pointer;
 
             img {
                 width: 100%;
+                border-radius: 50%;
             }
         }
-        
-        h2 {
-            @include h2;
-            padding-top: 5px;
-            text-align: center;
-        }
-    }
 
-    ul.sets_container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        div.set_info {
+            padding: 0 10px;
 
-        li {
-            width: 30%;
-            padding-bottom: 8%;
-
-            @include large_tablets {
-                width: 45%;
-            }
-            @include large_phones {
-                width: 47%;
-                padding-bottom: 10%;
-                text-align: center;
+            h4.set_name {
+                @include h4;
+                color: $primaryTextColor;
+                padding-bottom: 5%;
             }
 
-            div.set_img {
-                padding-bottom: 7%;
-                cursor: pointer;
+            p.set_intro {
+                @include content_font;
+                color: $primaryTextColor;
 
-                img {
+                @include large_phones {
+                    display: none;
+                }
+            }
+
+            div.set_contents {
+                @include tablets {
+                    margin: 5% 0;
+                    border-radius: 6px;
+                    border: 1px solid $secondaryColor;
+                }
+
+                // 768px以下出現
+                button.see_more_btn,
+                button.see_less_btn {
                     width: 100%;
-                    border-radius: 50%;
+                    padding: 4% 0;
+                    cursor: pointer;
+                    background-color: transparent;
+
+                    span {
+                        @include content_font;
+                        padding-right: 5px;
+                        color: $secondaryColor;
+                    }
+
+                    .arrow {
+                        color: $secondaryColor;
+                    }
+                }
+
+                div.contents {
+                    padding: 20px 0;
+
+                    @include tablets {
+                        padding: 20px 15px;
+                        border-top: 1px solid $secondaryColor;
+                    }
+
+                    span {
+                        @include content_font;
+                        color: $grayText;
+                        display: block;
+
+                        .check_box {
+                            margin-right: 5px;
+                            color: $secondaryColor;
+                        }
+                    }
                 }
             }
 
-            div.set_info {
-                padding: 0 10px;
+            div.price_container {
+                align-items: center;
+                justify-content: space-between;
 
-                h4.set_name {
-                    @include h4;
-                    color: $primaryTextColor;
-                    padding-bottom: 5%;
-                }
-        
-                p.set_intro {
-                    @include content_font;
-                    color: $primaryTextColor;
+                div.price {
+                    margin-bottom: 5%;
 
-                    @include large_phones {
-                        display: none;
+                    span:nth-child(1) {
+                        @include price_font;
+                        margin-right: 10px;
+                    }
+
+                    span:nth-child(2) {
+                        @include content_font;
+                        letter-spacing: 0;
+                        color: $grayText;
+                        text-decoration: line-through;
                     }
                 }
 
-                div.set_contents {
-                    @include tablets {
-                        margin: 5% 0;
-                        border-radius: 6px;
-                        border: 1px solid $secondaryColor;
+                button.cart_btn {
+                    @include paragraph;
+                    width: 100%;
+                    padding: 6px 20px;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    color: $normalColor;
+                    background-color: $importantBtnColor;
+                    transition: 0.2s;
+
+                    .cart_icon {
+                        padding-right: 10px;
+
+                        @include large_phones {
+                            display: none;
+                        }
                     }
 
-                    // 768px以下出現
-                    button.see_more_btn,
-                    button.see_less_btn {
-                        width: 100%;
-                        padding: 4% 0;
-                        cursor: pointer;
-                        background-color: transparent;
-        
-                        span {
-                            @include content_font;
-                            padding-right: 5px;
-                            color: $secondaryColor;
-                        }
-                        
-                        .arrow {
-                            color: $secondaryColor;
-                        }
-                    }
-        
-                    div.contents {
-                        padding: 20px 0;
-        
-                        @include tablets {
-                            padding: 20px 15px;
-                            border-top: 1px solid $secondaryColor;
-                        }
-        
-                        span {
-                            @include content_font;
-                            color: $grayText;
-                            display: block;
-            
-                            .check_box {
-                                margin-right: 5px;
-                                color: $secondaryColor;
-                            }
-                        }
-                    }
-                }
-
-                div.price_container {
-                    align-items: center;
-                    justify-content: space-between;
-
-                    div.price {
-                        margin-bottom: 5%;
-
-                        span:nth-child(1) {
-                            @include price_font;
-                            margin-right: 10px;
-                        }
-
-                        span:nth-child(2) {
-                            @include content_font;
-                            letter-spacing: 0;
-                            color: $grayText;
-                            text-decoration: line-through;
-                        }
-                    }
-            
-                    button.cart_btn {
-                        @include paragraph;
-                        width: 100%;
-                        padding: 6px 20px;
-                        border-radius: 50px;
-                        cursor: pointer;
+                    &:hover {
                         color: $normalColor;
-                        background-color: $importantBtnColor;
-                        transition: .2s;
-
-                        .cart_icon {
-                            padding-right: 10px;
-
-                            @include large_phones {
-                                display: none;
-                            }
-                        }
-
-                        &:hover {
-                            color: $normalColor;
-                            background-color: $normalBtnColor;                      
-                        }
+                        background-color: $normalBtnColor;
                     }
                 }
             }
         }
     }
+}
 </style>

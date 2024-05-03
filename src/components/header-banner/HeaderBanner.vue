@@ -1,9 +1,9 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
 const props = defineProps({
-    imageUrl: String
-});
+    imageUrl: String,
+})
 </script>
 
 <template>
@@ -11,8 +11,7 @@ const props = defineProps({
         <div
             class="header_banner"
             :style="{ backgroundImage: `url(${imageUrl})` }"
-        >
-        </div>
+        ></div>
         <div class="header_slogan">
             <div class="chinese">
                 <slot name="slogan_text"></slot>
@@ -25,33 +24,33 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
-    div.container {
+div.container {
+    position: relative;
+
+    div.header_banner {
         position: relative;
-        
-        div.header_banner {
-            position: relative;
-            width: 100%;
-            height: 85vh;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: top center;
+        width: 100%;
+        height: 85vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
 
-            @include large_tablets {
-                height: 55vh;
-            }
-        }
-        
-        div.header_slogan {
-            @include header_slogan_style;
-            color: $normalColor;
-
-            .chinese {
-                @include header_slogan_font;
-            }
-
-            .english {
-                @include header_slogan_en_font;
-            }
+        @include large_tablets {
+            height: 55vh;
         }
     }
+
+    div.header_slogan {
+        @include header_slogan_style;
+        color: $normalColor;
+
+        .chinese {
+            @include header_slogan_font;
+        }
+
+        .english {
+            @include header_slogan_en_font;
+        }
+    }
+}
 </style>

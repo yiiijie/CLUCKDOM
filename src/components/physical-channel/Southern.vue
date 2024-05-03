@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue';
-import StoreCard from '@/components/physical-channel/StoreCard.vue';
+import { ref } from 'vue'
+import StoreCard from '@/components/physical-channel/StoreCard.vue'
 
 const northernStores = ref([
     {
@@ -8,35 +8,35 @@ const northernStores = ref([
         name: '星光雞蛋商行',
         address: '高雄市三民區大順一路123號',
         tel: '(07)1234-0009',
-        googleUrl:'https://reurl.cc/Ker5Wn',
+        googleUrl: 'https://reurl.cc/Ker5Wn',
     },
     {
         id: 2,
         name: '福壽雞蛋專賣店',
         address: '嘉義市西區中山路789號',
         tel: '(05)2777-888',
-        googleUrl:'https://reurl.cc/Ker5Wn',
+        googleUrl: 'https://reurl.cc/Ker5Wn',
     },
     {
         id: 3,
         name: '春風蛋舖',
         address: '新北市新店區北新路三段22號',
         tel: '(02)7765-2345',
-       googleUrl:'https://reurl.cc/Ker5Wn',
+        googleUrl: 'https://reurl.cc/Ker5Wn',
     },
     {
         id: 4,
         name: '豐收雞蛋銷售門市',
         address: '新北市永和區中山路一段123號',
         tel: '(02)8823-6789',
-        googleUrl:'https://reurl.cc/Ker5Wn',
+        googleUrl: 'https://reurl.cc/Ker5Wn',
     },
     {
         id: 5,
         name: '希望廣場農夫市集',
         address: '桃園市龜山區中興路180號',
         tel: '(03)5566-6789',
-        googleUrl:'https://reurl.cc/Ker5Wn',
+        googleUrl: 'https://reurl.cc/Ker5Wn',
     },
 ])
 </script>

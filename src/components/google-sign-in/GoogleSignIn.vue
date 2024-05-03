@@ -1,62 +1,65 @@
 <script setup>
-import { ref } from 'vue';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { firebaseApp } from "@/services/firebase.js";
-import { useRouter } from "vue-router";
-firebaseApp;
+import { ref } from 'vue'
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import { firebaseApp } from '@/services/firebase.js'
+import { useRouter } from 'vue-router'
+firebaseApp
 
-const router = useRouter();
-const auth = getAuth();
-const user = ref(null);
+const router = useRouter()
+const auth = getAuth()
+const user = ref(null)
 
 // 登入
-const signInWithGoogle = async() => {
-  // 建立 Google 提供者物件的實例，用來處理 Google 身份驗證相關的功能
-  const provider = new GoogleAuthProvider();
+const signInWithGoogle = async () => {
+    // 建立 Google 提供者物件的實例，用來處理 Google 身份驗證相關的功能
+    const provider = new GoogleAuthProvider()
 
-  provider.setCustomParameters({
-    prompt: 'select_account'
-  });
-  // 使用彈出視窗登入
-  signInWithPopup(auth, provider) // 彈窗
-   .then((result) => {
-    console.log(result.user);
-    user.value = result.user;
-    localStorage.setItem('user', JSON.stringify(result.user));
-    router.push("/");
-   
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+    provider.setCustomParameters({
+        prompt: 'select_account',
+    })
+
+    // 使用彈出視窗登入
+    signInWithPopup(auth, provider) // 彈窗
+        .then((result) => {
+            console.log(result.user)
+            user.value = result.user
+            localStorage.setItem('user', JSON.stringify(result.user))
+            router.push('/')
+        })
+        .catch((error) => {
+            const errorCode = error.code
+            const errorMessage = error.message
+        })
 }
-
 </script>
 
 <template>
     <button @click="signInWithGoogle" class="google_third_party">
-        <img class="google_icon" src="/images/sign-in/google_icon.png" alt="google_icon">
+        <img
+            class="google_icon"
+            src="/images/sign-in/google_icon.png"
+            alt="google_icon"
+        />
         使用Google登入
     </button>
 </template>
 
 <style scoped lang="scss">
 button.google_third_party {
-  @include content_PC;
-  width: 100%;
-  display: flex;
-  padding: 8px 0; 
-  border: none;
-  border-radius: 5px;
-  align-items: center; 
-  justify-content: center;
-  cursor: pointer;
-  background-color: $normalColor;
+    @include content_PC;
+    width: 100%;
+    display: flex;
+    padding: 8px 0;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: $normalColor;
 
-  img.google_icon {
-      width: 40px;
-      margin-right: 5px;
-  }
+    img.google_icon {
+        width: 40px;
+        margin-right: 5px;
+    }
 }
 </style>
-

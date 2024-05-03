@@ -1,18 +1,16 @@
 // padding、margin、line-height
-@function spacing($count:1, $baseSpacing:5px){
+@function spacing($count: 1, $baseSpacing: 5px) {
     @return $baseSpacing * $count;
 }
 
-
 // basewidth
 $basewidth: 1200px;
-
 
 %pattern {
     position: absolute;
     content: '';
     top: 0;
-    width:100%;
+    width: 100%;
     height: 100vh;
     background-size: cover;
     background-repeat: repeat;
@@ -48,7 +46,7 @@ $basewidth: 1200px;
 // }
 
 %header_wave {
-    width: 100%; 
+    width: 100%;
     position: absolute;
     bottom: 0;
 }

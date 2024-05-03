@@ -1,50 +1,52 @@
 <script setup>
-import axios from 'axios';
-import { ref, computed } from 'vue';
-import { object, string } from 'yup';
-import { useRouter } from "vue-router";
-import Modal from '@/components/func-items/Modal.vue';
+import axios from 'axios'
+import { ref, computed } from 'vue'
+import { object, string } from 'yup'
+import { useRouter } from 'vue-router'
+import Modal from '@/components/func-items/Modal.vue'
 
-const router = useRouter();
-const showModal = ref(false);
-const submitResult = ref('');
-const modalImage = ref('');
+const router = useRouter()
+const showModal = ref(false)
+const submitResult = ref('')
+const modalImage = ref('')
 const handleBtnText = computed(() => {
-    return submitResult.value === '註冊成功！' ? '回登入頁' : '再試一次';
-});
+    return submitResult.value === '註冊成功！' ? '回登入頁' : '再試一次'
+})
 
 // vee-validate yup驗證
 const schema = object({
     name: string().required('必須填寫姓名'),
     email: string().email('請填寫有效的電子信箱').required('請填寫電子信箱'),
     password: string().required('請填寫密碼'),
-});
+})
 
 // 註冊
 async function onSubmit(values, { resetForm }) {
     try {
         // 模擬註冊時的延遲感
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 2000))
 
-        const response = await axios.post('http://localhost:3000/signup', values);
-        console.log('註冊成功', response);
-        resetForm(); // 重置表單
+        const response = await axios.post(
+            'http://localhost:3000/signup',
+            values
+        )
+        console.log('註冊成功', response)
+        resetForm() // 重置表單
 
-        submitResult.value = '註冊成功！';
-        showModal.value = true; // 跳出彈窗
-        modalImage.value = '/images/modal/sign_up_successed.svg';
+        submitResult.value = '註冊成功！'
+        showModal.value = true // 跳出彈窗
+        modalImage.value = '/images/modal/sign_up_successed.svg'
 
         // 模擬跳轉頁面前的延遲感
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        router.push("sign-in");
+        await new Promise((resolve) => setTimeout(resolve, 2000))
+        router.push('sign-in')
     } catch (error) {
-        console.error('註冊失敗');
-        submitResult.value = '註冊失敗';
-        showModal.value = true;
-        modalImage.value = '/images/contact/modal/failed.svg';
+        console.error('註冊失敗')
+        submitResult.value = '註冊失敗'
+        showModal.value = true
+        modalImage.value = '/images/contact/modal/failed.svg'
     }
 }
-
 </script>
 
 <template>
@@ -56,35 +58,45 @@ async function onSubmit(values, { resetForm }) {
                     @submit="onSubmit"
                     v-slot="{ isSubmitting }"
                     :validation-schema="schema"
-                    class="sign_up_form">
+                    class="sign_up_form"
+                >
                     <div class="form_group">
-                        <label for="name">姓名</label>        
+                        <label for="name">姓名</label>
                         <VeeField
                             name="name"
                             type="text"
                             placeholder="請輸入您的姓名"
-                            class="input"/>
-                        <ErrorMessage name="name" class="error_message"/>
-                    </div>    
-                    <div class="form_group">     
-                        <label for="email">帳號</label>              
+                            class="input"
+                        />
+                        <ErrorMessage name="name" class="error_message" />
+                    </div>
+                    <div class="form_group">
+                        <label for="email">帳號</label>
                         <VeeField
                             name="email"
-                            type="email" 
+                            type="email"
                             placeholder="請輸入您的E-mail"
-                            class="input"/>
-                        <ErrorMessage name="email" class="error_message"/>             
+                            class="input"
+                        />
+                        <ErrorMessage name="email" class="error_message" />
                     </div>
-                    <div class="form_group">            
-                        <label for="password">設定密碼</label>                       
+                    <div class="form_group">
+                        <label for="password">設定密碼</label>
                         <VeeField
                             name="password"
                             type="password"
                             placeholder="請輸入您的密碼 (至少4位數)"
-                            class="input"/>
-                        <ErrorMessage name="password" class="error_message"/>  
-                    </div>  
-                    <button :disabled="isSubmitting" type="submit" class="sign_up_btn">{{ isSubmitting ? '請稍候...' : '註冊' }}</button>
+                            class="input"
+                        />
+                        <ErrorMessage name="password" class="error_message" />
+                    </div>
+                    <button
+                        :disabled="isSubmitting"
+                        type="submit"
+                        class="sign_up_btn"
+                    >
+                        {{ isSubmitting ? '請稍候...' : '註冊' }}
+                    </button>
                 </VeeForm>
                 <div class="form_footer">
                     <span class="question">我已經有會員帳號了？ </span>
@@ -96,10 +108,14 @@ async function onSubmit(values, { resetForm }) {
         </main>
         <!-- 表單送出後的通知彈窗 -->
         <Teleport to="body">
-            <Modal :show="showModal" @close="showModal = false" :buttonText="handleBtnText">
+            <Modal
+                :show="showModal"
+                @close="showModal = false"
+                :buttonText="handleBtnText"
+            >
                 <h3 class="modal_title">{{ submitResult }}</h3>
                 <div class="modal_img">
-                    <img :src="modalImage" alt="彈窗">
+                    <img :src="modalImage" alt="彈窗" />
                 </div>
             </Modal>
         </Teleport>
@@ -107,103 +123,103 @@ async function onSubmit(values, { resetForm }) {
 </template>
 
 <style scoped lang="scss">
-    main.form_container {
-        margin: 200px 0 120px;
+main.form_container {
+    margin: 200px 0 120px;
 
-        @include large_tablets {
-            margin: 100px 0 120px;
-        }
-
-        div.form_inner {
-            max-width: calc( $basewidth - 500px );
-            width: 85%;
-            margin: auto;
-            box-sizing: border-box;
-            padding: 50px 100px;
-            border-radius: 30px;
-            background-color: #f1f1f1;
-
-            @include tablets {
-                padding: 50px 50px;
-            }
-            @include large_phones {
-                width: 90%;
-                padding: 50px 30px;
-            }
-            
-            span.form_title {
-                @include h4;
-                display: block;
-                margin-bottom: 20px;
-                text-align: center;
-            }
-        }
+    @include large_tablets {
+        margin: 100px 0 120px;
     }
 
-    form.sign_up_form {
-        width: 100%;
-
-        div.form_group {
-            width: 100%;
-            margin: 0 0 5%;
-            align-items: center;
-
-            label {
-                @include content_font;
-                font-weight: $fWBold;
-                margin-bottom: 20px;
-            }
-
-            input.input {
-                width: 100%;
-                padding: 20px;
-                margin-bottom: 5px;
-                box-sizing: border-box;
-                border-radius: 8px;
-                border: none;
-                background-color: $normalColor;
-            }
-
-            input.input:focus {
-                outline: none;
-            }
-
-            .error_message {
-                @include small_font;
-                color: $importantColor;
-            }
-        }
-
-        button.sign_up_btn {
-            @include sign_in_btn;
-        }
-    }
-
-    div.form_footer{
-        text-align: center;
-
-        span.question {
-            @include content_font;
-            letter-spacing: .05rem;
-        }
-        
-        span.member_signin {
-            @include content_font;
-            letter-spacing: .05rem;
-            font-weight: $fWBold;
-            color: #33A4E8;
-        }
-    }
-
-    // 彈窗            
-    h3.modal_title {
-        @include h3;
-        text-align: center;
-    }
-
-    div.modal_img {
+    div.form_inner {
+        max-width: calc($basewidth - 500px);
+        width: 85%;
         margin: auto;
-        padding: 8% 0;
-        width: clamp(200px,80%,400px);
+        box-sizing: border-box;
+        padding: 50px 100px;
+        border-radius: 30px;
+        background-color: #f1f1f1;
+
+        @include tablets {
+            padding: 50px 50px;
+        }
+        @include large_phones {
+            width: 90%;
+            padding: 50px 30px;
+        }
+
+        span.form_title {
+            @include h4;
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     }
+}
+
+form.sign_up_form {
+    width: 100%;
+
+    div.form_group {
+        width: 100%;
+        margin: 0 0 5%;
+        align-items: center;
+
+        label {
+            @include content_font;
+            font-weight: $fWBold;
+            margin-bottom: 20px;
+        }
+
+        input.input {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            border: none;
+            background-color: $normalColor;
+        }
+
+        input.input:focus {
+            outline: none;
+        }
+
+        .error_message {
+            @include small_font;
+            color: $importantColor;
+        }
+    }
+
+    button.sign_up_btn {
+        @include sign_in_btn;
+    }
+}
+
+div.form_footer {
+    text-align: center;
+
+    span.question {
+        @include content_font;
+        letter-spacing: 0.05rem;
+    }
+
+    span.member_signin {
+        @include content_font;
+        letter-spacing: 0.05rem;
+        font-weight: $fWBold;
+        color: #33a4e8;
+    }
+}
+
+// 彈窗
+h3.modal_title {
+    @include h3;
+    text-align: center;
+}
+
+div.modal_img {
+    margin: auto;
+    padding: 8% 0;
+    width: clamp(200px, 80%, 400px);
+}
 </style>

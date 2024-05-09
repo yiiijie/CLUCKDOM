@@ -65,7 +65,7 @@ const changeTab = (tab) => {
                 <component :is="tabs[currentTab]"></component>
             </transition>
             <div class="title">
-                <h1>農場位置</h1>
+                <h1>農場總部</h1>
                 <span class="english_title">Farm Location</span>
             </div>
             <GoogleMap />
@@ -102,7 +102,7 @@ div.title {
 section.channel_container {
     max-width: $basewidth;
     width: 85%;
-    margin: 0 auto 10%;
+    margin: 0 auto 12%;
 
     @include tablets {
         margin: 0 auto 15%;

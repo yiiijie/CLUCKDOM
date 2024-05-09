@@ -119,7 +119,6 @@ const social = reactive([
                     </li>
                     <RouterLink to="/sign-in">
                         <SignInBtn class="signin_btn" />
-                        <!-- <button class="signin_btn">會員登入</button> -->
                     </RouterLink>
                 </ul>
                 <!-- 社群連結 -->
@@ -236,7 +235,7 @@ div.mobile_menu {
         }
 
         .text {
-            @include smallFont_PC;
+            @include small_font;
             display: block;
             font-size: 14px;
             font-family: $font_family_en;
@@ -255,7 +254,7 @@ div.mobile_menu {
         ul.menu_list {
             width: 80vw;
             margin: 30px auto;
-            background-color: $normalBgColor;
+            background-color: $normalColor;
             border-radius: 10px;
             padding: 40px;
 
@@ -276,14 +275,15 @@ div.mobile_menu {
                 }
 
                 span.label {
-                    @include content_PC;
+                    @include content_font;
                     padding-right: 10px;
                     font-weight: $fWBold;
                     font-family: $font_family_title;
                 }
 
                 span.label_en {
-                    @include smallFont_PC($secondaryText);
+                    @include small_font;
+                    color: $secondaryColor;
                     font-family: $font_family_en;
                 }
             }
@@ -305,10 +305,10 @@ div.mobile_menu {
                 height: 20px;
                 margin: 0 5px;
                 padding: 10px;
-                font-size: $h5Fz_PC;
+                font-size: 2rem;
                 color: $primaryColor;
                 border-radius: 50px;
-                background-color: $normalBgColor;
+                background-color: $normalColor;
             }
         }
     }
@@ -362,7 +362,7 @@ header {
                 justify-content: space-between;
 
                 li {
-                    @include header_PC;
+                    @include header_font;
                     position: relative;
                     text-align: center;
                     z-index: 2;
@@ -395,20 +395,20 @@ header {
                         }
 
                         span.label {
-                            color: $primaryText;
+                            color: $primaryTextColor;
                             transition: 0.2s;
                         }
 
                         span.label_en {
                             font-size: 14px;
-                            color: $secondaryText;
+                            color: $secondaryColor;
                             font-family: $font_family_en;
                             transition: 0.2s;
                         }
 
                         &:hover .label,
                         &:hover .label_en {
-                            color: $subtitleText;
+                            color: $primaryColor;
                         }
                     }
                 }

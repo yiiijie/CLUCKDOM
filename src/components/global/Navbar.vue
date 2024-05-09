@@ -81,7 +81,7 @@ header > nav.navbar {
     margin: auto;
     align-items: center;
     border-radius: 100px;
-    background-color: $normalBgColor;
+    background-color: $normalColor;
     box-shadow: 0 0 10px rgb(75, 67, 49, 0.2);
 
     div.logo img {
@@ -95,7 +95,7 @@ header > nav.navbar {
         justify-content: center;
 
         li {
-            @include header_PC;
+            @include header_font;
             position: relative;
             margin-right: 6%;
             z-index: 2; // 小圈圈的層級
@@ -128,12 +128,12 @@ header > nav.navbar {
                 }
 
                 span.label {
-                    color: $primaryText;
+                    color: $primaryTextColor;
                     transition: 0.2s;
                 }
 
                 &:hover .label {
-                    color: $subtitleText;
+                    color: $primaryColor;
                 }
             }
         }
@@ -151,7 +151,7 @@ header > nav.navbar {
             text-align: center;
             margin-left: 15px;
             cursor: pointer;
-            color: $normalBgColor;
+            color: $normalColor;
             background-color: $hoverBtnColorR;
 
             &:hover {

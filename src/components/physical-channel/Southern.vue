@@ -13,30 +13,30 @@ const northernStores = ref([
     {
         id: 2,
         name: '福壽雞蛋專賣店',
-        address: '嘉義市西區中山路789號',
+        address: '嘉義縣阿里山鄉新中橫公路',
         tel: '(05)2777-888',
         googleUrl: 'https://reurl.cc/Ker5Wn',
     },
     {
         id: 3,
         name: '春風蛋舖',
-        address: '新北市新店區北新路三段22號',
+        address: '台南市安南區四草大道118號',
         tel: '(02)7765-2345',
-        googleUrl: 'https://reurl.cc/Ker5Wn',
+        googleUrl: 'https://reurl.cc/Rqvakx',
     },
     {
         id: 4,
         name: '豐收雞蛋銷售門市',
-        address: '新北市永和區中山路一段123號',
+        address: '高雄市三民區興山路100號',
         tel: '(02)8823-6789',
         googleUrl: 'https://reurl.cc/Ker5Wn',
     },
     {
         id: 5,
-        name: '希望廣場農夫市集',
-        address: '桃園市龜山區中興路180號',
+        name: '忘憂農夫市集',
+        address: '屏東縣恆春鎮坑內路',
         tel: '(03)5566-6789',
-        googleUrl: 'https://reurl.cc/Ker5Wn',
+        googleUrl: 'https://reurl.cc/lQv3Ov',
     },
 ])
 </script>

@@ -348,10 +348,10 @@ section.chart {
                 display: block;
                 padding: 3% 10%;
                 border-radius: 50px;
-                color: $grayText;
+                color: $secondaryColor;
                 cursor: pointer;
-                border: 1px solid $borderColor;
-                background-color: $normalBgColor;
+                border: 1px solid $secondaryColor;
+                background-color: $normalColor;
             }
         }
 
@@ -393,7 +393,7 @@ section.chart {
                     }
 
                     &:hover > .arrow_right {
-                        color: $normalBgColor;
+                        color: $normalColor;
                         transform: translateX(8px);
                         transition: 0.2s;
                     }

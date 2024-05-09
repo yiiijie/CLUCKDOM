@@ -5,13 +5,13 @@ import Header from '@/components/global/Header.vue'
 import Footer from '@/components/global/Footer.vue'
 
 const route = useRoute()
-const footerColor = ref('#F8F3EB')
+// const footerColor = ref('#F8F3EB')
 
-watchEffect(() => {
-    const changeFooterColor = route.meta.footerColor
-    footerColor.value =
-        changeFooterColor !== undefined ? changeFooterColor : '#F8F3EB'
-})
+// watchEffect(() => {
+//     const changeFooterColor = route.meta.footerColor
+//     footerColor.value =
+//         changeFooterColor !== undefined ? changeFooterColor : '#F8F3EB'
+// })
 </script>
 
 <template>
@@ -21,10 +21,7 @@ watchEffect(() => {
             <component :is="Component" :key="route.fullPath" />
         </transition>
     </router-view>
-    <Footer
-        :style="{ backgroundColor: footerColor }"
-        v-if="!route.meta.hideFooter"
-    />
+    <Footer v-if="!route.meta.hideFooter" />
 </template>
 
 <style lang="scss">

@@ -166,7 +166,6 @@ section.products_carousel {
 
     div.carousel_item {
         display: flex;
-        // margin: 10% 0 15%;
         flex-direction: column;
 
         a {
@@ -206,7 +205,7 @@ section.products_carousel {
                 }
 
                 div.product_name {
-                    @include subtitle_style;
+                    @include subtitle;
                     display: flex;
                     margin: 2% 0;
                     align-items: flex-end;
@@ -224,7 +223,7 @@ section.products_carousel {
 
             div.button {
                 .arrow_right {
-                    color: $normalBgColor;
+                    color: $normalColor;
                     font-size: 14px;
                     padding: 15px;
                     transition: 0.3s;
@@ -247,7 +246,7 @@ section.products_carousel {
         width: 60px;
         height: 60px;
         margin: 0;
-        background-color: $normalBgColor;
+        background-color: $normalColor;
         border: 1px solid $borderColor;
         border-radius: 50% 0 0 50%;
     }

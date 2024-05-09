@@ -1,9 +1,0 @@
-div.cart_btn {
-    @include content_PC;
-    position: relative;
-    padding: 10px 20px;
-    z-index: 1000; // 避免被header擋到
-    cursor: pointer;
-    border-radius: 0 0 20px 20px;
-    background-color: $textBgColor;
-}

@@ -26,7 +26,8 @@ const navItems = reactive([
 </script>
 
 <template>
-    <footer class="footer">
+    <footer>
+        <img class="wave" src="/images/footer/wave.svg" alt="wave" />
         <div class="footer_inner">
             <div class="footer_logo">
                 <router-link to="/">
@@ -114,34 +115,18 @@ const navItems = reactive([
 
     img {
         width: 100%;
-        display: block; // 刪除底部空隙
+        display: block;
     }
 }
 
-footer.footer {
+footer {
     position: relative;
+    background-color: $footerBgColor;
 
-    &::before {
-        content: '';
+    img.wave {
         position: absolute;
         width: 100%;
-        height: 9.5%;
-        z-index: 10;
         transform: translateY(-100%);
-        background: url(/images/footer/footerwave.svg) repeat-x;
-
-        @media (max-width: 1440px) {
-            height: 8%;
-        }
-        @include large_tablets {
-            height: 6%;
-        }
-        @include tablets {
-            height: 2%;
-        }
-        @include large_phones {
-            height: 2.5%;
-        }
     }
 
     div.footer_inner {
@@ -155,7 +140,7 @@ footer.footer {
 
         @include tablets {
             flex-direction: column;
-            display: block; // 使元素改成佔滿整個容器
+            display: block;
             padding: 60px 0 0 0;
         }
 

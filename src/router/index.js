@@ -23,20 +23,12 @@ const router = createRouter({
             path: '/products/details',
             name: 'details',
             component: () => import('@/view/products/details/Details.vue'),
-            // meta: {
-            //   hideHeader: false,
-            //   hideFooter: false,
-            // },
         },
         {
             path: '/physical-channel',
             name: 'physical-channel',
             component: () =>
                 import('@/view/physical-channel/PhysicalChannel.vue'),
-            // meta: {
-            //   hideHeader: false,
-            //   hideFooter: true,
-            // },
         },
         {
             path: '/sign-in',
@@ -52,9 +44,6 @@ const router = createRouter({
             path: '/contact-us',
             name: 'contact-us',
             component: () => import('@/view/contact-us/ContactUs.vue'),
-            meta: {
-                footerColor: '#fff',
-            },
         },
     ],
 

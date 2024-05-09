@@ -48,15 +48,11 @@ const { showNavbar } = useNavbarVisibility()
             </div>
         </section>
 
-        <section
-            class="about"
-            data-aos="fade-up"
-            data-aos-duration="1500"
-        >
+        <section class="about" data-aos="fade-up" data-aos-duration="1500">
             <div class="about_inner">
                 <div class="text">
                     <h2>
-                        追尋純淨 ⎯ 
+                        追尋純淨 ⎯
                         <br />
                         放牧鷄蛋的
                         <span class="secondary_color">天然</span>
@@ -120,7 +116,6 @@ const { showNavbar } = useNavbarVisibility()
                         src="/images/home/img_dialog2.svg"
                         alt=""
                         data-aos="zoom-in"
-                        data-aos-delay="1500"
                     />
                 </div>
             </div>
@@ -239,11 +234,11 @@ section.web_purpose {
 
                 span.important_color {
                     @include h1_vertical;
-                    color: $importantText;
+                    color: $importantColor;
                 }
                 span.secondary_color {
                     @include h1_vertical;
-                    color: $secondaryText;
+                    color: $secondaryColor;
                 }
             }
 
@@ -277,7 +272,7 @@ section.about {
                 padding-bottom: 40px;
 
                 span.secondary_color {
-                    color: $secondaryText;
+                    color: $secondaryColor;
                 }
             }
 
@@ -361,14 +356,14 @@ section.vision {
             }
 
             span.important_color {
-                color: $importantText;
+                color: $importantColor;
             }
 
             span.english {
                 @include paragraph;
                 line-height: 60px;
                 letter-spacing: 0.3rem;
-                color: $normalBgColor;
+                color: $normalColor;
                 font-family: $font_family_en;
             }
         }

@@ -66,11 +66,11 @@ const changeMainImage = (src) => {
             <div class="prd_info">
                 <h2 class="prd_name">放牧土雞蛋｜幸福好蛋（10入）</h2>
                 <p class="prd_features">
-                    ✦ 蛋香飄逸、營養豐富
+                    ✤ 蛋香飄逸、營養豐富
                     <br />
-                    ✦ 嚴選新鮮蛋，絕無人工添加
+                    ✤ 嚴選新鮮蛋，絕無人工添加
                     <br />
-                    ✦ 蛋香濃郁，蛋黃鮮美，蛋白柔滑绵密
+                    ✤ 蛋香濃郁，蛋黃鮮美，蛋白柔滑绵密
                 </p>
                 <p class="prd_slogan">
                     幸福好蛋是由母雞吃著高品質、營養豐富的有機飼料所產的蛋，裡面包括有機穀物、天然植物蛋白和多種維生素。
@@ -150,6 +150,8 @@ section.prd_inner {
                 width: 100%;
                 aspect-ratio: 1 / 1;
                 border-radius: 10px;
+                object-fit: cover;
+                object-position: center;
             }
         }
 
@@ -160,14 +162,12 @@ section.prd_inner {
             cursor: pointer;
 
             img {
-                flex: 1;
                 width: 100%;
-                // width: 80px;
-                height: auto;
+                height: 100%;
                 aspect-ratio: 1 / 1;
+                border-radius: 10px;
                 object-fit: cover;
                 object-position: center;
-                border-radius: 10px;
             }
         }
     }
@@ -187,7 +187,7 @@ section.prd_inner {
 
         p.prd_features {
             @include paragraph;
-            color: $secondaryText;
+            color: $secondaryColor;
             margin: 5% 0;
 
             @include large_tablets {
@@ -219,7 +219,7 @@ section.prd_inner {
 
             del.original_price {
                 @include content_font;
-                color: $grayText;
+                color: $remarkColor;
                 letter-spacing: 0.05rem;
             }
         }
@@ -234,9 +234,9 @@ section.prd_inner {
             padding: 10px;
             box-sizing: border-box;
             justify-content: space-between;
-            color: $primaryText;
+            color: $primaryTextColor;
             border-radius: 5px;
-            border: 1px solid $primaryText;
+            border: 1px solid $primaryTextColor;
 
             @include tablets {
                 width: 100%;
@@ -254,11 +254,11 @@ section.prd_inner {
                 width: 100%;
                 display: block;
                 text-align: center;
-                font-size: $pFz_PC;
-                font-family: $font_price;
                 border: none;
-                color: $primaryText;
                 background: none;
+                color: $primaryTextColor;
+                font-size: $paragraph;
+                font-family: $font_price;
             }
         }
 

@@ -119,17 +119,6 @@ const cards = reactive([
             </div>
             <ul class="cluckdom_intro_inner">
                 <li class="card_item">
-                    <h2 class="card_title">鷄蛋王國的放牧鷄過得比我還快樂</h2>
-                    <p class="content">
-                        在這裡，我們相信健康的雞群才能生產出最美味的蛋和最優質的家禽產品。我們的牧場坐落在郁郁蔥蔥的山上，每天都是一個和諧的動物樂園！
-                    </p>
-                    <p class="content">
-                        <span class="secondary_color"
-                            >牧場採低密度飼養，雞群們有足夠的空間在草地上自由奔跑</span
-                        >，符合台灣蛋雞動物指南標準飼養，並獲得友善認證，提供您最健康有活力的雞蛋。
-                    </p>
-                </li>
-                <li class="card_item">
                     <h2 class="card_title">無抗生素飼養<br />頂級放牧土鷄蛋</h2>
                     <p class="content">
                         我們選用通過 FSSC 22000
@@ -343,7 +332,7 @@ div.certification_inner {
                     width: 100%;
                     position: absolute;
                     backface-visibility: hidden;
-                    background-color: $normalBgColor;
+                    background-color: $normalColor;
                     border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
 
                     div.mark {
@@ -380,7 +369,7 @@ div.certification_inner {
                     position: absolute;
                     transform: rotateY(180deg);
                     backface-visibility: hidden;
-                    background-color: $normalBgColor;
+                    background-color: $normalColor;
                     border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
 
                     &::before {
@@ -442,7 +431,7 @@ section.cluckdom_intro {
             border-radius: 40px;
             text-align: justify;
             box-sizing: border-box;
-            background-color: $normalBgColor;
+            background-color: $normalColor;
 
             @include large_tablets {
                 min-width: auto;
@@ -460,7 +449,7 @@ section.cluckdom_intro {
                 position: relative;
                 text-align: center;
                 padding-bottom: 50px;
-                color: $secondaryText;
+                color: $secondaryColor;
                 font-weight: $fWBold;
 
                 &::after {
@@ -491,7 +480,7 @@ section.cluckdom_intro {
                 @include small_font;
                 display: block;
                 padding-top: 10px;
-                color: $remark;
+                color: $remarkColor;
                 text-align: left;
                 word-wrap: break-word; // 單字分行
             }
@@ -505,7 +494,7 @@ section.cluckdom_intro {
                 border-radius: 50px;
                 cursor: pointer;
                 background-color: $primaryColor;
-                color: $normalBgColor;
+                color: $normalColor;
                 transition: 0.2s;
 
                 &:hover {

@@ -46,7 +46,7 @@ const signInWithGoogle = async () => {
 
 <style scoped lang="scss">
 button.google_third_party {
-    @include content_PC;
+    @include content_font;
     width: 100%;
     display: flex;
     padding: 8px 0;

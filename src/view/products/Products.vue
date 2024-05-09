@@ -483,7 +483,7 @@ section.list {
                     span:nth-child(3) {
                         @include content_font;
                         letter-spacing: 0;
-                        color: $grayText;
+                        color: $remarkColor;
                         text-decoration: line-through;
                     }
                 }

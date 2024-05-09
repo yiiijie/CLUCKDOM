@@ -188,7 +188,6 @@ async function onSubmit(values, { resetForm }) {
                     </button>
                 </VeeForm>
             </section>
-            <img class="wave" src="/images/contact/wave.svg" alt="wave" />
         </main>
         <!-- 表單送出後的通知彈窗 -->
         <Teleport to="body">
@@ -196,6 +195,7 @@ async function onSubmit(values, { resetForm }) {
                 :show="showModal"
                 @close="showModal = false"
                 :buttonText="handleBtnText"
+                class="modal"
             >
                 <h3 class="modal_title">{{ submitResult }}</h3>
                 <div class="modal_img">
@@ -212,10 +212,8 @@ main.form_container {
     position: relative;
 }
 
-img.wave {
-    position: absolute;
-    bottom: 0;
-    z-index: 20;
+.modal {
+    z-index: 9998;
 }
 
 section.form_inner {

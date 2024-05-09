@@ -342,7 +342,7 @@ ul.sets_container {
 
                     span {
                         @include content_font;
-                        color: $grayText;
+                        color: $remarkColor;
                         display: block;
 
                         .check_box {
@@ -368,7 +368,7 @@ ul.sets_container {
                     span:nth-child(2) {
                         @include content_font;
                         letter-spacing: 0;
-                        color: $grayText;
+                        color: $remarkColor;
                         text-decoration: line-through;
                     }
                 }

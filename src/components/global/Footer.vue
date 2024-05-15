@@ -13,14 +13,14 @@ const navItems = reactive([
         route: '/products',
     },
     {
-        label: '通路門市',
-        label_en: 'STORES',
-        route: '/stores',
+        label: '實體通路',
+        label_en: 'CHANNEL',
+        route: '/physical-channel',
     },
     {
-        label: '常見問題',
-        label_en: 'FAQ',
-        route: '/faq',
+        label: '聯絡我們',
+        label_en: 'CONTACT',
+        route: '/contact-us',
     },
 ])
 </script>

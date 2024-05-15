@@ -8,76 +8,69 @@ const { isLargeTablet, showContent, toggleContentVisibility } =
 const sets = reactive([
     {
         id: '1',
-        index: '0',
         name: '嚴選放牧蛋蛋白液',
         imgPath: '/images/products/sets/eggs_set_1.jpg',
-        setIntro: '無抗生素蛋雞飼料，添加複方中草藥、益生菌。',
-        content1: '頂級好蛋8入 1盒',
-        content2: '悠活好蛋8入 1盒',
-        content3: '贈 手工雞蛋布丁3入 1盒',
-        currentPrice: 'NT$399',
-        originalPrice: 'NT$450',
+        setIntro: '不用再把蛋黃丟掉，只要開瓶，輕鬆蒸煮美味又新鮮的蛋白！',
+        contents: '內容物 - 6瓶/箱',
+        weight: '重(容)量 - 935毫升/瓶',
+        mainIngredient: '主成分 - 鮮雞蛋蛋白',
+        currentPrice: 'NT$899',
+        originalPrice: 'NT$1099',
     },
     {
         id: '2',
-        index: '1',
-        name: '蛋塔',
+        name: '經典葡式蛋塔',
         imgPath: '/images/products/sets/eggs_set_2.jpg',
-        setIntro:
-            '挑選皮蛋時，除了蛋殼要完整外，只要拿起皮蛋用手指輕敲幾下，有彈力的就是好皮蛋。',
-        content1: '頂級好蛋10入 1盒',
-        content2: '田園好蛋10入 1盒',
-        content3: '贈 手工雞蛋布丁3入 1盒',
-        currentPrice: 'NT$450',
-        originalPrice: 'NT$590',
+        setIntro: '香脆的派皮包裹奶香蛋液，口感絲滑綿密，每口都是甜蜜的享受。',
+        contents: '內容物 - 12個/盒',
+        weight: '重(容)量 - 30克/個',
+        mainIngredient: '主成分 - 動物性鮮奶油、鮮雞蛋、水、糖、植物性油脂、麵粉',
+        currentPrice: 'NT$620',
+        originalPrice: 'NT$680',
     },
     {
         id: '3',
-        index: '2',
         name: '減糖配方雞蛋捲',
         imgPath: '/images/products/sets/eggs_set_3.jpg',
-        setIntro: '媽媽們的首選禮盒，每餐都充滿豐富蛋白質的最佳組合。',
-        content1: '田園好蛋10入 1盒',
-        content2: '悠活好蛋10入 1盒',
-        content3: '贈 手工雞蛋布丁3入 1盒',
-        currentPrice: 'NT$450',
-        originalPrice: 'NT$590',
+        setIntro: '新鮮雞蛋拌入法國諾曼第天然奶油製作，減糖10％、不加一滴水。',
+        contents: '內容物 - 18根/盒',
+        weight: '重(容)量 - 5公克/根',
+        mainIngredient: '主成分 - 鮮雞蛋、法國發酵奶油、麵粉、糖、奶粉、食鹽',
+        currentPrice: 'NT$220',
+        originalPrice: 'NT$280',
     },
     {
         id: '4',
-        index: '3',
         name: '放牧烏骨鷄滴鷄精',
         imgPath: '/images/products/sets/eggs_set_4.jpg',
-        setIntro: '無論是獨自品嚐還是與親友分享，都為你開啟幸福的一天。',
-        content1: '幸福好蛋10入 1盒',
-        content2: '悠活好蛋10入 1盒',
-        content3: '贈 手工雞蛋布丁3入 1盒',
-        currentPrice: 'NT$550',
-        originalPrice: 'NT$690',
+        setIntro: '嚴選12周以上足齡烏骨雞，滴滴精純，採用生物技術製程，堅持厚工慢滴。',
+        contents: '內容物 - 10袋/盒',
+        weight: '重(容)量 - 60毫升/包',
+        mainIngredient: '主成分 - 放牧烏骨雞',
+        currentPrice: 'NT$1680',
+        originalPrice: 'NT$1880',
     },
     {
         id: '5',
-        index: '4',
-        name: '蛋黃酥',
+        name: '營養滿分鷄蛋麵 ',
         imgPath: '/images/products/sets/eggs_set_5.jpg',
-        setIntro: '僅在農場裡販賣的禮盒，三種雞蛋一次滿足！各千萬別錯過囉。',
-        content1: '頂級好蛋10入 1盒',
-        content2: '悠活好蛋10入 1盒',
-        content3: '田園好蛋10入 1盒',
-        currentPrice: 'NT$699',
-        originalPrice: 'NT$850',
+        setIntro: '口感滑順、Q彈有勁，散發淡雅的雞蛋香，品嚐麵香的純粹，每一口都是享受。',
+        contents: '內容物 - 4包/袋',
+        weight: '重(容)量 - 120克/包',
+        mainIngredient: '主成分 - 鮮雞蛋、麵粉、鹽、水',
+        currentPrice: 'NT$238',
+        originalPrice: 'NT$289',
     },
     {
         id: '6',
-        index: '5',
-        name: '鷄蛋布丁',
+        name: '濃厚鷄蛋布丁',
         imgPath: '/images/products/sets/eggs_set_6.jpg',
-        setIntro: '特殊節日才販售的頂級限量禮盒，手刀不快點就買不到囉！',
-        content1: '頂級好蛋10入 2盒',
-        content2: '悠活好蛋10入 1盒',
-        content3: '幸福好蛋10入 1盒',
-        currentPrice: 'NT$890',
-        originalPrice: 'NT$1100',
+        setIntro: '手炒微苦焦糖，慢火蒸煮，布丁滑潤綿密，是記憶中的古早味。',
+        contents: '內容物 - 6入/盒',
+        weight: '重(容)量 - 135克/顆',
+        mainIngredient: '主成分 - 水、鮮雞蛋、脫脂奶粉、糖、鮮奶油、香草香料。',
+        currentPrice: 'NT$360',
+        originalPrice: 'NT$390',
     },
 ])
 </script>
@@ -136,21 +129,21 @@ const sets = reactive([
                                         icon="fa-regular fa-square-check"
                                         class="check_box"
                                     />
-                                    {{ set.content1 }}
+                                    {{ set.contents }}
                                 </span>
                                 <span>
                                     <font-awesome-icon
                                         icon="fa-regular fa-square-check"
                                         class="check_box"
                                     />
-                                    {{ set.content2 }}
+                                    {{ set.weight }}
                                 </span>
-                                <span>
+                                <span class="main_ingredient">
                                     <font-awesome-icon
                                         icon="fa-regular fa-square-check"
                                         class="check_box"
                                     />
-                                    {{ set.content3 }}
+                                    {{ set.mainIngredient }}
                                 </span>
                             </div>
                         </div>
@@ -159,15 +152,13 @@ const sets = reactive([
                                 <span>{{ set.currentPrice }}</span>
                                 <span>{{ set.originalPrice }}</span>
                             </div>
-                            <RouterLink :to="'/'">
-                                <button type="button" class="cart_btn">
-                                    <font-awesome-icon
-                                        icon="cart-shopping"
-                                        class="cart_icon"
-                                    />
-                                    <span>加入購物車</span>
-                                </button>
-                            </RouterLink>
+                            <button type="button" class="cart_btn">
+                                <font-awesome-icon
+                                    icon="cart-shopping"
+                                    class="cart_icon"
+                                />
+                                <span>加入購物車</span>
+                            </button>
                         </div>
                     </div>
                 </li>
@@ -344,11 +335,20 @@ ul.sets_container {
                         @include content_font;
                         color: $remarkColor;
                         display: block;
+                        text-align: left;
 
                         .check_box {
                             margin-right: 5px;
                             color: $secondaryColor;
                         }
+                    }
+
+                    span.main_ingredient {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1; 
+                        overflow: hidden;
+                        text-overflow: ellipsis;   
                     }
                 }
             }

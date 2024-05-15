@@ -54,9 +54,7 @@ const { showNavbar } = useNavbarVisibility()
                     <h2>
                         追尋純淨 ⎯
                         <br />
-                        放牧鷄蛋的
-                        <span class="secondary_color">天然</span>
-                        之旅
+                        放牧鷄蛋的<span class="secondary_color">天然</span>之旅
                     </h2>
                     <p>
                         自雞蛋王國成立以來，我們不僅是雞蛋生產者，更是大自然的伙伴。

@@ -1,27 +1,19 @@
 <script setup>
 import { RouterView, useRoute } from 'vue-router'
-import { watchEffect, ref } from 'vue'
 import Header from '@/components/global/Header.vue'
 import Footer from '@/components/global/Footer.vue'
-
 const route = useRoute()
-// const footerColor = ref('#F8F3EB')
 
-// watchEffect(() => {
-//     const changeFooterColor = route.meta.footerColor
-//     footerColor.value =
-//         changeFooterColor !== undefined ? changeFooterColor : '#F8F3EB'
-// })
 </script>
 
 <template>
-    <Header v-if="!route.meta.hideHeader" />
+    <Header/>
     <router-view v-slot="{ Component, route }">
         <transition name="fade" mode="out-in">
             <component :is="Component" :key="route.fullPath" />
         </transition>
     </router-view>
-    <Footer v-if="!route.meta.hideFooter" />
+    <Footer/>
 </template>
 
 <style lang="scss">

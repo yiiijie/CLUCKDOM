@@ -7,17 +7,17 @@ import CartBtn from '@/components/global/CartBtn.vue'
 
 const router = useRouter()
 const isHomePage = ref(true)
-const isOpen = ref(false)
+const isNavOpen = ref(false)
 
 // 手機版 漢堡開關
 const hamburgerBtn = () => {
-    isOpen.value = !isOpen.value
+    isNavOpen.value = !isNavOpen.value
 }
 
 // 手機版 漢堡點選 -> 跳轉頁面
 const closeNavAndNavigate = (route) => {
-    isOpen.value = false // 關閉導覽列
-    router.push(route) // 並跳轉至當前點擊頁面
+    isNavOpen.value = false 
+    router.push(route)
 }
 
 watchEffect(() => {
@@ -72,7 +72,7 @@ const social = reactive([
     <!-- 手機版漢堡 & menu -->
     <div class="mobile_menu">
         <button @click="hamburgerBtn" class="hamburger_button">
-            <div v-if="!isOpen">
+            <div v-if="!isNavOpen">
                 <font-awesome-icon icon="bars" class="icon" />
                 <span class="text">MENU</span>
             </div>
@@ -83,7 +83,7 @@ const social = reactive([
         </button>
 
         <transition name="slide">
-            <div v-if="isOpen" class="menu_open">
+            <div v-if="isNavOpen" class="menu_open">
                 <ul class="menu_list">
                     <!-- 首頁的連結只在手機/平板顯示 -->
                     <li class="mobile_home_lick">

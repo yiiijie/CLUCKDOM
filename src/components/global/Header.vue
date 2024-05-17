@@ -1,12 +1,14 @@
 <script setup>
-import { ref, reactive, watchEffect } from 'vue'
+import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import HeaderCarousel from '@/components/func-items/HeaderCarousel.vue'
 import SignInBtn from '@/components/global/SignInBtn.vue'
 import CartBtn from '@/components/global/CartBtn.vue'
+import useUserAuthState from '@/composables/useUserAuthState'
+
+const { user, userName, handleUserClick, handleSignOut, mobileLoginStatus } =
+    useUserAuthState()
 
 const router = useRouter()
-const isHomePage = ref(true)
 const isNavOpen = ref(false)
 
 // 手機版 漢堡開關
@@ -16,13 +18,9 @@ const hamburgerBtn = () => {
 
 // 手機版 漢堡點選 -> 跳轉頁面
 const closeNavAndNavigate = (route) => {
-    isNavOpen.value = false 
+    isNavOpen.value = false
     router.push(route)
 }
-
-watchEffect(() => {
-    isHomePage.value = router.currentRoute.value.name === 'home'
-})
 
 const navItems = reactive([
     {
@@ -50,19 +48,16 @@ const navItems = reactive([
 const social = reactive([
     {
         class: 'fb',
-        link: '',
         icon: ['fab', 'facebook-f'],
     },
     {
         class: 'ig',
-        link: '',
         icon: ['fab', 'instagram'],
     },
 ])
 </script>
 
 <template>
-    <HeaderCarousel v-if="isHomePage" />
     <!-- 登入的入口按鈕 & 購物車  -->
     <div class="header_btn_list">
         <SignInBtn />
@@ -86,51 +81,50 @@ const social = reactive([
             <div v-if="isNavOpen" class="menu_open">
                 <ul class="menu_list">
                     <!-- 首頁的連結只在手機/平板顯示 -->
-                    <li class="mobile_home_lick">
+                    <li>
                         <RouterLink
                             to="/"
                             class="nav_link"
-                            @click="closeNavAndNavigate('/')"
-                        >
+                            @click="closeNavAndNavigate('/')">
                             <font-awesome-icon
                                 icon="circle-right"
-                                class="arrow"
-                            />
+                                class="arrow" />
                             <span class="label">首頁</span>
                             <span class="label_en">HOME</span>
                         </RouterLink>
                     </li>
-                    <!-- 與桌機共用的導覽列項目 -->
                     <li v-for="navItem in navItems" :key="navItem.label">
                         <RouterLink
                             :to="navItem.route"
                             class="nav_link"
-                            @click="closeNavAndNavigate(navItem.route)"
-                        >
+                            @click="closeNavAndNavigate(navItem.route)">
                             <font-awesome-icon
                                 icon="circle-right"
-                                class="arrow"
-                            />
+                                class="arrow" />
                             <span class="label">{{ navItem.label }}</span>
                             <span class="label_en">{{
                                 navItem['label_en']
                             }}</span>
                         </RouterLink>
                     </li>
-                    <RouterLink to="/sign-in">
-                        <SignInBtn class="signin_btn" />
-                    </RouterLink>
+                    <button class="sign_in_btn" @click="handleUserClick">
+                        {{ mobileLoginStatus }}
+                    </button>
+                    <button
+                        v-if="user || userName"
+                        class="sign_out_btn"
+                        @click="handleSignOut">
+                        登出
+                    </button>
                 </ul>
                 <!-- 社群連結 -->
                 <div class="social_link">
                     <font-awesome-icon
                         :icon="['fab', 'facebook-f']"
-                        class="social_icon"
-                    />
+                        class="social_icon" />
                     <font-awesome-icon
                         :icon="['fab', 'instagram']"
-                        class="social_icon"
-                    />
+                        class="social_icon" />
                 </div>
             </div>
         </transition>
@@ -162,15 +156,13 @@ const social = reactive([
                 <RouterLink to="/contact-us" class="email">
                     <font-awesome-icon
                         class="icon"
-                        :icon="['fas', 'envelope']"
-                    />
+                        :icon="['fas', 'envelope']" />
                 </RouterLink>
                 <div class="social">
                     <div
                         v-for="item in social"
                         :key="item.index"
-                        :class="item.class"
-                    >
+                        :class="item.class">
                         <a :href="item.link">
                             <font-awesome-icon class="icon" :icon="item.icon" />
                         </a>
@@ -186,15 +178,6 @@ const social = reactive([
 </template>
 
 <style scoped lang="scss">
-%menu_btn_style {
-    width: 100%;
-    @include content_font;
-    padding: 10px 0;
-    border-radius: 50px;
-    font-weight: $fWBold;
-    font-family: $font_family_title;
-}
-
 div.header_btn_list {
     display: flex;
     position: fixed;
@@ -237,7 +220,7 @@ div.mobile_menu {
         .text {
             @include small_font;
             display: block;
-            font-size: 14px;
+            font-size: 1.4rem;
             font-family: $font_family_en;
         }
     }
@@ -248,37 +231,35 @@ div.mobile_menu {
         width: 100%;
         height: 100%;
         z-index: 99;
-        background-color: $hamburgerBgColor;
+        background-color: $primaryColor;
         transition: all 0.5s;
 
         ul.menu_list {
-            width: 80vw;
-            margin: 30px auto;
-            background-color: $normalColor;
-            border-radius: 10px;
+            width: 80%;
             padding: 40px;
+            margin: 30px auto;
+            border-radius: 10px;
+            background-color: $normalColor;
 
             @include tablets {
-                width: 70vw;
+                width: 70%;
             }
 
             li {
-                padding: 15px 0;
-                color: #d9042b;
                 width: 100%;
-                border-bottom: 1.5px dotted $hoverBtnColorB;
+                padding: 15px 0;
                 align-items: center;
+                border-bottom: 1.5px dotted $secondaryColor;
 
                 .arrow {
+                    font-size: 1.4rem;
                     margin-right: 10px;
                     color: $primaryColor;
                 }
 
                 span.label {
-                    @include content_font;
+                    @include header_font;
                     padding-right: 10px;
-                    font-weight: $fWBold;
-                    font-family: $font_family_title;
                 }
 
                 span.label_en {
@@ -288,11 +269,23 @@ div.mobile_menu {
                 }
             }
 
-            button.signin_btn {
-                @extend %menu_btn_style;
-                margin: 20px 0 0;
-                cursor: pointer;
-                background-color: $textBgColor;
+            button.sign_in_btn,
+            button.sign_out_btn {
+                @include header_font;
+                width: 100%;
+                padding: 15px 0;
+                border-radius: 100px;
+            }
+
+            button.sign_in_btn {
+                margin: 30px 0 15px;
+                color: $normalColor;
+                background-color: $secondaryColor;
+            }
+
+            button.sign_out_btn {
+                background-color: $normalColor;
+                border: 1px solid $secondaryColor;
             }
         }
 
@@ -354,7 +347,7 @@ header {
             align-items: center;
             justify-content: center;
             border-radius: 200px;
-            background-color: #fff;
+            background-color: $normalColor;
 
             ul.header_nav_list {
                 flex: 0 1 75%;
@@ -400,7 +393,7 @@ header {
                         }
 
                         span.label_en {
-                            font-size: 14px;
+                            font-size: 1.4rem;
                             color: $secondaryColor;
                             font-family: $font_family_en;
                             transition: 0.2s;
@@ -439,7 +432,7 @@ header {
                 margin: 15px 0;
 
                 .icon {
-                    color: #fff;
+                    color: $normalColor;
                 }
 
                 .fb {
@@ -456,7 +449,7 @@ header {
                     @extend %Social;
                     transition: 0.2s;
                     margin-top: 10px;
-                    background-color: #d74c38;
+                    background-color: $primaryColor;
 
                     &:hover {
                         @include hover_rotate;

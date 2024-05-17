@@ -39,8 +39,7 @@ const northernStores = ref([
         <store-card
             v-for="store in northernStores"
             :key="store.id"
-            :store="store"
-        />
+            :store="store" />
     </div>
 </template>
 

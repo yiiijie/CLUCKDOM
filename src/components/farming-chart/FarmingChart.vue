@@ -82,14 +82,12 @@ const steps = reactive([
                 v-for="(step, index) in steps"
                 :key="step.index"
                 class="step"
-                @click="toggleContentVisibility(index)"
-            >
+                @click="toggleContentVisibility(index)">
                 <figure class="pic">
                     <p
                         v-if="isFirstDialog(index)"
                         class="first_dialog"
-                        data-aos="fade-up"
-                    >
+                        data-aos="fade-up">
                         ＼ 從培養到出貨！ ／
                     </p>
                     <img :src="step.imgPath" alt="養雞的過程圖" />
@@ -97,19 +95,16 @@ const steps = reactive([
                 <span class="step_title">{{ step.stepTitle }}</span>
                 <figcaption
                     class="content"
-                    v-show="showContent === index || isLargeTablet"
-                >
+                    v-show="showContent === index || isLargeTablet">
                     {{ step.content }}
                 </figcaption>
                 <button class="see_more_btn" v-show="!isLargeTablet">
                     <font-awesome-icon
                         icon="plus"
-                        v-show="showContent !== index && !isLargeTablet"
-                    />
+                        v-show="showContent !== index && !isLargeTablet" />
                     <font-awesome-icon
                         icon="angle-up"
-                        v-show="showContent === index && !isLargeTablet"
-                    />
+                        v-show="showContent === index && !isLargeTablet" />
                 </button>
             </li>
 
@@ -117,16 +112,14 @@ const steps = reactive([
                 <div class="illust" data-aos="fade-up">
                     <img
                         src="/images/about/chart/to_prd_page_hen.svg"
-                        alt="裝飾圖"
-                    />
+                        alt="裝飾圖" />
                 </div>
                 <RouterLink :to="'/products'" class="to_products_page">
                     <button>
                         <span>前往線上購物商店</span>
                         <font-awesome-icon
                             class="arrow_right"
-                            :icon="['fas', 'arrow-right']"
-                        />
+                            :icon="['fas', 'arrow-right']" />
                     </button>
                 </RouterLink>
             </div>

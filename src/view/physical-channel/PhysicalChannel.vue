@@ -49,15 +49,13 @@ const changeTab = (tab) => {
         <section
             class="channel_container"
             data-aos="fade-up"
-            data-aos-duration="1000"
-        >
+            data-aos-duration="1000">
             <div class="btn_group">
                 <button
                     v-for="(_, tab) in tabs"
                     :key="tab"
                     :class="['tab_btn', { active: currentTab === tab }]"
-                    @click="changeTab(tab)"
-                >
+                    @click="changeTab(tab)">
                     {{ tab }}
                 </button>
             </div>

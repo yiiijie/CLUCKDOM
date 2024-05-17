@@ -24,7 +24,8 @@ const sets = reactive([
         setIntro: '香脆的派皮包裹奶香蛋液，口感絲滑綿密，每口都是甜蜜的享受。',
         contents: '內容物 - 12個/盒',
         weight: '重(容)量 - 30克/個',
-        mainIngredient: '主成分 - 動物性鮮奶油、鮮雞蛋、水、糖、植物性油脂、麵粉',
+        mainIngredient:
+            '主成分 - 動物性鮮奶油、鮮雞蛋、水、糖、植物性油脂、麵粉',
         currentPrice: 'NT$620',
         originalPrice: 'NT$680',
     },
@@ -43,7 +44,8 @@ const sets = reactive([
         id: '4',
         name: '放牧烏骨鷄滴鷄精',
         imgPath: '/images/products/sets/eggs_set_4.jpg',
-        setIntro: '嚴選12周以上足齡烏骨雞，滴滴精純，採用生物技術製程，堅持厚工慢滴。',
+        setIntro:
+            '嚴選12周以上足齡烏骨雞，滴滴精純，採用生物技術製程，堅持厚工慢滴。',
         contents: '內容物 - 10袋/盒',
         weight: '重(容)量 - 60毫升/包',
         mainIngredient: '主成分 - 放牧烏骨雞',
@@ -54,7 +56,8 @@ const sets = reactive([
         id: '5',
         name: '營養滿分鷄蛋麵 ',
         imgPath: '/images/products/sets/eggs_set_5.jpg',
-        setIntro: '口感滑順、Q彈有勁，散發淡雅的雞蛋香，品嚐麵香的純粹，每一口都是享受。',
+        setIntro:
+            '口感滑順、Q彈有勁，散發淡雅的雞蛋香，品嚐麵香的純粹，每一口都是享受。',
         contents: '內容物 - 4包/袋',
         weight: '重(容)量 - 120克/包',
         mainIngredient: '主成分 - 鮮雞蛋、麵粉、鹽、水',
@@ -83,8 +86,7 @@ const sets = reactive([
                 <div class="subtitle_icon">
                     <img
                         src="/images/products/sets/subtitle_dialog.svg"
-                        alt="副標"
-                    />
+                        alt="副標" />
                 </div>
                 <h2>美食愛好者必選<br />放牧鷄蛋周邊禮盒</h2>
             </div>
@@ -98,51 +100,42 @@ const sets = reactive([
                         <p class="set_intro">{{ set.setIntro }}</p>
                         <div
                             class="set_contents"
-                            @click="toggleContentVisibility(index)"
-                        >
+                            @click="toggleContentVisibility(index)">
                             <button
                                 v-show="showContent !== index && !isLargeTablet"
-                                class="see_more_btn"
-                            >
+                                class="see_more_btn">
                                 <span>組合內容物</span>
                                 <font-awesome-icon
                                     icon="angle-down"
-                                    class="arrow"
-                                />
+                                    class="arrow" />
                             </button>
                             <button
                                 v-show="showContent === index && !isLargeTablet"
-                                class="see_less_btn"
-                            >
+                                class="see_less_btn">
                                 <span>組合內容物</span>
                                 <font-awesome-icon
                                     icon="angle-up"
-                                    class="arrow"
-                                />
+                                    class="arrow" />
                             </button>
                             <div
                                 class="contents"
-                                v-show="showContent === index || isLargeTablet"
-                            >
+                                v-show="showContent === index || isLargeTablet">
                                 <span>
                                     <font-awesome-icon
                                         icon="fa-regular fa-square-check"
-                                        class="check_box"
-                                    />
+                                        class="check_box" />
                                     {{ set.contents }}
                                 </span>
                                 <span>
                                     <font-awesome-icon
                                         icon="fa-regular fa-square-check"
-                                        class="check_box"
-                                    />
+                                        class="check_box" />
                                     {{ set.weight }}
                                 </span>
                                 <span class="main_ingredient">
                                     <font-awesome-icon
                                         icon="fa-regular fa-square-check"
-                                        class="check_box"
-                                    />
+                                        class="check_box" />
                                     {{ set.mainIngredient }}
                                 </span>
                             </div>
@@ -155,8 +148,7 @@ const sets = reactive([
                             <button type="button" class="cart_btn">
                                 <font-awesome-icon
                                     icon="cart-shopping"
-                                    class="cart_icon"
-                                />
+                                    class="cart_icon" />
                                 <span>加入購物車</span>
                             </button>
                         </div>
@@ -171,7 +163,7 @@ const sets = reactive([
 img.set_wave {
     width: 100%;
     display: block;
-    background-color: $productsBgColor;
+    background-color: $neutralColor;
 }
 
 section.set {
@@ -346,9 +338,9 @@ ul.sets_container {
                     span.main_ingredient {
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 1; 
+                        -webkit-line-clamp: 1;
                         overflow: hidden;
-                        text-overflow: ellipsis;   
+                        text-overflow: ellipsis;
                     }
                 }
             }

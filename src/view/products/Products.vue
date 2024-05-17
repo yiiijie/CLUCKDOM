@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import HeaderBanner from '@/components/header-banner/HeaderBanner.vue'
 import ProductsSet from '@/components/products-set/ProductsSet.vue'
 import Navbar from '@/components/global/Navbar.vue'
@@ -7,6 +7,11 @@ import useNavbarVisibility from '@/composables/useNavbarVisibility'
 
 const bannerImageUrl = '/images/products/header_banner.jpg'
 const { showNavbar } = useNavbarVisibility()
+
+const showContent = ref(false)
+const toggleContentVisibility = (index) => {
+    showContent.value = showContent.value === index ? false : index
+}
 
 const list = reactive([
     {
@@ -110,19 +115,17 @@ const list = reactive([
             </div>
             <ul class="list_inner">
                 <li
-                    v-for="item in list"
+                    v-for="(item, index) in list"
                     :key="item.id"
                     data-aos="fade-up"
-                    data-aos-duration="1000"
-                >
+                    data-aos-duration="1000">
                     <router-link to="/products/details" class="prd_img">
                         <div class="prd_click_bg"></div>
                         <div class="view_prd_circle">
                             <div class="txt">
                                 <font-awesome-icon
                                     icon="magnifying-glass"
-                                    class="icon"
-                                />
+                                    class="icon" />
                                 <span>查看商品</span>
                             </div>
                         </div>
@@ -133,10 +136,45 @@ const list = reactive([
                             <img :src="item.prdLogoPath" alt="產品logo" />
                         </div>
                         <p class="prd_intro">{{ item.prdIntro }}</p>
-                        <div class="nutrition_facts">
-                            <span>營養成分表 (100g含量)</span>
-                            <font-awesome-icon icon="circle-plus" />
+                        <div
+                            class="nutrition_facts"
+                            @click="toggleContentVisibility(index)">
+                            <button>
+                                <span>營養成分表 (每100g含量)</span>
+                                <font-awesome-icon icon="circle-chevron-down" class="chevron_down"/>
+                            </button>
+                            <dl class="contents" v-show="showContent === index">
+                                <div>
+                                    <dt>熱量</dt>
+                                    <dd>134大卡</dd>
+                                </div>
+                                <div>
+                                    <dt>水分</dt>
+                                    <dd>75.9克</dd>
+                                </div>
+                                <div>
+                                    <dt>蛋白質</dt>
+                                    <dd>12.5克</dd>
+                                </div>
+                                <div>
+                                    <dt>脂肪</dt>
+                                    <dd>8.8克</dd>
+                                </div>
+                                <div>
+                                    <dt>碳水化合物</dt>
+                                    <dd>1.8克</dd>
+                                </div>
+                                <div>
+                                    <dt>鈉</dt>
+                                    <dd>140毫克</dd>
+                                </div>
+                                <div>
+                                    <dt>膽固醇</dt>
+                                    <dd>386毫克</dd>
+                                </div>
+                            </dl>
                         </div>
+
                         <div class="price_container">
                             <div class="pcs">
                                 <span>10入</span>
@@ -146,8 +184,7 @@ const list = reactive([
                             <button type="button" class="cart_btn">
                                 <font-awesome-icon
                                     icon="cart-shopping"
-                                    class="cart_icon"
-                                />
+                                    class="cart_icon" />
                                 <span>加入購物車</span>
                             </button>
                         </div>
@@ -235,7 +272,7 @@ img.wave {
 section.list {
     position: relative;
     padding: 5% 0 8%;
-    background-color: $productsBgColor;
+    background-color: $neutralColor;
 
     @include tablets {
         padding: 8% 0;
@@ -303,7 +340,6 @@ section.list {
             display: flex;
             padding: 5% 0;
             gap: 0 7%;
-            align-items: center;
             justify-content: space-between;
 
             &:nth-child(even) {
@@ -322,6 +358,7 @@ section.list {
 
         a.prd_img {
             width: 50%;
+            height: 50%;
             position: relative;
 
             @include tablets {
@@ -357,7 +394,7 @@ section.list {
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
-                background-color: $productsBgColor;
+                background-color: $neutralColor;
                 transition: 0.3s;
             }
 
@@ -407,6 +444,7 @@ section.list {
 
         div.prd_content {
             width: 50%;
+            padding-top: 3%;
 
             @include tablets {
                 width: 100%;
@@ -437,20 +475,43 @@ section.list {
             }
 
             div.nutrition_facts {
-                @include content_font;
-                display: flex;
-                padding: 3% 5%;
                 margin-bottom: 7%;
-                align-items: center;
-                justify-content: space-between;
-                cursor: pointer;
                 border-radius: 10px;
-                color: $secondaryColor;
                 background-color: $normalColor;
                 border: 1px solid $secondaryColor;
 
-                @include tablets {
-                    margin-bottom: 5%;
+                button {
+                    width: 100%;
+                    @include content_font;
+                    display: flex;
+                    padding: 3% 5%;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    color: $secondaryColor;
+                    background-color: $normalColor;
+
+                    .chevron_down {
+                        font-size: 2rem;
+                    }
+
+                    @include tablets {
+                        margin-bottom: 5%;
+                    }
+                }
+
+                dl.contents {
+                    @include content_font;
+                    padding: 5% 5%;
+                    border-radius: 0 0 10px 10px;
+                    background-color: $normalColor;
+                    border-top: 1px solid $secondaryColor;
+
+                    div {
+                        display: flex;
+                        justify-content: space-between;
+                    }
                 }
             }
 

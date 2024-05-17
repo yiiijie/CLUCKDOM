@@ -13,8 +13,7 @@ const center = {
         api-key="AIzaSyAOaG3cTY-wy0gI5WCCz7cQe8YFUjagJ1Y"
         class="google_map"
         :center="center"
-        :zoom="15"
-    >
+        :zoom="15">
         <!-- 自訂標記 -->
         <CustomMarker :options="{ position: center }">
             <div class="mark">

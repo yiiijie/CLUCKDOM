@@ -38,8 +38,7 @@ const signInWithGoogle = async () => {
         <img
             class="google_icon"
             src="/images/sign-in/google_icon.png"
-            alt="google_icon"
-        />
+            alt="google_icon" />
         使用Google登入
     </button>
 </template>

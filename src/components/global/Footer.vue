@@ -33,8 +33,7 @@ const navItems = reactive([
                 <router-link to="/">
                     <img
                         src="/images/home/header/logo_red.svg"
-                        alt="logo_red"
-                    />
+                        alt="logo_red" />
                 </router-link>
             </div>
             <div class="footer_main">
@@ -44,20 +43,17 @@ const navItems = reactive([
                             <router-link to="/contact-us">
                                 <font-awesome-icon
                                     :icon="['fas', 'circle-right']"
-                                    class="icon"
-                                />
+                                    class="icon" />
                                 <span>聯絡我們</span>
                             </router-link>
                         </li>
                         <li>
                             <a
                                 href="https://www.google.com/maps/@25.1052087,121.5919296,19.03z?hl=zh-TW&entry=ttu"
-                                target="_blank"
-                            >
+                                target="_blank">
                                 <font-awesome-icon
                                     :icon="['fas', 'circle-right']"
-                                    class="icon"
-                                />
+                                    class="icon" />
                                 <span>110 臺北市內湖區碧山路44巷</span>
                             </a>
                         </li>
@@ -65,12 +61,10 @@ const navItems = reactive([
                     <span class="contact_icon">
                         <font-awesome-icon
                             :icon="['fab', 'facebook-f']"
-                            class="icon fb"
-                        />
+                            class="icon fb" />
                         <font-awesome-icon
                             :icon="['fab', 'instagram']"
-                            class="icon ig"
-                        />
+                            class="icon ig" />
                     </span>
                 </div>
                 <ul class="footer_nav">

@@ -39,16 +39,14 @@ async function onSubmit(values) {
                 <VeeForm
                     @submit="onSubmit"
                     :validation-schema="schema"
-                    class="sign_in_form"
-                >
+                    class="sign_in_form">
                     <div class="form_group">
                         <label for="email">帳號</label>
                         <VeeField
                             name="email"
                             type="email"
                             placeholder="請輸入您的E-mail"
-                            class="input"
-                        />
+                            class="input" />
                         <ErrorMessage name="email" class="error_message" />
                     </div>
                     <div class="form_group">
@@ -57,8 +55,7 @@ async function onSubmit(values) {
                             name="password"
                             type="password"
                             placeholder="請輸入您的密碼"
-                            class="input"
-                        />
+                            class="input" />
                         <ErrorMessage name="password" class="error_message" />
                     </div>
                     <button type="submit" class="sign_in_btn">登入</button>

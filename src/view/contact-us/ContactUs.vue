@@ -58,8 +58,7 @@ async function onSubmit(values, { resetForm }) {
                     @submit="onSubmit"
                     v-slot="{ isSubmitting }"
                     :validation-schema="schema"
-                    class="form"
-                >
+                    class="form">
                     <dl>
                         <div class="form_group">
                             <dt>
@@ -71,8 +70,7 @@ async function onSubmit(values, { resetForm }) {
                                         name="question_type"
                                         type="checkbox"
                                         value="product_issue"
-                                        id="product_issue"
-                                    />
+                                        id="product_issue" />
                                     <span class="question">產品問題</span>
                                 </label>
                                 <label for="order_issue" class="checkbox">
@@ -80,8 +78,7 @@ async function onSubmit(values, { resetForm }) {
                                         name="question_type"
                                         type="checkbox"
                                         value="order_issue"
-                                        id="order_issue"
-                                    />
+                                        id="order_issue" />
                                     <span class="question">訂購問題</span>
                                 </label>
                                 <label for="return_issue" class="checkbox">
@@ -89,8 +86,7 @@ async function onSubmit(values, { resetForm }) {
                                         name="question_type"
                                         type="checkbox"
                                         value="return_issue"
-                                        id="return_issue"
-                                    />
+                                        id="return_issue" />
                                     <span class="question">退換貨問題</span>
                                 </label>
                                 <label for="other" class="checkbox">
@@ -98,8 +94,7 @@ async function onSubmit(values, { resetForm }) {
                                         name="question_type"
                                         type="checkbox"
                                         value="other"
-                                        id="other"
-                                    />
+                                        id="other" />
                                     <span class="question">其他</span>
                                 </label>
                             </dd>
@@ -115,12 +110,10 @@ async function onSubmit(values, { resetForm }) {
                                     name="name"
                                     type="text"
                                     placeholder="請輸入您的姓名"
-                                    class="input"
-                                />
+                                    class="input" />
                                 <ErrorMessage
                                     name="name"
-                                    class="error_message"
-                                />
+                                    class="error_message" />
                             </dd>
                         </div>
                         <div class="form_group">
@@ -133,12 +126,10 @@ async function onSubmit(values, { resetForm }) {
                                     id="email"
                                     name="email"
                                     placeholder="請輸入您的電子信箱E-mail"
-                                    class="input"
-                                />
+                                    class="input" />
                                 <ErrorMessage
                                     name="email"
-                                    class="error_message"
-                                />
+                                    class="error_message" />
                             </dd>
                         </div>
                         <div class="form_group">
@@ -152,12 +143,10 @@ async function onSubmit(values, { resetForm }) {
                                     name="phoneNumber"
                                     type="text"
                                     placeholder="請輸入市話或手機號碼"
-                                    class="input"
-                                />
+                                    class="input" />
                                 <ErrorMessage
                                     name="phoneNumber"
-                                    class="error_message"
-                                />
+                                    class="error_message" />
                             </dd>
                         </div>
                         <div class="form_group">
@@ -170,20 +159,17 @@ async function onSubmit(values, { resetForm }) {
                                     as="textarea"
                                     id="message"
                                     name="message"
-                                    placeholder="請寫下您想與我們聯繫的內容"
-                                />
+                                    placeholder="請寫下您想與我們聯繫的內容" />
                                 <ErrorMessage
                                     name="message"
-                                    class="error_message"
-                                />
+                                    class="error_message" />
                             </dd>
                         </div>
                     </dl>
                     <button
                         :disabled="isSubmitting"
                         class="submit_btn"
-                        type="submit"
-                    >
+                        type="submit">
                         {{ isSubmitting ? '提交中...' : '確認送出' }}
                     </button>
                 </VeeForm>
@@ -195,8 +181,7 @@ async function onSubmit(values, { resetForm }) {
                 :show="showModal"
                 @close="showModal = false"
                 :buttonText="handleBtnText"
-                class="modal"
-            >
+                class="modal">
                 <h3 class="modal_title">{{ submitResult }}</h3>
                 <div class="modal_img">
                     <img :src="modalImage" alt="彈窗" />

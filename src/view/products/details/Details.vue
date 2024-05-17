@@ -57,8 +57,7 @@ const changeMainImage = (src) => {
                     <div
                         v-for="(img, index) in imgGroup"
                         :key="index"
-                        @click="changeMainImage(img.imgSrc)"
-                    >
+                        @click="changeMainImage(img.imgSrc)">
                         <img :src="img.imgSrc" alt="商品圖" />
                     </div>
                 </div>
@@ -91,8 +90,7 @@ const changeMainImage = (src) => {
                         type="number"
                         v-model="count"
                         @input="handleInput"
-                        class="hide_arrows"
-                    />
+                        class="hide_arrows" />
                     <button type="button" @click="increment">
                         <font-awesome-icon icon="plus" />
                     </button>
@@ -101,8 +99,7 @@ const changeMainImage = (src) => {
                     <button type="button" class="cart_btn">
                         <font-awesome-icon
                             icon="cart-shopping"
-                            class="cart_icon"
-                        />
+                            class="cart_icon" />
                         <span>加入購物車</span>
                     </button>
                     <button type="button" class="cart_btn">

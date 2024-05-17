@@ -3,17 +3,16 @@ import { RouterView, useRoute } from 'vue-router'
 import Header from '@/components/global/Header.vue'
 import Footer from '@/components/global/Footer.vue'
 const route = useRoute()
-
 </script>
 
 <template>
-    <Header/>
+    <Header />
     <router-view v-slot="{ Component, route }">
         <transition name="fade" mode="out-in">
             <component :is="Component" :key="route.fullPath" />
         </transition>
     </router-view>
-    <Footer/>
+    <Footer />
 </template>
 
 <style lang="scss">

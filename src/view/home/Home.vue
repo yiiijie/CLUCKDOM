@@ -1,5 +1,6 @@
 <script setup>
 import ProductsCarousel from '@/components/func-items/ProductsCarousel.vue'
+import HeaderCarousel from '@/components/func-items/HeaderCarousel.vue'
 import InfiniteScrollCarousel from '@/components/func-items/InfiniteScrollCarousel.vue'
 import Navbar from '@/components/global/Navbar.vue'
 import useNavbarVisibility from '@/composables/useNavbarVisibility'
@@ -13,27 +14,25 @@ const { showNavbar } = useNavbarVisibility()
         <div v-if="showNavbar" class="navbar">
             <Navbar />
         </div>
+        <HeaderCarousel />
         <section class="web_purpose">
             <!-- 1024px 以下出現 -->
             <div class="header_logo">
                 <router-link to="/">
                     <img
                         src="/images/home/header/mobile_header_logo.svg"
-                        alt="logo"
-                    />
+                        alt="logo" />
                 </router-link>
             </div>
             <!-- --- -->
             <div
                 class="purpose_inner"
                 data-aos="fade-up"
-                data-aos-duration="1500"
-            >
+                data-aos-duration="1500">
                 <div class="img_eggshape">
                     <img
                         src="/images/home/img_eggshape.png"
-                        alt="CLUCKDOM宗旨"
-                    />
+                        alt="CLUCKDOM宗旨" />
                 </div>
                 <div class="title">
                     <h1>
@@ -89,8 +88,7 @@ const { showNavbar } = useNavbarVisibility()
                 <div
                     class="img_chick"
                     data-aos="fade-up"
-                    data-aos-duration="1500"
-                >
+                    data-aos-duration="1500">
                     <img src="/images/home/img_chick.jpg" alt="picture" />
                 </div>
                 <div class="img_eggs">
@@ -113,8 +111,7 @@ const { showNavbar } = useNavbarVisibility()
                     <img
                         src="/images/home/img_dialog2.svg"
                         alt=""
-                        data-aos="zoom-in"
-                    />
+                        data-aos="zoom-in" />
                 </div>
             </div>
         </section>
@@ -213,8 +210,7 @@ section.web_purpose {
                 bottom: 0;
                 left: -10%;
                 background-size: contain;
-                background-repeat: no-repeat;
-                background-image: url(/images/home/chick.svg);
+                background: url(/images/home/chick.svg) no-repeat;
             }
         }
 
@@ -424,8 +420,7 @@ section.vision {
             height: 13%;
             bottom: 0;
             left: 10%;
-            background-repeat: no-repeat;
-            background-image: url(/images/home/img_hen.svg);
+            background: url(/images/home/img_hen.svg) no-repeat;
 
             @include tablets {
                 width: 17%;

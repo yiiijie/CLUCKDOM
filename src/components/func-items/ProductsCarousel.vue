@@ -70,16 +70,14 @@ const breakpoints = ref({
             <div class="eggs_line">
                 <img
                     src="/images/home/products-carousel/img_eggs_line.svg"
-                    alt="裝飾線"
-                />
+                    alt="裝飾線" />
             </div>
         </div>
         <Carousel
             v-bind="settings"
             :breakpoints="breakpoints"
             :wrap-around="true"
-            :autoplay="2000"
-        >
+            :autoplay="2000">
             <Slide v-for="slide in slides" :key="slide.id">
                 <div class="carousel_item">
                     <router-link to="/products/details">
@@ -99,8 +97,7 @@ const breakpoints = ref({
                             <div class="button">
                                 <font-awesome-icon
                                     class="arrow_right"
-                                    :icon="['fas', 'arrow-right']"
-                                />
+                                    :icon="['fas', 'arrow-right']" />
                             </div>
                         </div>
                     </router-link>

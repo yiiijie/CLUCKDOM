@@ -53,8 +53,7 @@ const cards = reactive([
         <section
             class="intro_inner"
             data-aos="fade-up"
-            data-aos-duration="1500"
-        >
+            data-aos-duration="1500">
             <div class="title">
                 <span>✤ Nurturing Eggs ✤</span>
                 <h1>
@@ -68,8 +67,7 @@ const cards = reactive([
             <div class="img_premium_eggs">
                 <img
                     src="/images/about/img_premium_eggs.png"
-                    alt="台灣產地優質鷄蛋"
-                />
+                    alt="台灣產地優質鷄蛋" />
             </div>
         </section>
 
@@ -84,8 +82,7 @@ const cards = reactive([
                         v-for="card in cards"
                         :key="card.id"
                         class="flip_card_item"
-                        data-aos="zoom-in"
-                    >
+                        data-aos="zoom-in">
                         <div class="flip_card_container">
                             <div class="flip_card_front">
                                 <div class="mark">
@@ -95,8 +92,7 @@ const cards = reactive([
                                     <div class="pic">
                                         <img
                                             :src="card.imgPath"
-                                            alt="CAS認證標章"
-                                        />
+                                            alt="CAS認證標章" />
                                     </div>
                                 </div>
                             </div>
@@ -161,8 +157,7 @@ const cards = reactive([
                     <button class="ins_btn">
                         <font-awesome-icon
                             :icon="['fab', 'instagram']"
-                            class="ig"
-                        />
+                            class="ig" />
                         追蹤 Instagram
                     </button>
                 </li>
@@ -195,8 +190,7 @@ const cards = reactive([
                 <img
                     data-aos="fade-left"
                     src="/images/about/img_owner.jpg"
-                    alt="雞蛋王國的女主人"
-                />
+                    alt="雞蛋王國的女主人" />
             </div>
         </section>
 
@@ -266,24 +260,26 @@ section.intro_inner {
 }
 
 section.certification {
-    width: 100%;
-    background-color: $productsBgColor;
+    background-color: $neutralColor;
 
     div.certification_inner {
         max-width: $basewidth;
         width: 90%;
         margin: auto;
-        padding: 80px 0;
-        text-align: center;
+        padding: clamp(60px, 6%, 90px) 0;
 
         h2.title {
             @include h2;
-            margin-bottom: 10px;
+            text-align: center;
         }
 
         p.content {
             @include paragraph;
-            padding: 10px 8vw 5%;
+            padding: 2% 8vw 5%;
+
+            @include large_phones {
+                padding: 5% 5vw 10%;
+            }
         }
     }
 }
@@ -293,11 +289,11 @@ div.certification_inner {
         display: flex;
         justify-content: space-evenly;
 
-        @include tablets {
+        @include large_phones {
             flex-direction: column;
         }
 
-        > li.flip_card_item {
+        li.flip_card_item {
             max-width: 350px;
             width: 20vw;
             height: 25vw;
@@ -310,8 +306,14 @@ div.certification_inner {
                 height: 32vw;
             }
             @include tablets {
-                width: 50vw;
-                height: 60vw;
+                width: 60vw;
+                height: 38vw;
+                padding: 0 1%;
+            }
+            @include large_phones {
+                width: 55vw;
+                height: 70vw;
+                padding: 0;
                 margin: 0 auto 30px;
             }
 
@@ -355,6 +357,7 @@ div.certification_inner {
                             @include h3;
                             position: relative;
                             top: 18%;
+                            text-align: center;
                         }
 
                         .arrow_down {
@@ -390,6 +393,7 @@ div.certification_inner {
                         position: absolute;
                         top: 50%;
                         left: 50%;
+                        text-align: center;
                         transform: translate(-50%, -50%);
                     }
                 }

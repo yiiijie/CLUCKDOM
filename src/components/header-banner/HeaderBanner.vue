@@ -10,8 +10,7 @@ const props = defineProps({
     <div class="container">
         <div
             class="header_banner"
-            :style="{ backgroundImage: `url(${imageUrl})` }"
-        ></div>
+            :style="{ backgroundImage: `url(${imageUrl})` }"></div>
         <div class="header_slogan">
             <div class="chinese">
                 <slot name="slogan_text"></slot>

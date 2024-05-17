@@ -58,16 +58,14 @@ async function onSubmit(values, { resetForm }) {
                     @submit="onSubmit"
                     v-slot="{ isSubmitting }"
                     :validation-schema="schema"
-                    class="sign_up_form"
-                >
+                    class="sign_up_form">
                     <div class="form_group">
                         <label for="name">姓名</label>
                         <VeeField
                             name="name"
                             type="text"
                             placeholder="請輸入您的姓名"
-                            class="input"
-                        />
+                            class="input" />
                         <ErrorMessage name="name" class="error_message" />
                     </div>
                     <div class="form_group">
@@ -76,8 +74,7 @@ async function onSubmit(values, { resetForm }) {
                             name="email"
                             type="email"
                             placeholder="請輸入您的E-mail"
-                            class="input"
-                        />
+                            class="input" />
                         <ErrorMessage name="email" class="error_message" />
                     </div>
                     <div class="form_group">
@@ -86,15 +83,13 @@ async function onSubmit(values, { resetForm }) {
                             name="password"
                             type="password"
                             placeholder="請輸入您的密碼 (至少4位數)"
-                            class="input"
-                        />
+                            class="input" />
                         <ErrorMessage name="password" class="error_message" />
                     </div>
                     <button
                         :disabled="isSubmitting"
                         type="submit"
-                        class="sign_up_btn"
-                    >
+                        class="sign_up_btn">
                         {{ isSubmitting ? '請稍候...' : '註冊' }}
                     </button>
                 </VeeForm>
@@ -111,8 +106,7 @@ async function onSubmit(values, { resetForm }) {
             <Modal
                 :show="showModal"
                 @close="showModal = false"
-                :buttonText="handleBtnText"
-            >
+                :buttonText="handleBtnText">
                 <h3 class="modal_title">{{ submitResult }}</h3>
                 <div class="modal_img">
                     <img :src="modalImage" alt="彈窗" />

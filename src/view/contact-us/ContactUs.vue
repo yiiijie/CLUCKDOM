@@ -7,6 +7,7 @@ import Modal from '@/components/func-items/Modal.vue'
 const showModal = ref(false)
 const submitResult = ref('')
 const modalImage = ref('')
+
 const handleBtnText = computed(() => {
     return submitResult.value === '我們收到表單囉！' ? '關閉' : '再試一次'
 })
@@ -25,15 +26,14 @@ const schema = object({
 })
 
 // 提交表單時的非同步函式
-async function onSubmit(values, { resetForm }) {
+const onSubmit = async (values, { resetForm }) => {
+    const corsURL = 'https://cors-anywhere.herokuapp.com/' // use cors-anywhere to fetch api data
+    const apiURL = 'http://localhost:3333/api/test' // origin api url
     try {
         // 模擬表單送出的延遲感
         await new Promise((resolve) => setTimeout(resolve, 2000))
 
-        const response = await axios.post(
-            'http://localhost:3333/api/test',
-            values
-        )
+        const response = await axios.post(`${corsURL}${apiURL}`, values)
         console.log(response)
         submitResult.value = '我們收到表單囉！'
         showModal.value = true // 跳出彈窗
@@ -281,12 +281,14 @@ section.form_inner {
 
                 input.input,
                 textarea {
+                    @include content_font;
                     width: 100%;
                     padding: 25px;
+                    margin-bottom: 5px;
                     box-sizing: border-box;
                     border-radius: 8px;
                     border: none;
-                    background-color: #f7f6f5;
+                    background-color: $formInputColor;
                 }
 
                 input.input:focus,
@@ -302,6 +304,7 @@ section.form_inner {
                 .error_message {
                     @include small_font;
                     color: $importantColor;
+                    font-family: $font_family_content;
                 }
 
                 label.checkbox {
@@ -326,7 +329,7 @@ section.form_inner {
                 }
 
                 span.question {
-                    @include content_font;
+                    @include paragraph;
                 }
             }
         }

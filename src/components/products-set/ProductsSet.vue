@@ -1,81 +1,25 @@
 <script setup>
-import { reactive } from 'vue'
+import axios from 'axios'
+import { ref, onMounted } from 'vue'
 import useContentVisibility from '@/composables/useContentVisibility'
 
 const { isLargeTablet, showContent, toggleContentVisibility } =
     useContentVisibility()
 
-const sets = reactive([
-    {
-        id: '1',
-        name: '嚴選放牧蛋蛋白液',
-        imgPath: '/images/products/sets/eggs_set_1.jpg',
-        setIntro: '不用再把蛋黃丟掉，只要開瓶，輕鬆蒸煮美味又新鮮的蛋白！',
-        contents: '內容物 - 6瓶/箱',
-        weight: '重(容)量 - 935毫升/瓶',
-        mainIngredient: '主成分 - 鮮雞蛋蛋白',
-        currentPrice: 'NT$899',
-        originalPrice: 'NT$1099',
-    },
-    {
-        id: '2',
-        name: '經典葡式蛋塔',
-        imgPath: '/images/products/sets/eggs_set_2.jpg',
-        setIntro: '香脆的派皮包裹奶香蛋液，口感絲滑綿密，每口都是甜蜜的享受。',
-        contents: '內容物 - 12個/盒',
-        weight: '重(容)量 - 30克/個',
-        mainIngredient:
-            '主成分 - 動物性鮮奶油、鮮雞蛋、水、糖、植物性油脂、麵粉',
-        currentPrice: 'NT$620',
-        originalPrice: 'NT$680',
-    },
-    {
-        id: '3',
-        name: '減糖配方雞蛋捲',
-        imgPath: '/images/products/sets/eggs_set_3.jpg',
-        setIntro: '新鮮雞蛋拌入法國諾曼第天然奶油製作，減糖10％、不加一滴水。',
-        contents: '內容物 - 18根/盒',
-        weight: '重(容)量 - 5公克/根',
-        mainIngredient: '主成分 - 鮮雞蛋、法國發酵奶油、麵粉、糖、奶粉、食鹽',
-        currentPrice: 'NT$220',
-        originalPrice: 'NT$280',
-    },
-    {
-        id: '4',
-        name: '放牧烏骨鷄滴鷄精',
-        imgPath: '/images/products/sets/eggs_set_4.jpg',
-        setIntro:
-            '嚴選12周以上足齡烏骨雞，滴滴精純，採用生物技術製程，堅持厚工慢滴。',
-        contents: '內容物 - 10袋/盒',
-        weight: '重(容)量 - 60毫升/包',
-        mainIngredient: '主成分 - 放牧烏骨雞',
-        currentPrice: 'NT$1680',
-        originalPrice: 'NT$1880',
-    },
-    {
-        id: '5',
-        name: '營養滿分鷄蛋麵 ',
-        imgPath: '/images/products/sets/eggs_set_5.jpg',
-        setIntro:
-            '口感滑順、Q彈有勁，散發淡雅的雞蛋香，品嚐麵香的純粹，每一口都是享受。',
-        contents: '內容物 - 4包/袋',
-        weight: '重(容)量 - 120克/包',
-        mainIngredient: '主成分 - 鮮雞蛋、麵粉、鹽、水',
-        currentPrice: 'NT$238',
-        originalPrice: 'NT$289',
-    },
-    {
-        id: '6',
-        name: '濃厚鷄蛋布丁',
-        imgPath: '/images/products/sets/eggs_set_6.jpg',
-        setIntro: '手炒微苦焦糖，慢火蒸煮，布丁滑潤綿密，是記憶中的古早味。',
-        contents: '內容物 - 6入/盒',
-        weight: '重(容)量 - 135克/顆',
-        mainIngredient: '主成分 - 水、鮮雞蛋、脫脂奶粉、糖、鮮奶油、香草香料。',
-        currentPrice: 'NT$360',
-        originalPrice: 'NT$390',
-    },
-])
+const sets = ref([])
+
+const fetchproductsSetData = async () => {
+    try {
+        const response = await axios.get('http://localhost:3001/productsSet')
+        sets.value = response.data
+    } catch (error) {
+        console.error(error.response)
+    }
+}
+
+onMounted(() => {
+    fetchproductsSetData()
+})
 </script>
 
 <template>

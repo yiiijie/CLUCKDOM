@@ -27,13 +27,14 @@ const schema = object({
 
 // 提交表單時的非同步函式
 const onSubmit = async (values, { resetForm }) => {
-    const corsURL = 'https://cors-anywhere.herokuapp.com/' // use cors-anywhere to fetch api data
-    const apiURL = 'http://localhost:3333/api/test' // origin api url
     try {
         // 模擬表單送出的延遲感
         await new Promise((resolve) => setTimeout(resolve, 2000))
 
-        const response = await axios.post(`${corsURL}${apiURL}`, values)
+        const response = await axios.post(
+            'http://localhost:3333/formSubmissions',
+            values
+        )
         console.log(response)
         submitResult.value = '我們收到表單囉！'
         showModal.value = true // 跳出彈窗

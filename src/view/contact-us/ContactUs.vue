@@ -32,10 +32,9 @@ const onSubmit = async (values, { resetForm }) => {
         await new Promise((resolve) => setTimeout(resolve, 2000))
 
         const response = await axios.post(
-            'http://localhost:3333/formSubmissions',
+            'http://localhost:3001/formSubmissions',
             values
         )
-        console.log(response)
         submitResult.value = '我們收到表單囉！'
         showModal.value = true // 跳出彈窗
         modalImage.value = '/images/modal/form_successed.svg'

@@ -10,7 +10,9 @@
         "build": "vite build",
         "preview": "vite preview",
         "deploy": "sudo npm run build && sudo firebase deploy",
-        "prettier": "prettier --write ."
+        "prettier": "prettier --write .",
+        "json-server-auth": "json-server --watch db.json -m ./node_modules/json-server-auth",
+        "data-server": "json-server --watch fakeData.json --port 3001"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.4.2",

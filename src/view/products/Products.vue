@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref } from 'vue'
 import HeaderBanner from '@/components/header-banner/HeaderBanner.vue'
 import ProductsSet from '@/components/products-set/ProductsSet.vue'
 import Navbar from '@/components/global/Navbar.vue'
@@ -13,12 +13,10 @@ const toggleContentVisibility = (index) => {
     showContent.value = showContent.value === index ? false : index
 }
 
-const list = reactive([
+const products = ref([
     {
         id: '1',
         name: '幸福好蛋',
-        slogan: '破殼而出幸福滿載！',
-        en: 'HAPPINESS EGGS',
         imgPath: '/images/products/list/happiness_eggs.jpg',
         prdLogoPath: '/images/products/list/happiness_logo.svg',
         prdIntro:
@@ -29,8 +27,6 @@ const list = reactive([
     {
         id: '2',
         name: '田園好蛋',
-        slogan: '滿溢自然的美味！',
-        en: 'HEALTHY EGGS',
         imgPath: '/images/products/list/healthy_eggs.jpg',
         prdLogoPath: '/images/products/list/healthy_logo.svg',
         prdIntro:
@@ -41,33 +37,29 @@ const list = reactive([
     {
         id: '3',
         name: '悠活好蛋',
-        slogan: '專屬你的悠美時光！',
-        en: 'LEISURELY EGGS',
         imgPath: '/images/products/list/leisurely_eggs.jpg',
         prdLogoPath: '/images/products/list/leisurely_logo.svg',
         prdIntro:
-            '是這是以精心篩選的有機飼料為基礎，雞只在自然環境下生活，享受優質谷物、蔬菜和蛋白質的食物。',
-        currentPrice: 'NT$150',
-        originalPrice: 'NT$200',
+            '是以進口加拿大高品質亞麻籽為主軸，再加入天然穀類及珍貴「有機硒」、「維他命Ｅ」等營養元素。',
+        currentPrice: 'NT$180',
+        originalPrice: 'NT$250',
     },
     {
         id: '4',
         name: '頂級好蛋',
-        slogan: '蛋中之王的尊貴口感！',
-        en: 'PREMIUM EGGS',
         imgPath: '/images/products/list/premium_eggs.jpg',
         prdLogoPath: '/images/products/list/premium_logo.svg',
         prdIntro:
-            '是由精心挑選的優質飼料所餵養的雞所產的蛋。這些飼料包括高品質的有機穀物、天然植物蛋白和營養補充劑，為雞提供均衡的營養，使蛋品質卓越。這些頂級好蛋帶來絕佳的口感和豐富的營養價值，讓您享受最優質的雞蛋體驗。',
-        currentPrice: 'NT$150',
-        originalPrice: 'NT$200',
+            '是由嚴格篩選後的天后級母雞所生產的蛋，讓雞隻們在自然環境中成長，所有的雞蛋不含任何添加劑，完全符合天然食品標準。此外，每顆蛋都富含珍貴的靈芝營養成分，這種草藥被譽為「長生不老的秘方」。',
+        currentPrice: 'NT$260',
+        originalPrice: 'NT$360',
     },
 ])
 </script>
 
 <template>
     <div>
-        <div v-if="showNavbar" class="navbar">
+        <div v-show="showNavbar" class="navbar">
             <Navbar />
         </div>
         <section class="header_container">
@@ -115,11 +107,17 @@ const list = reactive([
             </div>
             <ul class="list_inner">
                 <li
-                    v-for="(item, index) in list"
-                    :key="item.id"
+                    v-for="(product, index) in products"
+                    :key="product.id"
                     data-aos="fade-up"
                     data-aos-duration="1000">
-                    <router-link to="/products/details" class="prd_img">
+                    <router-link
+                        :to="{
+                            name: 'products-details',
+                            params: { productId: product.id },
+                        }"
+                        class="prd_img"
+                        target="_blank">
                         <div class="prd_click_bg"></div>
                         <div class="view_prd_circle">
                             <div class="txt">
@@ -129,19 +127,21 @@ const list = reactive([
                                 <span>查看商品</span>
                             </div>
                         </div>
-                        <img :src="item.imgPath" alt="產品圖" />
+                        <img :src="product.imgPath" alt="產品圖" />
                     </router-link>
                     <div class="prd_content">
                         <div class="logo">
-                            <img :src="item.prdLogoPath" alt="產品logo" />
+                            <img :src="product.prdLogoPath" alt="產品logo" />
                         </div>
-                        <p class="prd_intro">{{ item.prdIntro }}</p>
+                        <p class="prd_intro">{{ product.prdIntro }}</p>
                         <div
                             class="nutrition_facts"
                             @click="toggleContentVisibility(index)">
                             <button>
                                 <span>營養成分表 (每100g含量)</span>
-                                <font-awesome-icon icon="circle-chevron-down" class="chevron_down"/>
+                                <font-awesome-icon
+                                    icon="circle-chevron-down"
+                                    class="chevron_down" />
                             </button>
                             <dl class="contents" v-show="showContent === index">
                                 <div>
@@ -178,8 +178,8 @@ const list = reactive([
                         <div class="price_container">
                             <div class="pcs">
                                 <span>10入</span>
-                                <span>{{ item.currentPrice }}</span>
-                                <span>{{ item.originalPrice }}</span>
+                                <span>{{ product.currentPrice }}</span>
+                                <span>{{ product.originalPrice }}</span>
                             </div>
                             <button type="button" class="cart_btn">
                                 <font-awesome-icon
@@ -374,7 +374,7 @@ section.list {
                 right: 10%;
                 z-index: 2;
                 transform: rotate(-15deg);
-                background: url('/images/products/footprint_1.svg') no-repeat;
+                background: url('/images/products/footprint.svg') no-repeat;
             }
 
             img {
@@ -468,6 +468,7 @@ section.list {
             p.prd_intro {
                 @include paragraph;
                 margin-bottom: 7%;
+                text-align: justify;
 
                 @include tablets {
                     margin-bottom: 5%;
@@ -494,10 +495,6 @@ section.list {
 
                     .chevron_down {
                         font-size: 2rem;
-                    }
-
-                    @include tablets {
-                        margin-bottom: 5%;
                     }
                 }
 

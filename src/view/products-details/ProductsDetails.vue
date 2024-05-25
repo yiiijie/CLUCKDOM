@@ -1,15 +1,16 @@
 <script setup>
-import { ref } from 'vue'
+import axios from 'axios'
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+
 const count = ref(1)
 
-// button按到大於1000會沒反應(最高1000)
 const increment = () => {
     if (count.value < 1000) {
         count.value++
     }
 }
 
-// button按到小於1會沒反應
 const decrement = () => {
     if (count.value > 1) {
         count.value--
@@ -17,37 +18,47 @@ const decrement = () => {
 }
 
 // 控制input裡只能輸入1~1000的整數
-// 如果輸入值小於1，則將其值設為1
-const handleInput = (event) => {
-    let value = parseInt(event.target.value)
-
-    if (value < 1) {
-        value = 1
+const handleInput = () => {
+    if (count.value < 1) {
+        count.value = 1
     }
-    if (value > 1000) {
-        value = 1000
+    if (count.value > 1000) {
+        count.value = 1000
     }
-    count.value = value
 }
 
-// 點擊小圖換大圖
-const mainImgSrc = ref('/images/details/image_1.jpg')
-const imgGroup = ref([
-    { imgSrc: '/images/details/image_1.jpg' },
-    { imgSrc: '/images/details/image_2.jpg' },
-    { imgSrc: '/images/details/image_3.jpg' },
-    { imgSrc: '/images/details/image_4.jpg' },
-])
+const route = useRoute()
+const productId = ref(route.params.productId)
+
+const productDetails = ref(null)
+const mainImgSrc = ref(null)
 
 const changeMainImage = (src) => {
     mainImgSrc.value = src
 }
+
+const fetchProductsDetails = async () => {
+    try {
+        const response = await axios.get(
+            `http://localhost:3001/productsDetails/${productId.value}`
+        )
+        productDetails.value = response.data
+        mainImgSrc.value = productDetails.value.mainImgSrc
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+onMounted(() => {
+    fetchProductsDetails()
+})
+
 </script>
 
 <template>
     <div>
-        <section class="prd_inner">
-            <div class="prd_photos">
+        <section class="prod_inner" v-if="productDetails">
+            <div class="prod_img">
                 <!-- 大圖 -->
                 <div class="main_img">
                     <img :src="mainImgSrc" alt="商品圖" />
@@ -55,30 +66,35 @@ const changeMainImage = (src) => {
                 <!-- 小圖 -->
                 <div class="small_img_group">
                     <div
-                        v-for="(img, index) in imgGroup"
+                        v-for="(img, index) in productDetails.imgGroup"
                         :key="index"
+                        class="small_img"
                         @click="changeMainImage(img.imgSrc)">
                         <img :src="img.imgSrc" alt="商品圖" />
                     </div>
                 </div>
             </div>
-            <div class="prd_info">
-                <h2 class="prd_name">放牧土雞蛋｜幸福好蛋（10入）</h2>
-                <p class="prd_features">
-                    ✤ 蛋香飄逸、營養豐富
+            <div class="prod_info">
+                <h2 class="prod_name">{{ productDetails.name }}</h2>
+                <p class="prod_features">
+                    {{ productDetails.features[0] }}
                     <br />
-                    ✤ 嚴選新鮮蛋，絕無人工添加
+                    {{ productDetails.features[1] }}
                     <br />
-                    ✤ 蛋香濃郁，蛋黃鮮美，蛋白柔滑绵密
+                    {{ productDetails.features[2] }}
                 </p>
-                <p class="prd_slogan">
-                    幸福好蛋是由母雞吃著高品質、營養豐富的有機飼料所產的蛋，裡面包括有機穀物、天然植物蛋白和多種維生素。
+                <p class="prod_slogan">
+                    {{ productDetails.slogan }}
                 </p>
                 <!-- 售價 -->
-                <div class="prd_price">
+                <div class="prod_price">
                     <span class="title">優惠售價</span>
-                    <span class="current_price">NT$399</span>
-                    <del class="original_price">NT$450</del>
+                    <span class="current_price">{{
+                        productDetails.currentPrice
+                    }}</span>
+                    <del class="original_price">{{
+                        productDetails.originalPrice
+                    }}</del>
                 </div>
                 <label class="quantity_title">數量</label>
                 <!-- 數量加減器 -->
@@ -112,14 +128,15 @@ const changeMainImage = (src) => {
 </template>
 
 <style scoped lang="scss">
-section.prd_inner {
+section.prod_inner {
     max-width: $basewidth;
     width: 85%;
     display: flex;
     margin: 250px auto 12%;
+    justify-content: space-between;
 
     @include large_tablets {
-        width: 75%;
+        width: 70%;
         display: block;
         margin: 10% auto 15%;
     }
@@ -131,8 +148,8 @@ section.prd_inner {
         margin: 10% auto 25%;
     }
 
-    div.prd_photos {
-        width: 65%;
+    div.prod_img {
+        width: 45%;
         margin-right: 5%;
 
         @include large_tablets {
@@ -154,9 +171,14 @@ section.prd_inner {
 
         div.small_img_group {
             display: flex;
+            justify-content: space-between;
             padding-top: 20px;
             column-gap: 10px;
             cursor: pointer;
+
+            .small_img {
+                flex: 1;
+            }
 
             img {
                 width: 100%;
@@ -169,8 +191,14 @@ section.prd_inner {
         }
     }
 
-    div.prd_info {
-        h2.prd_name {
+    div.prod_info {
+        width: 50%;
+
+        @include large_tablets {
+            width: 100%;
+        }
+
+        h2.prod_name {
             @include h2;
             font-family: $font_family_content;
 
@@ -182,7 +210,7 @@ section.prd_inner {
             }
         }
 
-        p.prd_features {
+        p.prod_features {
             @include paragraph;
             color: $secondaryColor;
             margin: 5% 0;
@@ -192,11 +220,11 @@ section.prd_inner {
             }
         }
 
-        p.prd_slogan {
+        p.prod_slogan {
             @include paragraph;
         }
 
-        div.prd_price {
+        div.prod_price {
             margin: 5% 0 7%;
 
             @include large_tablets {
@@ -228,12 +256,12 @@ section.prd_inner {
         div.quantity_selector {
             width: 30%;
             display: flex;
-            padding: 10px;
+            padding: 10px 12px;
             box-sizing: border-box;
             justify-content: space-between;
             color: $primaryTextColor;
-            border-radius: 5px;
-            border: 1px solid $primaryTextColor;
+            border-radius: 10px;
+            border: 1px solid $borderColor;
 
             @include tablets {
                 width: 100%;
@@ -253,9 +281,9 @@ section.prd_inner {
                 text-align: center;
                 border: none;
                 background: none;
-                color: $primaryTextColor;
-                font-size: $paragraph;
+                font-size: 1.6rem;
                 font-family: $font_price;
+                color: $primaryTextColor;
             }
         }
 
@@ -295,5 +323,12 @@ section.prd_inner {
             }
         }
     }
+}
+
+// 隱藏input後面的上下箭頭
+.hide_arrows::-webkit-outer-spin-button,
+.hide_arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 </style>

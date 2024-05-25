@@ -115,12 +115,12 @@
         {
             "id": 1,
             "name": "放牧土雞蛋｜幸福好蛋（10入）",
-            "originalPrice": "$150",
-            "currentPrice": "$200",
+            "originalPrice": "$200",
+            "currentPrice": "$150",
             "count": 1,
             "slogan": "幸福好蛋是由母雞吃著高品質、營養豐富的有機飼料所產的蛋，裡面包括有機穀物、天然植物蛋白和多種維生素。",
             "features": [
-                "✤ 蛋香飄逸、營養豐富",
+                "✤ 攝取野外天然蟲草，富含微量元素",
                 "✤ 嚴選新鮮蛋，絕無人工添加",
                 "✤ 蛋香濃郁，蛋黃鮮美，蛋白柔滑绵密"
             ],
@@ -135,8 +135,8 @@
         {
             "id": 2,
             "name": "放牧土雞蛋｜田園好蛋（10入）",
-            "originalPrice": "$150",
-            "currentPrice": "$200",
+            "originalPrice": "$200",
+            "currentPrice": "$150",
             "count": 1,
             "slogan": "田園好蛋是放養在田園環境中的母雞所產的蛋。他們享受自由奔跑和吃天然穀物，為蛋提供了天然的美味和營養價值。",
             "features": [
@@ -150,6 +150,46 @@
                 { "imgSrc": "/images/products-details/2/image_2.jpg" },
                 { "imgSrc": "/images/products-details/2/image_3.jpg" },
                 { "imgSrc": "/images/products-details/2/image_4.jpg" }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "放牧土雞蛋｜悠活好蛋（10入）",
+            "originalPrice": "$250",
+            "currentPrice": "$180",
+            "count": 1,
+            "slogan": "悠活好蛋是以進口加拿大高品質亞麻籽為主軸，再加入天然穀類及珍貴的有機硒、維他命Ｅ等營養元素。",
+            "features": [
+                "✤ 營養滿滿、蛋香四溢",
+                "✤ 新鮮好蛋100%無人工添加",
+                "✤ 無蛋腥味、紮實蛋黃、滑嫩蛋白"
+            ],
+            "mainImgSrc": "/images/products-details/3/image_1.jpg",
+            "imgGroup": [
+                { "imgSrc": "/images/products-details/3/image_1.jpg" },
+                { "imgSrc": "/images/products-details/3/image_2.jpg" },
+                { "imgSrc": "/images/products-details/3/image_3.jpg" },
+                { "imgSrc": "/images/products-details/3/image_4.jpg" }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "放牧土雞蛋｜頂級好蛋（10入）",
+            "originalPrice": "$360",
+            "currentPrice": "$260",
+            "count": 1,
+            "slogan": "頂級好蛋來自嚴選的天后級母雞，牠們在自然環境中成長，產出的蛋不含任何添加劑，完全符合天然食品標準。此外，每顆蛋都富含靈芝營養，這種珍貴草藥被譽為「長生不老的秘方」。",
+            "features": [
+                "✤ 蛋白Q彈 蛋黃香氣濃郁",
+                "✤ 天然五榖飼料飼養奶蛋素者可食用",
+                "✤ 含豐富靈芝三萜 葉黃素、卵磷脂、胡蘿蔔素"
+            ],
+            "mainImgSrc": "/images/products-details/4/image_1.jpg",
+            "imgGroup": [
+                { "imgSrc": "/images/products-details/4/image_1.jpg" },
+                { "imgSrc": "/images/products-details/4/image_2.jpg" },
+                { "imgSrc": "/images/products-details/4/image_3.jpg" },
+                { "imgSrc": "/images/products-details/4/image_4.jpg" }
             ]
         }
     ]

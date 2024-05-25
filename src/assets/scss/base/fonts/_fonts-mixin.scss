@@ -30,7 +30,7 @@ $h4: clamp(1.6rem, 2vw, 2rem);
 $en_title: clamp(2.5rem, 6vw, 3.6rem);
 $paragraph: clamp(1.4rem, 1.5vw, 1.6rem);
 $paragraph_en: clamp(1.2rem, 1.5vw, 1.6rem);
-$content_font: clamp(1.3rem, 1.5vw, 1.5rem);
+$content_font: clamp(1.3rem, 1.5vw, 1.4rem);
 $small_font: 1.2rem;
 $price_font: clamp(2.4rem, 3vw, 2.8rem);
 
@@ -135,8 +135,8 @@ $price_font: clamp(2.4rem, 3vw, 2.8rem);
     font-weight: $fWRegular;
     letter-spacing: 0.16rem;
     line-height: 2;
-    font-family: $font_family_content;
     color: $primaryTextColor;
+    font-family: $font_family_content;
 }
 
 @mixin small_font {
@@ -144,6 +144,7 @@ $price_font: clamp(2.4rem, 3vw, 2.8rem);
     font-weight: $fWRegular;
     letter-spacing: 0.05rem;
     color: $primaryTextColor;
+    font-family: $font_family_content;
 }
 
 @mixin price_font {

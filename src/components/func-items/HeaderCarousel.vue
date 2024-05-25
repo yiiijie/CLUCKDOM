@@ -11,7 +11,6 @@
             <span class="chinese">幸福蛋的滋味</span>
             <span class="english">The Blissful Flavor of Eggs</span>
         </div>
-        <!-- scroll down -->
         <div class="scroll_down">SCROLL</div>
     </div>
 </template>

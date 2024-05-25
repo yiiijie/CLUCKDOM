@@ -84,7 +84,7 @@ const navItems = reactive([
             </div>
         </div>
         <p class="copyright">
-            本網站僅供個人學習、展示之用。參考資源: 伊東養鶏場、Tamarando
+            本網站僅供個人學習、展示之用，無任何商業行為。
         </p>
 
         <div class="footer_lawn">

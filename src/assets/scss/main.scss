@@ -29,10 +29,3 @@ a {
     color: $primaryTextColor;
     background: #fff2d4;
 }
-
-// 隱藏input後面的上下箭頭
-.hide_arrows::-webkit-outer-spin-button,
-.hide_arrows::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}

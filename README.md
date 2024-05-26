@@ -57,7 +57,10 @@
 ![CSS翻牌效果](https://github.com/yiiijie/CLUCKDOM/assets/133617070/465a6347-81d5-48c5-81f4-a33d4909535c)
 
 
-從培養雞隻到出貨的流程圖 
+> 從培養雞隻到出貨的流程圖 
+
+![從培養雞隻到出貨的流程圖](https://github.com/yiiijie/CLUCKDOM/assets/133617070/820a8a94-a707-445a-8626-365e4548ba66)
+
 
 > 當螢幕尺寸小於768px時，使用者需點擊按鈕以展開內文，避免頁面過長
 
@@ -69,7 +72,10 @@
 
 ![產品清單](https://github.com/yiiijie/CLUCKDOM/assets/133617070/6734cc0c-5969-4014-bc03-6a4dbf194d65)
 
-周邊禮盒清單
+> 周邊禮盒清單
+
+![周邊禮盒清單](https://github.com/yiiijie/CLUCKDOM/assets/133617070/8f80c024-0b9a-4555-bcc9-db83739408b9)
+
 
 > 當螢幕尺寸小於768px時，使用者需點擊按鈕以展開組合內容物，避免頁面過長
 

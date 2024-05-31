@@ -1,19 +1,22 @@
 <script setup>
-import axios from 'axios'
 import { ref, onMounted } from 'vue'
+import { db } from '@/services/firebase.js'
+import { collection, query, getDocs } from 'firebase/firestore'
 import useContentVisibility from '@/composables/useContentVisibility'
 
 const { isLargeTablet, showContent, toggleContentVisibility } =
     useContentVisibility()
 
-const sets = ref(null)
+const productsSet = ref([])
 
 const fetchproductsSetData = async () => {
     try {
-        const response = await axios.get('http://localhost:3001/productsSet')
-        sets.value = response.data
+        const querySnapshot = await getDocs(collection(db, "productsSet"));
+        querySnapshot.docs.forEach((doc) => {
+            productsSet.value.push(doc.data())
+        })
     } catch (error) {
-        console.error(error)
+        console.error('Error getting document:', error)
     }
 }
 
@@ -35,7 +38,7 @@ onMounted(() => {
                 <h2>美食愛好者必選<br />放牧鷄蛋周邊禮盒</h2>
             </div>
             <ul class="sets_container">
-                <li v-for="(set, index) in sets" :key="set.id">
+                <li v-for="(set, index) in productsSet" :key="set.id" data-aos="zoom-in">
                     <div class="set_img">
                         <img :src="set.imgPath" alt="產品圖" />
                     </div>
@@ -134,7 +137,7 @@ section.sets_inner {
         left: 10%;
         background: url('/images/products/sets/nest.svg') no-repeat;
 
-        @include tablets {
+        @include large_tablets {
             top: 6%;
             left: 6%;
         }
@@ -152,13 +155,14 @@ section.sets_inner {
         right: 10%;
         background: url('/images/products/sets/blackhen.svg') no-repeat;
 
-        @include tablets {
+        @include large_tablets {
             top: 6%;
             right: 6%;
         }
         @include large_phones {
             width: 20%;
             right: 0;
+            top: 100px;
         }
     }
 }
@@ -172,7 +176,7 @@ div.title {
     }
 
     div.subtitle_icon {
-        width: clamp(170px, 15vw, 260px);
+        width: clamp(190px, 15vw, 260px);
         margin: auto;
 
         img {

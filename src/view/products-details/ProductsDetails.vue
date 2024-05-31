@@ -1,7 +1,8 @@
 <script setup>
-import axios from 'axios'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { db } from '@/services/firebase.js'
+import { doc, getDoc } from 'firebase/firestore'
 
 const count = ref(1)
 
@@ -39,20 +40,23 @@ const changeMainImage = (src) => {
 
 const fetchProductsDetails = async () => {
     try {
-        const response = await axios.get(
-            `http://localhost:3001/productsDetails/${productId.value}`
-        )
-        productDetails.value = response.data
-        mainImgSrc.value = productDetails.value.mainImgSrc
+        const docRef = doc(db, 'productsDetails', productId.value)
+        const docSnap = await getDoc(docRef)
+
+        if (docSnap.exists()) {
+            productDetails.value = docSnap.data()
+            mainImgSrc.value = productDetails.value.mainImgSrc
+        } else {
+            console.error('No such document!', error)
+        }
     } catch (error) {
-        console.error(error)
+        console.error('Error getting document:', error)
     }
 }
 
 onMounted(() => {
     fetchProductsDetails()
 })
-
 </script>
 
 <template>

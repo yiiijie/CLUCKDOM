@@ -39,20 +39,83 @@
             "phoneNumber": "0977777777",
             "message": "123456",
             "id": 5
+        },
+        {
+            "question_type": ["product_issue", "order_issue"],
+            "name": "jessica",
+            "email": "jessica@gmail.com",
+            "phoneNumber": "0977777777",
+            "message": "你好",
+            "id": 6
+        },
+        {
+            "question_type": ["product_issue"],
+            "name": "蔡頭",
+            "email": "qaq21046@gmail.com",
+            "phoneNumber": "0977777777",
+            "message": "244543",
+            "id": 7
+        },
+        {
+            "question_type": ["product_issue"],
+            "name": "324534",
+            "email": "qaq21046@gmail.com",
+            "phoneNumber": "0977777777",
+            "message": "234324",
+            "id": 8
+        },
+        {
+            "question_type": ["product_issue"],
+            "name": "wrrewrw",
+            "email": "werwe@gmail.com",
+            "phoneNumber": "0977777777",
+            "message": "123213",
+            "id": 9
+        },
+        {
+            "question_type": ["product_issue", "return_issue"],
+            "name": "陳陳",
+            "email": "qaq@gmail.com",
+            "phoneNumber": "0978555555",
+            "message": "哈囉",
+            "id": 10
+        },
+        {
+            "question_type": ["product_issue", "order_issue"],
+            "name": "嗨嗨",
+            "email": "jessica@gmail.com",
+            "phoneNumber": "0980777777",
+            "message": "hi",
+            "id": 11
+        },
+        {
+            "question_type": ["product_issue"],
+            "name": "蔡頭",
+            "email": "qaq21046@gmail.com",
+            "phoneNumber": "0980777777",
+            "message": "2342",
+            "id": 12
+        },
+        {
+            "question_type": ["product_issue"],
+            "name": "wecdc",
+            "email": "jessica@gmail.com",
+            "phoneNumber": "0977777777",
+            "message": "2323423",
+            "id": 13
         }
     ],
-
     "productsSet": [
         {
             "id": "1",
-            "name": "嚴選放牧蛋蛋白液",
+            "name": "嚴選蛋蛋白液",
             "imgPath": "/images/products/sets/eggs_set_1.jpg",
             "setIntro": "不用再把蛋黃丟掉，只要開瓶，輕鬆蒸煮美味又新鮮的蛋白！",
             "contents": "內容物 - 6瓶/箱",
             "weight": "重(容)量 - 935毫升/瓶",
             "mainIngredient": "主成分 - 鮮雞蛋蛋白",
             "currentPrice": "NT$899",
-            "originalPrice": "NT$1099"
+            "originalPrice": "NT$999"
         },
         {
             "id": "2",
@@ -78,14 +141,14 @@
         },
         {
             "id": "4",
-            "name": "放牧烏骨鷄滴鷄精",
+            "name": "烏骨鷄滴鷄精",
             "imgPath": "/images/products/sets/eggs_set_4.jpg",
             "setIntro": "嚴選12周以上足齡烏骨雞，滴滴精純，採用生物技術製程，堅持厚工慢滴。",
             "contents": "內容物 - 10袋/盒",
             "weight": "重(容)量 - 60毫升/包",
             "mainIngredient": "主成分 - 放牧烏骨雞",
-            "currentPrice": "NT$1680",
-            "originalPrice": "NT$1880"
+            "currentPrice": "NT$880",
+            "originalPrice": "NT$980"
         },
         {
             "id": "5",
@@ -105,12 +168,11 @@
             "setIntro": "手炒微苦焦糖，慢火蒸煮，布丁滑潤綿密，是記憶中的古早味。",
             "contents": "內容物 - 6入/盒",
             "weight": "重(容)量 - 135克/顆",
-            "mainIngredient": "主成分 - 水、鮮雞蛋、脫脂奶粉、糖、鮮奶油、香草香料。",
+            "mainIngredient": "主成分 - 水、鮮雞蛋、脫脂奶粉、糖、鮮奶油、香草香料",
             "currentPrice": "NT$360",
             "originalPrice": "NT$390"
         }
     ],
-
     "productsDetails": [
         {
             "id": 1,
@@ -126,10 +188,18 @@
             ],
             "mainImgSrc": "/images/products-details/1/image_1.jpg",
             "imgGroup": [
-                { "imgSrc": "/images/products-details/1/image_1.jpg" },
-                { "imgSrc": "/images/products-details/1/image_2.jpg" },
-                { "imgSrc": "/images/products-details/1/image_3.jpg" },
-                { "imgSrc": "/images/products-details/1/image_4.jpg" }
+                {
+                    "imgSrc": "/images/products-details/1/image_1.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/1/image_2.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/1/image_3.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/1/image_4.jpg"
+                }
             ]
         },
         {
@@ -146,10 +216,18 @@
             ],
             "mainImgSrc": "/images/products-details/2/image_1.jpg",
             "imgGroup": [
-                { "imgSrc": "/images/products-details/2/image_1.jpg" },
-                { "imgSrc": "/images/products-details/2/image_2.jpg" },
-                { "imgSrc": "/images/products-details/2/image_3.jpg" },
-                { "imgSrc": "/images/products-details/2/image_4.jpg" }
+                {
+                    "imgSrc": "/images/products-details/2/image_1.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/2/image_2.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/2/image_3.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/2/image_4.jpg"
+                }
             ]
         },
         {
@@ -166,10 +244,18 @@
             ],
             "mainImgSrc": "/images/products-details/3/image_1.jpg",
             "imgGroup": [
-                { "imgSrc": "/images/products-details/3/image_1.jpg" },
-                { "imgSrc": "/images/products-details/3/image_2.jpg" },
-                { "imgSrc": "/images/products-details/3/image_3.jpg" },
-                { "imgSrc": "/images/products-details/3/image_4.jpg" }
+                {
+                    "imgSrc": "/images/products-details/3/image_1.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/3/image_2.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/3/image_3.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/3/image_4.jpg"
+                }
             ]
         },
         {
@@ -186,10 +272,18 @@
             ],
             "mainImgSrc": "/images/products-details/4/image_1.jpg",
             "imgGroup": [
-                { "imgSrc": "/images/products-details/4/image_1.jpg" },
-                { "imgSrc": "/images/products-details/4/image_2.jpg" },
-                { "imgSrc": "/images/products-details/4/image_3.jpg" },
-                { "imgSrc": "/images/products-details/4/image_4.jpg" }
+                {
+                    "imgSrc": "/images/products-details/4/image_1.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/4/image_2.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/4/image_3.jpg"
+                },
+                {
+                    "imgSrc": "/images/products-details/4/image_4.jpg"
+                }
             ]
         }
     ]

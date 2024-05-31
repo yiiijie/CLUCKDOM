@@ -28,55 +28,6 @@
       "password": "$2a$10$EbXlYLEdptdiBy6iZ0JeGucsEuFft6Va.7f4CK/3KiGZP6MvxhNmq",
       "name": "www",
       "id": 5
-    },
-    {
-      "email": "user02@gmail.com",
-      "password": "$2a$10$VYhWA84mwVwQKV0M8ED4/.FYDukQy7sX9Ht1ST2KEAYPcxzduqjbG",
-      "name": "user",
-      "id": 6
-    },
-    {
-      "email": "mary@gmail.com",
-      "password": "$2a$10$wrPEp5RgNXrm7uAnAL4P1.MFLOkyHPWzrCLdxLQBc59m7vJKo84tu",
-      "name": "mary",
-      "id": 7
-    },
-    {
-      "email": "aa@gmail.com",
-      "password": "$2a$10$byolXbpvVktQhx4XCmeCJ.Eohb6VUIBwyO1/SWAS8pXovW2I5LpFa",
-      "id": 8
-    },
-    {
-      "email": "bb@gmail.com",
-      "password": "$2a$10$.kR.miO6hY0uGTrKK5R5vuMvNEsE57ZG0wFshkOcrKrgt5v5F1Sfq",
-      "id": 9
-    },
-    {
-      "email": "123@gmail.com",
-      "password": "$2a$10$ONofOzT9mUFSH9peONMRz.v4ByA0pugrDjOcYPRPelOxy.KWVfBgq",
-      "name": "123",
-      "id": 10
-    },
-    {
-      "email": "hahaha@gmail.com",
-      "password": "$2a$10$J2MP3TZ47q2KPBGm9lCXe.ZAU1QCPjpmimvmccOW4saWf4bu3lcAC",
-      "name": "hahaha",
-      "passwordConfirmation": "hahaha",
-      "id": 11
-    },
-    {
-      "email": "hihi@gmail.com",
-      "password": "$2a$10$B2Zq5/TJvilMiL1ddt0.0.r4OY71h96SerHeckwBNnWQqHBRX53SC",
-      "name": "嗨嗨",
-      "passwordConfirmation": "0000",
-      "id": 12
-    },
-    {
-      "email": "ming@gmail.com",
-      "password": "$2a$10$yQz3AEaS2b5LbZP0LiU/yejirOpjQittt4/cg4kgMy6pXIlpZjeF.",
-      "name": "小明",
-      "passwordConfirmation": "9876",
-      "id": 13
     }
   ]
 }

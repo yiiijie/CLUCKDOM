@@ -1,8 +1,10 @@
 <script setup>
-import axios from 'axios'
 import { ref, computed } from 'vue'
 import { object, string } from 'yup'
 import Modal from '@/components/func-items/Modal.vue'
+
+import { db } from '@/services/firebase.js' 
+import { collection, addDoc } from 'firebase/firestore'
 
 const showModal = ref(false)
 const submitResult = ref('')
@@ -25,22 +27,22 @@ const schema = object({
     message: string().required('必須填寫聯繫的內容'),
 })
 
-// 提交表單時的非同步函式
+//提交表單時的非同步函式
 const onSubmit = async (values, { resetForm }) => {
     try {
         // 模擬表單送出的延遲感
         await new Promise((resolve) => setTimeout(resolve, 2000))
 
-        const response = await axios.post(
-            'http://localhost:3001/formSubmissions',
-            values
-        )
+        // 將表單資料新增至 Firestore
+        const docRef = await addDoc(collection(db, 'formSubmissions'), values)
+        console.log('Document written with ID: ', docRef.id)
+
         submitResult.value = '我們收到表單囉！'
         showModal.value = true // 跳出彈窗
         modalImage.value = '/images/modal/form_successed.svg'
         resetForm() // 重置表單
     } catch (error) {
-        console.error('表單送出失敗')
+        console.error('表單送出失敗', error)
         submitResult.value = '表單送出失敗'
         showModal.value = true
         modalImage.value = '/images/modal/form_failed.svg'

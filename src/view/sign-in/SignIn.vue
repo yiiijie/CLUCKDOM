@@ -1,28 +1,33 @@
 <script setup>
-import axios from 'axios'
-import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue'
 import { object, string } from 'yup'
 import { useRouter } from 'vue-router'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import GoogleSignIn from '@/components/google-sign-in/GoogleSignIn.vue'
+
+const auth = getAuth()
 const router = useRouter()
 
-// vee-validate yup驗證
 const schema = object({
     email: string().email('請填寫有效的電子信箱').required('請填寫電子信箱'),
     password: string().required('請填寫密碼'),
 })
 
-// 登入
-async function onSubmit(values) {
+const onSubmit = async (values) => {
     try {
-        const response = await axios.post(
-            'http://localhost:3000/signin',
-            values
+        const { email, password } = values
+        const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
         )
-        console.log('登入成功', response)
-        localStorage.setItem('userName', response.data.user.name)
+        const user = userCredential.user
+
+        await new Promise((resolve) => setTimeout(resolve, 2000))
         router.push('/')
     } catch (error) {
-        console.error('登入失敗')
+        const errorCode = error.code
+        const errorMessage = error.message
+        console.error('登入失敗:', errorCode, errorMessage)
     }
 }
 </script>
@@ -38,6 +43,7 @@ async function onSubmit(values) {
                 <!-- 一般帳密登入 -->
                 <VeeForm
                     @submit="onSubmit"
+                    v-slot="{ isSubmitting }"
                     :validation-schema="schema"
                     class="sign_in_form">
                     <div class="form_group">
@@ -58,7 +64,12 @@ async function onSubmit(values) {
                             class="input" />
                         <ErrorMessage name="password" class="error_message" />
                     </div>
-                    <button type="submit" class="sign_in_btn">登入</button>
+                    <button
+                        :disabled="isSubmitting"
+                        type="submit"
+                        class="sign_in_btn">
+                        {{ isSubmitting ? '登入中...' : '登入' }}
+                    </button>
                 </VeeForm>
                 <div class="form_footer">
                     <span class="question">還不是會員嗎？ </span>
@@ -132,12 +143,13 @@ form.sign_in_form {
         align-items: center;
 
         label {
-            @include content_font;
+            @include paragraph;
             font-weight: $fWBold;
             margin-bottom: 20px;
         }
 
         input.input {
+            @include content_font;
             width: 100%;
             padding: 20px;
             margin-bottom: 5px;

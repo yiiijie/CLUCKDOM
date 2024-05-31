@@ -1,8 +1,43 @@
 <script setup>
-import useUserAuthState from '@/composables/useUserAuthState'
+import { ref, onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 
-const { user, userName, loginStatus, handleUserClick, handleSignOut } =
-    useUserAuthState()
+const auth = getAuth()
+const router = useRouter()
+const userDisplayName = ref(null)
+
+// 取得用戶名稱
+onMounted(() => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            userDisplayName.value = user.displayName
+        } else {
+            userDisplayName.value = null
+        }
+    })
+})
+
+const handleSignOut = async () => {
+    try {
+        await signOut(auth)
+        userDisplayName.value = null
+    } catch (error) {
+        console.error('登出失敗', error)
+    }
+}
+
+const handleUserClick = () => {
+    if (userDisplayName.value) {
+        return
+    } else {
+        router.push('/sign-in')
+    }
+}
+
+const loginStatus = computed(() => {
+    return userDisplayName.value ? userDisplayName.value : '登入'
+})
 </script>
 
 <template>
@@ -11,7 +46,7 @@ const { user, userName, loginStatus, handleUserClick, handleSignOut } =
             <font-awesome-icon icon="user" />
             {{ loginStatus }}
         </div>
-        <div v-if="user || userName" class="dropdown_menu">
+        <div v-if="userDisplayName" class="dropdown_menu">
             <a @click="handleSignOut">登出</a>
         </div>
     </div>
@@ -25,7 +60,7 @@ div.member_login {
     cursor: pointer;
     text-decoration: none;
     border-radius: 0 0 20px 20px;
-    background-color: $hoverBtnColorW;
+    background-color: $normalColor;
 
     &:hover {
         div.dropdown_menu {
@@ -48,11 +83,11 @@ div.member_login {
         text-align: center;
         border-radius: 20px;
         border: 1px solid $borderColor;
-        background-color: $hoverBtnColorW;
+        background-color: $normalColor;
         transition: 0.2s;
 
         &:hover {
-            background-color: $footerBgColor;
+            background-color: $lightGrayColor;
         }
     }
 }

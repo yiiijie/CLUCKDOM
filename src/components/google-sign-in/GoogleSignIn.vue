@@ -11,25 +11,19 @@ const user = ref(null)
 
 // 登入
 const signInWithGoogle = async () => {
-    // 建立 Google 提供者物件的實例，用來處理 Google 身份驗證相關的功能
+    // 建立 Google 提供者物件的實例
     const provider = new GoogleAuthProvider()
 
-    provider.setCustomParameters({
-        prompt: 'select_account',
-    })
-
-    // 使用彈出視窗登入
-    signInWithPopup(auth, provider) // 彈窗
-        .then((result) => {
-            console.log(result.user)
-            user.value = result.user
-            localStorage.setItem('user', JSON.stringify(result.user))
-            router.push('/')
-        })
-        .catch((error) => {
-            const errorCode = error.code
-            const errorMessage = error.message
-        })
+    try {
+        // 使用彈出視窗登入
+        const result = await signInWithPopup(auth, provider)
+        user.value = result.user
+        router.push('/')
+    } catch (error) {
+        const errorCode = error.code
+        const errorMessage = error.message
+        console.error('登入失敗:', errorCode, errorMessage)
+    }
 }
 </script>
 

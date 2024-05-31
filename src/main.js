@@ -51,11 +51,10 @@ firebaseApp
 
 const app = createApp(App)
 
-// 掛載 Global 的 VeeValidate 元件
+
+app.use(router)
 app.component('VeeField', VeeField)
 app.component('VeeForm', VeeForm)
 app.component('ErrorMessage', ErrorMessage)
-
-app.use(router)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')

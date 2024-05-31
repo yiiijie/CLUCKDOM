@@ -1,17 +1,18 @@
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 export default function useNavbarVisibility() {
     const showNavbar = ref(false)
-
     const handleScroll = () => {
-        if (scrollY > 250) {
-            showNavbar.value = true
-        } else {
-            showNavbar.value = false
-        }
+        showNavbar.value = scrollY > 250 ? true : false
     }
 
-    window.addEventListener('scroll', handleScroll)
+    onMounted(() => {
+        window.addEventListener('scroll', handleScroll)
+    })
+
+    onUnmounted(() => {
+        window.removeEventListener('scroll', handleScroll)
+    })
 
     return {
         showNavbar,

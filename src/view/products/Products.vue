@@ -212,13 +212,23 @@ section.falling_eggs_container {
     z-index: -1;
     background-size: cover;
     background-image: url('/images/products/falling_eggs.svg');
-    animation: falling_loop 60s infinite linear;
+    animation: falling_loop 120s infinite linear;
+
+    @keyframes falling_loop {
+        0% {
+            background-position: center 100%;
+        }
+        100% {
+            background-position: center -100%;
+        }
+    }
 
     @include tablets {
         background-size: 120%;
     }
     @include large_phones {
         background-size: 150%;
+        animation: falling_loop 40s infinite linear;
     }
 
     div.egg_intro {
@@ -257,18 +267,10 @@ section.falling_eggs_container {
     }
 }
 
-@keyframes falling_loop {
-    0% {
-        background-position: center 100%;
-    }
-    100% {
-        background-position: center 0;
-    }
-}
-
 img.wave {
     display: block;
 }
+
 section.list {
     position: relative;
     padding: 5% 0 8%;
@@ -302,13 +304,16 @@ section.list {
 
     div.decoration:nth-child(2) {
         position: absolute;
-        width: clamp(130px, 22vw, 300px);
+        width: clamp(130px, 20vw, 300px);
         height: 10%;
         top: -12%;
         left: 10%;
 
+        @include large_tablets {
+            top: -10%;
+        }
         @include tablets {
-            top: -4.5%;
+            top: -4%;
         }
 
         img {
@@ -319,7 +324,7 @@ section.list {
     div.decoration:nth-child(3) {
         position: absolute;
         width: clamp(100px, 16vw, 200px);
-        top: -5%;
+        top: -100px;
         right: 10%;
 
         @include tablets {
@@ -396,10 +401,18 @@ section.list {
                 border-radius: 50%;
                 background-color: $neutralColor;
                 transition: 0.3s;
+
+                @include large_phones {
+                    display: none;
+                }
             }
 
             &:hover .prd_click_bg {
                 opacity: 0.6;
+
+                @include large_phones {
+                    display: none;
+                }
             }
 
             div.view_prd_circle {

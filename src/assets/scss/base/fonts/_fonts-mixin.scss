@@ -32,7 +32,7 @@ $paragraph: clamp(1.4rem, 1.5vw, 1.6rem);
 $paragraph_en: clamp(1.2rem, 1.5vw, 1.6rem);
 $content_font: clamp(1.3rem, 1.5vw, 1.4rem);
 $small_font: 1.2rem;
-$price_font: clamp(2.4rem, 3vw, 2.8rem);
+$price_font: clamp(2rem, 3vw, 2.8rem);
 
 @mixin header_slogan_font {
     font-size: $slogan;

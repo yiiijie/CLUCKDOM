@@ -34,7 +34,7 @@ const changeTab = (tab) => {
         <section class="header_container">
             <HeaderBanner :image-url="bannerImageUrl">
                 <template #slogan_text>
-                    <span>實體購買通路</span>
+                    <span>購買通路</span>
                 </template>
                 <template #slogan_text_en>
                     <span>Physical Channel</span>
@@ -63,7 +63,7 @@ const changeTab = (tab) => {
                 <component :is="tabs[currentTab]"></component>
             </transition>
             <div class="title">
-                <h1>農場總部</h1>
+                <h1>牧場位置</h1>
                 <span class="english_title">Farm Location</span>
             </div>
             <GoogleMap />

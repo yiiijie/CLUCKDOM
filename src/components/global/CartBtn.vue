@@ -14,6 +14,7 @@ div.cart_btn {
     z-index: 1000;
     cursor: pointer;
     border-radius: 0 0 20px 20px;
-    background-color: $textBgColor;
+    color: $normalColor;
+    background-color: $primaryColor;
 }
 </style>

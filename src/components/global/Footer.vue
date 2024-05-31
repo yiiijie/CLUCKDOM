@@ -83,9 +83,7 @@ const navItems = reactive([
                 </ul>
             </div>
         </div>
-        <p class="copyright">
-            本網站僅供個人學習、展示之用，無任何商業行為。
-        </p>
+        <p class="copyright">本網站僅供個人學習、展示之用，無任何商業行為。</p>
 
         <div class="footer_lawn">
             <img src="/images/footer/lawn.svg" alt="裝飾圖" />
@@ -143,14 +141,21 @@ footer {
             margin: 0 5vw 0 0;
             transition: 0.1s;
 
-            @include tablets {
-                margin: auto;
-            }
-
             &:hover {
                 opacity: 0.9;
                 transform: rotate(5deg);
                 transition: 0.1s;
+            }
+
+            @include tablets {
+                margin: auto;
+            }
+            @include large_tablets {
+                &:hover {
+                    opacity: 1;
+                    transform: none;
+                    transform: none;
+                }
             }
         }
 

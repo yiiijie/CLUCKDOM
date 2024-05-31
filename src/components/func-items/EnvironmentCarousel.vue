@@ -55,31 +55,30 @@ const breakpoints = ref({
 </script>
 
 <template>
-    <div>
-        <section class="carousel">
+    <section class="carousel_container">
+        <div class="carousel_inner">
             <h2 class="title">牧場生活環境</h2>
             <p class="content">
                 走進雞蛋王國的牧場，迎接著一群一早就充滿活力的母雞！牧場環境設計得宜，為母雞們提供舒適的生活空間，每隻母雞都有足夠的空間自由活動，不受擁擠之苦。牧場內的水源清澈明凈，確保了他們隨時都能飲水取暖。
             </p>
-            <Carousel
-                v-bind="settings"
-                :breakpoints="breakpoints"
-                :wrap-around="true"
-                :transition="500"
-            >
-                <Slide v-for="slide in slides" :key="slide.id" class="slide">
-                    <div class="carousel_item">
-                        <img :src="slide.imgPath" alt="牧場環境" />
-                    </div>
-                </Slide>
+        </div>
+        <Carousel
+            v-bind="settings"
+            :breakpoints="breakpoints"
+            :wrap-around="true"
+            :transition="500">
+            <Slide v-for="slide in slides" :key="slide.id" class="slide">
+                <div class="carousel_item">
+                    <img :src="slide.imgPath" alt="牧場環境" />
+                </div>
+            </Slide>
 
-                <template #addons>
-                    <Pagination />
-                    <Navigation />
-                </template>
-            </Carousel>
-        </section>
-    </div>
+            <template #addons>
+                <Pagination />
+                <Navigation />
+            </template>
+        </Carousel>
+    </section>
 </template>
 
 <style scoped lang="scss">
@@ -88,7 +87,7 @@ const breakpoints = ref({
     height: 4vw;
     margin: 0;
     border-radius: 100%;
-    background-color: $productsBgColor;
+    background-color: $neutralColor;
 
     @include large_tablets {
         width: 5vw;
@@ -108,36 +107,27 @@ const breakpoints = ref({
     }
 }
 
-section.carousel {
-    width: 100%;
-    margin-bottom: 3%;
+section.carousel_container {
     overflow: hidden;
+    padding: clamp(60px, 6%, 90px) 0;
+
+    div.carousel_inner {
+        max-width: $basewidth;
+        width: 90%;
+        margin: auto;
+    }
 
     h2.title {
         @include h2;
         text-align: center;
-        margin-bottom: 10px;
-        padding: 5% 0 0;
-
-        @include tablets {
-            padding: 10% 0 0;
-        }
-        @include large_phones {
-            padding: 15% 0 0;
-        }
     }
 
     p.content {
-        width: 55%;
-        margin: auto;
         @include paragraph;
-        padding: 1% 0 3%;
+        padding: 2% 8vw 5%;
 
-        @include large_tablets {
-            width: 70%;
-        }
-        @include tablets {
-            width: 80%;
+        @include large_phones {
+            padding: 5% 5vw 10%;
         }
     }
 
@@ -164,7 +154,7 @@ section.carousel {
                 height: 100%;
                 object-fit: cover;
                 border-radius: 40px;
-                border: 8px solid $productsBgColor;
+                border: 8px solid $neutralColor;
             }
         }
     }
@@ -211,7 +201,7 @@ section.carousel {
 }
 
 .carousel__slide {
-    padding: 5px;
+    padding-bottom: 10px;
 }
 
 .carousel__viewport {

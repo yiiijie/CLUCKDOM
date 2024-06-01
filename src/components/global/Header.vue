@@ -3,10 +3,7 @@ import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import SignInBtn from '@/components/global/SignInBtn.vue'
 import CartBtn from '@/components/global/CartBtn.vue'
-import useUserAuthState from '@/composables/useUserAuthState'
 
-const { user, userName, handleUserClick, handleSignOut, mobileLoginStatus } =
-    useUserAuthState()
 
 const router = useRouter()
 const isNavOpen = ref(false)
@@ -64,7 +61,7 @@ const social = reactive([
         <CartBtn />
     </div>
 
-    <!-- 手機版漢堡 & menu -->
+    <!-- 手機版漢堡 -->
     <div class="mobile_menu">
         <button @click="hamburgerBtn" class="hamburger_button">
             <div v-if="!isNavOpen">
@@ -117,7 +114,6 @@ const social = reactive([
                         登出
                     </button>
                 </ul>
-                <!-- 社群連結 -->
                 <div class="social_link">
                     <font-awesome-icon
                         :icon="['fab', 'facebook-f']"
@@ -172,9 +168,15 @@ const social = reactive([
         </div>
     </header>
     <!-- 手機版信箱 -->
-    <RouterLink to="/contact-us" class="only_tablets_email">
-        <font-awesome-icon class="icon" :icon="['fas', 'envelope']" />
-    </RouterLink>
+    <div class="only_tablets_email">
+        <RouterLink to="/contact-us">
+            <font-awesome-icon class="icon" :icon="['fas', 'envelope']" />
+        </RouterLink>
+    </div>
+    <!-- 手機版購物車 -->
+    <div class="only_tablets_cart">
+        <font-awesome-icon class="icon" icon="cart-shopping" />
+    </div>
 </template>
 
 <style scoped lang="scss">
@@ -247,7 +249,7 @@ div.mobile_menu {
 
             li {
                 width: 100%;
-                padding: 15px 0;
+                padding: 20px 0;
                 align-items: center;
                 border-bottom: 1.5px dotted $secondaryColor;
 
@@ -289,7 +291,6 @@ div.mobile_menu {
             }
         }
 
-        // 社群連結
         div.social_link {
             text-align: center;
 
@@ -461,34 +462,81 @@ header {
 }
 
 // 手機版信箱
-a.only_tablets_email {
+div.only_tablets_email {
     display: none;
 
     @include large_tablets {
-        position: fixed;
         display: block;
-        bottom: 3vh;
-        right: 3.5vw;
-        z-index: 1000;
+        position: fixed;
+        bottom: 5%;
+        right: 25px;
+        z-index: 999;
+    }
+    @include large_phones {
+        bottom: 3%;
+        right: 15px;
+    }
 
-        .icon {
-            padding: 30px;
-            font-size: 30px;
-            border-radius: 50%;
-            color: $normalColor;
-            background-color: $secondaryColor;
-            transition: 0.2s;
+    .icon {
+        width: 25px;
+        height: 25px;
+        padding: 25px;
+        font-size: 3rem;
+        border-radius: 50%;
+        cursor: pointer;
+        color: $normalColor;
+        background-color: $secondaryColor;
 
-            @include large_phones {
-                padding: 18px;
-                font-size: 25px;
-            }
+        @include large_phones {
+            width: 18px;
+            height: 18px;
+            padding: 18px;
+        }
 
-            &:hover {
-                color: $secondaryColor;
-                border: 1px solid $secondaryColor;
-                background-color: $normalColor;
-            }
+        &:hover {
+            color: $secondaryColor;
+            background-color: $normalColor;
+            border: 1px solid $secondaryColor;
+        }
+    }
+}
+
+// 手機版購物車
+div.only_tablets_cart {
+    display: none;
+
+    @include large_tablets {
+        display: block;
+        position: fixed;
+        bottom: calc(5% + 85px);
+        right: 25px;
+        z-index: 999;
+    }
+    @include large_phones {
+        bottom: calc(3% + 65px);
+        right: 15px;
+    }
+
+    .icon {
+        width: 25px;
+        height: 25px;
+        padding: 25px;
+        font-size: 3rem;
+        border-radius: 50%;
+        cursor: pointer;
+        color: $normalColor;
+        background-color: $primaryColor;
+
+        @include large_phones {
+            width: 18px;
+            height: 18px;
+            padding: 18px;
+        }
+
+        &:hover {
+            color: $primaryColor;
+            background-color: $normalColor;
+            border: 1px solid $primaryColor;
         }
     }
 }

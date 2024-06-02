@@ -1,25 +1,12 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import SignInBtn from '@/components/global/SignInBtn.vue'
 import CartBtn from '@/components/global/CartBtn.vue'
-
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 
 const router = useRouter()
-const isNavOpen = ref(false)
-
-// 手機版 漢堡開關
-const hamburgerBtn = () => {
-    isNavOpen.value = !isNavOpen.value
-}
-
-// 手機版 漢堡點選 -> 跳轉頁面
-const closeNavAndNavigate = (route) => {
-    isNavOpen.value = false
-    router.push(route)
-}
-
-const navItems = reactive([
+const navList = reactive([
     {
         label: '關於我們',
         label_en: 'ABOUT US',
@@ -52,6 +39,56 @@ const social = reactive([
         icon: ['fab', 'instagram'],
     },
 ])
+
+const auth = getAuth()
+const userDisplayName = ref(null)
+const isNavOpen = ref(false)
+
+// 手機版 漢堡開關
+const hamburgerBtn = () => {
+    isNavOpen.value = !isNavOpen.value
+}
+
+// 手機版 漢堡點選 -> 跳轉頁面
+const closeNavAndNavigate = (route) => {
+    isNavOpen.value = false
+    router.push(route)
+}
+
+const loginStatus = computed(() => {
+    return userDisplayName.value
+        ? `${userDisplayName.value} 歡迎回來！`
+        : '會員登入'
+})
+
+// 取得用戶名稱
+onMounted(() => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            userDisplayName.value = user.displayName
+        } else {
+            userDisplayName.value = null
+        }
+    })
+})
+
+const handleUserClick = () => {
+    if (userDisplayName.value) {
+        return
+    } else {
+        closeNavAndNavigate('/sign-in')
+    }
+}
+
+const handleSignOut = async () => {
+    try {
+        await signOut(auth)
+        userDisplayName.value = null
+        closeNavAndNavigate('/')
+    } catch (error) {
+        console.error('登出失敗', error)
+    }
+}
 </script>
 
 <template>
@@ -90,7 +127,7 @@ const social = reactive([
                             <span class="label_en">HOME</span>
                         </RouterLink>
                     </li>
-                    <li v-for="navItem in navItems" :key="navItem.label">
+                    <li v-for="navItem in navList" :key="navItem.label">
                         <RouterLink
                             :to="navItem.route"
                             class="nav_link"
@@ -105,13 +142,10 @@ const social = reactive([
                         </RouterLink>
                     </li>
                     <button class="sign_in_btn" @click="handleUserClick">
-                        {{ mobileLoginStatus }}
+                        {{ loginStatus }}
                     </button>
-                    <button
-                        v-if="user || userName"
-                        class="sign_out_btn"
-                        @click="handleSignOut">
-                        登出
+                    <button class="sign_out_btn" @click="handleSignOut">
+                        會員登出
                     </button>
                 </ul>
                 <div class="social_link">
@@ -136,7 +170,7 @@ const social = reactive([
             </div>
             <nav class="header_nav">
                 <ul class="header_nav_list">
-                    <li v-for="navItem in navItems" :key="navItem.label">
+                    <li v-for="navItem in navList" :key="navItem.label">
                         <RouterLink :to="navItem.route" class="nav_link">
                             <span class="label">{{ navItem.label }}</span>
                             <br />
@@ -470,7 +504,7 @@ div.only_tablets_email {
         position: fixed;
         bottom: 5%;
         right: 25px;
-        z-index: 999;
+        z-index: 98;
     }
     @include large_phones {
         bottom: 3%;
@@ -510,7 +544,7 @@ div.only_tablets_cart {
         position: fixed;
         bottom: calc(5% + 85px);
         right: 25px;
-        z-index: 999;
+        z-index: 98;
     }
     @include large_phones {
         bottom: calc(3% + 65px);

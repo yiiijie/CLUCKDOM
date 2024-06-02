@@ -18,14 +18,9 @@ onMounted(() => {
     })
 })
 
-const handleSignOut = async () => {
-    try {
-        await signOut(auth)
-        userDisplayName.value = null
-    } catch (error) {
-        console.error('登出失敗', error)
-    }
-}
+const loginStatus = computed(() => {
+    return userDisplayName.value ? userDisplayName.value : '登入'
+})
 
 const handleUserClick = () => {
     if (userDisplayName.value) {
@@ -35,9 +30,14 @@ const handleUserClick = () => {
     }
 }
 
-const loginStatus = computed(() => {
-    return userDisplayName.value ? userDisplayName.value : '登入'
-})
+const handleSignOut = async () => {
+    try {
+        await signOut(auth)
+        userDisplayName.value = null
+    } catch (error) {
+        console.error('登出失敗', error)
+    }
+}
 </script>
 
 <template>

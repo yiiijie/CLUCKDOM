@@ -102,7 +102,7 @@ const navItems = reactive([
     position: absolute;
     right: 0;
     bottom: 0;
-    z-index: 100;
+    z-index: 97;
     background-repeat: no-repeat;
 
     img {

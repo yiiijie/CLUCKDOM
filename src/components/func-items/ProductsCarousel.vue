@@ -80,7 +80,11 @@ const breakpoints = ref({
             :autoplay="2000">
             <Slide v-for="slide in slides" :key="slide.id">
                 <div class="carousel_item">
-                    <router-link to="/products/details">
+                    <router-link
+                        :to="{
+                            name: 'products-details',
+                            params: { productId: slide.id },
+                        }">
                         <div class="img_eggs">
                             <img :src="slide.imgPath" alt="產品圖" />
                         </div>

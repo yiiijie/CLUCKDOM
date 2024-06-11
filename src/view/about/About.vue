@@ -6,8 +6,9 @@ import Navbar from '@/components/global/Navbar.vue'
 import useNavbarVisibility from '@/composables/useNavbarVisibility'
 import EnvironmentCarousel from '@/components/func-items/EnvironmentCarousel.vue'
 
-const bannerImageUrl = '/images/about/header_banner.jpg'
 const { showNavbar } = useNavbarVisibility()
+const bannerImageUrl = '/images/about/header_banner.jpg'
+
 const cards = reactive([
     {
         id: '1',
@@ -35,7 +36,7 @@ const cards = reactive([
 
 <template>
     <div>
-        <div v-if="showNavbar" class="navbar">
+        <div v-show="showNavbar" class="navbar">
             <Navbar />
         </div>
 
@@ -199,6 +200,15 @@ const cards = reactive([
 </template>
 
 <style scoped lang="scss">
+%flip_card {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    background-color: $normalColor;
+    border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
+}
+
 section.header_container {
     position: relative;
 
@@ -285,7 +295,7 @@ section.certification {
 }
 
 div.certification_inner {
-    > ul.flip_card_list {
+    ul.flip_card_list {
         display: flex;
         justify-content: space-evenly;
 
@@ -322,20 +332,13 @@ div.certification_inner {
             }
 
             div.flip_card_container {
-                position: relative;
                 height: 100%;
                 width: 100%;
                 transform-style: preserve-3d;
-                border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
                 transition: transform 0.6s cubic-bezier(0.175, 0.9, 0.32, 1.275);
 
                 div.flip_card_front {
-                    height: 100%;
-                    width: 100%;
-                    position: absolute;
-                    backface-visibility: hidden;
-                    background-color: $normalColor;
-                    border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
+                    @extend %flip_card;
 
                     div.mark {
                         width: 100%;
@@ -367,13 +370,8 @@ div.certification_inner {
                 }
 
                 div.flip_card_back {
-                    height: 100%;
-                    width: 100%;
-                    position: absolute;
+                    @extend %flip_card;
                     transform: rotateY(180deg);
-                    backface-visibility: hidden;
-                    background-color: $normalColor;
-                    border-radius: 75% 75% 75% 75% / 90% 90% 60% 60%;
 
                     &::before {
                         content: '';
@@ -465,8 +463,7 @@ section.cluckdom_intro {
                     width: 40px;
                     height: 20px;
                     margin: 0 auto;
-                    background-repeat: no-repeat;
-                    background-image: url(/images/about/img_eggs_line.svg);
+                    background: url(/images/about/img_eggs_line.svg) no-repeat;
                 }
             }
 

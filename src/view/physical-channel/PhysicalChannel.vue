@@ -28,7 +28,7 @@ const changeTab = (tab) => {
 
 <template>
     <div>
-        <div v-if="showNavbar" class="navbar">
+        <div v-show="showNavbar" class="navbar">
             <Navbar />
         </div>
         <section class="header_container">

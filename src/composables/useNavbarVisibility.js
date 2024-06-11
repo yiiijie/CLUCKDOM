@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 export default function useNavbarVisibility() {
     const showNavbar = ref(false)
     const handleScroll = () => {
-        showNavbar.value = scrollY > 250 ? true : false
+        showNavbar.value = window.scrollY > 250 ? true : false
     }
 
     onMounted(() => {

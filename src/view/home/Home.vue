@@ -11,7 +11,7 @@ const { showNavbar } = useNavbarVisibility()
 
 <template>
     <div>
-        <div v-if="showNavbar" class="navbar">
+        <div v-show="showNavbar" class="navbar">
             <Navbar />
         </div>
         <HeaderCarousel />
